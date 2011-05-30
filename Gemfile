@@ -3,11 +3,13 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 gem 'rake', '0.8.7'
 gem 'fog'
+gem 'haml'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'pg'
 
 # Use unicorn as the web server
 # gem 'unicorn'
