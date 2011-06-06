@@ -2,3 +2,37 @@
   Override default refinery homepage styles here.
   These only apply to the homepage of your site.
 */
+
+#slideshow {
+    position:relative;
+    height:450px;
+}
+
+#slideshow IMG {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+}
+
+#slideshow IMG.active {
+    z-index:10;
+}
+
+#slideshow IMG.last-active {
+    z-index:9;
+}
+
+#home_sections .section {
+  margin-top: 20px;
+  float: left;
+  width: 269px;
+  padding: 20px;
+  height: 100px;
+  margin-left: 30px;
+  border: 2px solid black;
+}
+
+#home_sections .section:first-child {
+  margin-left: 0px;
+}

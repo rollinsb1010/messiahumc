@@ -1,0 +1,10 @@
+<div id='site_title'>Church of the Messiah</div>
+<div id='site_subtitle'>A United Methodist Congregation</div>
+<%= render(:partial => "/shared/menu", :locals => {
+             :dom_id => 'menu',
+             :css => 'menu'
+           }) %>
+<%= javascript_include_tag 'jquery-min' %>
+<%= javascript_include_tag 'application' %>
+<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oswald' %>
+<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Dancing+Script' %>
