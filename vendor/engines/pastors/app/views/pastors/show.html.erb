@@ -1,0 +1,63 @@
+<% content_for :body_content_title do %>
+  <%= @pastor.name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @pastor.name %>
+    </p>
+  </section>
+  <section>
+    <h1>Photo</h1>
+    <p>
+      <%= image_fu @pastor.photo, nil %>
+    </p>
+  </section>
+  <section>
+    <h1>What I Do</h1>
+    <p>
+      <%=raw @pastor.what_i_do %>
+    </p>
+  </section>
+  <section>
+    <h1>My God Story</h1>
+    <p>
+      <%=raw @pastor.my_god_story %>
+    </p>
+  </section>
+  <section>
+    <h1>Education</h1>
+    <p>
+      <%=raw @pastor.education %>
+    </p>
+  </section>
+  <section>
+    <h1>Family</h1>
+    <p>
+      <%=raw @pastor.family %>
+    </p>
+  </section>
+  <section>
+    <h1>Hobbies</h1>
+    <p>
+      <%=raw @pastor.hobbies %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="pastors">
+      <% @pastors.each do |pastor| %>
+        <li>
+          <%= link_to pastor.name, pastor_url(pastor) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

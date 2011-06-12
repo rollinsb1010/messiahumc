@@ -1,3 +1,8 @@
+PATH
+  remote: vendor/engines
+  specs:
+    refinerycms-pastors (1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -168,4 +173,5 @@ DEPENDENCIES
   rake (= 0.8.7)
   refinerycms (~> 1.0.0)
   refinerycms-i18n (~> 1.0.0)
+  refinerycms-pastors (= 1.0)!
   sqlite3
