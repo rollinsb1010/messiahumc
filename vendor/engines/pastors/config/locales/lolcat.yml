@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    pastors:
+      title: Pastors
+  admin:
+    pastors:
+      actions:
+        create_new: CREATE NEW Pastor
+        reorder: REORDR Pastors
+        reorder_done: DUN REORDERIN Pastors
+      records:
+        title: Pastors
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Pastors YET. CLICK "CREATE NEW Pastor" 2 ADD UR FURST pastor.
+      pastor:
+        view_live_html: VIEW DIS pastor LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS pastor
+        delete: REMOOV DIS pastor FOREVR
+  pastors:
+    show:
+      other: OTHR Pastors

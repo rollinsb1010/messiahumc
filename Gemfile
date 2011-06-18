@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
-gem 'rake', '0.8.7'
+gem 'rails', '~> 3.0.7'
+gem 'rake'
 gem 'fog'
 gem 'haml'
 
@@ -61,3 +61,5 @@ end
 gem 'refinerycms-i18n',         '~> 1.0.0'
 
 # END USER DEFINED
+
+gem 'refinerycms-pastors', '1.0', :path => 'vendor/engines'
