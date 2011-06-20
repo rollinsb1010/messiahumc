@@ -1,3 +1,10 @@
+GIT
+  remote: http://github.com/mdoel/refinerycms-calendar
+  revision: f8f6294316bb2d139b1e6e9573180e94ce4af7a8
+  specs:
+    refinerycms-calendar (1.0.4)
+      refinerycms-core (>= 0.9.9.1)
+
 PATH
   remote: vendor/engines
   specs:
@@ -174,6 +181,7 @@ DEPENDENCIES
   rails (~> 3.0.7)
   rake
   refinerycms (~> 1.0.0)
+  refinerycms-calendar (~> 1.0)!
   refinerycms-i18n (~> 1.0.0)
   refinerycms-pastors (= 1.0)!
   sqlite3

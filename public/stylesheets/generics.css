@@ -25,6 +25,7 @@ body {
 h1 {
   font-size: 30px;
   margin-bottom: 30px;
+  line-height: 36px;
 }
 
 
@@ -33,6 +34,7 @@ h1 a {
 }
 
 h2 {
+  font-size: 18px;
   color: #808040;
   margin-top: 20px;
 }
@@ -70,4 +72,17 @@ h2 {
 
 #copyright {
   clear: left;
+}
+
+p {
+  margin: 10px 0;
+}
+
+ul {
+  list-style: disc outside;
+  margin: 20px 0;
+}
+
+ul li {
+  margin: 5px 20px 5px 40px;
 }
