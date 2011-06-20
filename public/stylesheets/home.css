@@ -36,3 +36,7 @@
 #home_sections .section:first-child {
   margin-left: 0px;
 }
+
+#home_sections h2 {
+  margin-top: 0;
+}
