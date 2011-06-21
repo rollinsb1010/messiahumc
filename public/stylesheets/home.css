@@ -28,7 +28,7 @@
   float: left;
   width: 269px;
   padding: 20px;
-  height: 100px;
+  height: 135px;
   margin-left: 30px;
   border: 2px solid black;
 }
@@ -39,4 +39,8 @@
 
 #home_sections h2 {
   margin-top: 0;
+}
+
+#home_sections h2 a {
+  text-decoration: none;
 }
