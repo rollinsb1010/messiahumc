@@ -5,34 +5,9 @@ gem 'rake'
 gem 'fog'
 gem 'haml'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 gem 'pg'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
 
 # REFINERY CMS ================================================================
 # Anything you put in here will be overridden when the app gets updated.
@@ -55,7 +30,6 @@ end
 # gem 'refinerycms-inquiries',    '~> 1.0'
 # gem "refinerycms-news",         '~> 1.2'
 # gem 'refinerycms-blog',         '~> 1.5'
-# gem 'refinerycms-page-images',  '~> 1.0'
 
 # Add i18n support (optional, you can remove this if you really want to).
 gem 'refinerycms-i18n',         '~> 1.0.0'
@@ -66,3 +40,5 @@ gem 'refinerycms-search', '~> 0.9.8'
 # END USER DEFINED
 
 gem 'refinerycms-pastors', '1.0', :path => 'vendor/engines'
+
+gem 'refinerycms-sermons', '1.0', :path => 'vendor/engines'

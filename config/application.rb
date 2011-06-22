@@ -41,7 +41,7 @@ module Messiahumc
 
     # Models that are searchable
     config.to_prepare do
-      Refinery.searchable_models = [Page, Pastor, Event]
+      Refinery.searchable_models = [Page, Pastor, Event, Sermon]
     end
   end
 end

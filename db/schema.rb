@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622133307) do
+ActiveRecord::Schema.define(:version => 20110622162840) do
 
   create_table "event_categories", :force => true do |t|
     t.string   "name"
@@ -187,6 +187,18 @@ ActiveRecord::Schema.define(:version => 20110622133307) do
 
   add_index "seo_meta", ["id"], :name => "index_seo_meta_on_id"
   add_index "seo_meta", ["seo_meta_id", "seo_meta_type"], :name => "index_seo_meta_on_seo_meta_id_and_seo_meta_type"
+
+  create_table "sermons", :force => true do |t|
+    t.date     "date"
+    t.string   "speaker"
+    t.boolean  "service"
+    t.string   "title"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sermons", ["id"], :name => "index_sermons_on_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

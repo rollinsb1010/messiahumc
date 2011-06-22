@@ -1,0 +1,45 @@
+<% content_for :body_content_title do %>
+  <%= @sermon.speaker %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Date</h1>
+    <p>
+      <%=raw @sermon.date %>
+    </p>
+  </section>
+  <section>
+    <h1>Speaker</h1>
+    <p>
+      <%=raw @sermon.speaker %>
+    </p>
+  </section>
+  <section>
+    <h1>Service</h1>
+    <p>
+      <%=raw @sermon.service %>
+    </p>
+  </section>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @sermon.title %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="sermons">
+      <% @sermons.each do |sermon| %>
+        <li>
+          <%= link_to sermon.speaker, sermon_path(sermon) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>
