@@ -61,6 +61,7 @@ end
 gem 'refinerycms-i18n',         '~> 1.0.0'
 gem 'refinerycms-calendar', '~>1.0', :git => 'http://github.com/mdoel/refinerycms-calendar'
 gem 'refinerycms-page-images', '~> 1.0'
+gem 'refinerycms-search', '~> 0.9.8'
 
 # END USER DEFINED
 

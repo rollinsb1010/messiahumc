@@ -39,6 +39,19 @@ h2 {
   margin-top: 20px;
 }
 
+#menu {
+  float: left;
+}
+
+#page {
+  clear: left;
+}
+
+#site_search_form {
+  float: right;
+  padding-top: 5px;
+}
+
 #menu ul {
   list-style: none;
   padding: 0px;

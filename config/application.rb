@@ -38,5 +38,10 @@ module Messiahumc
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Models that are searchable
+    config.to_prepare do
+      Refinery.searchable_models = [Page, Pastor, Event]
+    end
   end
 end
