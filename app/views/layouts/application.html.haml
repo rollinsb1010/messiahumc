@@ -1,15 +1,21 @@
 !!! Strict
 %html
   - site_bar = render(:partial => "/shared/site_bar", :locals => {:head => true})
+  = javascript_include_tag 'jquery-min'
+  = javascript_include_tag 'application'
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Istok+Web'
   = render :partial => "/shared/head"
   %body
     = site_bar
-    = render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/
-    #page_container
-      %header
-        = render :partial => "/shared/header"
-      %section#page
-        = yield
-      %footer
-        = render :partial => "/shared/footer"
-    = render :partial => "/shared/javascripts"
+    #main_body
+      = render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/
+      .maincontainer
+        %header.headercontentpart
+          = render :partial => "/shared/header"
+        = render(:partial => "/shared/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+        %section#page
+          = yield
+        %footer
+          = render :partial => "/shared/footer"
+      = render :partial => "/shared/javascripts"

@@ -1,10 +1,14 @@
-#site_title Church of the Messiah
-#site_subtitle A United Methodist Congregation
-= render(:partial => "/shared/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
-= javascript_include_tag 'jquery-min'
-= javascript_include_tag 'application'
-= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oswald'
-= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Dancing+Script'
-- form_tag search_url, :id => 'site_search_form' do
-  = text_field_tag :query, {}, {:type => "search", :placeholder => "Search site for...", :value => (params[:query] if params[:query])}
-  = submit_tag 'Go'
+.main_header
+  .main_logo
+    %a{:href => root_path}
+      = image_tag 'mainlogo.png', :border => 0
+  .header_address.istokweb
+    Church of the Messiah United Methodist
+    %br
+    51 N. State St., Westerville OH 43081
+  .header_cross
+  .search_box
+    - form_tag search_url, :id => 'site_search_form' do
+      = text_field_tag :query, {}, {:type => "search", :placeholder => "Search site for...", :value => (params[:query] if params[:query])}
+      = submit_tag 'Go'
+
