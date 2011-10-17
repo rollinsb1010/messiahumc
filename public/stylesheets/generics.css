@@ -26,10 +26,10 @@ body {
 
 .headercontentpart {
   background: url('/images/header_background.png');
-  height: 143px;
+  height: 142px;
 }
 
-.main_header {
+.main_header, .main_body {
   width: 1000px;
   position: relative;
   margin: 0 auto;
@@ -60,7 +60,7 @@ body {
   position: absolute;
   top: 100px;
   width: 175px;
-  left: 815px;
+  right: 0px;
   height: 30px;
   -webkit-border-top-left-radius: 15px;
   -webkit-border-top-right-radius: 15px;
@@ -70,6 +70,7 @@ body {
   border-top-right-radius: 15px;
   background: #540512;
 }
+
 
 h1 {
   font-size: 30px;

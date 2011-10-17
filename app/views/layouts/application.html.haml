@@ -10,9 +10,9 @@
     = site_bar
     #main_body
       = render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/
-      .maincontainer
-        %header.headercontentpart
-          = render :partial => "/shared/header"
+      %header.headercontentpart
+        = render :partial => "/shared/header"
+      .main_body
         = render(:partial => "/shared/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
         %section#page
           = yield
