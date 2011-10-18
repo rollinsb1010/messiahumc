@@ -64,6 +64,10 @@ body {
   margin: 0 auto;
 }
 
+img.up_arrow {
+  margin-left: 25px;
+}
+
 ul.down_menu {
   font-family: 'Open Sans Condensed';
   font-size: 20px;
