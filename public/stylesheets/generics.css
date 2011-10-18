@@ -27,6 +27,7 @@ body {
 .headercontentpart {
   background: url('/images/header_background.png');
   height: 142px;
+  position: relative;
 }
 
 .main_header, .main_body {
