@@ -30,7 +30,7 @@ body {
   position: relative;
 }
 
-.main_header, .main_body {
+.main_header, .main_body_content {
   width: 1000px;
   position: relative;
   margin: 0 auto;
@@ -114,26 +114,26 @@ body {
 }
 
 
-h1 {
-  font-size: 30px;
-  margin-bottom: 30px;
-  line-height: 36px;
-}
-
-
-h1 a {
-  text-decoration: none;
-}
-
-h2 {
-  font-size: 18px;
-  color: #808040;
-  margin-top: 20px;
-}
-
-#menu {
-  float: left;
-}
+/* h1 { */
+/*   font-size: 30px; */
+/*   margin-bottom: 30px; */
+/*   line-height: 36px; */
+/* } */
+/*  */
+/*  */
+/* h1 a { */
+/*   text-decoration: none; */
+/* } */
+/*  */
+/* h2 { */
+/*   font-size: 18px; */
+/*   color: #808040; */
+/*   margin-top: 20px; */
+/* } */
+/*  */
+/* #menu { */
+/*   float: left; */
+/* } */
 
 #page, #site_bar_content, footer, header {
   width: 1400px;
@@ -143,46 +143,46 @@ h2 {
   clear: left;
 }
 
-#site_search_form {
-  float: right;
-  padding-top: 5px;
-}
-
-#menu ul {
-  list-style: none;
-  padding: 0px;
-  height: 50px;
-}
-
-#menu ul li {
-  float: left;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-#menu ul li a {
-  display: block;
-  padding: 5px 10px;
-  text-decoration: none;
-}
-
-#menu ul li.selected a, #menu ul li a:hover {
-  color: #808040
-}
-
-#footer_location {
-  padding-top: 30px;
-}
-
-#footer_location > div {
-  float: left;
-  padding-right: 25px;
-}
-
-#copyright {
-  clear: left;
-}
-
+/* #site_search_form { */
+/*   float: right; */
+/*   padding-top: 5px; */
+/* } */
+/*  */
+/* #menu ul { */
+/*   list-style: none; */
+/*   padding: 0px; */
+/*   height: 50px; */
+/* } */
+/*  */
+/* #menu ul li { */
+/*   float: left; */
+/*   margin-right: 10px; */
+/*   font-size: 18px; */
+/* } */
+/*  */
+/* #menu ul li a { */
+/*   display: block; */
+/*   padding: 5px 10px; */
+/*   text-decoration: none; */
+/* } */
+/*  */
+/* #menu ul li.selected a, #menu ul li a:hover { */
+/*   color: #808040 */
+/* } */
+/*  */
+/* #footer_location { */
+/*   padding-top: 30px; */
+/* } */
+/*  */
+/* #footer_location > div { */
+/*   float: left; */
+/*   padding-right: 25px; */
+/* } */
+/*  */
+/* #copyright { */
+/*   clear: left; */
+/* } */
+/*  */
 p {
   margin: 10px 0;
 }

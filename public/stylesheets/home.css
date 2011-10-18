@@ -3,6 +3,88 @@
   These only apply to the homepage of your site.
 */
 
+body {
+  background: #f1b241;
+}
+
+.whole_main_body {
+  background: url('/images/home_slice.png');
+  margin-top: -1px;
+}
+
+.mid_content_part {
+  width: 850px;
+  height: 431px;
+  padding: 10px 40px;
+}
+
+.mid_inner_content {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #f1b241;
+  height: 323px;
+  box-shadow: 0 0 3px black inset;
+  -moz-box-shadow: 0 0 3px black inset;
+  -webkit-box-shadow: 0 0 3px black inset;
+  border: 2px solid #ecc46c;
+  padding: 10px;
+  font-family: 'Istok Web';
+  font-size: 14px;
+  font-weight: 50;
+  line-height: 20px;
+}
+
+.mid_inner_content h2 {
+  font-family: 'Open Sans Condensed';
+  font-size: 24px;
+  font-weight: 300px;
+  margin-bottom: 15px;
+}
+
+.left_content_part {
+  float: left;
+  width: 350px;
+  margin: 30px;
+}
+
+.right_content_part img {
+  border: 2px solid #000;
+  margin-top: 5px;
+}
+
+.middle_line_part {
+  margin: 0 auto;
+  width: 971px;
+  height: 35px;
+}
+
+.down_menu_part {
+  width: 971px;
+  margin: 0 auto;
+}
+
+ul.down_menu {
+  font-family: 'Open Sans Condensed';
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  list-style: none;
+  margin: 0;
+}  
+
+ul.down_menu li {
+  display: inline;
+  padding: 0 20px;
+  margin: 0;
+  border-left: 1px solid #5f3963;
+}
+
+ul.down_menu li:first-child {
+  border-left: none;
+}
+
+
 #slideshow {
     position:relative;
     height:450px;
@@ -23,24 +105,3 @@
     z-index:9;
 }
 
-#home_sections .section {
-  margin-top: 20px;
-  float: left;
-  width: 269px;
-  padding: 20px;
-  height: 135px;
-  margin-left: 30px;
-  border: 2px solid black;
-}
-
-#home_sections .section:first-child {
-  margin-left: 0px;
-}
-
-#home_sections h2 {
-  margin-top: 0;
-}
-
-#home_sections h2 a {
-  text-decoration: none;
-}

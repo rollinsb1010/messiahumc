@@ -12,10 +12,11 @@
       = render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/
       %header.headercontentpart
         = render :partial => "/shared/header"
-      .main_body
-        = render(:partial => "/shared/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
-        %section#page
-          = yield
-        %footer
-          = render :partial => "/shared/footer"
+      = render(:partial => "/shared/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+      .whole_main_body
+        .main_body_content
+          %section#page
+            = yield
+          %footer
+            = render :partial => "/shared/footer"
       = render :partial => "/shared/javascripts"

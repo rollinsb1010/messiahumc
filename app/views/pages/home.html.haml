@@ -1,24 +1,23 @@
-#slideshow
-  = image_tag 'building.jpg', :class => 'active'
-  = image_tag 'matthew.jpg'
-  = image_tag 'alleluia.jpg'
-  = image_tag 'elissa.jpg'
-#home_sections
-  .section
-    %h2= link_to 'Discover Messiah', 'discover-messiah'
-    %ul
-      %li Worship Times
-      %li Directions
-      %li Staff Profiles
-      %li Ministry Descriptions
-  .section
-    %h2= link_to 'This Week at Messiah', 'this-week-at-messiah'
-    %ul
-      %li Weekly Messenger
-      %li Schedule
-      %li Highlights
-  .section
-    %h2= link_to 'Support Messiah', 'support-messiah'
-    %ul
-      %li Donate
-      %li Volunteer
+.home_body
+  .mid_content_part
+    .mid_inner_content
+      .left_content_part
+        %h2 Welcome to Messiah
+        %p
+          We are a United Methodist congregation serving Westerville, Ohio, and
+          beyond. We invite you to worship with us at any of our five worship
+          services, spanning traditional and contemporary styles. We know
+          you'll feel at home at Messiah, a loving and caring community sharing
+          new life in Christ! 
+      .right_content_part
+        = image_tag 'building.jpg'
+    .middle_line_part
+      = image_tag 'up_arrow.png'
+    .down_menu_part
+      %ul.down_menu
+        %li Who We Are
+        %li What We Believe
+        %li When To Come
+        %li Where To Meet
+        %li Why Messiah
+        %li Joining Messiah
