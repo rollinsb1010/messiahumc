@@ -38,13 +38,12 @@ body {
 .main_logo {
   position: absolute;
   top: 30px;
-  left: 40px;
 }
 
 .header_address {
   position: absolute;
   top: 88px;
-  left: 285px;
+  left: 250px;
   color: #9E4A84;
 }
 
@@ -58,17 +57,59 @@ body {
 
 .search_box {
   position: absolute;
-  top: 100px;
-  width: 175px;
-  right: 0px;
+  padding: 5px;
+  top: 91px;
+  right: 20px;
   height: 30px;
-  -webkit-border-top-left-radius: 15px;
-  -webkit-border-top-right-radius: 15px;
-  -moz-border-radius-topleft: 15px;
-  -moz-border-radius-topright: 15px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background: #540512;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: #56040a;
+}
+
+.menupart {
+  height: 56px;
+  margin: 0 auto;
+  margin-top: -4px;
+  width: 845px;
+  font-family: 'Istok Web';
+}
+
+.menutopitems {
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.menutopitems a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+.menu_separator {
+  float: left;
+  margin-top: 11px;
+}
+
+.menu_item {
+  float: left;
+  padding: 15px 20px;
+  color: #eeb243;
+}
+
+.menu_item.selected, .menu_item:hover {
+  color: #fff;
+  background: url('/images/menu_selected_slice.png') repeat-x;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 
