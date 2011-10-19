@@ -17,6 +17,8 @@
         .main_body_content
           %section#page
             = yield
-          %footer
-            = render :partial => "/shared/footer"
+      .footer_tab_bar
+        .footer_tab SITE MAP
+      %footer.footer
+        = render :partial => "/shared/footer"
       = render :partial => "/shared/javascripts"
