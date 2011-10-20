@@ -4,11 +4,12 @@
       .left_content_part
         %h2 Welcome to Messiah
         %p
-          We are a United Methodist congregation serving Westerville, Ohio, and
-          beyond. We invite you to worship with us at any of our five worship
-          services, spanning traditional and contemporary styles. We know
-          you'll feel at home at Messiah, a loving and caring community sharing
-          new life in Christ! 
+          = copywriting('Who We Are', :scope => 'Home Page') do
+            We are a United Methodist congregation serving Westerville, Ohio, and
+            beyond. We invite you to worship with us at any of our five worship
+            services, spanning traditional and contemporary styles. We know
+            you'll feel at home at Messiah, a loving and caring community sharing
+            new life in Christ! 
       .right_content_part
         = image_tag 'building.jpg'
     .middle_line_part

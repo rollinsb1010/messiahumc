@@ -26,19 +26,13 @@ end
 # USER DEFINED
 
 
-# Specify additional Refinery CMS Engines here (all optional):
-# gem 'refinerycms-inquiries',    '~> 1.0'
-# gem "refinerycms-news",         '~> 1.2'
-# gem 'refinerycms-blog',         '~> 1.5'
-
-# Add i18n support (optional, you can remove this if you really want to).
 gem 'refinerycms-i18n',         '~> 1.0.0'
 gem 'refinerycms-calendar', '~>1.0', :git => 'http://github.com/mdoel/refinerycms-calendar'
 gem 'refinerycms-page-images', '~> 1.0'
 gem 'refinerycms-search', '~> 0.9.8'
+gem 'refinerycms-copywriting'
 
 # END USER DEFINED
 
 gem 'refinerycms-pastors', '1.0', :path => 'vendor/engines'
-
 gem 'refinerycms-sermons', '1.0', :path => 'vendor/engines'
