@@ -1,0 +1,32 @@
+nl:
+  refinery:
+    plugins:
+      pastors:
+        title: Pastors
+    pastors:
+      admin:
+        pastors:
+          actions:
+            create_new: Maak een nieuwe Pastor
+            reorder: Wijzig de volgorde van de Pastors
+            reorder_done: Klaar met het wijzingen van de volgorde van de Pastors
+          records:
+            title: Pastors
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Pastors. Druk op 'Maak een nieuwe Pastor' om de eerste aan te maken.
+          pastor:
+            view_live_html: Bekijk deze pastor op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze pastor
+            delete: Verwijder deze pastor voor eeuwig
+      pastors:
+        show:
+          other: Andere Pastors
+  activerecord:
+    attributes:
+      'refinery/pastors/pastor':
+        name: Name
+        job_title: Job Title
+        thumbnail_id: Thumbnail
+        large_photo_id: Large Photo
+        bio: Bio
+        email: Email

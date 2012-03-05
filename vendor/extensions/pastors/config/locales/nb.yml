@@ -1,0 +1,32 @@
+nb:
+  refinery:
+    plugins:
+      pastors:
+        title: Pastors
+    pastors:
+      admin:
+        pastors:
+          actions:
+            create_new: Lag en ny Pastor
+            reorder: Endre rekkefølgen på Pastors
+            reorder_done: Ferdig å endre rekkefølgen Pastors
+          records:
+            title: Pastors
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Pastors enda. Klikk på "Lag en ny Pastor" for å legge til din første pastor.
+          pastor:
+            view_live_html: Vis hvordan denne pastor ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne pastor
+            delete: Fjern denne pastor permanent
+      pastors:
+        show:
+          other: Andre Pastors
+  activerecord:
+    attributes:
+      'refinery/pastors/pastor':
+        name: Name
+        job_title: Job Title
+        thumbnail_id: Thumbnail
+        large_photo_id: Large Photo
+        bio: Bio
+        email: Email

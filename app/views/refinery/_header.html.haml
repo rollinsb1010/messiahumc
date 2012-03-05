@@ -1,6 +1,6 @@
 .main_header
   .main_logo
-    %a{:href => root_path}
+    %a{:href => refinery.root_path}
       = image_tag 'mainlogo.png', :border => 0
   .header_address.istokweb
     Church of the Messiah United Methodist
@@ -8,7 +8,6 @@
     51 N. State St., Westerville OH 43081
   .header_cross
 .search_box
-  = form_tag search_url, :id => 'site_search_form' do
+  = form_tag refinery.search_url, :id => 'site_search_form' do
     = text_field_tag :query, {}, {:type => "search", :placeholder => "Search site for...", :value => (params[:query] if params[:query])}
     = submit_tag 'Go'
--#= render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })

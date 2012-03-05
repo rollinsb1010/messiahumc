@@ -1,0 +1,33 @@
+es:
+  refinery:
+    plugins:
+      pastors:
+        title: Pastors
+#        article: masculino/femenino
+    pastors:
+      admin:
+        pastors:
+          actions:
+            create_new: Crear nuevo pastor
+            reorder: Reordenar pastors
+            reorder_done: Reordenación de pastors completada
+          records:
+            title: Pastors
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay pastors todavía. Pulsa en "Crear nuevo Pastor" para crear tu primer pastor.
+          pastor:
+            view_live_html: Ver este pastor como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este pastor
+            delete: Borrar este pastor para siempre
+      pastors:
+        show:
+          other: Otros pastors
+  activerecord:
+    attributes:
+      'refinery/pastors/pastor':
+        name: Name
+        job_title: Job Title
+        thumbnail_id: Thumbnail
+        large_photo_id: Large Photo
+        bio: Bio
+        email: Email

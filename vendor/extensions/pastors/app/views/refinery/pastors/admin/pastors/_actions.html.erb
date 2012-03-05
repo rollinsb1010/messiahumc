@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Pastors::Admin::PastorsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.pastors_admin_pastors_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_pastors_admin_pastor_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Pastors::Admin::PastorsController.sortable? && ::Refinery::Pastors::Pastor.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Pastors"),
+                 refinery.pastors_admin_pastors_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Pastors"),
+                 refinery.pastors_admin_pastors_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

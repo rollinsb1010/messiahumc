@@ -54,7 +54,7 @@ body {
 
 .header_cross {
   position: absolute;
-  background: url('/images/header_cross.png');
+  background: url('header_cross.png');
   height: 130px;
   width: 207px;
   left: 597px;
@@ -108,7 +108,7 @@ body {
 
 .menu_item.selected, .menu_item:hover {
   color: #fff;
-  background: url('/images/menu_selected_slice.png') repeat-x;
+  background: url('menu_selected_slice.png') repeat-x;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;

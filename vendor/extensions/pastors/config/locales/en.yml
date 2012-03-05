@@ -1,0 +1,32 @@
+en:
+  refinery:
+    plugins:
+      pastors:
+        title: Pastors
+    pastors:
+      admin:
+        pastors:
+          actions:
+            create_new: Add New Pastor
+            reorder: Reorder Pastors
+            reorder_done: Done Reordering Pastors
+          records:
+            title: Pastors
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Pastors yet. Click "Add New Pastor" to add your first pastor.
+          pastor:
+            view_live_html: View this pastor live <br/><em>(opens in a new window)</em>
+            edit: Edit this pastor
+            delete: Remove this pastor forever
+      pastors:
+        show:
+          other: Other Pastors
+  activerecord:
+    attributes:
+      'refinery/pastors/pastor':
+        name: Name
+        job_title: Job Title
+        thumbnail_id: Thumbnail
+        large_photo_id: Large Photo
+        bio: Bio
+        email: Email

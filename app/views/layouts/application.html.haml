@@ -8,6 +8,7 @@
       = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
       %header.headercontentpart
         = render '/refinery/header'
+      = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
       .whole_main_body
         .main_body_content
           %section#page

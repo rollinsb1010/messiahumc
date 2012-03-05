@@ -4,11 +4,11 @@
 */
 
 body {
-  background: url('/images/home_pattern.png');
+  background: url('home_pattern.png');
 }
 
 .whole_main_body {
-  background: url('/images/home_slice.png');
+  background: url('home_slice.png');
   margin-top: -1px;
 }
 

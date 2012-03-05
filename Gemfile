@@ -52,3 +52,5 @@ gem 'refinerycms-i18n',   '~> 2.0.0'
 gem 'refinerycms-copywriting', git: 'git://github.com/unixcharles/refinerycms-copywriting.git', branch: 'rails-3-1'
 gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: 'rails-3-1'
 
+
+gem 'refinerycms-pastors', :path => 'vendor/extensions'

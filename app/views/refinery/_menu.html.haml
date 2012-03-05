@@ -1,14 +1,15 @@
 .menupart
   .menutopitems
-    %a{:href => root_path }
+    %a{:href => refinery.root_path }
       .menu_item.selected HOME
     .menu_separator
       = image_tag 'menu_separator.png'
-    %a{:href => pastors_path }
+    %a{:href => refinery.pastors_pastors_path}
       .menu_item MEET US
     .menu_separator
       = image_tag 'menu_separator.png'
-    %a{:href => events_path }
+    -#
+      %a{:href => events_path }
       .menu_item EVENTS
     .menu_separator
       = image_tag 'menu_separator.png'

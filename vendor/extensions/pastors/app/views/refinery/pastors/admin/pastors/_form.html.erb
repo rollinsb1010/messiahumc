@@ -1,0 +1,68 @@
+<%= form_for [refinery, :pastors_admin, @pastor] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @pastor,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :job_title -%>
+    <%= f.text_field :job_title  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :thumbnail_id -%>
+    <%= f.number_field :thumbnail_id  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :large_photo_id -%>
+    <%= f.number_field :large_photo_id  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:bio].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/pastors/pastor", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:bio].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :email -%>
+    <%= f.text_field :email  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.pastors.admin.pastors.pastor'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @pastor.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>
