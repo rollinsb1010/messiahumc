@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-Messiahumc::Application.config.session_store :cookie_store, :key => '_messiahumc_session'
+MessiahUmc::Application.config.session_store :cookie_store, key: '_messiah-umc_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# Messiahumc::Application.config.session_store :active_record_store
+# MessiahUmc::Application.config.session_store :active_record_store

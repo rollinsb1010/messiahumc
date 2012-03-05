@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-curl -o tmp/latest.dump `heroku pgbackups:url`
-pg_restore --verbose --clean --no-acl --no-owner -d messiahumc_development tmp/latest.dump
-rm tmp/latest.dump
