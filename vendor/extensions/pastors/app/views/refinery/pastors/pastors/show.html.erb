@@ -18,13 +18,13 @@
   <section>
     <h1>Thumbnail</h1>
     <p>
-      <%=raw @pastor.thumbnail_id %>
+      <%= image_fu @pastor.thumbnail, nil %>
     </p>
   </section>
   <section>
     <h1>Large Photo</h1>
     <p>
-      <%=raw @pastor.large_photo_id %>
+      <%= image_fu @pastor.large_photo, nil %>
     </p>
   </section>
   <section>

@@ -17,14 +17,22 @@
   </div>
   
   <div class='field'>
-    <%= f.label :thumbnail_id -%>
-    <%= f.number_field :thumbnail_id  -%>
+    <%= f.label :thumbnail -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :thumbnail_id,
+               :image => @pastor.thumbnail,
+               :toggle_image_display => false %>
 
   </div>
   
   <div class='field'>
-    <%= f.label :large_photo_id -%>
-    <%= f.number_field :large_photo_id  -%>
+    <%= f.label :large_photo -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :large_photo_id,
+               :image => @pastor.large_photo,
+               :toggle_image_display => false %>
 
   </div>
   

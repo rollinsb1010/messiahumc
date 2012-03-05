@@ -26,7 +26,7 @@ fr:
       'refinery/pastors/pastor':
         name: Name
         job_title: Job Title
-        thumbnail_id: Thumbnail
-        large_photo_id: Large Photo
+        thumbnail: Thumbnail
+        large_photo: Large Photo
         bio: Bio
         email: Email
