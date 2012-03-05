@@ -1,57 +1,40 @@
-<% content_for :body_content_title do %>
-  <%= @pastor.name %>
-<% end %>
+<div class='pastor'>
+  <% content_for :body_content_title do %>
+    <%= @pastor.name %>
+  <% end %>
 
-<% content_for :body_content_left do %>
-  <section>
-    <h1>Name</h1>
-    <p>
-      <%=raw @pastor.name %>
-    </p>
-  </section>
-  <section>
-    <h1>Job Title</h1>
-    <p>
+  <% content_for :body_content_left do %>
+    <p class='job_title'>
       <%=raw @pastor.job_title %>
     </p>
-  </section>
-  <section>
-    <h1>Thumbnail</h1>
+    <section>
+      <p>
+        <%=raw @pastor.bio %>
+      </p>
+    </section>
+    <section>
+      <p>
+        <%=raw @pastor.email %>
+      </p>
+    </section>
+  <% end %>
+
+  <% content_for :body_content_right do %>
     <p>
       <%= image_fu @pastor.thumbnail, nil %>
     </p>
-  </section>
-  <section>
-    <h1>Large Photo</h1>
-    <p>
-      <%= image_fu @pastor.large_photo, nil %>
-    </p>
-  </section>
-  <section>
-    <h1>Bio</h1>
-    <p>
-      <%=raw @pastor.bio %>
-    </p>
-  </section>
-  <section>
-    <h1>Email</h1>
-    <p>
-      <%=raw @pastor.email %>
-    </p>
-  </section>
-<% end %>
-
-<% content_for :body_content_right do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="pastors">
-      <% @pastors.each do |pastor| %>
-        <li>
+    <aside>
+      <h2><%= t('.other') %></h2>
+      <ul id="pastors">
+        <% @pastors.each do |pastor| %>
+          <li>
           <%= link_to pastor.name, refinery.pastors_pastor_path(pastor) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
+          </li>
+        <% end %>
+      </ul>
+    </aside>
+  <% end %>
 
 <%= render '/refinery/content_page' %>
+</div>
+<% content_for :stylesheets, stylesheet_link_tag('pastors') %>
