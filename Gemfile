@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 gem 'pg'
 gem 'haml'
 gem 'haml-rails'
+gem 'heroku'
 gem 'thin'
 
 # Gems used only for assets and not required
