@@ -4,6 +4,7 @@ gem 'rails', '~> 3.0.7'
 gem 'rake'
 gem 'fog'
 gem 'haml'
+gem 'heroku'
 
 gem 'sqlite3'
 gem 'pg'
