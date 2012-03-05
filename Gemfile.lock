@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/unixcharles/refinerycms-copywriting.git
+  revision: a6a3920e6c58890b5bfae94764a3f18791dab0ca
+  branch: rails-3-1
+  specs:
+    refinerycms-copywriting (2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -191,6 +198,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.2)
   refinerycms (~> 2.0.0)
+  refinerycms-copywriting!
   refinerycms-i18n (~> 2.0.0)
   sass-rails (~> 3.2.4)
   thin
