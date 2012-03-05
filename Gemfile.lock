@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/resolve/refinerycms-page-images.git
+  revision: 400151514a856d42d4fa9b1a98973bb30debbeda
+  branch: rails-3-1
+  specs:
+    refinerycms-page-images (2.0.0)
+      refinerycms-pages (~> 2.0.0)
+
+GIT
   remote: git://github.com/resolve/refinerycms-search.git
   revision: 87704d7d38c27efda54ab6226bb742936dd7996d
   branch: rails-3-1
@@ -216,6 +224,7 @@ DEPENDENCIES
   refinerycms (~> 2.0.0)
   refinerycms-copywriting!
   refinerycms-i18n (~> 2.0.0)
+  refinerycms-page-images!
   refinerycms-pastors!
   refinerycms-search!
   refinerycms-sermons!
