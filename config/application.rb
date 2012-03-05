@@ -61,5 +61,10 @@ module MessiahUmc
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Models that are searchable
+    config.to_prepare do
+      ::Refinery.searchable_models = [::Refinery::Page]#, Pastor, Event, Sermon]
+    end
   end
 end

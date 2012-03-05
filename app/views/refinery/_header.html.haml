@@ -7,9 +7,8 @@
     %br
     51 N. State St., Westerville OH 43081
   .header_cross
--#
-  .search_box
-    - form_tag search_url, :id => 'site_search_form' do
-      = text_field_tag :query, {}, {:type => "search", :placeholder => "Search site for...", :value => (params[:query] if params[:query])}
-      = submit_tag 'Go'
-  = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+.search_box
+  = form_tag search_url, :id => 'site_search_form' do
+    = text_field_tag :query, {}, {:type => "search", :placeholder => "Search site for...", :value => (params[:query] if params[:query])}
+    = submit_tag 'Go'
+-#= render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
