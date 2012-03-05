@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    sermons:
+      title: Sermons
+  admin:
+    sermons:
+      actions:
+        create_new: CREATE NEW Sermon
+        reorder: REORDR Sermons
+        reorder_done: DUN REORDERIN Sermons
+      records:
+        title: Sermons
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Sermons YET. CLICK "CREATE NEW Sermon" 2 ADD UR FURST sermon.
+      sermon:
+        view_live_html: VIEW DIS sermon LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS sermon
+        delete: REMOOV DIS sermon FOREVR
+  sermons:
+    show:
+      other: OTHR Sermons

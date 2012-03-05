@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    sermons:
+      title: Sermons
+  admin:
+    sermons:
+      actions:
+        create_new: Add New Sermon
+        reorder: Reorder Sermons
+        reorder_done: Done Reordering Sermons
+      records:
+        title: Sermons
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Sermons yet. Click "Add New Sermon" to add your first sermon.
+      sermon:
+        view_live_html: View this sermon live <br/><em>(opens in a new window)</em>
+        edit: Edit this sermon
+        delete: Remove this sermon forever
+  sermons:
+    show:
+      other: Other Sermons

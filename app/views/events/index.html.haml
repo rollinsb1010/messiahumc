@@ -1,0 +1,11 @@
+- content_for :body_content_left do
+  #featured_events.events
+    %h1 Featured Events
+    = render :partial => 'event', :collection => @featured_events, :locals => { :featured => true }
+  #all_events.events
+    %h1 Other Events
+    = render :partial => 'event', :collection => @events
+= render 'events/sidebar'
+= render :partial => '/shared/content_page'
+
+- content_for :stylesheets, stylesheet_link_tag('refinerycms-events')

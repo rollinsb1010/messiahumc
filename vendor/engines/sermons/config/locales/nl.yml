@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    sermons:
+      title: Sermons
+  admin:
+    sermons:
+      actions:
+        create_new: Maak een nieuwe Sermon
+        reorder: Wijzig de volgorde van de Sermons
+        reorder_done: Klaar met het wijzingen van de volgorde van de Sermons
+      records:
+        title: Sermons
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Sermons. Druk op 'Maak een nieuwe Sermon' om de eerste aan te maken.
+      sermon:
+        view_live_html: Bekijk deze sermon op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze sermon
+        delete: Verwijder deze sermon voor eeuwig
+  sermons:
+    show:
+      other: Andere Sermons

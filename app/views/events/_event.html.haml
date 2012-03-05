@@ -1,0 +1,71 @@
+- featured ||= false
+- individual ||= false
+- archive ||= false
+- category ||= false
+
+= div_for event, :class => 'individual_event' do
+  %section.event_image
+    = image_fu event.image, '150x150#c'
+
+  - unless individual
+    %h2= link_to event.title, event
+  
+  %section.start_end
+    %p
+      When:
+      = event_schedule(event)
+    %p
+      Location:
+      = event.venue_name
+      - unless event.venue_address.blank?
+        %p
+          Address:
+          = event.venu_address
+
+  - unless archive
+    - unless event.ticket_price.blank?
+      %section.price
+        %p
+          Price:
+          = number_to_currency event.ticket_price
+    - unless event.ticket_link.blank?
+      %section.signup
+        %p
+          Signup Now:
+          = auto_link event.ticket_link
+
+  %section
+    - if individual
+      = raw event.description
+    - else
+      = simple_format(truncate strip_tags(event.description), :length => 200)
+
+- if individual  
+  %section#share_this_event
+    %ul
+      :plain
+        <li class="facebook"><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= request.url %>" layout="box_count" show_faces="false" width="55" font=""></fb:like></li>
+        <li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+
+  %nav#prevnext_nav
+    - if event.prev.present?
+      = link_to event_path(event.prev), :class => 'prev button' do
+        %h3 Previous
+        %h4= truncate event.prev.title, :length => 38
+    - else
+      %span.prev.disabled
+        %h3 Previous
+        %h4 &nbsp;
+  
+    = link_to events_path, :class => 'home button' do
+      %h3 Events
+      %h4 Home
+    
+    - if event.next.present?
+      = link_to event_path(event.next), :class => 'next button' do
+        %h3 Next
+        %h4= truncate event.next.title, :length => 38
+    - else
+      %span.next.disabled
+        %h3 Next
+        %h4 &nbsp;

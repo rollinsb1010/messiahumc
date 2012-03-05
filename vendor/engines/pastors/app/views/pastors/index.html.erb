@@ -1,0 +1,12 @@
+<% content_for :body_content_left do %>
+  <ul id="pastors">
+    <% @pastors.each do |pastor| %>
+      <li>
+        <%= link_to pastor.name, pastor_url(pastor) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>
+<% content_for :stylesheets, stylesheet_link_tag('pastors') %>
