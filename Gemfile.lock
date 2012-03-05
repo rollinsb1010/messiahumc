@@ -18,6 +18,8 @@ PATH
   specs:
     refinerycms-pastors (1.0)
       refinerycms-core (~> 2.0.0)
+    refinerycms-sermons (1.0)
+      refinerycms-core (~> 2.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -216,6 +218,7 @@ DEPENDENCIES
   refinerycms-i18n (~> 2.0.0)
   refinerycms-pastors!
   refinerycms-search!
+  refinerycms-sermons!
   sass-rails (~> 3.2.4)
   thin
   uglifier (>= 1.0.3)

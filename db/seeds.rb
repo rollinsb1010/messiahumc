@@ -13,3 +13,5 @@ Refinery::Pages::Engine.load_seed
 Refinery::Copywriting::Engine.load_seed
 
 Refinery::Pastors::Engine.load_seed
+
+Refinery::Sermons::Engine.load_seed

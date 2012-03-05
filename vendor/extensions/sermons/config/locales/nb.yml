@@ -1,0 +1,30 @@
+nb:
+  refinery:
+    plugins:
+      sermons:
+        title: Sermons
+    sermons:
+      admin:
+        sermons:
+          actions:
+            create_new: Lag en ny Sermon
+            reorder: Endre rekkefølgen på Sermons
+            reorder_done: Ferdig å endre rekkefølgen Sermons
+          records:
+            title: Sermons
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Sermons enda. Klikk på "Lag en ny Sermon" for å legge til din første sermon.
+          sermon:
+            view_live_html: Vis hvordan denne sermon ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne sermon
+            delete: Fjern denne sermon permanent
+      sermons:
+        show:
+          other: Andre Sermons
+  activerecord:
+    attributes:
+      'refinery/sermons/sermon':
+        date: Date
+        speaker: Speaker
+        service: Service
+        title: Title
