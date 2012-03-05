@@ -54,3 +54,4 @@ gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git'
 
 
 gem 'refinerycms-pastors', :path => 'vendor/extensions'
+gem 'refinerycms-sermons', :path => 'vendor/extensions'

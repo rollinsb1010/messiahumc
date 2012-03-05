@@ -1,0 +1,31 @@
+es:
+  refinery:
+    plugins:
+      sermons:
+        title: Sermons
+#        article: masculino/femenino
+    sermons:
+      admin:
+        sermons:
+          actions:
+            create_new: Crear nuevo sermon
+            reorder: Reordenar sermons
+            reorder_done: Reordenación de sermons completada
+          records:
+            title: Sermons
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay sermons todavía. Pulsa en "Crear nuevo Sermon" para crear tu primer sermon.
+          sermon:
+            view_live_html: Ver este sermon como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este sermon
+            delete: Borrar este sermon para siempre
+      sermons:
+        show:
+          other: Otros sermons
+  activerecord:
+    attributes:
+      'refinery/sermons/sermon':
+        date: Date
+        speaker: Speaker
+        service: Service
+        title: Title
