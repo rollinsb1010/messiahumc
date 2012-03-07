@@ -15,3 +15,7 @@ Refinery::Copywriting::Engine.load_seed
 Refinery::Pastors::Engine.load_seed
 
 Refinery::Sermons::Engine.load_seed
+
+Dir[File.join(File.dirname(__FILE__), 'seeds', '*')].each do |file|
+  require file
+end
