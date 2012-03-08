@@ -11,6 +11,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'heroku'
 gem 'thin'
+gem 'foreman'
 
 # Gems used only for assets and not required
 # in production environments by default.
