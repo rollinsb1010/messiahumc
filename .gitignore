@@ -13,6 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
 # Rails
 .bundle
 db/*.sqlite3
@@ -85,7 +86,12 @@ capybara-*html
 .sass-cache
 .sass-cache/*
 
-#rvm
+# rvm
 .rvmrc
 .rvmrc.*
 
+# Git
+*.orig
+
+# Foreman
+*.env

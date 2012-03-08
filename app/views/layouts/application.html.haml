@@ -2,7 +2,7 @@
 %html
   - site_bar = render('/refinery/site_bar', head: true)
   = render '/refinery/head'
-  %body
+  %body{class: is_root ? 'home' : ''}
     = site_bar
     #main_body
       = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
@@ -15,8 +15,8 @@
             = yield
       .footer_tab_bar
         .footer_tab SITE MAP
-        %footer.footer
-          = render '/refinery/footer'
+      %footer.footer
+        = render '/refinery/footer'
       = render '/refinery/javascripts'
       = javascript_include_tag 'application'
 

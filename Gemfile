@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,12 +11,13 @@ gem 'haml'
 gem 'haml-rails'
 gem 'heroku'
 gem 'thin'
+gem 'foreman'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2.4'
+  gem 'coffee-rails', '~> 3.2.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
@@ -43,7 +44,7 @@ gem 'jquery-rails'
 
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.0'
+gem 'refinerycms', '~> 2.0.1'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n',   '~> 2.0.0'

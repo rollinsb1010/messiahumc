@@ -5,5 +5,7 @@ if ::Refinery::User.where(email: email).count == 0
     email: 'development@ramblinglabs.com',
     password: '123123'
   )
+  user.add_role(:refinery)
+  user.add_role(:superuser)
   user.plugins = ::Refinery::Plugins.registered.names
 end
