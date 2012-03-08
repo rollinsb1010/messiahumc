@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/lilibethdlc/refinerycms-calendar
+  revision: ce338abbe29330101aecf4b3d93785f998b76d13
+  branch: rails-3-2
+  specs:
+    refinerycms-calendar (2.0.0)
+      refinerycms-core (~> 2.0.0)
+
+GIT
   remote: git://github.com/resolve/refinerycms-page-images.git
   revision: 9f823cac963e2a5e0bf456d94481feeae8591d96
   branch: rails-3-1
@@ -20,12 +28,6 @@ GIT
   branch: rails-3-1
   specs:
     refinerycms-copywriting (2.0.0)
-
-PATH
-  remote: ../refinerycms-calendar/
-  specs:
-    refinerycms-calendar (2.0.0)
-      refinerycms-core (~> 2.0.0)
 
 PATH
   remote: vendor/extensions
