@@ -1,39 +1,61 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '~> 3.0.7'
-gem 'rake'
+gem 'rails', '3.2.2'
+
+# Bundle edge Rails instead:
+# gem 'rails', git: 'git://github.com/rails/rails.git'
+
+gem 'pg'
 gem 'fog'
 gem 'haml'
+gem 'haml-rails'
 gem 'heroku'
+gem 'thin'
+gem 'foreman'
 
-gem 'sqlite3'
-gem 'pg'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.4'
+  gem 'coffee-rails', '~> 3.2.2'
 
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer'
 
-# REFINERY CMS ================================================================
-# Anything you put in here will be overridden when the app gets updated.
-
-gem 'refinerycms',              '~> 1.0.0'
-
-group :development, :test do
-  # To use refinerycms-testing, uncomment it (if it's commented out) and run 'bundle install'
-  # Then, run 'rails generate refinerycms_testing' which will copy its support files.
-  # Finally, run 'rake' to run the tests.
-  # gem 'refinerycms-testing',    '~> 1.0.0'
+  gem 'uglifier', '>= 1.0.3'
 end
 
-# END REFINERY CMS ============================================================
+gem 'jquery-rails'
 
-# USER DEFINED
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug19', require: 'ruby-debug'
 
 
-gem 'refinerycms-i18n',         '~> 1.0.0'
-gem 'refinerycms-calendar', '~>1.0', :git => 'http://github.com/mdoel/refinerycms-calendar'
-gem 'refinerycms-page-images', '~> 1.0'
-gem 'refinerycms-search', '~> 0.9.8'
-gem 'refinerycms-copywriting'
+# Refinery CMS
+gem 'refinerycms', '~> 2.0.1'
 
-# END USER DEFINED
+# Specify additional Refinery CMS Extensions here (all optional):
+gem 'refinerycms-i18n',   '~> 2.0.0'
+#  gem 'refinerycms-blog', '~> 2.0.0'
+#  gem 'refinerycms-inquiries', '~> 2.0.0'
+#  gem 'refinerycms-search', '~> 2.0.0'
+#  gem 'refinerycms-page-images', '~> 2.0.0'
+gem 'refinerycms-copywriting', git: 'git://github.com/unixcharles/refinerycms-copywriting.git', branch: 'rails-3-1'
+gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: 'rails-3-1'
+gem 'refinerycms-page-images', git: 'git://github.com/resolve/refinerycms-page-images.git', branch: 'rails-3-1'
 
-gem 'refinerycms-pastors', '1.0', :path => 'vendor/engines'
-gem 'refinerycms-sermons', '1.0', :path => 'vendor/engines'
+gem 'refinerycms-pastors', path: 'vendor/extensions'
+gem 'refinerycms-sermons', path: 'vendor/extensions'
+gem 'refinerycms-calendar', git: 'git://github.com/lilibethdlc/refinerycms-calendar', branch: 'rails-3-2'

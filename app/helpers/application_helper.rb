@@ -6,4 +6,8 @@ module ApplicationHelper
       "#{event.start_at.strftime('%B %e')} to #{event.end_at.strftime('%B %e')}"
     end
   end
+
+  def is_root
+    return request.fullpath == '//'
+  end
 end

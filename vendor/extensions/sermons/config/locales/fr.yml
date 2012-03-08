@@ -1,0 +1,30 @@
+fr:
+  refinery:
+    plugins:
+      sermons:
+        title: Sermons
+    sermons:
+      admin:
+        sermons:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Sermon
+            reorder: Réordonner les Sermons
+            reorder_done: Fin de réordonnancement des Sermons
+          records:
+            title: Sermons
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Sermon. Cliquer sur "Créer un(e) nouve(au/l/lle) Sermon" pour créer votre premi(er/ère) sermon.'
+          sermon:
+            view_live_html: Voir ce(t/tte) sermon <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) sermon
+            delete: Supprimer définitivement ce(t/tte) sermon
+      sermons:
+        show:
+          other: Autres Sermons
+  activerecord:
+    attributes:
+      'refinery/sermons/sermon':
+        date: Date
+        speaker: Speaker
+        service: Service
+        title: Title

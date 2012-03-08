@@ -1,18 +1,14 @@
 !!! Strict
 %html
-  - site_bar = render(:partial => "/shared/site_bar", :locals => {:head => true})
-  = javascript_include_tag 'jquery-min'
-  = javascript_include_tag 'application'
-  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'
-  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Istok+Web'
-  = render :partial => "/shared/head"
-  %body
+  - site_bar = render('/refinery/site_bar', head: true)
+  = render '/refinery/head'
+  %body{class: is_root ? 'home' : ''}
     = site_bar
     #main_body
-      = render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/
+      = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
       %header.headercontentpart
-        = render :partial => "/shared/header"
-      = render(:partial => "/shared/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
+        = render '/refinery/header'
+      = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
       .whole_main_body
         .main_body_content
           %section#page
@@ -20,5 +16,7 @@
       .footer_tab_bar
         .footer_tab SITE MAP
       %footer.footer
-        = render :partial => "/shared/footer"
-      = render :partial => "/shared/javascripts"
+        = render '/refinery/footer'
+      = render '/refinery/javascripts'
+      = javascript_include_tag 'application'
+

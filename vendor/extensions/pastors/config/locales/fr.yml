@@ -1,0 +1,32 @@
+fr:
+  refinery:
+    plugins:
+      pastors:
+        title: Pastors
+    pastors:
+      admin:
+        pastors:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Pastor
+            reorder: Réordonner les Pastors
+            reorder_done: Fin de réordonnancement des Pastors
+          records:
+            title: Pastors
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Pastor. Cliquer sur "Créer un(e) nouve(au/l/lle) Pastor" pour créer votre premi(er/ère) pastor.'
+          pastor:
+            view_live_html: Voir ce(t/tte) pastor <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) pastor
+            delete: Supprimer définitivement ce(t/tte) pastor
+      pastors:
+        show:
+          other: Autres Pastors
+  activerecord:
+    attributes:
+      'refinery/pastors/pastor':
+        name: Name
+        job_title: Job Title
+        thumbnail: Thumbnail
+        large_photo: Large Photo
+        bio: Bio
+        email: Email
