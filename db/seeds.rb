@@ -19,3 +19,5 @@ Refinery::Sermons::Engine.load_seed
 Dir[File.join(File.dirname(__FILE__), 'seeds', '*')].each do |file|
   require file
 end
+
+Refinery::Calendar::Engine.load_seed

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305221840) do
+ActiveRecord::Schema.define(:version => 20120308023821) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -36,6 +36,41 @@ ActiveRecord::Schema.define(:version => 20120305221840) do
   end
 
   add_index "refinery_copywriting_phrases", ["name", "scope"], :name => "index_copywriting_phrases_on_name_and_scope"
+
+  create_table "refinery_event_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "slug"
+  end
+
+  add_index "refinery_event_categories", ["slug"], :name => "index_refinery_event_categories_on_slug", :unique => true
+
+  create_table "refinery_event_categorizations", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "event_category_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "refinery_events", :force => true do |t|
+    t.string   "title"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.string   "venue_name"
+    t.string   "venue_address"
+    t.decimal  "ticket_price",  :precision => 8, :scale => 2
+    t.string   "ticket_link"
+    t.text     "description"
+    t.boolean  "featured"
+    t.integer  "image_id"
+    t.integer  "position"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.string   "slug"
+  end
+
+  add_index "refinery_events", ["slug"], :name => "index_refinery_events_on_slug", :unique => true
 
   create_table "refinery_image_page_translations", :force => true do |t|
     t.integer  "refinery_image_page_id"
