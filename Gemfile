@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails', git: 'git://github.com/rails/rails.git'
 
 gem 'pg'
 gem 'fog'
@@ -40,7 +40,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'ruby-debug19', require: 'ruby-debug'
 
 
 # Refinery CMS
@@ -56,6 +56,6 @@ gem 'refinerycms-copywriting', git: 'git://github.com/unixcharles/refinerycms-co
 gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: 'rails-3-1'
 gem 'refinerycms-page-images', git: 'git://github.com/resolve/refinerycms-page-images.git', branch: 'rails-3-1'
 
-gem 'refinerycms-pastors', :path => 'vendor/extensions'
-gem 'refinerycms-sermons', :path => 'vendor/extensions'
+gem 'refinerycms-pastors', path: 'vendor/extensions'
+gem 'refinerycms-sermons', path: 'vendor/extensions'
 gem 'refinerycms-calendar', git: 'git://github.com/lilibethdlc/refinerycms-calendar', branch: 'rails-3-2'

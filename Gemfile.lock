@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/lilibethdlc/refinerycms-calendar
-  revision: 8bb5798832c463c78d548264467e23a93e0383ed
+  revision: 5ef59fa9f2f974b0fdc3a13464ecf69129e472e4
   branch: rails-3-2
   specs:
     refinerycms-calendar (2.0.0)
