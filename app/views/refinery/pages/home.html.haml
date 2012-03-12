@@ -3,22 +3,16 @@
     .mid_inner_content
       .left_content_part
         %h2 Welcome to Messiah
-        %p
-          = copywriting('Who We Are', :scope => 'Home Page') do
-            We are a United Methodist congregation serving Westerville, Ohio, and
-            beyond. We invite you to worship with us at any of our five worship
-            services, spanning traditional and contemporary styles. We know
-            you'll feel at home at Messiah, a loving and caring community sharing
-            new life in Christ!
+        - sections = ['Who We Are', 'What We Believe', 'When To Come', 'Where To Meet', 'Why Messiah', 'Joining Messiah']
+        %ul#sections
+          - sections.each do |section|
+            %li
+              = raw copywriting(section, scope: 'home_page')
       .right_content_part
         = image_tag 'building.jpg'
     .middle_line_part
-      = image_tag 'up_arrow.png', :class => :up_arrow
+      = image_tag 'up_arrow.png', class: :up_arrow
     .down_menu_part
       %ul.down_menu
-        %li Who We Are
-        %li What We Believe
-        %li When To Come
-        %li Where To Meet
-        %li Why Messiah
-        %li Joining Messiah
+        - sections.each do |section|
+          %li #{section}
