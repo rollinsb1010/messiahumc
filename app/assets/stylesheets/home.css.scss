@@ -122,8 +122,9 @@ body.home {
 
   #sections {
     list-style: none;
-    > li {
-      display: none;
+    li {
+      height: 0;
+      overflow: hidden;
     }
   }
 }

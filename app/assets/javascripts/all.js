@@ -5,6 +5,9 @@ $(function() {
     var $down_menu_links = $('.down_menu a');
     var $up_arrow = $('.up_arrow');
 
+    $sections.css({display: 'none'});
+    $sections.height('auto');
+
     $down_menu_links.click(function(event){
         event.preventDefault();
 
