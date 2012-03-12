@@ -57,6 +57,7 @@ body.home {
     margin: 0 auto;
     width: 971px;
     height: 39px;
+    position: relative;
   }
 
   .down_menu_part {
@@ -64,8 +65,9 @@ body.home {
     margin: 0 auto;
   }
 
-  img.up_arrow {
-    margin-left: 25px;
+  .up_arrow {
+    position: absolute;
+    left: 25px;
   }
 
   ul.down_menu {
@@ -84,6 +86,16 @@ body.home {
 
       &:first-child {
         border-left: none;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+
+      &:visited {
+        text-decoration: none;
+        color: #000000;
       }
     }
   }
@@ -105,6 +117,13 @@ body.home {
       &.last-active {
         z-index:9;
       }
+    }
+  }
+
+  #sections {
+    list-style: none;
+    li {
+      display: none;
     }
   }
 }

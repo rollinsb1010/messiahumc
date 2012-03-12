@@ -27,7 +27,7 @@ class AddHomePageBoxesAndDefaultContent < ActiveRecord::Migration
     where_to_meet ='
     <p>Church of the Messiah, Westerville, OH</p>
     <p>We are located on the west side of North State Street, just north of the intersection of Main and State. Parking is located on the east side of State Street.</p>
-    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=+51+North+State+Street&amp;sll=40.081552,-82.95785&amp;sspn=0.05628,0.132179&amp;g=51+North+State+Street&amp;ie=UTF8&amp;z=14&amp;iwloc=addr&amp;ll=40.137219,-82.928152&amp;output=embed&amp;s=AARTsJqrU3vdA7vHNtZZqhnI0I2elRDL0g"></iframe>
+    <iframe width="360" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=+51+North+State+Street&amp;sll=40.081552,-82.95785&amp;sspn=0.05628,0.132179&amp;g=51+North+State+Street&amp;ie=UTF8&amp;z=14&amp;iwloc=addr&amp;ll=40.137219,-82.928152&amp;output=embed&amp;s=AARTsJqrU3vdA7vHNtZZqhnI0I2elRDL0g"></iframe>
     <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=+51+North+State+Street&amp;sll=40.081552,-82.95785&amp;sspn=0.05628,0.132179&amp;g=51+North+State+Street&amp;ie=UTF8&amp;z=14&amp;iwloc=addr&amp;ll=40.137219,-82.928152&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a>'
 
     why_messiah = '
