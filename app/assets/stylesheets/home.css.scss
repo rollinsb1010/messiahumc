@@ -2,13 +2,18 @@ body.home {
   background: url('home_pattern.png');
 
   .whole_main_body {
-    background: url('home_slice.png');
+    background: url('home_pattern.png');
     margin-top: -1px;
+  }
+
+  .inner_main_body {
+    background: url('home_slice.png') repeat-x left bottom;
   }
 
   .mid_content_part {
     width: 850px;
-    height: 431px;
+    min-height: 431px;
+    height: auto;
     padding: 10px 40px;
   }
 
@@ -17,7 +22,6 @@ body.home {
     -moz-border-radius: 5px;
     border-radius: 5px;
     background: #f1b241;
-    height: 323px;
     box-shadow: 0 0 3px black inset;
     -moz-box-shadow: 0 0 3px black inset;
     -webkit-box-shadow: 0 0 3px black inset;
@@ -27,6 +31,8 @@ body.home {
     font-size: 14px;
     font-weight: 50;
     line-height: 20px;
+    min-height: 323px;
+    height: auto;
 
     h2 {
       font-family: 'Open Sans Condensed';
@@ -103,3 +109,8 @@ body.home {
   }
 }
 
+.clear {
+  height: 0;
+  width: 0;
+  clear: both;
+}
