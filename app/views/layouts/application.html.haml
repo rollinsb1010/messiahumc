@@ -10,9 +10,10 @@
         = render '/refinery/header'
       = render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu' })
       .whole_main_body
-        .main_body_content
-          %section#page
-            = yield
+        .inner_main_body
+          .main_body_content
+            %section#page
+              = yield
       .footer_tab_bar
         .footer_tab SITE MAP
       %footer.footer
