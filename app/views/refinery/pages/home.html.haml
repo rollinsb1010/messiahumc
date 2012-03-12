@@ -6,8 +6,7 @@
         - sections = ['Who We Are', 'What We Believe', 'When To Come', 'Where To Meet', 'Why Messiah', 'Joining Messiah']
         %ul#sections
           - sections.each do |section|
-            %li
-              = raw copywriting(section, scope: 'home_page')
+            %li{id: "#{section} Content".gsub(/ /, '').underscore}= raw copywriting(section, scope: 'home_page')
       .right_content_part
         = image_tag 'building.jpg'
       .clear
@@ -16,4 +15,5 @@
     .down_menu_part
       %ul.down_menu
         - sections.each do |section|
-          %li #{section}
+          %li{id: section.gsub(/ /, '').underscore}
+            %a{href: '#'} #{section}
