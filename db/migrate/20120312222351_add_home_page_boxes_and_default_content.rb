@@ -40,18 +40,19 @@ class AddHomePageBoxesAndDefaultContent < ActiveRecord::Migration
 <p>For more intersectionformation about the next membership class session, please call or email Nita Jeffries at 882-2167 or <a href="mailto:njeffries@messiahumc.net">njeffries@messiahumc.net</a>.</p>
 <p><span>If you have any questions, please call Wendy Lybarger, pastor of Faith Formation, at (614)882-2167, ext .19 or email her at <a href="mailto:wlybarger@messiahumc.net">wlybarger@messiahumc.net</a>.</span></p>'
 
-    scope = 'home_page'
-
     data = [
-      {name: 'Who We Are', value: who_we_are, scope: scope},
-      {name: 'What We Believe', value: what_we_believe, scope: scope},
-      {name: 'When To Come', value: when_to_come, scope: scope},
-      {name: 'Where To Meet', value: where_to_meet, scope: scope},
-      {name: 'Why Messiah', value: why_messiah, scope: scope},
-      {name: 'Joining Messiah', value: joining_messiah, scope: scope},
+      {name: 'Who We Are', value: who_we_are},
+      {name: 'What We Believe', value: what_we_believe},
+      {name: 'When To Come', value: when_to_come},
+      {name: 'Where To Meet', value: where_to_meet},
+      {name: 'Why Messiah', value: why_messiah},
+      {name: 'Joining Messiah', value: joining_messiah},
     ]
 
-    data.each{|x| ::Refinery::Copywriting::Phrase.create(x)}
+    defaults = {scope: 'home_page', phrase_type: 'wysiwyg'}
+
+    data.each{|x| ::Refinery::Copywriting::Phrase.create(x.merge defaults)}
+
   end
 
   def down
