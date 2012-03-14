@@ -5,6 +5,19 @@ en:
         title: Staff Members
     staff_members:
       admin:
+        staff_categories:
+          actions:
+            create_new: Add New Staff Category
+            reorder: Reorder Staff Categories
+            reorder_done: Done Reordering Staff Categories
+            manage_categories: Manage Categories
+          records:
+            title: Staff Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Staff Categories yet. Click "Add New Staff Category" to add your first Staff Category.
+          staff_category:
+            edit: Edit this Staff Category
+            delete: Remove this Staff Category forever
         staff_members:
           actions:
             create_new: Add New Staff Member
