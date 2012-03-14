@@ -26,7 +26,7 @@ module Refinery
         @left_categories = [
           {
             name: 'Pastors',
-            members: ::Refinery::Pastors::Pastor.order('position ASC'),
+            members: ::Refinery::Pastors::Pastor.all,
             url: lambda { |p| refinery.pastors_pastor_path(p) },
           }
         ]

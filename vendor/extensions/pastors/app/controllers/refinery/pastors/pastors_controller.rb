@@ -22,8 +22,11 @@ module Refinery
     protected
 
       def find_all_pastors
-        @pastors = Pastor.order('position ASC')
-        @pastors = @pastors.where('id != ?', params[:id]) if params[:id]
+        if params[:id]
+          @pastors = Pastor.where('id != ?', params[:id])
+        else
+          @pastors = Pastor.all
+        end
       end
 
       def find_page
