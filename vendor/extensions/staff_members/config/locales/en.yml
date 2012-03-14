@@ -10,6 +10,7 @@ en:
             create_new: Add New Staff Member
             reorder: Reorder Staff Members
             reorder_done: Done Reordering Staff Members
+            manage_categories: Manage Categories
           records:
             title: Staff Members
             sorry_no_results: Sorry! There are no results found.

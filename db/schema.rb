@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120314170742) do
+ActiveRecord::Schema.define(:version => 20120314172637) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -210,6 +210,14 @@ ActiveRecord::Schema.define(:version => 20120314170742) do
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "refinery_staff_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "index_placement"
+    t.integer  "position"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "refinery_staff_members", :force => true do |t|
