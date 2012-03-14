@@ -22,7 +22,7 @@ module Refinery
     protected
 
       def find_all_pastors
-        @pastors = Pastor.order('position ASC')
+        @pastors = Pastor.where('id != ?', params[:id]).order('position ASC')
       end
 
       def find_page
