@@ -1,5 +1,5 @@
 .staff_category{class: staff_category[:position]}
   %h2= staff_category[:name]
-  %ul
+  %ol
     - staff_category[:members].each do |staff_member|
       %li= link_to staff_member.name, staff_category[:url].call(staff_member)
