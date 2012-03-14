@@ -2,7 +2,7 @@ en:
   refinery:
     plugins:
       staff_members:
-        title: Staff Members
+        title: Staff
     staff_members:
       admin:
         staff_categories:
