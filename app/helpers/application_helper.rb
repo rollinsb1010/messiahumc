@@ -9,6 +9,6 @@ module ApplicationHelper
 
   def body_classes
     return 'home' if request.fullpath == '//'
-    return 'staff' if request.fullpath =~ /pastors\/\d/
+    return 'staff' if request.fullpath =~ /(pastors\/\d)|(staff_members\/\d)/
   end
 end
