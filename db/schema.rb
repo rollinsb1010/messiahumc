@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120314172637) do
+ActiveRecord::Schema.define(:version => 20120314224242) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -178,7 +178,10 @@ ActiveRecord::Schema.define(:version => 20120314172637) do
     t.integer  "position"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "slug"
   end
+
+  add_index "refinery_pastors", ["slug"], :name => "index_refinery_pastors_on_slug"
 
   create_table "refinery_resources", :force => true do |t|
     t.string   "file_mime_type"
@@ -218,7 +221,10 @@ ActiveRecord::Schema.define(:version => 20120314172637) do
     t.integer  "position"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "slug"
   end
+
+  add_index "refinery_staff_categories", ["slug"], :name => "index_refinery_staff_categories_on_slug"
 
   create_table "refinery_staff_members", :force => true do |t|
     t.string   "name"
@@ -230,7 +236,10 @@ ActiveRecord::Schema.define(:version => 20120314172637) do
     t.integer  "position"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
+
+  add_index "refinery_staff_members", ["slug"], :name => "index_refinery_staff_members_on_slug"
 
   create_table "refinery_user_plugins", :force => true do |t|
     t.integer "user_id"

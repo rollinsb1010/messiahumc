@@ -1,6 +1,9 @@
 module Refinery
   module StaffMembers
     class StaffMember < Refinery::Core::BaseModel
+      extend FriendlyId
+      friendly_id :name, use: :slugged
+
       default_scope order: 'position ASC'
 
       self.table_name = 'refinery_staff_members'
