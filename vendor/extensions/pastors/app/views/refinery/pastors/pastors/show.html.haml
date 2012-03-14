@@ -1,0 +1,23 @@
+- content_for :body_content_title do
+  = @pastor.name
+
+- content_for :body_content_left do
+  %p.job_title
+    =raw @pastor.job_title
+  .details
+    %section
+      =raw @pastor.bio
+    %section
+      =raw @pastor.email
+
+- content_for :body_content_right do
+  %aside.staff_right
+    %p= image_fu @pastor.thumbnail, '257x371#c'
+    %div
+      %h2= t('.other')
+      %ul#pastors
+        - @pastors.each do |pastor|
+          %li
+            = link_to pastor.name, refinery.pastors_pastor_path(pastor)
+
+= render '/refinery/content_page'

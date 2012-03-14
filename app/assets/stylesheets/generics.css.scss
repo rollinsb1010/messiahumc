@@ -77,7 +77,7 @@ body {
 }
 
 .menupart {
-  height: 56px;
+  height: 55px;
   margin: 0 auto;
   margin-top: -4px;
   width: 845px;
@@ -281,3 +281,10 @@ ul#gallery {
 /*   margin: 5px 20px 5px 40px; */
 /* } */
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

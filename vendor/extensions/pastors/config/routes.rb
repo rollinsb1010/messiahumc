@@ -2,7 +2,7 @@ Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
   namespace :pastors do
-    resources :pastors, path: '', only: [:index, :show]
+    resources :pastors, path: '', only: [:show]
   end
 
   # Admin routes

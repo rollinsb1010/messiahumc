@@ -1,0 +1,14 @@
+= form_for [refinery, :staff_members_admin, @staff_category] do |f|
+  = render '/refinery/admin/error_messages', object: @staff_category, include_object_name: true
+  .field
+    = f.label :name
+    = f.text_field :name, class: 'larger'
+  .field
+    = f.label :index_placement
+    = select(:staff_category ,:index_placement, { left: 'left', right: 'right'})
+  = render '/refinery/admin/form_actions', f: f, continue_editing: false, delete_title: t('delete', scope: 'refinery.staff_members.admin.staff_members.staff_category'), delete_confirmation: t('message', scope: 'refinery.admin.delete', title: @staff_category.name)
+- content_for :javascripts do
+  %script
+    $(document).ready(function(){
+    page_options.init(false, '', '');
+    });

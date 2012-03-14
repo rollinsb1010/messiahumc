@@ -18,3 +18,5 @@ Dir[File.join(File.dirname(__FILE__), 'seeds', '*')].each do |file|
 end
 
 Refinery::Calendar::Engine.load_seed
+
+Refinery::StaffMembers::Engine.load_seed

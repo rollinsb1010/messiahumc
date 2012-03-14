@@ -7,7 +7,8 @@ module ApplicationHelper
     end
   end
 
-  def is_root
-    return request.fullpath == '//'
+  def body_classes
+    return 'home' if request.fullpath == '//'
+    return 'staff' if request.fullpath =~ /(pastors\/\d)|(staff_members)/
   end
 end

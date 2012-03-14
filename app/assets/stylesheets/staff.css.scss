@@ -1,0 +1,91 @@
+body.staff {
+  .whole_main_body {
+    background: url(/assets/staff_pattern.jpg) repeat-x #FFFDE9;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: normal;
+    height: 85px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000000;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  #body_content {
+    padding: 10px 30px;
+    width: 1000px;
+  }
+
+  .inner {
+    font-family: Helvetica;
+    font-size: 14px;
+  }
+
+  .job_title {
+    margin-bottom: 40px;
+    margin-top: -45px;
+  }
+
+  h2 {
+    margin: 25px 0 10px;
+    color: #5F3D6F;
+  }
+
+  ul {
+    list-style: disc;
+    list-style-position: inside;
+    margin-left: 40px;
+  }
+
+  ol {
+    list-style: none;
+    list-style-position: inside;
+    margin-left: 40px;
+    line-height: 18px;
+  }
+
+  .details {
+    p {
+      margin: 10px 0 25px;
+    }
+  }
+
+  .staff_right {
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #AFAFAF;
+    padding: 20px 25px;
+    width: 256px;
+
+    img {
+      width: 257px;
+      height: 371px;
+    }
+
+    p {
+      margin: 0px;
+    }
+  }
+
+  .staff_category {
+    h2 {
+      font-weight: bold;
+      font-size: 16px;
+      color: #6D0818;
+      padding-left: 22px;
+      text-decoration: underline;
+      background: url(/assets/bullet_18x19.png) no-repeat transparent;
+      height: 20px;
+    }
+  }
+
+  .left, .right {
+    width: 50%;
+  }
+}

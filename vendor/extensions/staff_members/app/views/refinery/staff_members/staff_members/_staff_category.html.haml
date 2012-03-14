@@ -1,0 +1,5 @@
+.staff_category
+  %h2= staff_category[:name]
+  %ol
+    - staff_category[:members].each do |staff_member|
+      %li= link_to staff_member.name, staff_category[:url].call(staff_member)

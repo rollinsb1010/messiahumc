@@ -1,0 +1,47 @@
+en:
+  refinery:
+    plugins:
+      staff_members:
+        title: Staff
+    staff_members:
+      admin:
+        staff_categories:
+          actions:
+            create_new: Add New Staff Category
+            reorder: Reorder Staff Categories
+            reorder_done: Done Reordering Staff Categories
+            manage_categories: Manage Categories
+            manage_staff_members: Manage Staff Members
+          records:
+            title: Staff Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Staff Categories yet. Click "Add New Staff Category" to add your first Staff Category.
+          staff_category:
+            edit: Edit this Staff Category
+            delete: Remove this Staff Category forever
+        staff_members:
+          actions:
+            create_new: Add New Staff Member
+            reorder: Reorder Staff Members
+            reorder_done: Done Reordering Staff Members
+            manage_categories: Manage Categories
+          records:
+            title: Staff Members
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Staff Members yet. Click "Add New Staff Member" to add your first staff member.
+          staff_member:
+            view_live_html: View this staff member live <br/><em>(opens in a new window)</em>
+            edit: Edit this staff member
+            delete: Remove this staff member forever
+      staff_members:
+        show:
+          other: Other Staff Members
+  activerecord:
+    attributes:
+      'refinery/staff_members/staff_member':
+        name: Name
+        category_id: Category
+        job_title: Job Title
+        photo: Photo
+        bio: Bio
+        email: Email
