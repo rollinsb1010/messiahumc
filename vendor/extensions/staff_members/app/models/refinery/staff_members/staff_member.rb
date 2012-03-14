@@ -1,6 +1,8 @@
 module Refinery
   module StaffMembers
     class StaffMember < Refinery::Core::BaseModel
+      default_scope order: 'position ASC'
+
       self.table_name = 'refinery_staff_members'
 
       acts_as_indexed fields: [:name, :job_title, :bio, :email]
