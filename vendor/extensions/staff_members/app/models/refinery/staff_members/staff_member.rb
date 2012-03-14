@@ -11,7 +11,8 @@ module Refinery
       acts_as_indexed fields: [:name, :job_title, :bio, :email]
 
       validates :name, presence: true, uniqueness: true
-      validates_format_of :email, with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/i
+      validates :category, presence: true
+      validates :email, format: {with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/i}, allow_blank: true
 
       belongs_to :photo, class_name: '::Refinery::Image'
 
