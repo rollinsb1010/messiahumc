@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(:version => 20120314172637) do
   create_table "refinery_staff_members", :force => true do |t|
     t.string   "name"
     t.integer  "category_id"
+    t.string   "job_title"
     t.integer  "photo_id"
     t.text     "bio"
     t.string   "email"
