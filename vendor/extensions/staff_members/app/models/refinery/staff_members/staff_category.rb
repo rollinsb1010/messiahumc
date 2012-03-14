@@ -10,7 +10,7 @@ module Refinery
       validates :name, presence: true, uniqueness: true
       validates :index_placement, presence: true, inclusion: {in: %w(left right)}
 
-      has_many :staff_members, foreign_key: 'category_id'
+      has_many :staff_members, foreign_key: 'category_id', dependent: :nullify
     end
   end
 end
