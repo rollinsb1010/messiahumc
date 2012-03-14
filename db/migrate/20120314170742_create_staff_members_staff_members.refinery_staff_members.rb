@@ -5,6 +5,7 @@ class CreateStaffMembersStaffMembers < ActiveRecord::Migration
     create_table :refinery_staff_members do |t|
       t.string :name
       t.integer :category_id
+      t.string :job_title
       t.integer :photo_id
       t.text :bio
       t.string :email
