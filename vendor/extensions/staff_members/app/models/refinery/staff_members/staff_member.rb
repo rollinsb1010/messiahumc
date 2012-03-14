@@ -8,8 +8,8 @@ module Refinery
       validates :name, presence: true, uniqueness: true
 
       belongs_to :photo, class_name: '::Refinery::Image'
-      
-      belongs_to :category
+
+      belongs_to :category, class_name: '::Refinery::StaffMembers::StaffCategory'
 
     end
   end
