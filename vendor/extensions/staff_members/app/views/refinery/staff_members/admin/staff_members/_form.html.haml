@@ -5,7 +5,7 @@
     = f.text_field :name, class: 'larger widest'
   .field
     = f.label :category_id
-    = collection_select :staff_member, :category_id, @staff_categories, :id, :name
+    = collection_select :staff_member, :category_id, @staff_categories, :id, :name, {include_blank: 'Please select'}
   .field
     = f.label :job_title
     = f.text_field :job_title
