@@ -22,7 +22,7 @@ module Refinery
     protected
 
       def find_all_sermons
-        @sermons = Sermon.order('position ASC')
+        @sermons = Sermon.all
       end
 
       def find_page
