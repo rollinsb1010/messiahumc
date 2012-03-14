@@ -3,11 +3,11 @@ module Refinery
     class StaffMember < Refinery::Core::BaseModel
       self.table_name = 'refinery_staff_members'
 
-      acts_as_indexed :fields => [:name, :bio, :email]
+      acts_as_indexed fields: [:name, :bio, :email]
 
-      validates :name, :presence => true, :uniqueness => true
+      validates :name, presence: true, uniqueness: true
 
-      belongs_to :photo, :class_name => '::Refinery::Image'
+      belongs_to :photo, class_name: '::Refinery::Image'
 
     end
   end
