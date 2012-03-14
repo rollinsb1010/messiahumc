@@ -23,10 +23,11 @@ module Refinery
 
       def find_all_pastors
         if params[:id]
-          @pastors = Pastor.where('id != ?', params[:id])
+          @pastors = Pastor.where('id != ?', Pastor.find(params[:id]))
         else
           @pastors = Pastor.all
         end
+        @pastors
       end
 
       def find_page
