@@ -22,11 +22,29 @@ module Refinery
     protected
 
       def find_all_staff_members
-        @staff_members = StaffMember.order('position ASC')
+        @right_categories = []
+        @left_categories = [
+          {
+            name: 'Pastors',
+            members: ::Refinery::Pastors::Pastor.order('position ASC'),
+            url: lambda { |p| refinery.pastors_pastor_path(p) },
+            position: 'left'
+          }
+        ]
+        StaffCategory.where(index_placement: 'left').each { |c| @left_categories << get_staff_category(c, 'left') }
+        StaffCategory.where(index_placement: 'right').each { |c| @right_categories << get_staff_category(c, 'right') }
       end
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/staff_members").first
+      end
+
+      def get_staff_category(category, position)
+        {
+          name: category.name,
+          members: category.staff_members,
+          url: lambda { |s| refinery.staff_members_staff_member_path(s) },
+        }
       end
 
     end

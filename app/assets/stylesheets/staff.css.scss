@@ -9,6 +9,15 @@ body.staff {
     height: 85px;
   }
 
+  a {
+    text-decoration: none;
+    color: #000000;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   #body_content {
     padding: 10px 30px;
     width: 1000px;
@@ -32,15 +41,12 @@ body.staff {
   ul {
     list-style: disc;
     list-style-position: inside;
+    margin-left: 20px;
   }
 
   .details {
     p {
       margin: 10px 0 25px;
-    }
-
-    ul {
-      margin-left: 40px;
     }
   }
 
@@ -57,19 +63,6 @@ body.staff {
 
     p {
       margin: 0px;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #000000;
-
-      &:hover {
-        text-decoration: underline;
-      }
     }
   }
 }

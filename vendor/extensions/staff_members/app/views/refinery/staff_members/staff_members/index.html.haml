@@ -1,0 +1,10 @@
+- content_for :body_content_title, 'Meet our staff'
+- content_for :body_content_left do
+  - @left_categories.each do |staff_category|
+    = render partial: 'staff_category', locals: {staff_category: staff_category}
+
+- content_for :body_content_right do
+  - @right_categories.each do |staff_category|
+    = render partial: 'staff_category', locals: {staff_category: staff_category}
+
+= render '/refinery/content_page'
