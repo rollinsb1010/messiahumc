@@ -1,0 +1,32 @@
+es:
+  refinery:
+    plugins:
+      staff_members:
+        title: Staff Members
+#        article: masculino/femenino
+    staff_members:
+      admin:
+        staff_members:
+          actions:
+            create_new: Crear nuevo staff member
+            reorder: Reordenar staff members
+            reorder_done: Reordenación de staff members completada
+          records:
+            title: Staff Members
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay staff members todavía. Pulsa en "Crear nuevo Staff Member" para crear tu primer staff member.
+          staff_member:
+            view_live_html: Ver este staff member como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este staff member
+            delete: Borrar este staff member para siempre
+      staff_members:
+        show:
+          other: Otros staff members
+  activerecord:
+    attributes:
+      'refinery/staff_members/staff_member':
+        name: Name
+        category_id: Category
+        photo: Photo
+        bio: Bio
+        email: Email
