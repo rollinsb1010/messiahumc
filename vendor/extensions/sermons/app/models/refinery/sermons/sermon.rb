@@ -1,7 +1,11 @@
 module Refinery
   module Sermons
     class Sermon < Refinery::Core::BaseModel
+      extend FriendlyId
+      friendly_id :name, use: :slugged
+
       default_scope order: 'position ASC'
+
       self.table_name = 'refinery_sermons'
 
       acts_as_indexed fields: [:title, :location, :description, :scripture_reading]
