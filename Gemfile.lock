@@ -35,7 +35,7 @@ PATH
     refinerycms-pastors (1.0)
       refinerycms-core (~> 2.0.0)
     refinerycms-sermons (1.0)
-      refinerycms-core (~> 2.0.0)
+      refinerycms-core (~> 2.0.1)
     refinerycms-staff_members (1.0)
       refinerycms-core (~> 2.0.1)
 

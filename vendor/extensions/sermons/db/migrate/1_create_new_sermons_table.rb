@@ -1,4 +1,4 @@
-class CreateSermonsSermons < ActiveRecord::Migration
+class CreateNewSermonsTable < ActiveRecord::Migration
 
   def up
     create_table :refinery_sermons do |t|
