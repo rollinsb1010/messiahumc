@@ -1,6 +1,6 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(sermon) -%>">
   <span class='title'>
-    <%= sermon.speaker %>
+    <%= sermon.title %>
 
   </span>
   <span class='actions'>
@@ -14,7 +14,7 @@
     <%= link_to refinery_icon_tag("delete.png"), refinery.sermons_admin_sermon_path(sermon),
         :class => "cancel confirm-delete",
         :title => t('.delete'),
-        :confirm => t('message', :scope => 'refinery.admin.delete', :title => sermon.speaker),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => sermon.title),
         :method => :delete %>
   </span>
 </li>

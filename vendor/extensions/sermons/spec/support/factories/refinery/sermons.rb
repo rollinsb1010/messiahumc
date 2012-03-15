@@ -1,7 +1,7 @@
 
 FactoryGirl.define do
   factory :sermon, :class => Refinery::Sermons::Sermon do
-    sequence(:speaker) { |n| "refinery#{n}" }
+    sequence(:title) { |n| "refinery#{n}" }
   end
 end
 

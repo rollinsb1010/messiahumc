@@ -24,7 +24,11 @@ en:
   activerecord:
     attributes:
       'refinery/sermons/sermon':
+        pastor_id: Pastor
         date: Date
-        speaker: Speaker
-        service: Service
         title: Title
+        location: Location
+        description: Description
+        scripture_reading: Scripture Reading
+        mp3_file: Mp3 File
+        image: Image

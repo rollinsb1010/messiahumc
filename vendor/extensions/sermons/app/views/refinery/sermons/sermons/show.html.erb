@@ -1,8 +1,14 @@
 <% content_for :body_content_title do %>
-  <%= @sermon.speaker %>
+  <%= @sermon.title %>
 <% end %>
 
 <% content_for :body_content_left do %>
+  <section>
+    <h1>Pastor</h1>
+    <p>
+      <%=raw @sermon.pastor_id %>
+    </p>
+  </section>
   <section>
     <h1>Date</h1>
     <p>
@@ -10,21 +16,43 @@
     </p>
   </section>
   <section>
-    <h1>Speaker</h1>
-    <p>
-      <%=raw @sermon.speaker %>
-    </p>
-  </section>
-  <section>
-    <h1>Service</h1>
-    <p>
-      <%=raw @sermon.service %>
-    </p>
-  </section>
-  <section>
     <h1>Title</h1>
     <p>
       <%=raw @sermon.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Location</h1>
+    <p>
+      <%=raw @sermon.location %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @sermon.description %>
+    </p>
+  </section>
+  <section>
+    <h1>Scripture Reading</h1>
+    <p>
+      <%=raw @sermon.scripture_reading %>
+    </p>
+  </section>
+  <section>
+    <h1>Mp3 File</h1>
+    <p>
+      <% if @sermon.mp3_file.present? %>
+        <%= link_to 'mp3_file', @sermon.mp3_file.url %>
+      <% else %>
+        mp3_file
+      <% end %>
+    </p>
+  </section>
+  <section>
+    <h1>Image</h1>
+    <p>
+      <%= image_fu @sermon.image, nil %>
     </p>
   </section>
 <% end %>
@@ -35,7 +63,7 @@
     <ul id="sermons">
       <% @sermons.each do |sermon| %>
         <li>
-          <%= link_to sermon.speaker, refinery.sermons_sermon_path(sermon) %>
+          <%= link_to sermon.title, refinery.sermons_sermon_path(sermon) %>
         </li>
       <% end %>
     </ul>

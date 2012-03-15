@@ -2,7 +2,7 @@
   <ul id="sermons">
     <% @sermons.each do |sermon| %>
       <li>
-        <%= link_to sermon.speaker, refinery.sermons_sermon_path(sermon) %>
+        <%= link_to sermon.title, refinery.sermons_sermon_path(sermon) %>
       </li>
     <% end %>
   </ul>
