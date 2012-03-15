@@ -5,7 +5,7 @@
     = collection_select :staff_member, :pastor_id, @pastors, :id, :name, {include_blank: 'Please select'}
   .field
     = f.label :date
-    = f.date_select :date
+    = f.date_select :date, {default: @default_date}
   .field
     = f.label :title
     = f.text_field :title
