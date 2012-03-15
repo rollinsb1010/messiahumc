@@ -2,7 +2,7 @@
   = render '/refinery/admin/error_messages', object: @sermon, include_object_name: true
   .field
     = f.label :pastor_id
-    = f.number_field :pastor_id
+    = collection_select :staff_member, :pastor_id, @pastors, :id, :name, {include_blank: 'Please select'}
   .field
     = f.label :date
     = f.date_select :date
