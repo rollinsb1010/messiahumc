@@ -211,7 +211,7 @@ ActiveRecord::Schema.define(:version => 20120315191745) do
     t.string   "title"
     t.string   "location"
     t.text     "description"
-    t.text     "scripture_reading"
+    t.string   "scripture_reading"
     t.integer  "mp3_file_id"
     t.integer  "image_id"
     t.integer  "position"
