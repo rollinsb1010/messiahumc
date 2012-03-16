@@ -24,7 +24,7 @@ task insert_sermons: :environment do
         title: sermon[:title],
         scripture_reading: sermon[:scripture_reading],
         position: index,
-        mp3_file: ::Refinery::Resource.create(file: open(sermon[:mp3]).read, title: sermon[:title].titleize)
+        mp3_file: ::Refinery::Resource.create(file: open(sermon[:mp3]).read, file_name: sermon[:title].titleize)
       )
 
   end
