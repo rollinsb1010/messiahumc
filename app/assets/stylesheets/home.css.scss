@@ -1,3 +1,50 @@
+.whole_main_body {
+  background: url(/assets/staff_pattern.jpg) repeat-x #FFFDE9;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: normal;
+  height: 85px;
+}
+
+h2 {
+  margin: 25px 0 10px;
+  color: #5F3D6F;
+}
+
+ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-left: 40px;
+}
+
+ol {
+  list-style: none;
+  list-style-position: inside;
+  margin-left: 40px;
+  line-height: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.inner {
+  font-family: Helvetica;
+  font-size: 14px;
+}
+
+#body_content {
+  padding: 10px 30px;
+  width: 1000px;
+}
+
 body.home {
   background: url('home_pattern.png');
 
@@ -38,7 +85,8 @@ body.home {
       font-family: 'Open Sans Condensed';
       font-size: 24px;
       font-weight: 300px;
-      margin-bottom: 15px;
+      margin: 0 0 15px;
+      color: #000000;
     }
   }
 
@@ -122,6 +170,8 @@ body.home {
 
   #sections {
     list-style: none;
+    margin: 0;
+
     li {
       height: 0;
       overflow: hidden;

@@ -1,54 +1,7 @@
 body.staff {
-  .whole_main_body {
-    background: url(/assets/staff_pattern.jpg) repeat-x #FFFDE9;
-  }
-
-  h1 {
-    font-size: 30px;
-    font-weight: normal;
-    height: 85px;
-  }
-
-  a {
-    text-decoration: none;
-    color: #000000;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  #body_content {
-    padding: 10px 30px;
-    width: 1000px;
-  }
-
-  .inner {
-    font-family: Helvetica;
-    font-size: 14px;
-  }
-
   .job_title {
     margin-bottom: 40px;
     margin-top: -45px;
-  }
-
-  h2 {
-    margin: 25px 0 10px;
-    color: #5F3D6F;
-  }
-
-  ul {
-    list-style: disc;
-    list-style-position: inside;
-    margin-left: 40px;
-  }
-
-  ol {
-    list-style: none;
-    list-style-position: inside;
-    margin-left: 40px;
-    line-height: 18px;
   }
 
   .details {
