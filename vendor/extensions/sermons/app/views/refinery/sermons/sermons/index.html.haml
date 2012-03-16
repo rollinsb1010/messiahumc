@@ -10,7 +10,7 @@
     %tbody
       - @sermons.each do |sermon|
         %td= sermon.date.strftime('%-m/%-d/%Y')
-        %td= sermon.location.titleize
+        %td.location= sermon.location
         %td= sermon.title
         %td= sermon.pastor.name
         %td= raw sermon.scripture_reading

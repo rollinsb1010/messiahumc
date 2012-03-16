@@ -35,11 +35,6 @@ a {
   }
 }
 
-.inner {
-  font-family: Helvetica;
-  font-size: 14px;
-}
-
 table {
   width: 100%;
 }
@@ -51,6 +46,15 @@ th {
 #body_content {
   padding: 10px 30px;
   width: 1000px;
+}
+
+.inner {
+  font-family: Helvetica;
+  font-size: 14px;
+}
+
+.location {
+  text-transform: capitalize;
 }
 
 body.home {

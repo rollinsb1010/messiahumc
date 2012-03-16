@@ -1,0 +1,40 @@
+- content_for :body_content_title do
+  = @sermon.title
+
+- content_for :body_content_left do
+  %section
+    %h2 Pastor
+    %p= raw @sermon.pastor.name
+  %section
+    %h2 Date
+    %p= raw @sermon.date
+  %section
+    %h2 Title
+    %p= raw @sermon.title
+  %section
+    %h2 Location
+    %p.location= raw @sermon.location
+  - if @sermon.description.present?
+    %section
+      %h2 Description
+      %p= raw @sermon.description
+  %section
+    %h2 Scripture Reading
+    %p= raw @sermon.scripture_reading
+  - if @sermon.mp3_file.present?
+    %section
+      %h2 Mp3 File
+      %p= link_to @sermon.mp3_file.title, @sermon.mp3_file.url
+  - if @sermon.image.present?
+    %section
+      %h2 Image
+      %p= image_fu @sermon.image, nil
+
+- content_for :body_content_right do
+  %aside
+    %h2 Other Sermons
+    %ul#sermons
+      - @sermons.each do |sermon|
+        %li= link_to sermon.title, refinery.sermons_sermon_path(sermon)
+
+= render '/refinery/content_page'
