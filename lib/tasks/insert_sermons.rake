@@ -1,6 +1,5 @@
 require 'open-uri'
 task insert_sermons: :environment do
-  ActiveRecord::Base.transaction do
     ::Refinery::Sermons::Sermon.delete_all
 
     sermons = [
@@ -18,7 +17,6 @@ task insert_sermons: :environment do
 
     sermons.each_with_index do |sermon, index|
       puts 'Inserting sermon '+sermon[:title]
-
       ::Refinery::Sermons::Sermon.create(
         date: Chronic.parse(sermon[:date]),
         pastor: ::Refinery::Pastors::Pastor.find_or_create_by_name(sermon[:by]),
@@ -26,9 +24,8 @@ task insert_sermons: :environment do
         title: sermon[:title],
         scripture_reading: sermon[:scripture_reading],
         position: index,
-        mp3_file: ::Refinery::Resource.create(file: open(sermon[:mp3]).read)
+        mp3_file: ::Refinery::Resource.create(file: open(sermon[:mp3]).read, title: sermon[:title].titleize)
       )
 
-    end
   end
 end

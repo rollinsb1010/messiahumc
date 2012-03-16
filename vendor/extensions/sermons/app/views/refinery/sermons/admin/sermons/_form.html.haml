@@ -13,13 +13,16 @@
     = f.label :location
     = select(:sermon, :location, { 'Sanctuary' => 'sanctuary', 'Celebration' => 'celebration'})
   .field
+    = f.label :scripture_reading
+    = f.text_field :scripture_reading
+  .field
     #page-tabs{class: 'clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'}
       %ul#page_parts
-        - [:description, :scripture_reading].each_with_index do |part, part_index|
+        - [:description].each_with_index do |part, part_index|
           %li{class: "ui-state-default#{' ui-state-active' if part_index == 0}"}
             = link_to t("#{part}", scope: "activerecord.attributes.refinery/sermons/sermon", default: part.to_s.titleize), "##{part}"
       #page_part_editors
-        - [:description, :scripture_reading].each do |part|
+        - [:description].each do |part|
           .page_part{id:"#{part}"}
             = f.text_area part, rows: 20, class: 'wymeditor widest'
   .field
