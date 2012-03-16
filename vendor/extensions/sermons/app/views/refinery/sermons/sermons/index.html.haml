@@ -9,11 +9,12 @@
       %th
     %tbody
       - @sermons.each do |sermon|
-        %td= sermon.date.strftime('%-m/%-d/%Y')
-        %td.location= sermon.location
-        %td= sermon.title
-        %td= sermon.pastor.name
-        %td= raw sermon.scripture_reading
-        %td= link_to 'View', refinery.sermons_sermon_path(sermon)
+        %tr
+          %td= sermon.date.strftime('%-m/%-d/%Y')
+          %td.location= sermon.location
+          %td= sermon.title
+          %td= sermon.pastor.name
+          %td= raw sermon.scripture_reading
+          %td= link_to 'View', refinery.sermons_sermon_path(sermon)
 
 = render '/refinery/content_page'
