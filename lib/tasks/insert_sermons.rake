@@ -30,7 +30,7 @@ task insert_sermons: :environment do
         mp3_file: mp3_file
       )
 
-      mp3_file.file_name = sermon[:title]
+      mp3_file.file_name = sermon[:title]+".mp3"
       mp3_file.save
   end
 end
