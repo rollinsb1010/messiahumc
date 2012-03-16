@@ -27,34 +27,36 @@
       <%=raw @sermon.location %>
     </p>
   </section>
-  <section>
-    <h1>Description</h1>
-    <p>
-      <%=raw @sermon.description %>
-    </p>
-  </section>
+  <% if @sermon.description.present? %>
+    <section>
+      <h1>Description</h1>
+      <p>
+        <%=raw @sermon.description %>
+      </p>
+    </section>
+  <% end%>
   <section>
     <h1>Scripture Reading</h1>
     <p>
       <%=raw @sermon.scripture_reading %>
     </p>
   </section>
-  <section>
-    <h1>Mp3 File</h1>
-    <p>
-      <% if @sermon.mp3_file.present? %>
+  <% if @sermon.mp3_file.present? %>
+    <section>
+      <h1>Mp3 File</h1>
+      <p>
         <%= link_to 'mp3_file', @sermon.mp3_file.url %>
-      <% else %>
-        mp3_file
-      <% end %>
-    </p>
-  </section>
-  <section>
-    <h1>Image</h1>
-    <p>
-      <%= image_fu @sermon.image, nil %>
-    </p>
-  </section>
+      </p>
+    </section>
+  <% end %>
+  <% if @sermon.image.present? %>
+    <section>
+      <h1>Image</h1>
+      <p>
+        <%= image_fu @sermon.image, nil %>
+      </p>
+    </section>
+  <% end %>
 <% end %>
 
 <% content_for :body_content_right do %>
