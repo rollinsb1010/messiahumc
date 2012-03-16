@@ -13,7 +13,7 @@ module Refinery
       validates :pastor, presence: true
       validates :title, presence: true
       validates :date, presence: true
-      validates :location, presence: true, inclusion: {in: %w(sactuary celebration)}
+      validates :location, presence: true, inclusion: {in: %w(sanctuary celebration)}
 
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :mp3_file, class_name: '::Refinery::Resource'
