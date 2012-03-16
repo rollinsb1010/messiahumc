@@ -1,11 +1,15 @@
-class CreateSermonsSermons < ActiveRecord::Migration
+class CreateNewSermonsTable < ActiveRecord::Migration
 
   def up
     create_table :refinery_sermons do |t|
-      t.datetime :date
-      t.string :speaker
-      t.boolean :service
+      t.integer :pastor_id
+      t.date :date
       t.string :title
+      t.string :location
+      t.text :description
+      t.string :scripture_reading
+      t.integer :mp3_file_id
+      t.integer :image_id
       t.integer :position
 
       t.timestamps

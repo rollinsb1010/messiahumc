@@ -6,12 +6,12 @@ module Refinery
       describe "validations" do
         subject do
           FactoryGirl.create(:sermon,
-          :speaker => "Refinery CMS")
+          :title => "Refinery CMS")
         end
 
         it { should be_valid }
         its(:errors) { should be_empty }
-        its(:speaker) { should == "Refinery CMS" }
+        its(:title) { should == "Refinery CMS" }
       end
     end
   end

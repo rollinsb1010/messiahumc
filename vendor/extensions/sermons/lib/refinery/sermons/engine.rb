@@ -6,17 +6,13 @@ module Refinery
 
       engine_name :refinery_sermons
 
-      initializer "register refinerycms_sermons plugin" do |app|
+      initializer "register refinerycms_sermons plugin" do
         Refinery::Plugin.register do |plugin|
           plugin.name = "sermons"
-          plugin.url = {
-            :controller => 'refinery/sermons/admin/sermons',
-            :action => 'index'
-          }
+          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.sermons_admin_sermons_path }
           plugin.pathname = root
           plugin.activity = {
-            :class_name => :'refinery/sermons/sermon',
-            :title => 'speaker'
+            :class_name => :'refinery/sermons/sermon'
           }
           
         end

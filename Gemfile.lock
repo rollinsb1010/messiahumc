@@ -35,7 +35,7 @@ PATH
     refinerycms-pastors (1.0)
       refinerycms-core (~> 2.0.0)
     refinerycms-sermons (1.0)
-      refinerycms-core (~> 2.0.0)
+      refinerycms-core (~> 2.0.1)
     refinerycms-staff_members (1.0)
       refinerycms-core (~> 2.0.1)
 
@@ -77,6 +77,7 @@ GEM
     babosa (0.3.5)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    chronic (0.6.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -257,6 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic
   coffee-rails (~> 3.2.2)
   fog
   foreman

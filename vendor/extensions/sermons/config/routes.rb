@@ -1,4 +1,4 @@
-Refinery::Core::Engine.routes.draw do
+Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :sermons do

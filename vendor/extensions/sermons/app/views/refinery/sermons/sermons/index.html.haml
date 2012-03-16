@@ -1,0 +1,20 @@
+- content_for :body_content_left do
+  %table#sermons
+    %thead
+      %th Date Given
+      %th Location
+      %th Title
+      %th Pastor
+      %th Scripture Reading
+      %th
+    %tbody
+      - @sermons.each do |sermon|
+        %tr
+          %td= sermon.date.strftime('%-m/%-d/%Y')
+          %td.location= sermon.location
+          %td= sermon.title
+          %td= sermon.pastor.name
+          %td= raw sermon.scripture_reading
+          %td= link_to 'View', refinery.sermons_sermon_path(sermon)
+
+= render '/refinery/content_page'
