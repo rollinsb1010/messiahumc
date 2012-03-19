@@ -1,0 +1,29 @@
+nl:
+  refinery:
+    plugins:
+      messengers:
+        title: Messengers
+    messengers:
+      admin:
+        messengers:
+          actions:
+            create_new: Maak een nieuwe Messenger
+            reorder: Wijzig de volgorde van de Messengers
+            reorder_done: Klaar met het wijzingen van de volgorde van de Messengers
+          records:
+            title: Messengers
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Messengers. Druk op 'Maak een nieuwe Messenger' om de eerste aan te maken.
+          messenger:
+            view_live_html: Bekijk deze messenger op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze messenger
+            delete: Verwijder deze messenger voor eeuwig
+      messengers:
+        show:
+          other: Andere Messengers
+  activerecord:
+    attributes:
+      'refinery/messengers/messenger':
+        messenger_type: Messenger Type
+        published_at: Published At
+        pdf_file: Pdf File

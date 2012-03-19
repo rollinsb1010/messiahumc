@@ -1,0 +1,29 @@
+fr:
+  refinery:
+    plugins:
+      messengers:
+        title: Messengers
+    messengers:
+      admin:
+        messengers:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Messenger
+            reorder: Réordonner les Messengers
+            reorder_done: Fin de réordonnancement des Messengers
+          records:
+            title: Messengers
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Messenger. Cliquer sur "Créer un(e) nouve(au/l/lle) Messenger" pour créer votre premi(er/ère) messenger.'
+          messenger:
+            view_live_html: Voir ce(t/tte) messenger <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) messenger
+            delete: Supprimer définitivement ce(t/tte) messenger
+      messengers:
+        show:
+          other: Autres Messengers
+  activerecord:
+    attributes:
+      'refinery/messengers/messenger':
+        messenger_type: Messenger Type
+        published_at: Published At
+        pdf_file: Pdf File

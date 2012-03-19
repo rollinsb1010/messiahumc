@@ -1,0 +1,30 @@
+es:
+  refinery:
+    plugins:
+      messengers:
+        title: Messengers
+#        article: masculino/femenino
+    messengers:
+      admin:
+        messengers:
+          actions:
+            create_new: Crear nuevo messenger
+            reorder: Reordenar messengers
+            reorder_done: Reordenación de messengers completada
+          records:
+            title: Messengers
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay messengers todavía. Pulsa en "Crear nuevo Messenger" para crear tu primer messenger.
+          messenger:
+            view_live_html: Ver este messenger como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este messenger
+            delete: Borrar este messenger para siempre
+      messengers:
+        show:
+          other: Otros messengers
+  activerecord:
+    attributes:
+      'refinery/messengers/messenger':
+        messenger_type: Messenger Type
+        published_at: Published At
+        pdf_file: Pdf File
