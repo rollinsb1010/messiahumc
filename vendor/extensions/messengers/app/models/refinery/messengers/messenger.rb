@@ -4,9 +4,12 @@ module Refinery
       self.table_name = 'refinery_messengers'
 
       default_scope order: 'published_at desc'
+
       scope :published, where('published_at < ?', Time.now)
-      scope :weekly, published.where(messenger_type: 'weekly')
-      scope :monthly, published.where(messenger_type: 'monthly')
+      scope :for_last_calendar_year, published.where('published_at > ?', Time.now.beginning_of_year)
+
+      scope :weekly, for_last_calendar_year.where(messenger_type: 'weekly')
+      scope :monthly, for_last_calendar_year.where(messenger_type: 'monthly')
 
       validates :messenger_type, presence: true
       validates :published_at, presence: true
