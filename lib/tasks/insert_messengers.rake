@@ -16,7 +16,7 @@ task insert_messengers: :environment do
 
       ::Refinery::Messengers::Messenger.create(messenger_type: messenger[:messenger_type], published_at: date, pdf_file: pdf_file)
 
-      pdf_file.file_name = "#{messenger[:title]}.mp3"
+      pdf_file.file_name = "#{messenger[:title]}.pdf"
       pdf_file.save
     end
 end
