@@ -26,6 +26,7 @@ body {
 }
 
 .whole_main_body {
+  background: url(/assets/staff_pattern.jpg) repeat-x #FFFDE9;
   padding-bottom: 50px;
 }
 
@@ -188,28 +189,6 @@ body {
   }
 }
 
-
-/* h1 { */
-/*   font-size: 30px; */
-/*   margin-bottom: 30px; */
-/*   line-height: 36px; */
-/* } */
-/*  */
-/*  */
-/* h1 a { */
-/*   text-decoration: none; */
-/* } */
-/*  */
-/* h2 { */
-/*   font-size: 18px; */
-/*   color: #808040; */
-/*   margin-top: 20px; */
-/* } */
-/*  */
-/* #menu { */
-/*   float: left; */
-/* } */
-
 #page, #site_bar_content, header {
   width: 1400px;
 }
@@ -218,53 +197,14 @@ body {
   clear: left;
 }
 
-/* #site_search_form { */
-/*   float: right; */
-/*   padding-top: 5px; */
-/* } */
-/*  */
-/* #menu ul { */
-/*   list-style: none; */
-/*   padding: 0px; */
-/*   height: 50px; */
-/* } */
-/*  */
-/* #menu ul li { */
-/*   float: left; */
-/*   margin-right: 10px; */
-/*   font-size: 18px; */
-/* } */
-/*  */
-/* #menu ul li a { */
-/*   display: block; */
-/*   padding: 5px 10px; */
-/*   text-decoration: none; */
-/* } */
-/*  */
-/* #menu ul li.selected a, #menu ul li a:hover { */
-/*   color: #808040 */
-/* } */
-/*  */
-/* #footer_location { */
-/*   padding-top: 30px; */
-/* } */
-/*  */
-/* #footer_location > div { */
-/*   float: left; */
-/*   padding-right: 25px; */
-/* } */
-/*  */
-/* #copyright { */
-/*   clear: left; */
-/* } */
-/*  */
 p {
   margin: 10px 0;
 }
 
 ul {
-  list-style: disc outside;
-  margin: 20px 0;
+  list-style: disc;
+  list-style-position: inside;
+  margin-left: 40px;
 }
 
 ul#gallery {
@@ -277,10 +217,6 @@ ul#gallery {
   }
 }
 
-/* ul li { */
-/*   margin: 5px 20px 5px 40px; */
-/* } */
-
 .left {
   float: left;
 }
@@ -288,3 +224,57 @@ ul#gallery {
 .right {
   float: right;
 }
+
+h1 {
+  font-size: 30px;
+  font-weight: normal;
+  height: 85px;
+}
+
+h2 {
+  margin: 25px 0 10px;
+  color: #5F3D6F;
+}
+
+ol {
+  list-style: none;
+  list-style-position: inside;
+  margin-left: 40px;
+  line-height: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+td, th {
+  padding: 5px 10px;
+}
+
+#body_content {
+  padding: 10px 30px;
+  width: 1000px;
+}
+
+.inner {
+  font-family: Helvetica;
+  font-size: 14px;
+}
+
+.location {
+  text-transform: capitalize;
+}
+
