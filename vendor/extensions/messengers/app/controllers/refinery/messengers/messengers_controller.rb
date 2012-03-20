@@ -11,18 +11,11 @@ module Refinery
         present(@page)
       end
 
-      def show
-        @messenger = Messenger.find(params[:id])
-
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @messenger in the line below:
-        present(@page)
-      end
-
     protected
 
       def find_all_messengers
-        @messengers = Messenger.order('position ASC')
+        @weekly_messengers = Messenger.weekly
+        @monthly_messengers = Messenger.monthly
       end
 
       def find_page
