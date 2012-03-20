@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(:version => 20120319214932) do
 
   create_table "refinery_messengers", :force => true do |t|
     t.string   "messenger_type"
-    t.datetime "published_at"
+    t.date     "published_at"
     t.integer  "pdf_file_id"
     t.integer  "position"
     t.datetime "created_at",     :null => false

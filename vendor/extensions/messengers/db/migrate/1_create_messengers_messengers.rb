@@ -3,7 +3,7 @@ class CreateMessengersMessengers < ActiveRecord::Migration
   def up
     create_table :refinery_messengers do |t|
       t.string :messenger_type
-      t.datetime :published_at
+      t.date :published_at
       t.integer :pdf_file_id
       t.integer :position
 
