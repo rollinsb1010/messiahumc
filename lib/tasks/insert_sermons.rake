@@ -18,7 +18,7 @@ task insert_sermons: :environment do
 
     sermons.each_with_index do |sermon, index|
       puts "Inserting sermon #{sermon[:title]}"
-      mp3_file = ::Refinery::Resource.create(file: open(sermon[:mp3]).read, file_name: sermon[:title].titleize)
+      mp3_file = ::Refinery::Resource.create(file: open(sermon[:mp3]).read)
       ::Refinery::Sermons::Sermon.create(
         date: Chronic.parse(sermon[:date]),
         pastor: ::Refinery::Pastors::Pastor.find_or_create_by_name(sermon[:by]),

@@ -5,7 +5,7 @@ task insert_messengers: :environment do
 
     messengers = [
       {date: 'march 18 2012', messenger_type: 'weekly', title: 'Weekly Messenger', pdf: 'http://www.messiahumc.net/comimages/WeeklyMessenger.pdf'},
-      {date: 'march 2012', messenger_type: 'monthly', title: '2012 Mar-Apr Messenger', pdf: 'http://www.messiahumc.net/comimages/2012%20Mar-Apr%20Messenger.pdf'},
+      {date: 'march 1 2012', messenger_type: 'monthly', title: '2012 Mar-Apr Messenger', pdf: 'http://www.messiahumc.net/comimages/2012%20Mar-Apr%20Messenger.pdf'},
     ]
 
     messengers.each do |messenger|
