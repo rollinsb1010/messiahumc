@@ -32,6 +32,8 @@ GIT
 PATH
   remote: vendor/extensions
   specs:
+    refinerycms-messengers (1.0)
+      refinerycms-core (~> 2.0.1)
     refinerycms-pastors (1.0)
       refinerycms-core (~> 2.0.0)
     refinerycms-sermons (1.0)
@@ -272,6 +274,7 @@ DEPENDENCIES
   refinerycms-calendar!
   refinerycms-copywriting!
   refinerycms-i18n (~> 2.0.0)
+  refinerycms-messengers!
   refinerycms-page-images!
   refinerycms-pastors!
   refinerycms-search!

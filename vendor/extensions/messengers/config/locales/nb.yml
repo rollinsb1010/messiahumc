@@ -1,0 +1,29 @@
+nb:
+  refinery:
+    plugins:
+      messengers:
+        title: Messengers
+    messengers:
+      admin:
+        messengers:
+          actions:
+            create_new: Lag en ny Messenger
+            reorder: Endre rekkefølgen på Messengers
+            reorder_done: Ferdig å endre rekkefølgen Messengers
+          records:
+            title: Messengers
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Messengers enda. Klikk på "Lag en ny Messenger" for å legge til din første messenger.
+          messenger:
+            view_live_html: Vis hvordan denne messenger ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne messenger
+            delete: Fjern denne messenger permanent
+      messengers:
+        show:
+          other: Andre Messengers
+  activerecord:
+    attributes:
+      'refinery/messengers/messenger':
+        messenger_type: Messenger Type
+        published_at: Published At
+        pdf_file: Pdf File

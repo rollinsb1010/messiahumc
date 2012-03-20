@@ -1,0 +1,14 @@
+%li.clearfix.record{class: cycle("on", "on-hover"), id: dom_id(messenger)}
+  %span.title= messenger.title
+
+  %span.actions
+    = link_to refinery_icon_tag("application_go.png"), refinery.messengers_messengers_path,
+        title: t('.view_live_html'),
+        target: "_blank"
+    = link_to refinery_icon_tag("application_edit.png"), refinery.edit_messengers_admin_messenger_path(messenger),
+         title: t('.edit')
+    = link_to refinery_icon_tag("delete.png"), refinery.messengers_admin_messenger_path(messenger),
+        class: "cancel confirm-delete",
+        title: t('.delete'),
+        confirm: t('message', scope: 'refinery.admin.delete', title: messenger.messenger_type),
+        method: :delete

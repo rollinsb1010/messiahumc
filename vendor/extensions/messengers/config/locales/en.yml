@@ -1,0 +1,29 @@
+en:
+  refinery:
+    plugins:
+      messengers:
+        title: Messengers
+    messengers:
+      admin:
+        messengers:
+          actions:
+            create_new: Add New Messenger
+            reorder: Reorder Messengers
+            reorder_done: Done Reordering Messengers
+          records:
+            title: Messengers
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Messengers yet. Click "Add New Messenger" to add your first messenger.
+          messenger:
+            view_live_html: View this messenger live <br/><em>(opens in a new window)</em>
+            edit: Edit this messenger
+            delete: Remove this messenger forever
+      messengers:
+        show:
+          other: Other Messengers
+  activerecord:
+    attributes:
+      'refinery/messengers/messenger':
+        messenger_type: Messenger Type
+        published_at: Published At
+        pdf_file: Pdf File
