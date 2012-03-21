@@ -5,6 +5,20 @@ en:
         title: Ministries
     ministries:
       admin:
+        ministry_categories:
+          actions:
+            create_new: Add New Ministry Category
+            reorder: Reorder Ministry Categories
+            reorder_done: Done Reordering Ministry Categories
+            manage_categories: Manage Categories
+            manage_ministries: Manage Ministry Members
+          records:
+            title: Ministry Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Ministry Categories yet. Click "Add New Ministry Category" to add your first Ministry Category.
+          ministry_category:
+            edit: Edit this Ministry Category
+            delete: Remove this Ministry Category forever
         ministries:
           actions:
             create_new: Add New Ministry
