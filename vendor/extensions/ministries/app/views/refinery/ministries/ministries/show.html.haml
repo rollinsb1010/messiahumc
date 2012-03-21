@@ -1,0 +1,15 @@
+- content_for :body_content_title do
+  = @ministry.name
+
+- content_for :body_content_left do
+  .details
+    %section
+      %h2 Description
+      =raw @ministry.description
+
+- content_for :body_content_right do
+  - unless @ministry.logo.nil?
+    %aside.ministry_right
+      %p= image_fu @ministry_member.logo, '257x371#c'
+
+= render '/refinery/content_page'
