@@ -11,7 +11,7 @@ en:
             reorder: Reorder Ministry Categories
             reorder_done: Done Reordering Ministry Categories
             manage_ministry_categories: Manage Ministry Categories
-            manage_ministries: Manage Ministry Members
+            manage_ministries: Manage Ministries
           records:
             title: Ministry Categories
             sorry_no_results: Sorry! There are no results found.
