@@ -3,10 +3,10 @@
     %li
       = render '/refinery/admin/search', url: refinery.ministries_admin_ministries_path
   %li
-    = link_to t('.create_new'), refinery.new_ministries_admin_ministry_path, class: "add_icon"
+    = link_to t('.create_new'), refinery.new_ministries_admin_ministry_category_path, class: "add_icon"
   - if !searching? && ::Refinery::Ministries::Admin::MinistriesController.sortable? && ::Refinery::Ministries::Ministry.any?
     %li
       = link_to t('.reorder', what: "Ministries"), refinery.ministries_admin_ministries_path, id: "reorder_action", class: "reorder_icon"
       = link_to t('.reorder_done', what: "Ministries"), refinery.ministries_admin_ministries_path, id: "reorder_action_done", style: "display: none;", class: "reorder_icon"
   %li
-    = link_to t('.manage_categories', what: 'Ministries'), refinery.ministries_admin_ministry_categories_path, class: "edit_icon"
+    = link_to t('.manage_ministries', what: 'Ministries'), refinery.ministries_admin_ministries_path, class: "edit_icon"
