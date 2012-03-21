@@ -10,6 +10,7 @@ en:
             create_new: Add New Ministry
             reorder: Reorder Ministries
             reorder_done: Done Reordering Ministries
+            manage_categories: Manage Categories
           records:
             title: Ministries
             sorry_no_results: Sorry! There are no results found.
