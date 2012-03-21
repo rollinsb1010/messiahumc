@@ -2,7 +2,7 @@ module Refinery
   module Ministries
     class MinistriesController < ::ApplicationController
 
-      before_filter :find_all_ministries
+      before_filter :find_all_ministries, only: [:index]
       before_filter :find_page
 
       def index
@@ -22,7 +22,8 @@ module Refinery
     protected
 
       def find_all_ministries
-        @ministries = Ministry.order('position ASC')
+        @left_ministries = MinistryCategory.left
+        @right_ministries = MinistryCategory.right
       end
 
       def find_page
