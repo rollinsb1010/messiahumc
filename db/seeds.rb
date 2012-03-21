@@ -22,3 +22,5 @@ Refinery::Calendar::Engine.load_seed
 Refinery::StaffMembers::Engine.load_seed
 
 Refinery::Messengers::Engine.load_seed
+
+Refinery::Ministries::Engine.load_seed

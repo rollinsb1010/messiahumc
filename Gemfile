@@ -64,3 +64,4 @@ gem 'refinerycms-calendar', git: 'git://github.com/lilibethdlc/refinerycms-calen
 gem 'refinerycms-staff_members', :path => 'vendor/extensions'
 
 gem 'refinerycms-messengers', :path => 'vendor/extensions'
+gem 'refinerycms-ministries', :path => 'vendor/extensions'
