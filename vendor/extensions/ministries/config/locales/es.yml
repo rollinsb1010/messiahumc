@@ -1,0 +1,31 @@
+es:
+  refinery:
+    plugins:
+      ministries:
+        title: Ministries
+#        article: masculino/femenino
+    ministries:
+      admin:
+        ministries:
+          actions:
+            create_new: Crear nuevo ministry
+            reorder: Reordenar ministries
+            reorder_done: Reordenación de ministries completada
+          records:
+            title: Ministries
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay ministries todavía. Pulsa en "Crear nuevo Ministry" para crear tu primer ministry.
+          ministry:
+            view_live_html: Ver este ministry como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este ministry
+            delete: Borrar este ministry para siempre
+      ministries:
+        show:
+          other: Otros ministries
+  activerecord:
+    attributes:
+      'refinery/ministries/ministry':
+        name: Name
+        ministry_category_id: Ministry Category
+        description: Description
+        logo: Logo

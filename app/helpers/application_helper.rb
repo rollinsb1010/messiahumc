@@ -10,5 +10,6 @@ module ApplicationHelper
   def body_classes
     return 'home' if request.fullpath == '//'
     return 'staff' if request.fullpath =~ /(pastors\/)|(staff_members)/
+    return 'ministry' if request.fullpath =~ /ministries/
   end
 end

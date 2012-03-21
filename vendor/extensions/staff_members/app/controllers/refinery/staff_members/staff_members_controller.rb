@@ -2,7 +2,7 @@ module Refinery
   module StaffMembers
     class StaffMembersController < ::ApplicationController
 
-      before_filter :find_all_staff_members
+      before_filter :find_all_staff_members, only: [:index]
       before_filter :find_page
 
       def index

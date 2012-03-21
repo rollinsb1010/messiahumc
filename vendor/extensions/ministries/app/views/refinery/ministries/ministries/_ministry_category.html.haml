@@ -1,0 +1,5 @@
+.ministry_category.category
+  %h2= ministry_category.name
+  %ol
+    - ministry_category.ministries.each do |ministry|
+      %li= link_to ministry.name, refinery.ministries_ministry_path(ministry)

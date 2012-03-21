@@ -4,12 +4,6 @@ body.staff {
     margin-top: -45px;
   }
 
-  .details {
-    p {
-      margin: 10px 0 25px;
-    }
-  }
-
   .staff_right {
     border-radius: 5px 5px 5px 5px;
     border: 1px solid #AFAFAF;
@@ -24,21 +18,5 @@ body.staff {
     p {
       margin: 0px;
     }
-  }
-
-  .staff_category {
-    h2 {
-      font-weight: bold;
-      font-size: 16px;
-      color: #6D0818;
-      padding-left: 22px;
-      text-decoration: underline;
-      background: url(/assets/bullet_18x19.png) no-repeat transparent;
-      height: 20px;
-    }
-  }
-
-  .left, .right {
-    width: 50%;
   }
 }

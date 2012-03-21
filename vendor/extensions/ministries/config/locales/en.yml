@@ -1,0 +1,45 @@
+en:
+  refinery:
+    plugins:
+      ministries:
+        title: Ministries
+    ministries:
+      admin:
+        ministry_categories:
+          actions:
+            create_new: Add New Ministry Category
+            reorder: Reorder Ministry Categories
+            reorder_done: Done Reordering Ministry Categories
+            manage_ministry_categories: Manage Ministry Categories
+            manage_ministries: Manage Ministries
+          records:
+            title: Ministry Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Ministry Categories yet. Click "Add New Ministry Category" to add your first Ministry Category.
+          ministry_category:
+            edit: Edit this Ministry Category
+            delete: Remove this Ministry Category forever
+        ministries:
+          actions:
+            create_new: Add New Ministry
+            reorder: Reorder Ministries
+            reorder_done: Done Reordering Ministries
+            manage_categories: Manage Categories
+          records:
+            title: Ministries
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Ministries yet. Click "Add New Ministry" to add your first ministry.
+          ministry:
+            view_live_html: View this ministry live <br/><em>(opens in a new window)</em>
+            edit: Edit this ministry
+            delete: Remove this ministry forever
+      ministries:
+        show:
+          other: Other Ministries
+  activerecord:
+    attributes:
+      'refinery/ministries/ministry':
+        name: Name
+        ministry_category_id: Ministry Category
+        description: Description
+        logo: Logo
