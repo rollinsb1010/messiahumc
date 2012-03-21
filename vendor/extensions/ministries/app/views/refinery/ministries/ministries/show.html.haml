@@ -10,6 +10,6 @@
 - content_for :body_content_right do
   - unless @ministry.logo.nil?
     %aside.ministry_right
-      %p= image_fu @ministry_member.logo, '257x371#c'
+      %p= image_fu @ministry.logo, '257x371#c'
 
 = render '/refinery/content_page'
