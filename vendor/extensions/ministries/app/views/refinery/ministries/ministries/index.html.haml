@@ -1,0 +1,11 @@
+- content_for :body_content_title, 'Ministries'
+
+- content_for :body_content_left do
+  .left
+    - @left_ministries.each do |ministry_category|
+      = render partial: 'ministry_category', locals: {ministry_category: ministry_category}
+  .right
+    - @right_ministries.each do |ministry_category|
+      = render partial: 'ministry_category', locals: {ministry_category: ministry_category}
+
+= render '/refinery/content_page'
