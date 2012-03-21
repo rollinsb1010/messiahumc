@@ -12,8 +12,7 @@
 
   <div class='field'>
     <%= f.label :ministry_category_id -%>
-    <%= f.number_field :ministry_category_id  -%>
-
+    <%= collection_select :ministry, :ministry_category_id, @ministry_categories, :id, :name, {include_blank: 'Please select'} -%>
   </div>
 
   <div class='field'>
