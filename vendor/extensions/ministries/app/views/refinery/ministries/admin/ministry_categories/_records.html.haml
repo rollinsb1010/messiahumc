@@ -1,7 +1,7 @@
+<h2>Ministry Categories</h2>
 - if searching?
-  %h2
-    = t('results_for', scope: 'refinery.admin.search', query: params[:search])
-.pagination_container
+  %h2=t('results_for', scope: 'refinery.admin.search', query: params[:search])
+%div{class: 'pagination_container'}
   - if @ministry_categories.any?
     = render 'ministry_categories'
   - else
