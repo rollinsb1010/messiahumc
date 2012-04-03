@@ -6,7 +6,7 @@ module Refinery
       default_scope order: 'published_at desc'
 
       scope :published, where('published_at < ?', Time.now)
-      scope :for_last_calendar_year, published.where('published_at > ?', Time.now.beginning_of_year)
+      scope :for_last_calendar_year, published.where('published_at > ?', 1.year.ago)
 
       scope :weekly, for_last_calendar_year.where(messenger_type: 'weekly')
       scope :monthly, for_last_calendar_year.where(messenger_type: 'monthly')
