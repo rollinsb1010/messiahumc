@@ -1,15 +1,43 @@
 body {
   background: url(/assets/body_background.png) repeat top center transparent;
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
 #header {
   border-top: 4px solid #542f65;
-  border-bottom: 5px solid #b5c969;
   background: url(/assets/header_background.jpg) no-repeat top center #2b153b;
   height: 97px;
+  color: #371f47;
 
   #logo_container{
-    padding-left: 65px;
+    padding-left: 25px;
+
+    a {
+      padding: 0 40px;
+      display: block;
+    }
+
+    a, aside {
+      float: left;
+    }
+
+    aside {
+      padding: 65px 0 0 3px;
+      line-height: 1.1em;
+    }
+
+    aside span {
+      display: block;
+    }
+  }
+
+  #navigation {
+    background-color: #542f65;
+    height: 26px;
+    border-top: 5px solid #b5c969;
+    border-bottom: 3px solid #371f47;
+    clear: both;
   }
 }
 
