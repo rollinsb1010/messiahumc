@@ -68,6 +68,16 @@ body {
   }
 }
 
+#content{
+  min-height: 400px;
+}
+
+#footer {
+  border-top: 4px solid #542f65;
+  background: url(/assets/footer_background.png) no-repeat top center #C5C4B1;
+  height: 284px;
+}
+
 .wrapper {
   width: 961px;
   margin: 0 auto;
