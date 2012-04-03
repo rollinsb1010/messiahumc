@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: normal;
+  src: local("EB Garamond"), local("EBGaramond"), url("http://themes.googleusercontent.com/static/fonts/ebgaramond/v4/CDR0kuiFK7I1OZ2hSdR7Gz8E0i7KZn-EPnyo3HZu7kw.woff") format("woff");
+}
+
 body {
   background: url(/assets/body_background.png) repeat top center transparent;
   font-family: Verdana, Helvetica, sans-serif;
@@ -11,7 +18,7 @@ body {
   color: #371f47;
 
   #logo_container{
-    padding-left: 25px;
+    padding: 0 25px;
 
     a {
       padding: 0 40px;
@@ -38,6 +45,26 @@ body {
     border-top: 5px solid #b5c969;
     border-bottom: 3px solid #371f47;
     clear: both;
+    font-family: 'EB Garamond';
+
+    ul {
+      height: 100%;
+      padding: 0 50px;
+    }
+
+    li {
+      float: left;
+      height: 100%;
+    }
+
+    a {
+      display: block;
+      color: #ffffff;
+      padding: 7px 20px 5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 14px;
+    }
   }
 }
 
