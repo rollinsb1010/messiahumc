@@ -102,6 +102,11 @@ body {
   height: 254px;
   padding-top: 30px;
   color: #686561;
+  font-size: 11px;
+
+  .wrapper{
+    position: relative;
+  }
 
   h5{
     font-weight: bold;
@@ -110,11 +115,17 @@ body {
 
   nav{
     float: left;
-    margin-right: 80px;
+    width: 240px;
 
     li{
       line-height: 16px;
     }
+  }
+
+  #church_info{
+    position: absolute;
+    left: 483px;
+    top: 203px;
   }
 }
 
