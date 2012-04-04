@@ -1,17 +1,3 @@
 %nav#navigation
   .wrapper
-    %ul
-      %li
-        %a{href: refinery.staff_members_staff_members_path} About Messiah
-      %li
-        %a{href: refinery.calendar_events_path, class: 'selected' } Events
-      %li
-        %a{href: Rails.application.routes.url_helpers.worship_path } Worship
-      %li
-        %a{href: refinery.ministries_ministries_path} Ministry
-      %li
-        %a{href:"#"} Missions
-      %li
-        %a{href:"#"} Youth
-      %li
-        %a{href:"#"} Supporting Messiah
+    = render_navigation
