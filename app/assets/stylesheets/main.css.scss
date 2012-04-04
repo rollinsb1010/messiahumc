@@ -42,7 +42,7 @@ body {
     padding: 0 25px;
 
     a {
-      padding: 0 40px;
+      padding: 0 25px;
       display: block;
     }
 
@@ -51,7 +51,7 @@ body {
     }
 
     aside {
-      padding: 65px 0 0 3px;
+      padding: 65px 0 0 35px;
       line-height: 1.1em;
     }
 
@@ -70,7 +70,7 @@ body {
 
     ul {
       height: 100%;
-      padding-left: 50px;
+      padding-left: 30px;
     }
 
     li {
@@ -162,6 +162,9 @@ body {
 
   .wrapper {
     position: relative;
+    padding: 0 15px;
+    width: 930px;
+    height: 254px;
   }
 
   h5 {
@@ -171,7 +174,7 @@ body {
 
   nav {
     float: left;
-    width: 240px;
+    width: 25%;
 
     li {
       line-height: 16px;
@@ -181,7 +184,7 @@ body {
   #church_info {
     position: absolute;
     left: 483px;
-    top: 203px;
+    bottom: 0;
   }
 }
 
