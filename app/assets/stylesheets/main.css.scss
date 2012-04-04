@@ -123,6 +123,11 @@ body {
 
   .wrapper {
     background-color: #ffffff;
+
+    #body_content{
+      min-height: 370px;
+      padding: 30px;
+    }
   }
 
   #about_messiah {
