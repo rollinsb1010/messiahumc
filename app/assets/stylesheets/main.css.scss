@@ -1,5 +1,6 @@
 $dark_purple: #371f47;
 $purple: #542f65;
+$light_purple: #9965AA;
 
 @font-face {
   font-family: "EB Garamond";
@@ -83,6 +84,11 @@ body {
       @include small_title;
       padding: 7px 25px 5px;
       text-decoration: none;
+
+      &.selected, &:hover {
+        background-color: $dark_purple;
+        color: $light_purple;
+      }
     }
   }
 
