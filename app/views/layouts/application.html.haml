@@ -4,18 +4,10 @@
   = render '/refinery/head'
   %body{class: body_classes}
     = site_bar
-    #main_body
-      = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
-      %header.headercontentpart
-        = render '/refinery/header'
-      = render(partial: "/refinery/menu", locals: { dom_id: 'menu', css: 'menu' })
-      .whole_main_body
-        .inner_main_body
-          .main_body_content
-            %section#page
-              = yield
-      .footer_tab_bar
-        .footer_tab SITE MAP
-      %footer.footer
-        = render '/refinery/footer'
+    = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
+    = render '/refinery/header'
+    %section#content
+      .wrapper
+        = yield
+    = render '/refinery/footer'
     = render '/refinery/javascripts'

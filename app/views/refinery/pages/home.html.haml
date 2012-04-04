@@ -1,19 +1,47 @@
-.home_body
-  .mid_content_part
-    .mid_inner_content
-      .left_content_part
-        %h2 Welcome to Messiah
-        - sections = ['Who We Are', 'What We Believe', 'When To Come', 'Where To Meet', 'Why Messiah', 'Joining Messiah']
-        %ul#sections
-          - sections.each do |section|
-            %li{id: "#{section} Content".gsub(/ /, '').underscore}= raw copywriting(section, scope: 'home_page')
-      .right_content_part
-        = image_tag 'building.jpg'
-      .clear
-    .middle_line_part
-      = image_tag 'up_arrow.png', class: :up_arrow
-    .down_menu_part
-      %ul.down_menu
-        - sections.each do |section|
-          %li{id: section.gsub(/ /, '').underscore}
-            %a{href: '#'} #{section}
+%section#about_messiah
+%section#home_sidebar
+  %header
+    %h4 Worship Services
+  %ul
+    %li.first
+      %h5 Evening Worship
+      %p Saturday 5:30p, Sanctuary
+    %li
+      %h5 Evening Worship
+      %p Saturday 5:30p, Sanctuary
+    %li
+      %h5 Evening Worship
+      %p Saturday 5:30p, Sanctuary
+    %li
+      %h5 Evening Worship
+      %p Saturday 5:30p, Sanctuary
+%section#recent
+  .first
+    %header
+      %h2 Latest News
+      %h6
+        %a{href:"#"} Weekly Messenger
+        %a{href:"#"} Monthly Messenger
+        %a{href:"#"} Recent Sermons
+    %p Kroger Rewards has donated $8,113 to Messiah this year. To help us out, please <a href="#">enroll today!</a>
+    %p
+      %a{href:"#"} Adult softball season
+      is just around the corner!
+  %div
+    %header
+      %h2 Upcoming Events
+      %h6
+        %a{href:"#"} Calendar
+    %table
+      %tbody
+        %tr
+          %td April 20-21
+          %td
+            %a{href:"#"}UMW Spring Rummage Sale
+        %tr
+          %td March 18
+          %td
+            %a{href:"#"}3rd Sunday Breakfast
+            %br
+            Church for all people.
+  %span.clear
