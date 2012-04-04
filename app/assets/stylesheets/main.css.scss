@@ -1,3 +1,6 @@
+$dark_purple: #371f47;
+$purple: #542f65;
+
 @font-face {
   font-family: "EB Garamond";
   font-style: normal;
@@ -5,23 +8,37 @@
   src: local("EB Garamond"), local("EBGaramond"), url("http://themes.googleusercontent.com/static/fonts/ebgaramond/v4/CDR0kuiFK7I1OZ2hSdR7Gz8E0i7KZn-EPnyo3HZu7kw.woff") format("woff");
 }
 
+@mixin small_title {
+  color: #ffffff;
+  font-family: 'EB Garamond';
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+@mixin purple-white {
+  background-color: $dark_purple;
+  @include small_title;
+}
+
 body {
   background: url(/assets/body_background.png) repeat top center transparent;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 12px;
+  line-height: 1.2em;
 }
 
 #header {
-  border-top: 4px solid #542f65;
+  border-top: 4px solid $purple;
   background: url(/assets/header_background.jpg) no-repeat top center #2b153b;
-  height: 97px;
-  color: #371f47;
+  height: 131px;
+  color: $dark_purple;
 
   .wrapper {
     position: relative;
   }
 
-  #logo_container{
+  #logo_container {
     padding: 0 25px;
 
     a {
@@ -44,10 +61,10 @@ body {
   }
 
   #navigation {
-    background-color: #542f65;
+    background-color: $purple;
     height: 26px;
     border-top: 5px solid #b5c969;
-    border-bottom: 3px solid #371f47;
+    border-bottom: 3px solid $dark_purple;
     clear: both;
     font-family: 'EB Garamond';
 
@@ -63,11 +80,9 @@ body {
 
     a {
       display: block;
-      color: #ffffff;
+      @include small_title;
       padding: 7px 25px 5px;
-      text-transform: uppercase;
       text-decoration: none;
-      font-size: 14px;
     }
   }
 
@@ -75,7 +90,7 @@ body {
     height: 22px;
     width: 140px;
     padding: 10px;
-    background-color: #542f65;
+    background-color: $purple;
     position: absolute;
     top: 0;
     right: 0;
@@ -92,37 +107,78 @@ body {
   }
 }
 
-#content{
+#content {
   min-height: 400px;
+  clear: both;
+
+  .wrapper {
+    background-color: #ffffff;
+  }
+
+  #about_messiah {
+    background: url(/assets/slider_background.jpg) no-repeat 0 0 transparent;
+    width: 100%;
+    height: 480px;
+  }
+
+  #home_sidebar {
+    float: right;
+    margin-top: -24px;
+    width: 150px;
+
+    h4 {
+      padding: 5px 10px;
+      @include purple-white;
+    }
+
+    h5 {
+      font-weight: normal;
+      color: $purple;
+    }
+
+    ul {
+      padding: 5px 10px;
+      background: url(/assets/sidebar_background.png) repeat-y 0 0 transparent;
+    }
+
+    li {
+      margin: 10px 0;
+
+      &.first {
+        margin-top: 5px;
+      }
+    }
+  }
 }
 
 #footer {
-  border-top: 4px solid #542f65;
+  clear: both;
+  border-top: 4px solid $purple;
   background: url(/assets/footer_background.png) no-repeat top center #C5C4B1;
   height: 254px;
   padding-top: 30px;
   color: #686561;
   font-size: 11px;
 
-  .wrapper{
+  .wrapper {
     position: relative;
   }
 
-  h5{
+  h5 {
     font-weight: bold;
     margin-bottom: 8px;
   }
 
-  nav{
+  nav {
     float: left;
     width: 240px;
 
-    li{
+    li {
       line-height: 16px;
     }
   }
 
-  #church_info{
+  #church_info {
     position: absolute;
     left: 483px;
     top: 203px;
@@ -130,6 +186,13 @@ body {
 }
 
 .wrapper {
-  width: 961px;
+  width: 960px;
   margin: 0 auto;
+}
+
+.clear {
+  clear: both;
+  width: 0;
+  height: 0;
+  display: block;
 }
