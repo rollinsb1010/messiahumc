@@ -2,10 +2,11 @@ $dark_purple: #371f47;
 $purple: #542f65;
 $light_purple: #9965AA;
 $light_green: #b5c969;
+$default_font: 'EB Garamond', 'Trebuchet MS';
 
 @mixin small_title {
   color: #ffffff;
-  font-family: 'EB Garamond';
+  font-family: $default_font;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: normal;
@@ -29,7 +30,7 @@ body {
 }
 
 h1 {
-  font-family: 'EB Garamond';
+  font-family: $default_font;
   font-size: 35px;
   line-height: 50px;
 }
@@ -74,11 +75,9 @@ h1 {
     border-top: 5px solid $light_green;
     border-bottom: 3px solid $dark_purple;
     clear: both;
-    font-family: 'EB Garamond';
 
     ul {
       height: 100%;
-      padding-left: 30px;
     }
 
     li {
@@ -89,7 +88,7 @@ h1 {
     a {
       display: block;
       @include small_title;
-      padding: 7px 25px 5px;
+      padding: 7px 21px 5px;
       text-decoration: none;
 
       &.selected, &:hover {
@@ -207,7 +206,7 @@ h1 {
     }
 
     h2 {
-      font-family: 'EB Garamond';
+      font-family: $default_font;
       font-size: 28px;
       line-height: 18px;
       padding-bottom: 6px;
