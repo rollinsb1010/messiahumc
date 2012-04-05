@@ -1,23 +1,14 @@
 $(function() {
-    $('#slider').ramblingSlider({effect: 'fade'});
-    var $sections = $('#sections li');
-    var $down_menu_links = $('.down_menu a');
-    var $up_arrow = $('.up_arrow');
+    $.fn.ramblingSlider.defaults.imageTransitions['customFade'] = function() {
+      this.currentSlideElement.css({position: 'absolute', top: 0, left: 0, display: 'none'});
+      this.previousSlideElement.css({position: 'absolute', top: 0, left: 0, display: 'block'});
 
-    $sections.css({display: 'none'});
-    $sections.height('auto');
+      var self = this;
+      this.currentSlideElement.fadeIn();
+      this.previousSlideElement.fadeOut(function() {
+          self.raiseAnimationFinished();
+      });
+    };
 
-    $down_menu_links.click(function(event){
-        event.preventDefault();
-
-        var $element = $(this);
-        var id = $element.parent().attr('id');
-        var $content = $('#' + id + '_content');
-        $content.siblings().fadeOut(function(){
-            setTimeout(function(){$content.fadeIn();}, 500);
-        });
-        $up_arrow.animate({left: ($element.position().left - 25) + 'px'});
-    });
-
-    $down_menu_links.first().click();
+    $('#slider').ramblingSlider({effect: 'customFade', pauseTime: 5000});
 });
