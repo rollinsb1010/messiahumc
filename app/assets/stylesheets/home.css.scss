@@ -1,8 +1,10 @@
+$default_font: 'EB Garamond', 'Trebuchet MS';
+
 #about_messiah {
   color: #ffffff;
 
   h1 {
-    font-family: 'EB Garamond';
+    font-family: $default_font;
     font-size: 35px;
     line-height: 50px;
   }
