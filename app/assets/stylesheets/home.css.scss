@@ -1,3 +1,5 @@
+$lighter_purple: #ecdff2;
+
 #about_messiah {
   color: #ffffff;
 
@@ -5,6 +7,7 @@
     font-size: 18px;
     line-height: 1.3em;
     margin: 10px 0;
+    color: $lighter_purple;
   }
 
   ul {

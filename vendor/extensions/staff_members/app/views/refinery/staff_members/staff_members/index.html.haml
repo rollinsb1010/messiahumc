@@ -1,7 +1,11 @@
 - content_for :body_content_title, 'Meet our staff'
 
 - content_for :body_content_left do
-  .menu
+  %h3 Meet Us
+  %ul
+    %li.current Pastors
+    - @all_categories.each do |category|
+      %li= category.name
 
 - content_for :body_content_right do
   .left

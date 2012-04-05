@@ -22,6 +22,7 @@ module Refinery
     protected
 
       def find_all_staff_members
+        @all_categories = StaffCategory.all
         @right_categories = []
         @left_categories = [
           {
