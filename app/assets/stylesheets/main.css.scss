@@ -19,8 +19,18 @@ $default_font: 'EB Garamond', 'Trebuchet MS';
 }
 
 @mixin right-content {
-  width: 680px;
+  width: 652px;
   float: right;
+}
+
+@mixin purple_title {
+  font-family: $default_font;
+  font-size: 28px;
+  line-height: 18px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid $light_green;
+  color: $purple;
+  text-transform: capitalize;
 }
 
 body {
@@ -37,13 +47,7 @@ h1 {
 }
 
 h2 {
-  font-family: $default_font;
-  font-size: 28px;
-  line-height: 18px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid $light_green;
-  color: $purple;
-  text-transform: capitalize;
+  @include purple_title;
 }
 
 #header {
@@ -62,7 +66,7 @@ h2 {
     a {
       padding: 0 25px;
       display: block;
-        height: 97px;
+      height: 97px;
 
     }
 
@@ -170,8 +174,19 @@ h2 {
     }
 
     #body_content_right {
-      padding: 10px 20px;
+      padding: 17px 39px;
       @include right-content;
+
+      h2{
+        margin-bottom: 25px;
+      }
+
+      h3{
+        color: #ADA997;
+        font-family: $default_font;
+        font-size: 15px;
+        margin: 10px 0px;
+      }
     }
 
     #body_content_title {
