@@ -17,7 +17,7 @@ $light_green: #b5c969;
 }
 
 @mixin right-content {
-  width: 700px;
+  width: 680px;
   float: right;
 }
 
@@ -137,6 +137,7 @@ h1 {
       padding: 0 5px;
       float: left;
       height: 98%;
+      background: image-url('left_sidebar_background.png') repeat-y 0 0 transparent;
     }
 
     #body_content_right {
@@ -175,7 +176,7 @@ h1 {
 
     ul {
       padding: 5px 10px;
-      background: image-url('sidebar_background.png') repeat-y 0 0 transparent;
+      background: image-url('right_sidebar_background.png') repeat-y 0 0 transparent;
     }
 
     li {
