@@ -35,6 +35,16 @@ h1 {
   line-height: 50px;
 }
 
+h2 {
+  font-family: $default_font;
+  font-size: 28px;
+  line-height: 18px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid $light_green;
+  color: $purple;
+  text-transform: capitalize;
+}
+
 #header {
   border-top: 4px solid $purple;
   background: image-url('header_background.jpg') no-repeat top center #2b153b;
@@ -203,15 +213,6 @@ h1 {
 
     header {
       margin-bottom: 10px;
-    }
-
-    h2 {
-      font-family: $default_font;
-      font-size: 28px;
-      line-height: 18px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid $light_green;
-      color: $purple;
     }
 
     h6 {
