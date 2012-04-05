@@ -180,6 +180,8 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    rambling-slider-rails (0.0.1)
+      jquery-rails (~> 2.0.0)
     rdoc (3.12)
       json (~> 1.4)
     refinerycms (2.0.1)
@@ -276,6 +278,7 @@ DEPENDENCIES
   modernizr-rails
   pg
   rails (= 3.2.2)
+  rambling-slider-rails
   refinerycms (~> 2.0.1)
   refinerycms-calendar!
   refinerycms-copywriting!
