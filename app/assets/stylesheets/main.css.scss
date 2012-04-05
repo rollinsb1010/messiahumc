@@ -3,6 +3,8 @@ $purple: #542f65;
 $light_purple: #9965AA;
 $lighter_purple: #ecdff2;
 $light_green: #b5c969;
+$grey: #4f4941;
+$light_grey: #ada997;
 $default_font: 'EB Garamond', 'Trebuchet MS';
 
 @mixin small_title {
@@ -159,16 +161,26 @@ h2 {
         line-height: 30px;
         background: #736b5e;
         color: #ffffff;
-        border-bottom: 2px solid #4f4941;
+        border-bottom: 2px solid $grey;
         padding: 5px 10px;
         text-transform: uppercase;
       }
 
       li {
         padding: 5px 10px;
+        color: $light_grey;
+
+        h4 {
+          font-size: 16px;
+          line-height: 1.3em;
+        }
 
         &.current {
           background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
+
+          h4 {
+            color: $grey;
+          }
         }
       }
     }
