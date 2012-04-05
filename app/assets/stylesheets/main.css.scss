@@ -169,14 +169,25 @@ h2 {
       li {
         padding: 5px 10px;
         color: $light_grey;
+        border-bottom: 1px solid #d3d1c7;
 
-        h4 {
+        a {
+          color: $light_grey;
+          text-decoration: none;
+        }
+
+        li {
+          border: none;
+        }
+
+        h4, h4 a {
           font-size: 16px;
           line-height: 1.3em;
         }
 
         &.current {
           background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
+          border: none;
 
           h4 {
             color: $grey;
