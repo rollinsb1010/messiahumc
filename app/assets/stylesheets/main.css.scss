@@ -189,15 +189,25 @@ h2 {
       padding: 17px 39px;
       @include right-content;
 
-      h2{
+      h2 {
         margin-bottom: 25px;
       }
 
-      h3{
+      h3 {
         color: #ADA997;
         font-family: $default_font;
         font-size: 15px;
         margin: 10px 0px;
+      }
+    }
+
+    li {
+      a {
+        color: $dark_purple;
+      }
+
+      .job_title {
+        font-style: italic;
       }
     }
 

@@ -4,4 +4,5 @@
     - staff_category[:members].each do |staff_member|
       %li
         = link_to staff_member.name, staff_category[:url].call(staff_member)
-        = staff_member.job_title
+        %span{class: 'job_title'}
+          = staff_member.job_title
