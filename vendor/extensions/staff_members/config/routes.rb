@@ -2,7 +2,11 @@ Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :staff_members do
-    resources :staff_members, path: '', only: [:index, :show]
+    resources :staff_members, path: '', only: [:show]
+  end
+
+  namespace :staff_members, path: '' do
+    match 'meet_us', to: 'staff_members#index', as: 'staff_members'
   end
 
   # Admin routes
