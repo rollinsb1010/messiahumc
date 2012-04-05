@@ -17,7 +17,7 @@ $light_green: #b5c969;
 }
 
 body {
-  background: url(/assets/body_background.png) repeat top center transparent;
+  background: image-url('body_background.png') repeat top center transparent;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 1.2em;
@@ -25,7 +25,7 @@ body {
 
 #header {
   border-top: 4px solid $purple;
-  background: url(/assets/header_background.jpg) no-repeat top center #2b153b;
+  background: image-url('header_background.jpg') no-repeat top center #2b153b;
   height: 131px;
   color: $dark_purple;
 
@@ -101,7 +101,7 @@ body {
     input {
       width: 100%;
       color: #a3a3a3;
-      background: url(/assets/search_input.png) no-repeat 0 0 transparent;
+      background: image-url('search_input.png') no-repeat 0 0 transparent;
       border: none;
       padding: 3px 5px 2px 35px;
       font-size: 11px;
@@ -124,7 +124,7 @@ body {
   }
 
   #about_messiah {
-    background: url(/assets/slider_background.jpg) no-repeat 0 0 transparent;
+    background: image-url('slider_background.jpg') no-repeat 0 0 transparent;
     width: 100%;
     height: 480px;
   }
@@ -148,7 +148,7 @@ body {
 
     ul {
       padding: 5px 10px;
-      background: url(/assets/sidebar_background.png) repeat-y 0 0 transparent;
+      background: image-url('sidebar_background.png') repeat-y 0 0 transparent;
     }
 
     li {
@@ -212,7 +212,7 @@ body {
 #footer {
   clear: both;
   border-top: 4px solid $purple;
-  background: url(/assets/footer_background.png) no-repeat top center #C5C4B1;
+  background: image-url('footer_background.png') no-repeat top center #C5C4B1;
   height: 254px;
   padding-top: 30px;
   color: #686561;
