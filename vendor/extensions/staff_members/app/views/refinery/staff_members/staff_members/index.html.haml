@@ -12,12 +12,13 @@
 
 - content_for :body_content_right do
   %h2 meet our staff
-  .left
-    - @left_categories.each do |staff_category|
-      = render partial: 'staff_category', locals: {staff_category: staff_category}
-  .right
-    - @right_categories.each do |staff_category|
-      = render partial: 'staff_category', locals: {staff_category: staff_category}
+  .categories
+    .left
+      - @left_categories.each do |staff_category|
+        = render partial: 'staff_category', locals: {staff_category: staff_category}
+    .right
+      - @right_categories.each do |staff_category|
+        = render partial: 'staff_category', locals: {staff_category: staff_category}
   %aside
     = image_tag '/assets/building.jpg'
 

@@ -52,6 +52,14 @@ h2 {
   @include purple_title;
 }
 
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
 #header {
   border-top: 4px solid $purple;
   background: image-url('header_background.jpg') no-repeat top center #2b153b;
@@ -199,6 +207,7 @@ h2 {
     #body_content_right {
       padding: 17px 39px;
       @include right-content;
+      position: relative;
 
       h2 {
         margin-bottom: 25px;
@@ -208,19 +217,47 @@ h2 {
         color: #ADA997;
         font-family: $default_font;
         font-size: 15px;
-        margin: 10px 0px;
+        margin: 0px 0px 15px;
+      }
+
+      .categories{
+        width: 470px;
+
+        .left{
+          width: 50%;
+        }
+
+        .right{
+          width: 50%;
+        }
+      }
+
+      aside {
+        position: absolute;
+        right: 40px;
+
+        img{
+          width: 150px;
+          height: 115px;
+        }
+
+      }
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          color: $dark_purple;
+          text-decoration: none;
+        }
+
+        .job_title {
+          font-style: italic;
+          color: $grey;
+        }
       }
     }
 
-    li {
-      a {
-        color: $dark_purple;
-      }
-
-      .job_title {
-        font-style: italic;
-      }
-    }
 
     #body_content_title {
       padding: 0px 20px;
