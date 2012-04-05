@@ -17,11 +17,22 @@ $default_font: 'EB Garamond', 'Trebuchet MS';
   @include small_title;
 }
 
+@mixin right-content {
+  width: 700px;
+  float: right;
+}
+
 body {
   background: image-url('body_background.png') repeat top center transparent;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 1.2em;
+}
+
+h1 {
+  font-family: 'EB Garamond';
+  font-size: 35px;
+  line-height: 50px;
 }
 
 #header {
@@ -116,9 +127,25 @@ body {
   .wrapper {
     background-color: #ffffff;
 
-    #body_content{
+    #body_content {
       min-height: 370px;
-      padding: 30px;
+    }
+
+    #body_content_left {
+      width: 230px;
+      padding: 0 5px;
+      float: left;
+      height: 98%;
+    }
+
+    #body_content_right {
+      padding: 10px 20px;
+      @include right-content;
+    }
+
+    #body_content_title {
+      padding: 0px 20px;
+      @include right-content;
     }
   }
 

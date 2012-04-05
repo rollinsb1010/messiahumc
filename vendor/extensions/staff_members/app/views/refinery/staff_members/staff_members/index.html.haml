@@ -1,14 +1,15 @@
 - content_for :body_content_title, 'Meet our staff'
 
 - content_for :body_content_left do
+  .menu
+
+- content_for :body_content_right do
   .left
     - @left_categories.each do |staff_category|
       = render partial: 'staff_category', locals: {staff_category: staff_category}
   .right
     - @right_categories.each do |staff_category|
       = render partial: 'staff_category', locals: {staff_category: staff_category}
-
-- content_for :body_content_right do
   %aside
     = image_tag '/assets/building.jpg'
 
