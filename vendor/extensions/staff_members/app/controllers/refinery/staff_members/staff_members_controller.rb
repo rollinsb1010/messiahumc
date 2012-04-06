@@ -8,6 +8,10 @@ module Refinery
         present(@page)
       end
 
+      def by_category
+        @staff_category = StaffCategory.find(params[:id])
+      end
+
       def show
         @person = StaffMember.find(params[:id])
 
@@ -19,7 +23,6 @@ module Refinery
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/staff_members").first
       end
-
     end
   end
 end

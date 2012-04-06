@@ -2,7 +2,11 @@ Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :staff_members do
-    resources :staff_members, path: '', only: [:show]
+    resources :staff_members, path: '', only: [:show] do
+      collection do
+        get 'by_category/:id', to: 'staff_members#by_category', as: 'by_category'
+      end
+    end
   end
 
   namespace :staff_members, path: '' do

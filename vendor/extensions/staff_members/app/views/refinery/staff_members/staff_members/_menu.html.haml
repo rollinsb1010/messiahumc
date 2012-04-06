@@ -8,7 +8,8 @@
           %li= link_to pastor.name, refinery.pastors_pastor_path(pastor), class: current_class(/#{pastor.name.parameterize}/)
     - @all_categories.each do |category|
       %li{class: current_class(/#{category.name.parameterize}/)}
-        %h4{class: current_class(/#{category.name.parameterize}/)}= category.name
+        %h4{class: current_class(/#{category.name.parameterize}/)}
+          = link_to category.name, refinery.by_category_staff_members_staff_members_path(category)
         %ul
           - category.staff_members.each do |member|
             %li= link_to member.name, refinery.staff_members_staff_member_path(member), class: current_class(/#{member.name.parameterize}/)

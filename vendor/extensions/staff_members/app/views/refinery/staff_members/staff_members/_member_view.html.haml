@@ -1,18 +1,6 @@
 = render partial: '/refinery/staff_members/staff_members/menu'
 
 - content_for :body_content_right do
-  .person_view
-    %h1 Meet #{@person.name}
-    .bio= raw @person.bio
-    %aside
-      %p= image_fu @person.photo, '257x371#c'
-      - unless @person.email.empty?
-        %p
-          = link_to(@person.email) do
-            email #{@person.name}
-      - if @person.pastor?
-        %p
-          = link_to(@person.email) do
-            jots from #{@person.name}
+  = render partial: '/refinery/staff_members/staff_members/person_view'
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}
