@@ -20,4 +20,10 @@ $(function() {
         if ($(this).hasClass('current')) currentIndex = index;
     });
     staffMembers.accordion({active: currentIndex});
+    staffMembers.find('h4 a').click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        window.location.href = $(this).attr('href');
+    });
 });
