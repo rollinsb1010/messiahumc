@@ -5,16 +5,12 @@ module Refinery
       before_filter :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @pastor in the line below:
         present(@page)
       end
 
       def show
         @pastor = Pastor.find(params[:id])
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @pastor in the line below:
         present(@page)
       end
 

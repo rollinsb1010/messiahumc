@@ -1,9 +1,8 @@
 = render partial: '/refinery/staff_members/staff_members/menu'
 
 - content_for :body_content_right do
-  %h2 meet #{@pastor.name}
+  %h2 Meet #{@pastor.name}
   %aside
     %p= image_fu @pastor.thumbnail, '257x371#c'
-
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}
