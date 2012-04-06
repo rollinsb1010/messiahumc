@@ -2,7 +2,7 @@
 
 - content_for :body_content_right do
   .pastor_view
-    %h2 Meet #{@pastor.name}
+    %h1 Meet #{@pastor.name}
     .bio= raw @pastor.bio
     %aside
       %p= image_fu @pastor.thumbnail, '257x371#c'
