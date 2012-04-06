@@ -48,17 +48,14 @@ body {
 }
 
 h1 {
-  @include default_font;
-  font-size: 31px;
-  line-height: 50px;
+  @include purple_title;
 }
 
-
-.left{
+.left {
   float: left;
 }
 
-.right{
+.right {
   float: right;
 }
 
@@ -157,10 +154,6 @@ h1 {
 
     #body_content {
       min-height: 370px;
-
-      h2 {
-        @include purple_title;
-      }
     }
 
     #body_content_left {
@@ -217,8 +210,8 @@ h1 {
       position: relative;
       min-height: 300px;
 
-      h3 {
-        color: #ADA997;
+      h2, h3 {
+        color: $light_grey;
         @include default_font;
         font-size: 15px;
         margin: 25px 0px 15px;
@@ -298,6 +291,13 @@ h1 {
     background: image-url('slider_background.jpg') no-repeat 0 0 transparent;
     width: 100%;
     height: 480px;
+
+    h1 {
+      @include default_font;
+      font-size: 31px;
+      line-height: 50px;
+      color: #ffffff;
+    }
   }
 
   #home_sidebar {
