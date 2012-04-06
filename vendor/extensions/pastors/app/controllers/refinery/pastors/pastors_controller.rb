@@ -9,7 +9,7 @@ module Refinery
       end
 
       def show
-        @pastor = Pastor.find(params[:id])
+        @person = Pastor.find(params[:id])
 
         present(@page)
       end

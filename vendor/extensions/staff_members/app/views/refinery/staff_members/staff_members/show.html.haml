@@ -1,17 +1,1 @@
-- content_for :body_content_title do
-  = @staff_member.name
-
-- content_for :body_content_left do
-  %p.job_title=raw @staff_member.job_title
-  .details
-    %section
-      =raw @staff_member.bio
-    %section
-      =raw @staff_member.email
-
-- content_for :body_content_right do
-  - unless @staff_member.photo.nil?
-    %aside.staff_right
-      %p= image_fu @staff_member.photo, '257x371#c'
-
-= render '/refinery/content_page'
+= render partial: '/refinery/staff_members/staff_members/member_view'

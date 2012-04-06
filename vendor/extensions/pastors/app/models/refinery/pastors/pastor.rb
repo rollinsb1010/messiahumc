@@ -15,7 +15,7 @@ module Refinery
 
       belongs_to :thumbnail, class_name: '::Refinery::Image'
 
-      belongs_to :large_photo, class_name: '::Refinery::Image'
+      belongs_to :photo, class_name: '::Refinery::Image'
 
     end
   end

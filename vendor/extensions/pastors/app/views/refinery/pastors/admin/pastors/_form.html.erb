@@ -3,19 +3,19 @@
               :object => @pastor,
               :include_object_name => true %>
 
-  
+
   <div class='field'>
     <%= f.label :name -%>
     <%= f.text_field :name, :class => 'larger widest'  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :job_title -%>
     <%= f.text_field :job_title  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :thumbnail -%>
     <%= render '/refinery/admin/image_picker',
@@ -25,17 +25,17 @@
                :toggle_image_display => false %>
 
   </div>
-  
+
   <div class='field'>
-    <%= f.label :large_photo -%>
+    <%= f.label :photo -%>
     <%= render '/refinery/admin/image_picker',
                :f => f,
-               :field => :large_photo_id,
-               :image => @pastor.large_photo,
+               :field => :photo_id,
+               :image => @pastor.photo,
                :toggle_image_display => false %>
 
   </div>
-  
+
   <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
@@ -55,13 +55,13 @@
     </div>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :email -%>
     <%= f.text_field :email  -%>
 
   </div>
-  
+
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.pastors.admin.pastors.pastor'),
