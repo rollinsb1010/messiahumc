@@ -7,6 +7,6 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :ministry, 'Ministry', refinery.ministries_ministries_path, highlights_on: /\/ministries/
     primary.item :missions, 'Missions', '#'
     primary.item :youth, 'Youth', '#'
-    primary.item :supportin, 'Supporting Messiah', '#'
+    primary.item :supporting, 'Supporting Messiah', '#'
   end
 end

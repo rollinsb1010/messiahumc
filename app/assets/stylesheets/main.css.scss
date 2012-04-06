@@ -5,14 +5,19 @@ $lighter_purple: #ecdff2;
 $light_green: #b5c969;
 $grey: #4f4941;
 $light_grey: #ada997;
-$default_font: 'EB Garamond', 'Trebuchet MS';
+
+@mixin default_font {
+  font-family: 'Cardo', 'serif';
+  letter-spacing: -1px;
+  word-spacing: 2px;
+}
 
 @mixin small_title {
   color: $lighter_purple;
-  font-family: $default_font;
+  @include default_font;
   text-transform: uppercase;
-  font-size: 14px;
-  font-weight: normal;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 @mixin purple-white {
@@ -26,7 +31,7 @@ $default_font: 'EB Garamond', 'Trebuchet MS';
 }
 
 @mixin purple_title {
-  font-family: $default_font;
+  @include default_font;
   font-size: 28px;
   line-height: 18px;
   padding-bottom: 6px;
@@ -43,14 +48,11 @@ body {
 }
 
 h1 {
-  font-family: $default_font;
-  font-size: 35px;
+  @include default_font;
+  font-size: 31px;
   line-height: 50px;
 }
 
-h2 {
-  @include purple_title;
-}
 
 .left{
   float: left;
@@ -154,6 +156,10 @@ h2 {
 
     #body_content {
       min-height: 370px;
+
+      h2 {
+        @include purple_title;
+      }
     }
 
     #body_content_left {
@@ -164,7 +170,7 @@ h2 {
       background: image-url('left_sidebar_background.png') repeat-y 0 0 transparent;
 
       h3 {
-        font-family: $default_font;
+        @include default_font;
         font-size: 24px;
         line-height: 30px;
         background: #736b5e;
@@ -215,7 +221,7 @@ h2 {
 
       h3 {
         color: #ADA997;
-        font-family: $default_font;
+        @include default_font;
         font-size: 15px;
         margin: 0px 0px 15px;
       }
@@ -274,13 +280,13 @@ h2 {
   #home_sidebar {
     float: right;
     margin-top: -30px;
-    width: 169px;
+    width: 160px;
 
     h4 {
-      padding: 8px 11px;
+      padding: 8px 13px;
       border-top-left-radius: 10px;
       @include purple-white;
-      font-size: 16px;
+      font-size: 13px;
     }
 
     h5 {
@@ -310,6 +316,10 @@ h2 {
       width: 38%;
       min-height: 200px;
       float: left;
+    }
+
+    h2 {
+      @include purple_title;
     }
 
     .first {
