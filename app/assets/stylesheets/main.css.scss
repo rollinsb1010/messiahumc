@@ -211,7 +211,7 @@ h1 {
     }
 
     #body_content_right {
-      padding: 17px 39px;
+      padding: 17px 39px 80px;
       @include right-content;
       position: relative;
 
@@ -219,7 +219,7 @@ h1 {
         color: #ADA997;
         @include default_font;
         font-size: 15px;
-        margin: 0px 0px 15px;
+        margin: 25px 0px 15px;
         height: 10px;
       }
 
@@ -235,30 +235,48 @@ h1 {
         }
       }
 
-      .staff_category {
-        margin-top: 25px;
+      a {
+        color: $dark_purple;
+        text-decoration: none;
       }
 
       .staff_index {
+        aside {
+          position: absolute;
+          right: 40px;
+
+          img {
+            width: 150px;
+            height: 115px;
+          }
+      }}
+
+      .pastor_view {
+        .bio {
+          width: 65%;
+          float: left;
+        }
 
         aside {
           position: absolute;
           right: 40px;
 
-          img{
+          img {
             width: 150px;
-            height: 115px;
+            height: 215px;
+
+            border-bottom: 1px solid #B6B6B6;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
           }
 
+          a {
+            font-size: 10px;
+          }
       }}
 
       li {
         margin-bottom: 12px;
-
-        a {
-          color: $dark_purple;
-          text-decoration: none;
-        }
 
         .job_title {
           font-style: italic;
