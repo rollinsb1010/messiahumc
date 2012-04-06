@@ -8,8 +8,8 @@ $border_grey: #d3d1c7;
 $light_grey: #ada997;
 
 @mixin default_font {
-  font-family: 'Cardo', 'serif';
-  letter-spacing: -1px;
+  font-family: 'Cardo', serif;
+  letter-spacing: -0.2px;
   word-spacing: 2px;
 }
 
@@ -17,8 +17,8 @@ $light_grey: #ada997;
   color: $lighter_purple;
   @include default_font;
   text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: normal;
 }
 
 @mixin purple-white {
@@ -38,7 +38,7 @@ $light_grey: #ada997;
   padding-bottom: 6px;
   border-bottom: 2px solid $light_green;
   color: $purple;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 
 body {
@@ -103,7 +103,7 @@ h1 {
 
     ul {
       height: 100%;
-      padding-left: 30px;
+      padding-left: 10px;
     }
 
     li {
@@ -112,9 +112,9 @@ h1 {
     }
 
     a {
-      display: block;
       @include small_title;
-      padding: 7px 21px 5px;
+      display: block;
+      padding: 7px 20px 5px;
       text-decoration: none;
 
       &.selected, &:hover {
@@ -317,7 +317,7 @@ h1 {
   #home_sidebar {
     float: right;
     margin-top: -30px;
-    width: 160px;
+    width: 165px;
 
     h4 {
       padding: 8px 13px;
