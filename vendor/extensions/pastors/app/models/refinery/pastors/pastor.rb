@@ -2,6 +2,7 @@ module Refinery
   module Pastors
     class Pastor < Refinery::Core::BaseModel
       extend FriendlyId
+      include ::Person
       friendly_id :name, use: :slugged
 
       default_scope order: 'position ASC'
@@ -17,6 +18,9 @@ module Refinery
 
       belongs_to :photo, class_name: '::Refinery::Image'
 
+      def pastor?
+        true
+      end
     end
   end
 end

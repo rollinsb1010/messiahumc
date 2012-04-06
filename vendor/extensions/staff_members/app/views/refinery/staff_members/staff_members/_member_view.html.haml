@@ -10,8 +10,9 @@
         %p
           = link_to(@person.email) do
             email #{@person.name}
-      %p
-        = link_to(@person.email) do
-          jots from #{@person.name}
+      - if @person.pastor?
+        %p
+          = link_to(@person.email) do
+            jots from #{@person.name}
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

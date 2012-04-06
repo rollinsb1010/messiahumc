@@ -2,6 +2,7 @@ module Refinery
   module StaffMembers
     class StaffMember < Refinery::Core::BaseModel
       extend FriendlyId
+      include ::Person
       friendly_id :name, use: :slugged
 
       default_scope order: 'position ASC'

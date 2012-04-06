@@ -215,6 +215,7 @@ h1 {
       padding: 17px 39px 80px;
       @include right-content;
       position: relative;
+      min-height: 300px;
 
       h3 {
         color: #ADA997;
