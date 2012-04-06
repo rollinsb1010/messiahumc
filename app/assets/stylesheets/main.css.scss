@@ -216,10 +216,6 @@ h1 {
       @include right-content;
       position: relative;
 
-      h2 {
-        margin-bottom: 25px;
-      }
-
       h3 {
         color: #ADA997;
         @include default_font;
@@ -238,6 +234,10 @@ h1 {
         .right{
           width: 50%;
         }
+      }
+
+      .staff_category {
+        margin-top: 25px;
       }
 
       aside {
