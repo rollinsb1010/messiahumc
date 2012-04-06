@@ -16,7 +16,7 @@ $(function() {
 
     var staffMembers = $('#staff_members');
     var currentIndex = 0;
-    staffMembers.find('li').each(function(index, element) {
+    staffMembers.find('>li').each(function(index, element) {
         if ($(this).hasClass('current')) currentIndex = index;
     });
     staffMembers.accordion({active: currentIndex});
