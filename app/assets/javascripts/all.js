@@ -14,5 +14,10 @@ $(function() {
     body_content_left.height(body_content_left.parents('.wrapper').height());
     $('#slider').ramblingSlider({effect: 'customFade', pauseTime: 5000});
 
-    $("#staff_members").accordion();
+    var staffMembers = $('#staff_members');
+    var currentIndex = 0;
+    staffMembers.find('li').each(function(index, element) {
+        if ($(this).hasClass('current')) currentIndex = index;
+    });
+    staffMembers.accordion({active: currentIndex});
 });
