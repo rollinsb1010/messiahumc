@@ -1,6 +1,6 @@
 - content_for :body_content_left do
   %h3 Meet Us
-  %ul
+  %ul#staff_members
     %li.current.first
       %h4 Pastors
       %ul
@@ -9,6 +9,9 @@
     - @all_categories.each do |category|
       %li
         %h4= category.name
+        %ul
+          - category.staff_members.each do |member|
+            %li= link_to member.name, refinery.staff_members_staff_member_path(member)
 
 - content_for :body_content_right do
   %h2 meet our staff

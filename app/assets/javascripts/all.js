@@ -13,4 +13,6 @@ $(function() {
     var body_content_left = $('#body_content_left');
     body_content_left.height(body_content_left.parents('.wrapper').height());
     $('#slider').ramblingSlider({effect: 'customFade', pauseTime: 5000});
+
+    $("#staff_members").accordion();
 });
