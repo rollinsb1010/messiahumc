@@ -225,6 +225,7 @@ h1 {
         @include default_font;
         font-size: 15px;
         margin: 0px 0px 15px;
+        height: 10px;
       }
 
       .categories{
@@ -251,7 +252,7 @@ h1 {
       }
 
       li {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
 
         a {
           color: $dark_purple;
