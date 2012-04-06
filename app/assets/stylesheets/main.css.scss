@@ -105,6 +105,7 @@ h1 {
 
     ul {
       height: 100%;
+      padding-left: 30px;
     }
 
     li {
@@ -202,10 +203,10 @@ h1 {
         &.current {
           background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
           border: none;
+        }
 
-          h4 {
-            color: $grey;
-          }
+        h4.current, a.current {
+          color: $grey;
         }
       }
     }
