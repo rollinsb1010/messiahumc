@@ -1,8 +1,7 @@
 module Refinery
   module Pastors
-    class PastorsController < ::ApplicationController
-
-      before_filter :find_all_pastors
+    class PastorsController < ::StaffController
+      before_filter :find_all_pastors, :find_all_staff_members
       before_filter :find_page
 
       def index

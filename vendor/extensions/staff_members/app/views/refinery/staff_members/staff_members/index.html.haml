@@ -1,28 +1,16 @@
-- content_for :body_content_left do
-  %h3 Meet Us
-  %ul#staff_members
-    %li.current.first
-      %h4 Pastors
-      %ul
-        - @left_categories.first[:members].each do |pastor|
-          %li= link_to pastor.name, refinery.pastors_pastor_path(pastor)
-    - @all_categories.each do |category|
-      %li
-        %h4= category.name
-        %ul
-          - category.staff_members.each do |member|
-            %li= link_to member.name, refinery.staff_members_staff_member_path(member)
+= render partial: '/refinery/staff_members/staff_members/menu'
 
 - content_for :body_content_right do
-  %h2 meet our staff
-  .categories
-    .left
-      - @left_categories.each do |staff_category|
-        = render partial: 'staff_category', locals: {staff_category: staff_category}
-    .right
-      - @right_categories.each do |staff_category|
-        = render partial: 'staff_category', locals: {staff_category: staff_category}
-  %aside
-    = image_tag '/assets/building.jpg'
+  .staff_index
+    %h2 meet our staff
+    .categories
+      .left
+        - @left_categories.each do |staff_category|
+          = render partial: 'staff_category', locals: {staff_category: staff_category}
+      .right
+        - @right_categories.each do |staff_category|
+          = render partial: 'staff_category', locals: {staff_category: staff_category}
+    %aside
+      = image_tag '/assets/building.jpg'
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

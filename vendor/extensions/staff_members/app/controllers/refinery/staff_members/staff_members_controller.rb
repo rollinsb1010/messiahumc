@@ -1,6 +1,6 @@
 module Refinery
   module StaffMembers
-    class StaffMembersController < ::ApplicationController
+    class StaffMembersController < ::StaffController
 
       before_filter :find_all_staff_members, only: [:index]
       before_filter :find_page
@@ -20,20 +20,6 @@ module Refinery
       end
 
     protected
-
-      def find_all_staff_members
-        @all_categories = StaffCategory.all
-        @right_categories = []
-        @left_categories = [
-          {
-            name: 'Pastors',
-            members: ::Refinery::Pastors::Pastor.all,
-            url: lambda { |p| refinery.pastors_pastor_path(p) },
-          }
-        ]
-        StaffCategory.where(index_placement: 'left').each { |c| @left_categories << get_staff_category(c) }
-        StaffCategory.where(index_placement: 'right').each { |c| @right_categories << get_staff_category(c) }
-      end
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/staff_members").first
