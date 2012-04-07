@@ -4,12 +4,12 @@
   %h1 Meet Our Pastors
   %ul#pastors
     - @pastors.each do |pastor|
-      %li
+      %li{class: cycle('first', '', 'last')}
         - link = refinery.pastors_pastor_path(pastor)
         %p.image_container
           = link_to link do
             = image_fu pastor.photo, '148x216#c'
         %p= link_to pastor.name, link
-        %p= pastor.job_title
+        %p.job_title= pastor.job_title
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

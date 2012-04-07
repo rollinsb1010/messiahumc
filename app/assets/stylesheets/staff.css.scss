@@ -74,4 +74,24 @@
       color: $grey;
     }
   }
+
+  #pastors {
+    li {
+      padding: 0 52px;
+      float: left;
+
+      &.first {
+        padding-left: 0px;
+      }
+
+      &.last {
+        padding-right: 0px;
+      }
+    }
+
+    p.image_container {
+      height: 216px;
+      width: 148px;
+    }
+  }
 }
