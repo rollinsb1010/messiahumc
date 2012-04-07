@@ -13,6 +13,3 @@
       %li{class: current_class(/#{category_match}/)}
         %h4{class: current_class(/#{category_match}/)}
           = link_to category.name, refinery.by_category_staff_members_staff_members_path(category), class: current_class(/#{category.name.parameterize}/)
-        %ul
-          - category.staff_members.each do |member|
-            %li= link_to member.name, refinery.staff_members_staff_member_path(member), class: current_class(/#{member.name.parameterize}/)
