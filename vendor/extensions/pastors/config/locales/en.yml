@@ -27,6 +27,6 @@ en:
         name: Name
         job_title: Job Title
         thumbnail: Thumbnail
-        large_photo: Large Photo
+        photo: Photo
         bio: Bio
         email: Email

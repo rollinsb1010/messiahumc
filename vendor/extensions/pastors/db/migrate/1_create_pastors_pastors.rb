@@ -5,7 +5,7 @@ class CreatePastorsPastors < ActiveRecord::Migration
       t.string :name
       t.string :job_title
       t.integer :thumbnail_id
-      t.integer :large_photo_id
+      t.integer :photo_id
       t.text :bio
       t.string :email
       t.integer :position

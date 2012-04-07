@@ -1,16 +1,23 @@
+@import 'mixins';
+
 #about_messiah {
   color: #ffffff;
+  background: image-url('slider_background.jpg') no-repeat 0 0 transparent;
+  width: 100%;
+  height: 480px;
 
   h1 {
-    font-family: 'EB Garamond';
-    font-size: 35px;
+    @include default_font;
+    font-size: 31px;
     line-height: 50px;
+    color: #ffffff;
   }
 
   h2 {
     font-size: 18px;
     line-height: 1.3em;
     margin: 10px 0;
+    color: $lighter_purple;
   }
 
   ul {
@@ -67,5 +74,79 @@
     p {
       padding: 5px 0;
     }
+  }
+}
+
+#home_sidebar {
+  float: right;
+  margin-top: -30px;
+  width: 165px;
+
+  h4 {
+    padding: 8px 13px;
+    border-top-left-radius: 10px;
+    @include purple-white;
+    font-size: 13px;
+  }
+
+  h5 {
+    font-weight: normal;
+    color: $purple;
+  }
+
+  ul {
+    padding: 5px 10px;
+    background: image-url('right_sidebar_background.png') repeat-y 0 0 transparent;
+  }
+
+  li {
+    margin: 10px 0;
+
+    &.first {
+      margin-top: 5px;
+    }
+  }
+}
+
+#recent {
+  padding-top: 10px;
+
+  div {
+    padding: 0px 15px;
+    width: 38%;
+    min-height: 200px;
+    float: left;
+  }
+
+  h2 {
+    @include purple_title;
+  }
+
+  .first {
+    border-right: 1px solid #e5e4dc;
+  }
+
+  header {
+    margin-bottom: 10px;
+  }
+
+  h6 {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.6em;
+  }
+
+  p {
+    margin: 15px 0;
+  }
+
+  a {
+    color: $purple;
+    text-decoration: none;
+    padding-right: 2px;
+  }
+
+  td {
+    padding: 6px 12px 6px 0;
   }
 }

@@ -1,26 +1,22 @@
-$dark_purple: #371f47;
-$purple: #542f65;
-$light_purple: #9965AA;
-$light_green: #b5c969;
-
-@mixin small_title {
-  color: #ffffff;
-  font-family: 'EB Garamond';
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-@mixin purple-white {
-  background-color: $dark_purple;
-  @include small_title;
-}
+@import 'mixins';
 
 body {
   background: image-url('body_background.png') repeat top center transparent;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 1.2em;
+}
+
+h1 {
+  @include purple_title;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 #header {
@@ -39,7 +35,7 @@ body {
     a {
       padding: 0 25px;
       display: block;
-        height: 97px;
+      height: 97px;
 
     }
 
@@ -63,11 +59,10 @@ body {
     border-top: 5px solid $light_green;
     border-bottom: 3px solid $dark_purple;
     clear: both;
-    font-family: 'EB Garamond';
 
     ul {
       height: 100%;
-      padding-left: 30px;
+      padding-left: 10px;
     }
 
     li {
@@ -76,9 +71,9 @@ body {
     }
 
     a {
-      display: block;
       @include small_title;
-      padding: 7px 25px 5px;
+      display: block;
+      padding: 7px 20px 5px;
       text-decoration: none;
 
       &.selected, &:hover {
@@ -117,94 +112,76 @@ body {
   .wrapper {
     background-color: #ffffff;
 
-    #body_content{
+    #body_content {
       min-height: 370px;
-      padding: 30px;
-    }
-  }
-
-  #about_messiah {
-    background: image-url('slider_background.jpg') no-repeat 0 0 transparent;
-    width: 100%;
-    height: 480px;
-  }
-
-  #home_sidebar {
-    float: right;
-    margin-top: -30px;
-    width: 169px;
-
-    h4 {
-      padding: 8px 11px;
-      border-top-left-radius: 10px;
-      @include purple-white;
-      font-size: 16px;
     }
 
-    h5 {
-      font-weight: normal;
-      color: $purple;
-    }
+    #body_content_left {
+      width: 230px;
+      padding: 0;
+      float: left;
+      min-height: 360px;
+      background: image-url('left_sidebar_background.png') repeat-y 0 0 transparent;
 
-    ul {
-      padding: 5px 10px;
-      background: image-url('sidebar_background.png') repeat-y 0 0 transparent;
-    }
+      h3 {
+        @include default_font;
+        font-size: 24px;
+        line-height: 30px;
+        background: #736b5e;
+        color: #ffffff;
+        border-bottom: 2px solid $grey;
+        padding: 5px 10px;
+        text-transform: uppercase;
+      }
 
-    li {
-      margin: 10px 0;
+      li {
+        padding: 5px 10px;
+        color: $light_grey;
+        border-bottom: 1px solid $border_grey;
 
-      &.first {
-        margin-top: 5px;
+        a {
+          color: $light_grey;
+          text-decoration: none;
+        }
+
+        li {
+          border: none;
+        }
+
+        h4, h4 a {
+          font-size: 16px;
+          line-height: 1.3em;
+        }
+
+        &.current {
+          background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
+          border: none;
+        }
+
+        h4.current, a.current {
+          color: $grey;
+        }
       }
     }
-  }
 
-  #recent {
-    padding-top: 10px;
+    #body_content_right {
+      padding: 17px 39px 80px;
+      @include right-content;
+      position: relative;
+      min-height: 300px;
 
-    div {
-      padding: 0px 15px;
-      width: 38%;
-      min-height: 200px;
-      float: left;
+      h2, h3 {
+        color: $light_grey;
+        @include default_font;
+        font-size: 15px;
+        margin: 25px 0px 15px;
+        height: 10px;
+      }
     }
 
-    .first {
-      border-right: 1px solid #e5e4dc;
-    }
-
-    header {
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-family: 'EB Garamond';
-      font-size: 28px;
-      line-height: 18px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid $light_green;
-      color: $purple;
-    }
-
-    h6 {
-      font-size: 12px;
-      font-weight: normal;
-      line-height: 1.6em;
-    }
-
-    p {
-      margin: 15px 0;
-    }
-
-    a {
-      color: $purple;
-      text-decoration: none;
-      padding-right: 2px;
-    }
-
-    td {
-      padding: 6px 12px 6px 0;
+    #body_content_title {
+      padding: 0px 20px;
+      @include right-content;
     }
   }
 }

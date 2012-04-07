@@ -12,4 +12,8 @@ module ApplicationHelper
     return 'staff' if request.fullpath =~ /(pastors\/)|(staff_members)/
     return 'ministry' if request.fullpath =~ /ministries/
   end
+
+  def current_class(to_match)
+    request.fullpath =~ to_match ? 'current' : ''
+  end
 end

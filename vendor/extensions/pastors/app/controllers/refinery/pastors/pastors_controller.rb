@@ -1,25 +1,20 @@
 module Refinery
   module Pastors
-    class PastorsController < ::ApplicationController
-
-      before_filter :find_all_pastors
+    class PastorsController < ::StaffController
+      before_filter :find_all_pastors, :find_all_staff_members
       before_filter :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @pastor in the line below:
         present(@page)
       end
 
       def show
-        @pastor = Pastor.find(params[:id])
+        @person = Pastor.find(params[:id])
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @pastor in the line below:
         present(@page)
       end
 
-    protected
+      protected
 
       def find_all_pastors
         if params[:id]
