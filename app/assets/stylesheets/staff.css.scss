@@ -76,8 +76,12 @@
   }
 
   #pastors {
+    margin-top: 25px;
+    min-height: 540px;
+
     li {
       padding: 0 52px;
+      margin-bottom: 20px;
       float: left;
 
       &.first {
