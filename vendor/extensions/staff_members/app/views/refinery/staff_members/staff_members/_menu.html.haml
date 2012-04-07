@@ -2,7 +2,7 @@
   %h3 Meet Us
   %ul#staff_members
     %li.first{class: current_class(/\/pastor/)}
-      %h4{class: current_class(/\/pastors$/)} Pastors
+      %h4= link_to 'Pastors', refinery.pastors_pastors_path, class: current_class(/\/pastors$/)
       %ul
         - @left_categories.first[:members].each do |pastor|
           %li= link_to pastor.name, refinery.pastors_pastor_path(pastor), class: current_class(/#{pastor.name.parameterize}/)
@@ -11,5 +11,4 @@
       - member_match = "|(#{member_match})" unless member_match.empty?
       - category_match = "(#{category.name.parameterize})#{member_match}"
       %li{class: current_class(/#{category_match}/)}
-        %h4{class: current_class(/#{category_match}/)}
-          = link_to category.name, refinery.by_category_staff_members_staff_members_path(category), class: current_class(/#{category.name.parameterize}/)
+        %h4= link_to category.name, refinery.by_category_staff_members_staff_members_path(category), class: current_class(/#{category.name.parameterize}/)

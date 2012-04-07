@@ -14,7 +14,7 @@ module Refinery
         present(@page)
       end
 
-    protected
+      protected
 
       def find_all_pastors
         if params[:id]
