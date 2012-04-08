@@ -2,5 +2,5 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 
-user Rack::Deflater
+use Rack::Deflater
 run MessiahUmc::Application
