@@ -21,7 +21,7 @@ class StaffController < ApplicationController
     {
       name: category.name,
       members: category.staff_members,
-      url: lambda { |s| refinery.staff_members_staff_member_path(s) },
+      url: lambda { |s| refinery.by_category_staff_members_staff_members_path(category) },
     }
   end
 end
