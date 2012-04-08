@@ -3,6 +3,8 @@
 - content_for :body_content_right do
   .staff_index
     %h1 Meet Our Staff
+    %aside
+      = image_tag '/assets/building.jpg'
     .categories
       .left
         - @left_categories.each do |staff_category|
@@ -10,7 +12,5 @@
       .right
         - @right_categories.each do |staff_category|
           = render partial: 'staff_category', locals: {staff_category: staff_category}
-    %aside
-      = image_tag '/assets/building.jpg'
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}
