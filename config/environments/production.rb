@@ -16,7 +16,7 @@ MessiahUmc::Application.configure do
   # ... but set to true b/c we are using Heroku
   config.serve_static_assets = true
 
-  static_cache_control = "public, max-age="+1.year.to_int.to_s
+  config.static_cache_control = "public, max-age="+1.year.to_int.to_s
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
