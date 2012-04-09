@@ -14,8 +14,6 @@ module Refinery
 
       validates :name, presence: true, uniqueness: true
 
-      belongs_to :thumbnail, class_name: '::Refinery::Image'
-
       belongs_to :photo, class_name: '::Refinery::Image'
 
       def pastor?

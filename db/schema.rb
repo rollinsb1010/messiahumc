@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406023952) do
+ActiveRecord::Schema.define(:version => 20120409143646) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -204,13 +204,12 @@ ActiveRecord::Schema.define(:version => 20120406023952) do
   create_table "refinery_pastors", :force => true do |t|
     t.string   "name"
     t.string   "job_title"
-    t.integer  "thumbnail_id"
     t.integer  "photo_id"
     t.text     "bio"
     t.string   "email"
     t.integer  "position"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
