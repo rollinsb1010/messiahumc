@@ -7,4 +7,3 @@ class RemoveThumbnailFromRefineryPastors < ActiveRecord::Migration
     add_column :refinery_pastors, :thumbnail_id, :integer
   end
 end
-
