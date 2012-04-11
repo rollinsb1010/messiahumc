@@ -19,11 +19,16 @@ module Refinery
         present(@page)
       end
 
-    protected
+      def by_category
+        @category = MinistryCategory.find(params[:id])
+      end
+
+      protected
 
       def find_all_ministries
         @left_ministries = MinistryCategory.left
         @right_ministries = MinistryCategory.right
+        @all_ministries = MinistryCategory.all
       end
 
       def find_page

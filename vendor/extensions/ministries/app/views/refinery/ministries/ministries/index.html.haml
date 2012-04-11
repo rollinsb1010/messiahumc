@@ -1,6 +1,7 @@
-- content_for :body_content_title, 'Ministries'
+= render 'menu'
 
-- content_for :body_content_left do
+- content_for :body_content_right do
+  %h1 Ministries
   .left
     - @left_ministries.each do |ministry_category|
       = render partial: 'ministry_category', locals: {ministry_category: ministry_category}
@@ -8,4 +9,4 @@
     - @right_ministries.each do |ministry_category|
       = render partial: 'ministry_category', locals: {ministry_category: ministry_category}
 
-= render '/refinery/content_page'
+= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

@@ -2,7 +2,11 @@ Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :ministries do
-    resources :ministries, path: '', only: [:index, :show]
+    resources :ministries, path: '', only: [:index, :show] do
+      collection do
+        get 'by_category/:id', to: 'ministries#by_category', as: 'by_category'
+      end
+    end
   end
 
   # Admin routes
