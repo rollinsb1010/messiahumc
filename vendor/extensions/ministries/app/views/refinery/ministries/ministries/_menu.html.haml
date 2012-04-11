@@ -1,9 +1,12 @@
 - content_for :body_content_left do
   %h3 Ministry
-  %ul#ministries
+  %ul#ministries.left_menu
     - @all_ministries.each do |category|
       - member_match = "#{category.ministries.map(&:name).map(&:parameterize).join(')|(')}"
       - member_match = "|(#{member_match})" unless member_match.empty?
       - category_match = "(#{category.name.parameterize})#{member_match}"
       %li{class: current_class(/#{category_match}/)}
         %h4= link_to category.name, refinery.by_category_ministries_ministries_path(category), class: current_class(/#{category.name.parameterize}/)
+        %ul
+          - category.ministries.each do |ministry|
+            %li= link_to ministry.name, refinery.ministries_ministry_path(ministry), class: current_class(/#{ministry.name.parameterize}/)
