@@ -1,8 +1,7 @@
-.ministry_category.category
-  %ul
-    - if highlighted
-      - ministries = ministry_category.highlighted_ministries
-    - else
-      - ministries = ministry_category.ministries
+%ul
+  - if highlighted
+    - ministries = ministry_category.highlighted_ministries
+  - else
+    - ministries = ministry_category.ministries
 
-    = render partial: 'ministry_list', locals: {ministries: ministries}
+  = render partial: 'ministry_list', locals: {ministries: ministries}
