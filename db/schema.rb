@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(:version => 20120409143646) do
-=======
 ActiveRecord::Schema.define(:version => 20120411045214) do
->>>>>>> Stashed changes
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
