@@ -1,8 +1,7 @@
 module Refinery
   module Ministries
     class MinistriesController < ::ApplicationController
-
-      before_filter :find_all_ministries, only: [:index, :by_category]
+      before_filter :find_all_ministries
       before_filter :find_page
 
       def index
@@ -30,7 +29,6 @@ module Refinery
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/ministries").first
       end
-
     end
   end
 end

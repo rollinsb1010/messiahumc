@@ -1,6 +1,6 @@
 - content_for :body_content_left do
   %h3 Ministry
-  %ul#ministries.left_menu
+  %ul.left_menu
     - @all_ministries.each do |category|
       - member_match = "#{category.ministries.map(&:name).map(&:parameterize).join(')|(')}"
       - member_match = "|(#{member_match})" unless member_match.empty?
