@@ -1,12 +1,16 @@
 = render 'menu'
 
 - content_for :body_content_right do
-  %h1 Ministries
-  .left
-    - @left_ministries.each do |ministry_category|
-      = render partial: 'ministry_category', locals: {ministry_category: ministry_category}
-  .right
-    - @right_ministries.each do |ministry_category|
-      = render partial: 'ministry_category', locals: {ministry_category: ministry_category}
+  .ministries_index
+    %h1 Ministries
+    %aside
+      = image_tag '/assets/hands.jpg'
+    .ministries
+      .left
+        - @left_ministries.each do |ministry_category|
+          = render partial: 'ministry_category', locals: {ministry_category: ministry_category, highlighted: true}
+      .right
+        - @right_ministries.each do |ministry_category|
+          = render partial: 'ministry_category', locals: {ministry_category: ministry_category, highlighted: true}
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

@@ -6,16 +6,12 @@ module Refinery
       before_filter :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @ministry in the line below:
         present(@page)
       end
 
       def show
         @ministry = Ministry.find(params[:id])
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @ministry in the line below:
         present(@page)
       end
 
