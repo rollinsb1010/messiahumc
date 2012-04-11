@@ -1,0 +1,6 @@
+- ministries.each do |ministry|
+  %li
+    - unless ministry.logo.nil?
+      %aside= image_fu ministry.logo, '150x182#c'
+    %h2 #{ministry.name}
+    .description= ministry.description
