@@ -1,10 +1,9 @@
 .ministry_category.category
   %h2= ministry_category.name
-  %ol
+  %ul
     - if highlighted
       - ministries = ministry_category.highlighted_ministries
     - else
       - ministries = ministry_category.ministries
 
-    - ministries.each do |ministry|
-      %li= link_to ministry.name, refinery.ministries_ministry_path(ministry)
+  = render partial: 'ministry_list', locals: {ministries: ministries}
