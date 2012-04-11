@@ -19,15 +19,7 @@
   }
 
   .staff_index {
-    aside {
-      margin-top: 25px;
-      float: right;
-
-      img {
-        width: 150px;
-        height: 115px;
-      }
-    }
+    @include index_page_aside;
   }
 
   .by_category {

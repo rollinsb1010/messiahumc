@@ -1,0 +1,7 @@
+@import 'mixins';
+
+#body_content_right {
+  .ministries_index {
+    @include index_page_aside;
+  }
+}

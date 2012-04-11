@@ -40,3 +40,15 @@ $light_grey: #ada997;
   color: $purple;
   letter-spacing: -1px;
 }
+
+@mixin index_page_aside {
+  aside {
+    margin-top: 25px;
+    float: right;
+
+    img {
+      width: 150px;
+      height: 115px;
+    }
+  }
+}
