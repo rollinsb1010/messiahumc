@@ -1,7 +1,7 @@
 module Refinery
   module Ministries
     class MinistriesController < ::ApplicationController
-      before_filter :find_all_ministries
+      before_filter :find_all_ministry_categories, :find_highlighted_ministries
       before_filter :find_page
 
       def index
@@ -20,10 +20,15 @@ module Refinery
 
       protected
 
-      def find_all_ministries
-        @left_ministries = MinistryCategory.left
-        @right_ministries = MinistryCategory.right
-        @all_ministries = MinistryCategory.all
+      def find_all_ministry_categories
+        @left_ministry_categories = MinistryCategory.left
+        @right_ministry_categories = MinistryCategory.right
+        @all_ministry_categories = MinistryCategory.all
+      end
+
+      def find_highlighted_ministries
+        @left_highlighted_ministries = Ministry.highlighted.left
+        @right_highlighted_ministries = Ministry.highlighted.right
       end
 
       def find_page

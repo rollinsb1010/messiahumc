@@ -1,7 +1,7 @@
 - content_for :body_content_left do
   %h3 Ministry
   %ul.left_menu
-    - @all_ministries.each do |category|
+    - @all_ministry_categories.each do |category|
       - member_match = "#{category.ministries.map(&:name).map(&:parameterize).join(')|(')}"
       - member_match = "|(#{member_match})" unless member_match.empty?
       - category_match = "(#{category.name.parameterize})#{member_match}"
