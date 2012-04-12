@@ -14,6 +14,7 @@ module Refinery
       validates :ministry_category, presence: true
 
       belongs_to :logo, class_name: '::Refinery::Image'
+      belongs_to :center_image, class_name: '::Refinery::Image'
       belongs_to :ministry_category, foreign_key: 'ministry_category_id', class_name: '::Refinery::Ministries::MinistryCategory'
 
       class << self
