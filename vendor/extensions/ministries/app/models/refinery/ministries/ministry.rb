@@ -16,6 +16,19 @@ module Refinery
       belongs_to :logo, class_name: '::Refinery::Image'
       belongs_to :ministry_category, foreign_key: 'ministry_category_id', class_name: '::Refinery::Ministries::MinistryCategory'
 
+      class << self
+        def highlighted
+          where(highlighted: true)
+        end
+
+        def left
+          where('ministry_category_id IN (?)', MinistryCategory.left.pluck(:id))
+        end
+
+        def right
+          where('ministry_category_id IN (?)', MinistryCategory.right.pluck(:id))
+        end
+      end
     end
   end
 end

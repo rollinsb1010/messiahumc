@@ -1,15 +1,11 @@
-- content_for :body_content_title do
-  = @ministry.name
-
-- content_for :body_content_left do
-  .details
-    %section
-      %h2 Description
-      =raw @ministry.description
+= render 'menu'
 
 - content_for :body_content_right do
-  - unless @ministry.logo.nil?
-    %aside.ministry_right
-      %p= image_fu @ministry.logo, '257x371#c'
+  %h1 #{@ministry.name}
+  .ministry_details
+    - unless @ministry.logo.nil?
+      %aside.ministry_right
+        %p= image_fu @ministry.logo, '150x182#c'
+    %section=raw @ministry.description
 
-= render '/refinery/content_page'
+= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

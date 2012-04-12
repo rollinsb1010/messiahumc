@@ -1,0 +1,13 @@
+= render 'menu'
+
+- content_for :body_content_right do
+  .by_category
+    %h1 #{@category.name} Ministries
+    .ministries
+      .left
+        = render partial: 'ministry_list', locals: {ministries: @left_ministries}
+      .right
+        = render partial: 'ministry_list', locals: {ministries: @right_ministries}
+      %span.clear
+
+= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

@@ -1,35 +1,45 @@
 module Refinery
   module Ministries
     class MinistriesController < ::ApplicationController
-
-      before_filter :find_all_ministries, only: [:index]
+      before_filter :find_all_ministry_categories, :find_highlighted_ministries
       before_filter :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @ministry in the line below:
         present(@page)
       end
 
       def show
         @ministry = Ministry.find(params[:id])
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @ministry in the line below:
         present(@page)
       end
 
-    protected
+      def by_category
+        @category = MinistryCategory.find(params[:id])
 
-      def find_all_ministries
-        @left_ministries = MinistryCategory.left
-        @right_ministries = MinistryCategory.right
+        size = @category.ministries.size
+        middle = (size/2.0).ceil
+
+        @left_ministries = @category.ministries[0...middle]
+        @right_ministries = @category.ministries[middle..size]
+      end
+
+      protected
+
+      def find_all_ministry_categories
+        @left_ministry_categories = MinistryCategory.left
+        @right_ministry_categories = MinistryCategory.right
+        @all_ministry_categories = MinistryCategory.all
+      end
+
+      def find_highlighted_ministries
+        @left_highlighted_ministries = Ministry.highlighted.left
+        @right_highlighted_ministries = Ministry.highlighted.right
       end
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/ministries").first
       end
-
     end
   end
 end

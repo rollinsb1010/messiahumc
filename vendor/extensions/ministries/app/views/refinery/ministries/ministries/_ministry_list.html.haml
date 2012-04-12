@@ -1,0 +1,9 @@
+%ul
+  - ministries.each do |ministry|
+    %li
+      - unless ministry.logo.nil?
+        %aside= image_fu ministry.logo, '150x182#c'
+      %h2.purple= link_to ministry.name, refinery.ministries_ministry_path(ministry)
+      .description
+        = raw truncate_html(ministry.description, omission: link_to('(more...)', refinery.ministries_ministry_path(ministry)))
+      %span.clear

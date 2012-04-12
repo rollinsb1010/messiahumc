@@ -14,6 +14,7 @@ gem 'thin'
 gem 'foreman'
 gem 'chronic'
 gem 'simple-navigation'
+gem 'truncate_html'
 
 # Gems used only for assets and not required
 # in production environments by default.
