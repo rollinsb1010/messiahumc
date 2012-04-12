@@ -1,7 +1,34 @@
 @import 'mixins';
 
+#content {
+  .wrapper {
+    #body_content_right {
+      .ministries {
+        h2 {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+}
+
 #body_content_right {
   .ministries_index {
     @include index_page_aside;
+  }
+
+  .ministries {
+    margin-top: 25px;
+    width: 490px;
+    border-right: 1px solid $border_grey;
+
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
+  .left, .right {
+    width: 235px;
+    padding-right: 10px;
   }
 }

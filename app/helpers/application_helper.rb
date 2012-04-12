@@ -16,4 +16,15 @@ module ApplicationHelper
   def current_class(to_match)
     request.fullpath =~ to_match ? 'current' : ''
   end
+
+  def truncate_html(html, options = {})
+    index = html.index '</p>'
+    options[:omission] ||= '...'
+    if index.present?
+      truncated_html = html.slice(0, index)
+      return "#{truncated_html} #{options[:omission]}</p>"
+    end
+
+    super(html, options)
+  end
 end

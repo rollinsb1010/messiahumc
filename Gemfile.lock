@@ -293,4 +293,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.4)
   simple-navigation
   thin
+  truncate_html
   uglifier (>= 1.0.3)
