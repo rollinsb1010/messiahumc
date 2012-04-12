@@ -17,6 +17,19 @@
     @include index_page_aside;
   }
 
+  .ministry_details {
+    @include index_page_aside;
+
+    section {
+      margin-top: 25px;
+      width: 490px;
+
+      p {
+        margin: 15px 0;
+      }
+    }
+  }
+
   .ministries {
     margin-top: 25px;
     width: 490px;
