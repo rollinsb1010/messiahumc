@@ -22,13 +22,15 @@
     @include index_page_aside;
   }
 
-  .by_category {
-    li {
-      border-top: 1px solid $border_grey;
-      padding-bottom: 20px;
+  .staff{
+    .by_category {
+      li {
+        border-top: 1px solid $border_grey;
+        padding-bottom: 20px;
 
-      &.first {
-        border: none;
+        &.first {
+          border: none;
+        }
       }
     }
   }

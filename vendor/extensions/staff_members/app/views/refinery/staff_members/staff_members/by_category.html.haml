@@ -1,22 +1,23 @@
 = render partial: 'menu'
 
 - content_for :body_content_right do
-  .by_category
-    %h1
-      Meet
-      = @staff_category.name.downcase.include?('our') ? '' : 'Our'
-      = @staff_category.name
-      = @staff_category.name.downcase.include?('staff') ? '' : 'Staff'
-    %ul.members
-      - @staff_category.staff_members.each do |member|
-        %li.person_view
-          %aside
-            %p= image_fu member.photo, '257x371#c'
-            - unless member.email.empty?
-              %p
-                = mail_to member.email, "email #{member.name}"
-          %h2 #{member.name}, #{member.job_title}
-          .bio= raw member.bio
-          %span.clear
+  .staff
+    .by_category
+      %h1
+        Meet
+        = @staff_category.name.downcase.include?('our') ? '' : 'Our'
+        = @staff_category.name
+        = @staff_category.name.downcase.include?('staff') ? '' : 'Staff'
+      %ul.members
+        - @staff_category.staff_members.each do |member|
+          %li.person_view
+            %aside
+              %p= image_fu member.photo, '257x371#c'
+              - unless member.email.empty?
+                %p
+                  = mail_to member.email, "email #{member.name}"
+            %h2 #{member.name}, #{member.job_title}
+            .bio= raw member.bio
+            %span.clear
 
 = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

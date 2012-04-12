@@ -15,6 +15,19 @@
 #body_content_right {
   .ministries_index {
     @include index_page_aside;
+
+    .ministries {
+      width: 490px;
+      border-right: 1px solid $border_grey;
+
+      li {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .ministries{
+      margin-top: 25px;
   }
 
   .ministry_details {
@@ -30,18 +43,8 @@
     }
   }
 
-  .ministries {
-    margin-top: 25px;
-    width: 490px;
-    border-right: 1px solid $border_grey;
-
-    li {
-      margin-bottom: 20px;
-    }
-  }
-
   .left, .right {
-    width: 235px;
+    width: 47%;
     padding-right: 10px;
   }
 }

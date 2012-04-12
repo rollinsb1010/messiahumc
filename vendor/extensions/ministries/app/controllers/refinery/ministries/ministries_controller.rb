@@ -16,6 +16,12 @@ module Refinery
 
       def by_category
         @category = MinistryCategory.find(params[:id])
+
+        size = @category.ministries.size
+        middle = (size/2.0).ceil
+
+        @left_ministries = @category.ministries[0...middle]
+        @right_ministries = @category.ministries[middle..size]
       end
 
       protected
