@@ -13,6 +13,7 @@ module Refinery
       alias_attribute :title, :name
 
       validates :name, presence: true, uniqueness: true
+      validates :email, email: true
 
       belongs_to :photo, class_name: '::Refinery::Image'
 
