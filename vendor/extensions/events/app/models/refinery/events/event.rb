@@ -1,14 +1,14 @@
 module Refinery
   module Events
     class Event < Refinery::Core::BaseModel
-      self.table_name = 'refinery_events'      
-    
-      acts_as_indexed :fields => [:title, :repetition, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
+      self.table_name = 'refinery_events'
 
-      validates :title, :presence => true, :uniqueness => true
-          
-      belongs_to :image, :class_name => '::Refinery::Image'
-        
+      acts_as_indexed fields: [:title, :repetition, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
+
+      validates :title, presence: true, uniqueness: true
+
+      belongs_to :image, class_name: '::Refinery::Image'
+
     end
   end
 end
