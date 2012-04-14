@@ -1,4 +1,5 @@
-<% content_for :body_content_left do %>
+<% content_for :body_content_right do %>
+  <h1>Events</h1>
   <ul id="events">
     <% @events.each do |event| %>
       <li>
@@ -7,5 +8,3 @@
     <% end %>
   </ul>
 <% end %>
-
-<%= render '/refinery/content_page' %>
