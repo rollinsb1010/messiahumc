@@ -1,6 +1,7 @@
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :about, 'About Messiah', refinery.root_path, highlights_on: /\/$/
+    primary.item :events, 'Events', refinery.events_events_path, highlights_on: /\/events$/
     primary.item :worship, 'Worship', Rails.application.routes.url_helpers.worship_path, highlights_on: /\/worship/
     primary.item :meet_us, 'Meet Us', refinery.staff_members_staff_members_path, highlights_on: /\/meet_us|\/pastors|\/staff_members/
     primary.item :ministry, 'Ministry', refinery.ministries_ministries_path, highlights_on: /\/ministries/
