@@ -15,6 +15,7 @@ module Refinery
 
       belongs_to :logo, class_name: '::Refinery::Image'
       belongs_to :ministry_category, foreign_key: 'ministry_category_id', class_name: '::Refinery::Ministries::MinistryCategory'
+      has_many :events, class_name: '::Refinery::Events::Event'
 
       class << self
         def highlighted

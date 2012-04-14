@@ -16,6 +16,7 @@ module Refinery
       validates :contact_email, email: true
 
       belongs_to :image, class_name: '::Refinery::Image'
+      belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
     end
   end
