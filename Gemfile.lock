@@ -285,7 +285,7 @@ DEPENDENCIES
   refinerycms-search!
   refinerycms-sermons!
   refinerycms-staff_members!
-  sass-rails (~> 3.2.4)
+  sass-rails (~> 3.2.5)
   simple-navigation
   thin
   truncate_html
