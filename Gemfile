@@ -63,7 +63,6 @@ gem 'refinerycms-page-images', git: 'git://github.com/resolve/refinerycms-page-i
 
 gem 'refinerycms-pastors', path: 'vendor/extensions'
 gem 'refinerycms-sermons', path: 'vendor/extensions'
-gem 'refinerycms-calendar', git: 'git://github.com/lilibethdlc/refinerycms-calendar', branch: 'rails-3-2'
 
 gem 'refinerycms-staff_members', :path => 'vendor/extensions'
 
