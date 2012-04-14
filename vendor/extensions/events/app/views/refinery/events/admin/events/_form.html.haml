@@ -5,22 +5,22 @@
     = f.text_field :title, class: 'larger'
   .field
     = f.label :date
-    = f.date_select :date
+    = f.date_select :date, {prompt: true}
   .field
     = f.label :start_time
-    = f.time_select :start_time
+    = f.time_select :start_time, {include_blank: true}
   .field
     = f.label :end_time
-    = f.time_select :end_time
+    = f.time_select :end_time, {include_blank: true}
   .field
     = f.label :repetition
-    = f.text_field :repetition
+    = select(:event, :repetition, {'Never' => 'never', 'Weekly' => 'weekly', 'Monthly' => 'monthly'})
   .field
     = f.label :location
-    = f.text_field :location
+    = f.text_field :location, class: 'larger'
   .field
     = f.label :short_description
-    = f.text_field :short_description
+    = f.text_field :short_description, class: 'larger widest'
   .field
     #page-tabs.clearfix.ui-tabs.ui-widget.ui-widget-content.ui-corner-all
       %ul#page_parts
@@ -48,7 +48,7 @@
     = render '/refinery/admin/image_picker', f: f, field: :image_id, image: @event.image, toggle_image_display: false
   .field
     = f.label :ministry_id
-    = f.number_field :ministry_id
+    = collection_select :event, :ministry_id, @ministries, :id, :name, {include_blank: 'Please select'}
   .field
     = f.label :highlighted
     = f.check_box :highlighted, checked: @event[:highlighted]
