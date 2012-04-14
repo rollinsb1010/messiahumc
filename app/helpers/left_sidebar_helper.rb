@@ -6,7 +6,7 @@ module LeftSidebarHelper
       @request = request
       @title = title
       @url = url
-      @matcher = matcher || %r(/#{title.parameterize}$)
+      @matcher = matcher || %r(/((#{title.parameterize})|(#{url}))$)
       @items = []
     end
 
