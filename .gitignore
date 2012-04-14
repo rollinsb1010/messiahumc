@@ -95,3 +95,6 @@ capybara-*html
 
 # Foreman
 *.env
+
+# Exuberant Ctags
+/tags

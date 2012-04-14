@@ -1,10 +1,8 @@
-= render 'menu'
-
 - content_for :body_content_right do
   .ministries_index
     %h1 Highlighted Ministries
-    %aside
-      %p= image_tag '/assets/hands.jpg'
+    %aside.right_sidebar
+      %p= image_tag '/assets/hands.jpg', width: 150, height: 100
       %p= link_to 'calendar', '#'
     .ministries
       .left
@@ -12,5 +10,3 @@
       .right
         = render partial: 'ministry_list', locals: {ministries: @right_highlighted_ministries}
       %span.clear
-
-= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

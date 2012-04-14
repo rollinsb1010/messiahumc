@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20120414042807) do
     t.datetime "updated_at",           :null => false
     t.string   "slug"
     t.boolean  "highlighted"
+    t.integer  "center_image_id"
   end
 
   add_index "refinery_ministries", ["slug"], :name => "index_refinery_ministries_on_slug"

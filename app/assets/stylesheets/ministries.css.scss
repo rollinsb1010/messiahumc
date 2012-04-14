@@ -26,8 +26,21 @@
     }
   }
 
-  .ministries{
-      margin-top: 25px;
+  .ministries {
+    margin-top: 25px;
+
+    aside {
+      margin-top: 0;
+      float: right;
+    }
+
+    .description {
+      padding-top: 5px;
+
+      h2 {
+        margin-top: 5px;
+      }
+    }
   }
 
   .ministry_details {
@@ -40,6 +53,11 @@
       p {
         margin: 15px 0;
       }
+    }
+
+    .ministry_image {
+      margin-top: 0;
+      padding-top: 25px;
     }
   }
 

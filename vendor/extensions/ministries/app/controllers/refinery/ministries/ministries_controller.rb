@@ -1,8 +1,7 @@
 module Refinery
   module Ministries
     class MinistriesController < ::ApplicationController
-      before_filter :find_all_ministry_categories, :find_highlighted_ministries
-      before_filter :find_page
+      before_filter :find_all_ministry_categories, :find_highlighted_ministries, :find_page, :set_left_sidebar
 
       def index
         present(@page)
@@ -29,7 +28,6 @@ module Refinery
       def find_all_ministry_categories
         @left_ministry_categories = MinistryCategory.left
         @right_ministry_categories = MinistryCategory.right
-        @all_ministry_categories = MinistryCategory.all
       end
 
       def find_highlighted_ministries
@@ -39,6 +37,14 @@ module Refinery
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/ministries").first
+      end
+
+      def set_left_sidebar
+        left_sidebar = show_left_sidebar 'Ministry'
+        MinistryCategory.all.each do |category|
+          item = left_sidebar.add_item category.name, refinery.by_category_ministries_ministries_path(category)
+          category.ministries.each { |ministry| item.add_item ministry.name, refinery.ministries_ministry_path(ministry) }
+        end
       end
     end
   end
