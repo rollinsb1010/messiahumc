@@ -1,0 +1,6 @@
+- content_for :content_wrapper do
+  = render_left_sidebar
+  = yield
+  = render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title, :body]}
+
+= render template: 'layouts/application'

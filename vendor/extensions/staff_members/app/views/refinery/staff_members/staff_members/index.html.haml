@@ -1,5 +1,3 @@
-= render partial: '/refinery/staff_members/staff_members/menu'
-
 - content_for :body_content_right do
   .staff_index
     %h1 Meet Our Staff
@@ -12,5 +10,3 @@
       .right
         - @right_categories.each do |staff_category|
           = render partial: 'staff_category', locals: {staff_category: staff_category}
-
-= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

@@ -1,0 +1,15 @@
+- menu = get_left_sidebar
+- unless menu.nil?
+  - content_for :body_content_left do
+    %h3= menu.title
+    - unless menu.items.empty?
+      %ul.left_menu
+        - menu.items.each_with_index do |menu_item, index|
+          - classes = (index.zero? ? ' first' : '')
+          - classes << (menu_item.self_or_children_matches? ? ' current' : '')
+          %li{class: classes}
+            %h4= link_to menu_item.title, menu_item.url, class: (menu_item.self_matches? ? 'current' : '')
+            - unless menu_item.items.empty?
+              %ul
+                - menu_item.items.each do |sub_menu_item|
+                  %li= link_to sub_menu_item.title, sub_menu_item.url, class: (sub_menu_item.self_matches? ? 'current' : '')
