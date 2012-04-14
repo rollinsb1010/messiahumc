@@ -5,7 +5,7 @@
     = f.text_field :title, class: 'larger'
   .field
     = f.label :date
-    = f.date_select :date, {prompt: true}
+    = f.date_select :date, {prompt: true, start_year: Time.now.year - 5, end_year: Time.now.year + 5}
   .field
     = f.label :start_time
     = f.time_select :start_time, {include_blank: true, ampm: true}
