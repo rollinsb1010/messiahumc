@@ -24,6 +24,8 @@ GIT
 PATH
   remote: vendor/extensions
   specs:
+    refinerycms-events (1.0)
+      refinerycms-core (~> 2.0.3)
     refinerycms-messengers (1.0)
       refinerycms-core (~> 2.0.1)
     refinerycms-ministries (1.0)
@@ -274,6 +276,7 @@ DEPENDENCIES
   rambling-slider-rails
   refinerycms (~> 2.0.1)
   refinerycms-copywriting!
+  refinerycms-events!
   refinerycms-i18n (~> 2.0.0)
   refinerycms-messengers!
   refinerycms-ministries!

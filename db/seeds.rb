@@ -17,10 +17,11 @@ Dir[File.join(File.dirname(__FILE__), 'seeds', '*')].each do |file|
   require file
 end
 
-Refinery::Calendar::Engine.load_seed
-
 Refinery::StaffMembers::Engine.load_seed
 
 Refinery::Messengers::Engine.load_seed
 
 Refinery::Ministries::Engine.load_seed
+
+# Added by Refinery CMS Events extension
+Refinery::Events::Engine.load_seed

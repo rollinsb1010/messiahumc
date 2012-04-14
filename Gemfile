@@ -68,3 +68,5 @@ gem 'refinerycms-staff_members', :path => 'vendor/extensions'
 
 gem 'refinerycms-messengers', :path => 'vendor/extensions'
 gem 'refinerycms-ministries', :path => 'vendor/extensions'
+
+gem 'refinerycms-events', :path => 'vendor/extensions'
