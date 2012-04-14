@@ -8,7 +8,7 @@
     = select :ministry_category, :index_placement, left: 'left', right: 'right'
   = render '/refinery/admin/form_actions', f: f, continue_editing: false, delete_title: t('delete', scope: 'refinery.ministries.admin.ministries.ministry_category'), delete_confirmation: t('message', scope: 'refinery.admin.delete', title: @ministry_category.name)
 - content_for :javascripts do
-  %script
+  :javascript
     $(function(){
     page_options.init(false, '', '');
     });
