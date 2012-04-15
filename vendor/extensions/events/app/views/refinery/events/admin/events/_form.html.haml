@@ -8,10 +8,10 @@
     = f.date_select :date, {prompt: true, start_year: Time.now.year - 5, end_year: Time.now.year + 5}
   .field
     = f.label :start_time
-    = f.time_select :start_time, {include_blank: true, ampm: true}
+    = f.time_select :start_time, {prompt: true, ampm: true}
   .field
     = f.label :end_time
-    = f.time_select :end_time, {include_blank: true, ampm: true}
+    = f.time_select :end_time, {prompt: true, ampm: true}
   .field
     = f.label :repetition
     = select(:event, :repetition, {'Never' => 'never', 'Weekly' => 'weekly', 'Monthly' => 'monthly'})

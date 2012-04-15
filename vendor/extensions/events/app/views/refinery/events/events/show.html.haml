@@ -1,0 +1,40 @@
+- content_for :body_content_right do
+  %h1 #{@event.title}
+  .event_details
+    - if @event.ministry and @event.ministry.logo.present?
+      %aside.event_right
+        %p= image_fu @event.ministry.logo, '150x182'
+    - if @event.image.present?
+      %section.event_image= image_fu @event.image, '470x275#c'
+
+    %section.metadata
+      %table
+        %tbody
+          %tr
+            %th Date:
+            %td= @event.date
+            - time_info = get_time_info
+            - unless time_info.nil?
+              %tr
+                %th Time:
+                %td= time_info
+          %tr
+            %th Location:
+            %td= @event.location
+          %tr
+            %th Description:
+            %td= @event.short_description
+            - contact_info = get_contact_info
+            - unless contact_info.nil?
+              %tr
+                %th Contact:
+                %td= contact_info
+          %tr
+            %th Notes:
+            %td= @event.contact_name
+            - unless @event.ministry.nil?
+              %tr
+                %th Ministry:
+                %td= @event.ministry.name
+
+    %section=raw @event.long_description
