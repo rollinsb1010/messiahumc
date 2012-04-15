@@ -7,4 +7,16 @@
     - if @ministry.center_image.present?
       %section.ministry_image= image_fu @ministry.center_image, '470x275#c'
 
-    %section=raw @ministry.description
+    %section
+      =raw @ministry.description
+      - unless @ministry.upcoming_events.empty?
+        .upcoming
+          = link_to '>> view full calendar', refinery.events_events_path, class: 'calendar_link'
+          %h3 Upcoming Events
+          %ul
+            - @ministry.upcoming_events.each do |event|
+              %li
+                = link_to refinery.events_event_path(event) do
+                  %span.date= event.date.strftime('%m/%d')
+                  %span= event.title
+                  %span.clear

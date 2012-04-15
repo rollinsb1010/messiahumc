@@ -2,7 +2,7 @@
 
 body {
   background: image-url('body_background.png') repeat top center transparent;
-  font-family: Verdana, Helvetica, sans-serif;
+  font-family: $general_font;
   font-size: 12px;
   line-height: 1.2em;
 }
@@ -111,83 +111,88 @@ h1 {
 
   .wrapper {
     background-color: #ffffff;
+  }
+}
 
-    #body_content {
-      min-height: 400px;
+#body_content {
+  min-height: 400px;
+}
+
+#body_content_left {
+  width: 230px;
+  padding: 0;
+  float: left;
+  min-height: 360px;
+  background: image-url('left_sidebar_background.png') repeat-y 0 0 transparent;
+
+  h3 {
+    @include default_font;
+    font-size: 24px;
+    line-height: 30px;
+    background: #736b5e;
+    color: #ffffff;
+    border-bottom: 2px solid $grey;
+    padding: 5px 10px;
+    text-transform: uppercase;
+  }
+
+  li {
+    padding: 5px 10px;
+    color: $light_grey;
+    border-bottom: 1px solid $border_grey;
+
+    a {
+      color: $light_grey;
+      text-decoration: none;
     }
 
-    #body_content_left {
-      width: 230px;
-      padding: 0;
-      float: left;
-      min-height: 360px;
-      background: image-url('left_sidebar_background.png') repeat-y 0 0 transparent;
-
-      h3 {
-        @include default_font;
-        font-size: 24px;
-        line-height: 30px;
-        background: #736b5e;
-        color: #ffffff;
-        border-bottom: 2px solid $grey;
-        padding: 5px 10px;
-        text-transform: uppercase;
-      }
-
-      li {
-        padding: 5px 10px;
-        color: $light_grey;
-        border-bottom: 1px solid $border_grey;
-
-        a {
-          color: $light_grey;
-          text-decoration: none;
-        }
-
-        li {
-          border: none;
-        }
-
-        h4, h4 a {
-          font-size: 16px;
-          line-height: 1.3em;
-        }
-
-        &.current {
-          background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
-          border: none;
-        }
-
-        h4.current, a.current {
-          color: $grey;
-        }
-      }
+    li {
+      border: none;
     }
 
-    #body_content_right {
-      padding: 17px 39px 80px;
-      @include right-content;
-      position: relative;
-      min-height: 300px;
-
-      h2, h3 {
-        color: $light_grey;
-        @include default_font;
-        font-size: 15px;
-        margin: 25px 0px 15px;
-        height: 10px;
-
-        &.purple {
-          color: $dark_purple;
-        }
-      }
+    h4, h4 a {
+      font-size: 16px;
+      line-height: 1.3em;
     }
 
-    #body_content_title {
-      padding: 10px 20px;
-      @include right-content;
+    &.current {
+      background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
+      border: none;
+    }
+
+    h4.current, a.current {
+      color: $grey;
     }
   }
+}
+
+#body_content_right {
+  padding: 17px 39px 80px;
+  @include right-content;
+  position: relative;
+  min-height: 300px;
+
+  h2, h3 {
+    color: $light_grey;
+    @include default_font;
+    font-size: 15px;
+    margin: 25px 0px 15px;
+    height: 10px;
+
+    &.purple {
+      color: $dark_purple;
+    }
+  }
+
+  h4 {
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+}
+
+#body_content_title {
+  padding: 10px 20px;
+  @include right-content;
 }
 
 #footer {

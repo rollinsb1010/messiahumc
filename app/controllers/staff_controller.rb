@@ -29,7 +29,7 @@ class StaffController < ApplicationController
   def set_left_sidebar
     left_sidebar = show_left_sidebar 'Meet Us'
 
-    pastors_item = left_sidebar.add_item 'Pastors', refinery.pastors_pastors_path, %r(/pastor)
+    pastors_item = left_sidebar.add_item 'Pastors', refinery.pastors_pastors_path, %r(/pastors$)
 
     ::Refinery::Pastors::Pastor.all.each { |pastor| pastors_item.add_item pastor.name, refinery.pastors_pastor_path(pastor) }
 

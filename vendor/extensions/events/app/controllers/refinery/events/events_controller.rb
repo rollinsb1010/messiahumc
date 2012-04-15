@@ -1,34 +1,36 @@
 module Refinery
   module Events
     class EventsController < ::ApplicationController
-
-      before_filter :find_all_events
-      before_filter :find_page
+      before_filter :find_all_events, :find_page, :set_left_sidebar
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @event in the line below:
         present(@page)
       end
 
       def show
         @event = Event.find(params[:id])
-
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @event in the line below:
         present(@page)
       end
 
-    protected
-
+      protected
       def find_all_events
-        @events = Event.order('position ASC')
+        @events = Event.all
       end
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/events").first
+        @page = ::Refinery::Page.where(link_url: '/events').first
       end
 
+      def set_left_sidebar
+        left_sidebar = show_left_sidebar 'Events'
+
+        left_sidebar.add_item 'Upcoming Events', '#'
+        calendar_item = left_sidebar.add_item 'Calendar', refinery.events_events_path
+        left_sidebar.add_item 'Weekly Messenger', '#'
+        left_sidebar.add_item 'Monthly Messenger', '#'
+
+        calendar_item.add_item(@event.name, refinery.events_event_path(@event)) if @event.present?
+      end
     end
   end
 end
