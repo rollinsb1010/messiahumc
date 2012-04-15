@@ -243,3 +243,16 @@ h1 {
   height: 0;
   display: block;
 }
+
+.metadata{
+  margin: 20px 0px;
+  color: $dark_grey;
+  th{
+    text-align: left;
+    padding-top: 2px;
+  }
+
+  td{
+    padding-left: 10px;
+  }
+}
