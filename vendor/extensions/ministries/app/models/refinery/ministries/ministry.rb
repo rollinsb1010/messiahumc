@@ -18,6 +18,10 @@ module Refinery
       belongs_to :ministry_category, foreign_key: 'ministry_category_id', class_name: '::Refinery::Ministries::MinistryCategory'
       has_many :events, class_name: '::Refinery::Events::Event'
 
+      def upcoming_events
+        events.upcoming
+      end
+
       class << self
         def highlighted
           where(highlighted: true)

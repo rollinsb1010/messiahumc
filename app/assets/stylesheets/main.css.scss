@@ -181,6 +181,17 @@ h1 {
           color: $dark_purple;
         }
       }
+
+      h4 {
+        text-transform: uppercase;
+        margin: 10px 0;
+      }
+
+      .links {
+        p {
+          margin: 5px 0;
+        }
+      }
     }
 
     #body_content_title {

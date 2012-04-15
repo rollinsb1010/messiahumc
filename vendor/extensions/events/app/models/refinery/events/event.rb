@@ -18,6 +18,11 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
+      class << self
+        def upcoming
+          where('date >= ?', Time.zone.today).limit(5)
+        end
+      end
     end
   end
 end
