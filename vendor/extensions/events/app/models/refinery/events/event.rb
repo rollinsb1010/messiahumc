@@ -6,6 +6,8 @@ module Refinery
       extend FriendlyId
       friendly_id :title, use: :slugged
 
+      default_scope order('date ASC')
+
       acts_as_indexed fields: [:title, :repetition, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
 
       validates :title, presence: true, uniqueness: true
@@ -20,7 +22,7 @@ module Refinery
 
       class << self
         def upcoming
-          where('date >= ?', Time.zone.today).limit(5)
+          where('date >= ?', Date.today).limit(5)
         end
       end
     end
