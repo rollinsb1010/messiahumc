@@ -43,9 +43,9 @@ $general_font: Verdana, Helvetica, sans-serif;
   letter-spacing: -1px;
 }
 
-@mixin index_page_aside {
+@mixin index_page_aside($margin_top: 25px) {
   aside {
-    margin-top: 25px;
+    margin-top: $margin_top;
     float: right;
   }
 }
