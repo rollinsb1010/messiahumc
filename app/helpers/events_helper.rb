@@ -11,11 +11,11 @@ module EventsHelper
   end
 
   def get_contact_info
-    unless @event.contact_email.nil?
+    unless @event.contact_email.blank?
       link = link_to (@event.contact_name or @event.contact_email), "mailto: #{@event.contact_email}"
     end
 
-    link + ", #{@event.contact_phone}" unless @event.contact_phone.nil?
+    link + ", #{@event.contact_phone}" unless @event.contact_phone.blank?
   end
 
 end
