@@ -75,6 +75,18 @@ GEM
     babosa (0.3.7)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    capybara-webkit (0.11.0)
+      capybara (>= 1.0.0, < 1.2)
+      json
+    childprocess (0.3.1)
+      ffi (~> 1.0.6)
     chronic (0.6.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -84,11 +96,13 @@ GEM
       execjs
     coffee-script-source (1.3.1)
     daemons (1.1.8)
+    database_cleaner (0.7.2)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       railties (~> 3.1)
       warden (~> 1.1.1)
+    diff-lcs (1.1.3)
     dragonfly (0.9.12)
       rack
     erubis (2.7.0)
@@ -96,6 +110,12 @@ GEM
     excon (0.13.4)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    factory_girl (3.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (3.1.0)
+      factory_girl (~> 3.1.0)
+      railties (>= 3.0.0)
+    ffi (1.0.11)
     fog (1.3.1)
       builder
       excon (~> 0.13.0)
@@ -114,6 +134,11 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
+    guard (1.0.1)
+      ffi (>= 0.5.0)
+      thor (~> 0.14.6)
+    guard-rspec (0.7.0)
+      guard (>= 0.10.0)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -134,6 +159,8 @@ GEM
     json (1.6.6)
     launchy (2.1.0)
       addressable (~> 2.2.6)
+    libwebsocket (0.1.3)
+      addressable
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -152,6 +179,8 @@ GEM
       railties (~> 3.0)
     pg (0.13.2)
     polyglot (0.3.3)
+    prickle (0.0.6)
+      capybara
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -225,6 +254,20 @@ GEM
       mime-types (>= 1.16)
     routing-filter (0.3.0)
       actionpack
+    rr (1.0.4)
+    rspec (2.9.0)
+      rspec-core (~> 2.9.0)
+      rspec-expectations (~> 2.9.0)
+      rspec-mocks (~> 2.9.0)
+    rspec-core (2.9.0)
+    rspec-expectations (2.9.1)
+      diff-lcs (~> 1.1.3)
+    rspec-mocks (2.9.0)
+    rspec-rails (2.9.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec (~> 2.9.0)
     ruby-hmac (0.4.0)
     rubyzip (0.9.7)
     sass (3.1.15)
@@ -232,6 +275,12 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.21.1)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0)
+      libwebsocket (~> 0.1.3)
+      multi_json (< 1.3)
+      rubyzip
     seo_meta (1.3.0)
       railties (>= 3.0.0)
     simple-navigation (3.7.0)
@@ -257,21 +306,28 @@ GEM
     warden (1.1.1)
       rack (>= 1.0)
     will_paginate (3.0.3)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara-webkit
   chronic
   coffee-rails (~> 3.2.2)
+  database_cleaner
+  factory_girl_rails
   fog
   foreman
+  guard-rspec
   haml
   haml-rails
   heroku
   jquery-rails
   modernizr-rails
   pg
+  prickle
   rails (= 3.2.3)
   rambling-slider-rails
   refinerycms (~> 2.0.1)
@@ -285,6 +341,8 @@ DEPENDENCIES
   refinerycms-search!
   refinerycms-sermons!
   refinerycms-staff_members!
+  rr
+  rspec-rails
   sass-rails (~> 3.2.5)
   simple-navigation
   thin

@@ -22,11 +22,17 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'modernizr-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
+  gem 'rr'
+  gem 'prickle'
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'
