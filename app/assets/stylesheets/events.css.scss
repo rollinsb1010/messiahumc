@@ -1,0 +1,45 @@
+@import 'mixins';
+
+#body_content_right {
+  .upcoming {
+    h3 {
+      font-size: 20px;
+      font-family: $general_font;
+      color: $dark_purple;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    a {
+      display: block;
+    }
+
+    span {
+      display: block;
+      float: left;
+
+      &.clear {
+        float: none;
+      }
+    }
+
+    .date {
+      width: 50px;
+    }
+
+    .calendar_link {
+      float: right;
+    }
+  }
+
+  .event_details {
+    @include index_page_aside(0);
+    margin-top: 20px;
+
+    aside {
+      padding-left: 10px;
+    }
+  }
+}

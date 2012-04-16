@@ -1,5 +1,3 @@
-= render partial: 'menu'
-
 - content_for :body_content_right do
   .staff
     .by_category
@@ -19,5 +17,3 @@
             %h2 #{member.name}, #{member.job_title}
             .bio= raw member.bio
             %span.clear
-
-= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

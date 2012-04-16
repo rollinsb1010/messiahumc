@@ -23,6 +23,7 @@ module MessiahUmc
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths << "#{Rails.root}/app/validators"
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -64,7 +65,7 @@ module MessiahUmc
 
     # Models that are searchable
     config.to_prepare do
-      ::Refinery.searchable_models = [::Refinery::Page, ::Refinery::Pastors::Pastor,::Refinery::Calendar::Event, ::Refinery::Sermons::Sermon]
+      ::Refinery.searchable_models = [::Refinery::Page, ::Refinery::Pastors::Pastor, ::Refinery::Sermons::Sermon]
     end
   end
 end

@@ -58,7 +58,7 @@
     %header
       %h2 Upcoming Events
       %h6
-        %a{href: refinery.calendar_events_path, class: 'selected' } Calendar
+        %a{href: '#', class: 'selected' } Calendar
     %table
       %tbody
         %tr
@@ -72,3 +72,5 @@
             %br
             Church for all people.
   %span.clear
+
+= render template: 'layouts/application'

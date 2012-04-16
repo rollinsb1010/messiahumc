@@ -1,5 +1,3 @@
-= render partial: '/refinery/staff_members/staff_members/menu'
-
 - content_for :body_content_right do
   %h1 Meet Our Pastors
   %ul#pastors
@@ -11,5 +9,3 @@
             = image_fu pastor.photo, '148x216#c'
         %p= link_to pastor.name, link
         %p.job_title= pastor.job_title
-
-= render partial: '/refinery/content_page', locals: { hide_sections: [:body_content_title]}

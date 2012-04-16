@@ -29,10 +29,7 @@
   .ministries {
     margin-top: 25px;
 
-    aside {
-      margin-top: 0;
-      float: right;
-    }
+    @include index_page_aside(0);
 
     .description {
       padding-top: 5px;

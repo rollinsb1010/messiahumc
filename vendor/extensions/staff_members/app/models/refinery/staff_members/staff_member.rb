@@ -13,7 +13,7 @@ module Refinery
 
       validates :name, presence: true, uniqueness: true
       validates :category, presence: true
-      validates :email, format: {with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/i}, allow_blank: true
+      validates :email, email: true
 
       belongs_to :photo, class_name: '::Refinery::Image'
 

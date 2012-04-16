@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
@@ -19,7 +19,7 @@ gem 'truncate_html'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.4'
+  gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'modernizr-rails'
 
@@ -47,7 +47,6 @@ gem 'rambling-slider-rails'
 # To use debugger
 # gem 'ruby-debug19', require: 'ruby-debug'
 
-
 # Refinery CMS
 gem 'refinerycms', '~> 2.0.1'
 
@@ -63,9 +62,7 @@ gem 'refinerycms-page-images', git: 'git://github.com/resolve/refinerycms-page-i
 
 gem 'refinerycms-pastors', path: 'vendor/extensions'
 gem 'refinerycms-sermons', path: 'vendor/extensions'
-gem 'refinerycms-calendar', git: 'git://github.com/lilibethdlc/refinerycms-calendar', branch: 'rails-3-2'
-
-gem 'refinerycms-staff_members', :path => 'vendor/extensions'
-
-gem 'refinerycms-messengers', :path => 'vendor/extensions'
-gem 'refinerycms-ministries', :path => 'vendor/extensions'
+gem 'refinerycms-staff_members', path: 'vendor/extensions'
+gem 'refinerycms-messengers', path: 'vendor/extensions'
+gem 'refinerycms-ministries', path: 'vendor/extensions'
+gem 'refinerycms-events', path: 'vendor/extensions'

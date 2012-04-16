@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412215232) do
+ActiveRecord::Schema.define(:version => 20120414042807) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -55,18 +55,23 @@ ActiveRecord::Schema.define(:version => 20120412215232) do
 
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.string   "venue_name"
-    t.string   "venue_address"
-    t.decimal  "ticket_price",  :precision => 8, :scale => 2
-    t.string   "ticket_link"
-    t.text     "description"
-    t.boolean  "featured"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "repetition"
+    t.string   "location"
+    t.string   "short_description"
+    t.text     "long_description"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.string   "notes"
     t.integer  "image_id"
+    t.integer  "ministry_id"
+    t.boolean  "highlighted"
     t.integer  "position"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "slug"
   end
 
