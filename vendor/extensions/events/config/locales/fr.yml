@@ -28,7 +28,7 @@ fr:
         date: Date
         start_time: Start Time
         end_time: End Time
-        repetition: Repetition
+        repeats: Repeats
         location: Location
         short_description: Short Description
         long_description: Long Description
