@@ -8,11 +8,11 @@ module Refinery
 
       default_scope order('date ASC')
 
-      acts_as_indexed fields: [:title, :repetition, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
+      acts_as_indexed fields: [:title, :repeats, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
 
       validates :title, presence: true, uniqueness: true
       validates :date, presence: true
-      validates :repetition, presence: true, inclusion: {in: %w(never weekly monthly)}
+      validates :repeats, presence: true, inclusion: {in: %w(never weekly monthly)}
       validates :short_description, presence: true
       validates :long_description, presence: true
       validates :contact_email, email: true
