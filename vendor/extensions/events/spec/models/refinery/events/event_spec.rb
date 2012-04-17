@@ -5,8 +5,7 @@ module Refinery
     describe Event do
       describe "validations" do
         subject do
-          FactoryGirl.create(:event,
-          :title => "Refinery CMS")
+          FactoryGirl.create(:event, title: "Refinery CMS")
         end
 
         it { should be_valid }

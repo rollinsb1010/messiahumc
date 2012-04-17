@@ -1,34 +1,58 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'rspec/autorun'
-require 'capybara/rspec'
-require 'prickle/capybara'
+ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../') unless defined?(ENGINE_RAILS_ROOT)
 
-# Requires supporting ruby files with custom matchers and macros, etc,
-# in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+def setup_environment
+  # Configure Rails Environment
+  ENV["RAILS_ENV"] ||= 'test'
 
-RSpec.configure do |config|
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  config.mock_with :rr
+  require File.expand_path("../../config/environment", __FILE__)
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  require 'rspec/rails'
+  require 'rspec/autorun'
+  require 'capybara/rspec'
+  require 'prickle/capybara'
+  require 'refinerycms-testing'
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = false
+  Rails.backtrace_cleaner.remove_silencers!
 
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
-  config.infer_base_class_for_anonymous_controllers = false
+  RSpec.configure do |config|
+    config.mock_with :rr
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+#    config.filter_run :focus => true
+    config.run_all_when_everything_filtered = true
+    config.use_transactional_fixtures = false
+    config.infer_base_class_for_anonymous_controllers = false
+  end
+end
+
+def each_run
+  Rails.cache.clear
+  ActiveSupport::Dependencies.clear
+  FactoryGirl.reload
+
+  Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+  # Requires supporting files with custom matchers and macros, etc,
+  # in ./support/ and its subdirectories including factories.
+  ([ENGINE_RAILS_ROOT, Rails.root.to_s].uniq | ::Refinery::Plugins.registered.pathnames).map{|p|
+    Dir[File.join(p, 'spec', 'support', '**', '*.rb').to_s]
+  }.flatten.sort.each do |support_file|
+    require support_file
+  end
+end
+
+# If spork is available in the Gemfile it'll be used but we don't force it.
+unless (begin; require 'spork'; rescue LoadError; nil end).nil?
+  Spork.prefork do
+    # Loading more in this block will cause your tests to run faster. However,
+    # if you change any configuration or code from libraries loaded here, you'll
+    # need to restart spork for it take effect.
+    setup_environment
+  end
+
+  Spork.each_run do
+    # This code will be run each time you run your specs.
+    each_run
+  end
+else
+  setup_environment
+  each_run
 end

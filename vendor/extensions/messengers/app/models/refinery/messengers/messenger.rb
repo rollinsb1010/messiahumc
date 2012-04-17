@@ -11,9 +11,9 @@ module Refinery
       scope :weekly, for_last_calendar_year.where(messenger_type: 'weekly')
       scope :monthly, for_last_calendar_year.where(messenger_type: 'monthly')
 
-      validates :messenger_type, presence: true
+      validates :messenger_type, presence: true, inclusion: {in: %(weekly monthly)}
       validates :published_at, presence: true
-      validates :pdf_file_id, presence: true
+      #validates :pdf_file_id, presence: true
 
       belongs_to :pdf_file, class_name: '::Refinery::Resource'
 

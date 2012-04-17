@@ -18,7 +18,6 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :mp3_file, class_name: '::Refinery::Resource'
       belongs_to :pastor, class_name: '::Refinery::Pastors::Pastor'
-
     end
   end
 end

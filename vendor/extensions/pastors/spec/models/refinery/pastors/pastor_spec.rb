@@ -5,8 +5,7 @@ module Refinery
     describe Pastor do
       describe "validations" do
         subject do
-          FactoryGirl.create(:pastor,
-          :name => "Refinery CMS")
+          FactoryGirl.create(:pastor, name: "Refinery CMS")
         end
 
         it { should be_valid }

@@ -26,13 +26,15 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.8.1'
   gem 'guard-rspec'
+  gem 'guard-spork'
   gem 'capybara-webkit'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 1.7.0'
   gem 'rr'
   gem 'prickle'
   gem 'database_cleaner'
+  gem 'refinerycms-testing', '~> 2.0.3'
 end
 
 gem 'jquery-rails'
@@ -54,7 +56,7 @@ gem 'rambling-slider-rails'
 # gem 'ruby-debug19', require: 'ruby-debug'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.1'
+gem 'refinerycms', '~> 2.0.3'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n',   '~> 2.0.0'

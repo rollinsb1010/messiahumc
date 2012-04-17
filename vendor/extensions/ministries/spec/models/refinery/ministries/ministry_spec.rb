@@ -5,8 +5,7 @@ module Refinery
     describe Ministry do
       describe "validations" do
         subject do
-          FactoryGirl.create(:ministry,
-          :name => "Refinery CMS")
+          FactoryGirl.create(:ministry, name: "Refinery CMS")
         end
 
         it { should be_valid }

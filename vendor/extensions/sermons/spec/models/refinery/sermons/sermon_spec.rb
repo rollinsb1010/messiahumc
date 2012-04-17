@@ -5,8 +5,7 @@ module Refinery
     describe Sermon do
       describe "validations" do
         subject do
-          FactoryGirl.create(:sermon,
-          :title => "Refinery CMS")
+          FactoryGirl.create(:sermon, title: "Refinery CMS")
         end
 
         it { should be_valid }

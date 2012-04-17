@@ -110,10 +110,10 @@ GEM
     excon (0.13.4)
     execjs (1.3.0)
       multi_json (~> 1.0)
-    factory_girl (3.1.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (3.1.0)
-      factory_girl (~> 3.1.0)
+    factory_girl (2.6.4)
+      activesupport (>= 2.3.9)
+    factory_girl_rails (1.7.0)
+      factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
     ffi (1.0.11)
     fog (1.3.1)
@@ -139,6 +139,9 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.7.0)
       guard (>= 0.10.0)
+    guard-spork (0.6.1)
+      guard (>= 0.10.0)
+      spork (>= 0.8.4)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -250,24 +253,31 @@ GEM
       dragonfly (~> 0.9.8)
       rack-cache (>= 0.5.3)
       refinerycms-core (= 2.0.3)
+    refinerycms-testing (2.0.3)
+      capybara (~> 1.1.0)
+      database_cleaner (~> 0.7.1)
+      factory_girl_rails (~> 1.7.0)
+      rack-test (~> 0.6.0)
+      refinerycms-core (= 2.0.3)
+      rspec-rails (~> 2.8.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     routing-filter (0.3.0)
       actionpack
     rr (1.0.4)
-    rspec (2.9.0)
-      rspec-core (~> 2.9.0)
-      rspec-expectations (~> 2.9.0)
-      rspec-mocks (~> 2.9.0)
-    rspec-core (2.9.0)
-    rspec-expectations (2.9.1)
-      diff-lcs (~> 1.1.3)
-    rspec-mocks (2.9.0)
-    rspec-rails (2.9.0)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.8.0)
+    rspec-rails (2.8.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec (~> 2.9.0)
+      rspec (~> 2.8.0)
     ruby-hmac (0.4.0)
     rubyzip (0.9.7)
     sass (3.1.15)
@@ -285,6 +295,7 @@ GEM
       railties (>= 3.0.0)
     simple-navigation (3.7.0)
       activesupport (>= 2.3.2)
+    spork (0.9.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -317,10 +328,11 @@ DEPENDENCIES
   chronic
   coffee-rails (~> 3.2.2)
   database_cleaner
-  factory_girl_rails
+  factory_girl_rails (~> 1.7.0)
   fog
   foreman
   guard-rspec
+  guard-spork
   haml
   haml-rails
   heroku
@@ -330,7 +342,7 @@ DEPENDENCIES
   prickle
   rails (= 3.2.3)
   rambling-slider-rails
-  refinerycms (~> 2.0.1)
+  refinerycms (~> 2.0.3)
   refinerycms-copywriting!
   refinerycms-events!
   refinerycms-i18n (~> 2.0.0)
@@ -341,8 +353,9 @@ DEPENDENCIES
   refinerycms-search!
   refinerycms-sermons!
   refinerycms-staff_members!
+  refinerycms-testing (~> 2.0.3)
   rr
-  rspec-rails
+  rspec-rails (~> 2.8.1)
   sass-rails (~> 3.2.5)
   simple-navigation
   thin

@@ -9,8 +9,8 @@ describe Refinery do
 
         describe "ministries list" do
           before(:each) do
-            FactoryGirl.create(:ministry, :name => "UniqueTitleOne")
-            FactoryGirl.create(:ministry, :name => "UniqueTitleTwo")
+            FactoryGirl.create(:ministry, name: "UniqueTitleOne")
+            FactoryGirl.create(:ministry, name: "UniqueTitleTwo")
           end
 
           it "shows two items" do
@@ -23,13 +23,15 @@ describe Refinery do
         describe "create" do
           before(:each) do
             visit refinery.ministries_admin_ministries_path
+            FactoryGirl.create(:ministry_category, name: 'The category')
 
             click_link "Add New Ministry"
           end
 
           context "valid data" do
             it "should succeed" do
-              fill_in "Name", :with => "This is a test of the first string field"
+              fill_in "Name", with: "This is a test of the first string field"
+              select 'The category', from: 'Ministry Category'
               click_button "Save"
 
               page.should have_content("'This is a test of the first string field' was successfully added.")
@@ -47,14 +49,14 @@ describe Refinery do
           end
 
           context "duplicate" do
-            before(:each) { FactoryGirl.create(:ministry, :name => "UniqueTitle") }
+            before(:each) { FactoryGirl.create(:ministry, name: "UniqueTitle") }
 
             it "should fail" do
               visit refinery.ministries_admin_ministries_path
 
               click_link "Add New Ministry"
 
-              fill_in "Name", :with => "UniqueTitle"
+              fill_in "Name", with: "UniqueTitle"
               click_button "Save"
 
               page.should have_content("There were problems")
@@ -65,7 +67,7 @@ describe Refinery do
         end
 
         describe "edit" do
-          before(:each) { FactoryGirl.create(:ministry, :name => "A name") }
+          before(:each) { FactoryGirl.create(:ministry, name: "A name") }
 
           it "should succeed" do
             visit refinery.ministries_admin_ministries_path
@@ -74,7 +76,7 @@ describe Refinery do
               click_link "Edit this ministry"
             end
 
-            fill_in "Name", :with => "A different name"
+            fill_in "Name", with: "A different name"
             click_button "Save"
 
             page.should have_content("'A different name' was successfully updated.")
@@ -83,7 +85,7 @@ describe Refinery do
         end
 
         describe "destroy" do
-          before(:each) { FactoryGirl.create(:ministry, :name => "UniqueTitleOne") }
+          before(:each) { FactoryGirl.create(:ministry, name: "UniqueTitleOne") }
 
           it "should succeed" do
             visit refinery.ministries_admin_ministries_path
