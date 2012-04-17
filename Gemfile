@@ -35,6 +35,7 @@ group :test, :development do
   gem 'prickle'
   gem 'database_cleaner'
   gem 'refinerycms-testing', '~> 2.0.3'
+  gem 'sqlite3'
 end
 
 gem 'jquery-rails'
