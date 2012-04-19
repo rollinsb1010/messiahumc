@@ -40,9 +40,13 @@ module Refinery
           weekly = where('date <= ? AND repeats = ?', end_date, 'weekly')
           weekly = weekly.select { |e| (e.date.wday >= start_date.wday) or (e.date.wday <= end_date.wday) } unless (end_date - start_date >= 7)
 
-          day = Date.today
-          events[day] ||= []
-          weekly.each { |event| events[day] << event }
+          weekly.each do |event|
+            dates = get_all_dates_for_weekday(start_date, end_date, event.date.wday)
+            dates.each do |date|
+              events[date] ||= []
+              events[date] << event
+            end
+          end
 
           in_range.each do |event|
             events[event.date] ||= []
@@ -50,6 +54,18 @@ module Refinery
           end
 
           events
+        end
+
+        def get_all_dates_for_weekday(start_date, end_date, weekday_number)
+          dates = []
+          current_date = start_date
+
+          while current_date <= end_date
+            dates << current_date if current_date.wday == weekday_number
+            current_date = Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: current_date).to_date
+          end
+
+          dates
         end
       end
     end

@@ -121,6 +121,11 @@ module Refinery
         it 'does not include a weekly event that does not start in the range and does not have a day within the range' do
           @events.values.flatten.should_not include(@weekly_event_not_included_not_in_range)
         end
+
+        it 'adds the weekly events to the correct dates' do
+          @events[@weekly_event_starts_in_range.date].should include(@weekly_event_starts_in_range)
+          @events[3.days.from_now.to_date].should include(@weekly_event_included_not_in_range)
+        end
       end
     end
   end
