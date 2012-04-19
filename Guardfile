@@ -17,7 +17,7 @@ spec_paths = extensions.map{ |extension| "vendor/extensions/#{extension}/spec" }
 spec_paths << 'spec'
 cli_options = '--drb '
 cli_options << (File.read('.rspec').split("\n").join(' ') if File.exists?('.rspec'))
-guard 'rspec', version: 2, spec_paths: spec_paths, cli: cli_options, all_after_pass: false do
+guard 'rspec', version: 2, spec_paths: spec_paths, cli: cli_options, all_on_start: false, all_after_pass: false do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }

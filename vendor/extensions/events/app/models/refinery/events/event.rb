@@ -20,9 +20,25 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
+      def in_range?(start_date, end_date)
+        date >= start_date and date <= end_date
+      end
+
       class << self
         def upcoming
           where('date >= ?', Date.today).limit(5)
+        end
+
+        def for_date_range(start_date, end_date)
+          in_range = where('date >= ? AND date <= ?', start_date, end_date)
+
+          events = {}
+          in_range.each do |event|
+            events[event.date] ||= []
+            events[event.date] << event
+          end
+
+          events
         end
       end
     end
