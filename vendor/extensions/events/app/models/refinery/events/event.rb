@@ -53,10 +53,18 @@ module Refinery
 
           in_range.each { |event| add_event(events, event, event.date) }
 
-          Hash[events.sort]
+          Hash[sorted(events)]
         end
 
         private
+
+        def sorted(events)
+          events.sort.map do |a|
+            date, events = a
+            sorted_events = events.sort_by { |e| e.start_time or e.date.beginning_of_day }
+            [date, sorted_events]
+          end
+        end
 
         def add_event(events, event, date)
           date = date.to_date

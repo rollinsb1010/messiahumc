@@ -65,6 +65,7 @@ module Refinery
           @second_event_in_range = FactoryGirl.create :event, title: 'Second range event', date: 2.days.from_now.to_date, repeats: 'never'
           @third_event_in_range = FactoryGirl.create :event, title: 'Third range event', date: 3.days.from_now.to_date, repeats: 'never'
           @fourth_event_in_range = FactoryGirl.create :event, title: 'Fourth range event', date: 4.days.from_now.to_date, repeats: 'never'
+          @first_event_in_range_with_time = FactoryGirl.create :event, title: 'First range event with time', date: 2.days.from_now.to_date, repeats: 'never', start_time: 1.hour.from_now
 
           @weekly_event_starts_in_range = FactoryGirl.create :event, title: 'Weekly event starts in range', date: 1.day.from_now.to_date, repeats: 'weekly'
           @weekly_event_after_range = FactoryGirl.create :event, title: 'Weekly event after range', date: 2.weeks.from_now.to_date, repeats: 'weekly'
@@ -153,6 +154,12 @@ module Refinery
 
         it 'returns the events sorted by date' do
           @events.keys.should == @events.keys.sort
+        end
+
+        it 'returns the events sorted by start time' do
+          @events.values.each do |events|
+            events.should == events.sort_by { |e| e.start_time or e.date.beginning_of_day }
+          end
         end
       end
     end
