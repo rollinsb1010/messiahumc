@@ -34,4 +34,9 @@ MessiahUmc::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.after_initialize do
+    t = Time.local 2012, 04, 15
+    Timecop.travel(t)
+  end
 end
