@@ -53,7 +53,7 @@ module Refinery
 
           in_range.each { |event| add_event(events, event, event.date) }
 
-          events
+          Hash[events.sort]
         end
 
         private

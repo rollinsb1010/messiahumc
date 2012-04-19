@@ -150,6 +150,10 @@ module Refinery
           dates.should include(Time.local(2012, 3, 31).to_date)
           dates.should include(Time.local(2012, 5, 31).to_date)
         end
+
+        it 'returns the events sorted by date' do
+          @events.keys.should == @events.keys.sort
+        end
       end
     end
   end
