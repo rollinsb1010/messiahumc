@@ -67,12 +67,13 @@ module Refinery
           @fourth_event_in_range = FactoryGirl.create :event, title: 'Fourth range event', date: 4.days.from_now.to_date, repeats: 'never'
 
           @weekly_event_starts_in_range = FactoryGirl.create :event, title: 'Weekly event starts in range', date: 1.day.from_now.to_date, repeats: 'weekly'
-          @monthly_event_starts_in_range = FactoryGirl.create :event, title: 'Monthly event starts in range', date: 1.day.from_now.to_date, repeats: 'monthly'
           @weekly_event_after_range = FactoryGirl.create :event, title: 'Weekly event after range', date: 2.weeks.from_now.to_date, repeats: 'weekly'
-          @monthly_event_after_range = FactoryGirl.create :event, title: 'Monthly event after range', date: 2.weeks.from_now.to_date, repeats: 'monthly'
-
           @weekly_event_included_not_in_range = FactoryGirl.create :event, title: 'Weekly event before range included', date: 4.days.ago.to_date, repeats: 'weekly'
           @weekly_event_not_included_not_in_range = FactoryGirl.create :event, title: 'Weekly event before range not included', date: 1.day.ago.to_date, repeats: 'weekly'
+          @monthly_event_starts_in_range = FactoryGirl.create :event, title: 'Monthly event starts in range', date: 1.day.from_now.to_date, repeats: 'monthly'
+          @monthly_event_after_range = FactoryGirl.create :event, title: 'Monthly event after range', date: 2.weeks.from_now.to_date, repeats: 'monthly'
+          @monthly_event_included_not_in_range = FactoryGirl.create :event, title: 'Monthly event before range included', date: (1.month.ago + 1.day).to_date, repeats: 'monthly'
+          @monthly_event_not_included_not_in_range = FactoryGirl.create :event, title: 'Monthly event before range not included', date: 4.days.ago.to_date, repeats: 'monthly'
 
           @events = Event.for_date_range(Time.now, 5.days.from_now)
         end
@@ -105,10 +106,6 @@ module Refinery
           @events.values.flatten.should include(@weekly_event_starts_in_range)
         end
 
-        it 'includes a monthly event that starts within the range' do
-          @events.values.flatten.should include(@weekly_event_starts_in_range)
-        end
-
         it 'includes a weekly event for a range that spans 7 days or more' do
           events = Event.for_date_range(Time.now, 1.week.from_now)
           events.values.flatten.should include(@weekly_event_included_not_in_range)
@@ -125,6 +122,23 @@ module Refinery
         it 'adds the weekly events to the correct dates' do
           @events[@weekly_event_starts_in_range.date].should include(@weekly_event_starts_in_range)
           @events[3.days.from_now.to_date].should include(@weekly_event_included_not_in_range)
+        end
+
+        it 'includes a monthly event that starts within the range' do
+          @events.values.flatten.should include(@monthly_event_starts_in_range)
+        end
+
+        it 'includes a monthly event that does not start in the range but has a day within the range' do
+          @events.values.flatten.should include(@monthly_event_included_not_in_range)
+        end
+
+        it 'does not include a monthly event that does not start in the range and does not have a day within the range' do
+          @events.values.flatten.should_not include(@monthly_event_not_included_not_in_range)
+        end
+
+        it 'adds the monthly events to the correct dates' do
+          @events[@monthly_event_starts_in_range.date].should include(@monthly_event_starts_in_range)
+          @events[1.day.from_now.to_date].should include(@monthly_event_included_not_in_range)
         end
       end
     end

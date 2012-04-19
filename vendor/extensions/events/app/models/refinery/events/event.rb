@@ -38,9 +38,15 @@ module Refinery
 
           in_range = where('date >= ? AND date <= ?', start_date, end_date)
           weekly = where('date <= ? AND repeats = ?', end_date, 'weekly')
+          monthly = where('date <= ? AND repeats = ?', end_date, 'monthly')
 
           weekly.each do |event|
             dates = get_all_dates_for_weekday(start_date, end_date, event.date.wday)
+            dates.each { |date| add_event(events, event, date) }
+          end
+
+          monthly.each do |event|
+            dates = get_all_dates_for_day_number(start_date, end_date, event.date.day)
             dates.each { |date| add_event(events, event, date) }
           end
 
@@ -50,6 +56,7 @@ module Refinery
         end
 
         def add_event(events, event, date)
+          date = date.to_date
           events[date] ||= []
           events[date] << event
         end
@@ -62,7 +69,20 @@ module Refinery
 
           while current_date <= end_date
             dates << current_date if current_date.wday == weekday_number
-            current_date = Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: current_date).to_date
+            current_date = Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: current_date)
+          end
+
+          dates
+        end
+
+        def get_all_dates_for_day_number(start_date, end_date, day_number)
+          dates = []
+          current_date = Chronic.parse("#{Date::MONTHNAMES[start_date.month]} #{day_number}")
+          current_date = Chronic.parse("#{Date::MONTHNAMES[(start_date + 1.month).month]} #{day_number}") if current_date < start_date
+
+          while current_date <= end_date
+            dates << current_date if current_date.day == day_number
+            current_date = Chronic.parse("#{Date::MONTHNAMES[(current_date + 1.month).month]} #{day_number}")
           end
 
           dates
