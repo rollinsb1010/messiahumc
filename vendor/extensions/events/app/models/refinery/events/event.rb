@@ -38,18 +38,11 @@ module Refinery
 
           in_range = where('date >= ? AND date <= ?', start_date, end_date)
           weekly = where('date <= ? AND repeats = ?', end_date, 'weekly')
+          weekly = weekly.select { |e| (e.date.wday >= start_date.wday) or (e.date.wday <= end_date.wday) } unless (end_date - start_date >= 7)
 
-          if (end_date - start_date) >= 7
-            day = Date.today
-            events[day] ||= []
-            weekly.each { |event| events[day] << event }
-          else
-            weekly = weekly.select { |e| (e.date.wday >= start_date.wday) or (e.date.wday <= end_date.wday) }
-
-            day = Date.today
-            events[day] ||= []
-            weekly.each { |event| events[day] << event }
-          end
+          day = Date.today
+          events[day] ||= []
+          weekly.each { |event| events[day] << event }
 
           in_range.each do |event|
             events[event.date] ||= []
