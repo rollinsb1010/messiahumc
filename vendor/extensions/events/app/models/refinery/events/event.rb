@@ -42,19 +42,20 @@ module Refinery
 
           weekly.each do |event|
             dates = get_all_dates_for_weekday(start_date, end_date, event.date.wday)
-            dates.each do |date|
-              events[date] ||= []
-              events[date] << event
-            end
+            dates.each { |date| add_event(events, event, date) }
           end
 
-          in_range.each do |event|
-            events[event.date] ||= []
-            events[event.date] << event
-          end
+          in_range.each { |event| add_event(events, event, event.date) }
 
           events
         end
+
+        def add_event(events, event, date)
+          events[date] ||= []
+          events[date] << event
+        end
+
+        private
 
         def get_all_dates_for_weekday(start_date, end_date, weekday_number)
           dates = []
