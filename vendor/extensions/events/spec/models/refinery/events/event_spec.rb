@@ -140,6 +140,16 @@ module Refinery
           @events[@monthly_event_starts_in_range.date].should include(@monthly_event_starts_in_range)
           @events[1.day.from_now.to_date].should include(@monthly_event_included_not_in_range)
         end
+
+        it 'does not add a monthly event if the day number is not included in one month in the range' do
+          Event.delete_all
+          monthly_event_on_31st = FactoryGirl.create :event, title: 'Monthly Event on 31st', date: Time.local(2011, 10, 31).to_date, repeats: 'monthly'
+          events = Event.for_date_range(Time.local(2012, 2, 1), Time.local(2012, 5, 31))
+          dates = events.keys
+          dates.size.should == 2
+          dates.should include(Time.local(2012, 3, 31).to_date)
+          dates.should include(Time.local(2012, 5, 31).to_date)
+        end
       end
     end
   end

@@ -41,12 +41,12 @@ module Refinery
           monthly = where('date <= ? AND repeats = ?', end_date, 'monthly')
 
           weekly.each do |event|
-            dates = get_all_dates_for_weekday(start_date, end_date, event.date.wday)
+            dates = dates_for_weekday(start_date, end_date, event.date.wday)
             dates.each { |date| add_event(events, event, date) }
           end
 
           monthly.each do |event|
-            dates = get_all_dates_for_day_number(start_date, end_date, event.date.day)
+            dates = dates_for_day_number(start_date, end_date, event.date.day)
             dates.each { |date| add_event(events, event, date) }
           end
 
@@ -63,7 +63,7 @@ module Refinery
 
         private
 
-        def get_all_dates_for_weekday(start_date, end_date, weekday_number)
+        def dates_for_weekday(start_date, end_date, weekday_number)
           dates = []
           current_date = start_date
 
@@ -75,17 +75,29 @@ module Refinery
           dates
         end
 
-        def get_all_dates_for_day_number(start_date, end_date, day_number)
+        def dates_for_day_number(start_date, end_date, day_number)
           dates = []
           current_date = Chronic.parse("#{Date::MONTHNAMES[start_date.month]} #{day_number}")
-          current_date = Chronic.parse("#{Date::MONTHNAMES[(start_date + 1.month).month]} #{day_number}") if current_date < start_date
+          current_date = next_date_for_day_number(start_date, day_number) if current_date.nil? or current_date < start_date
 
           while current_date <= end_date
             dates << current_date if current_date.day == day_number
-            current_date = Chronic.parse("#{Date::MONTHNAMES[(current_date + 1.month).month]} #{day_number}")
+            current_date = next_date_for_day_number(current_date, day_number)
           end
 
           dates
+        end
+
+        def next_date_for_day_number(initial_date, day_number)
+          next_date = nil
+          number = 1
+
+          while next_date.nil? and number <= 12
+            next_date = Chronic.parse("#{Date::MONTHNAMES[(initial_date + number.months).month]} #{day_number}")
+            number += 1
+          end
+
+          next_date.to_date
         end
       end
     end

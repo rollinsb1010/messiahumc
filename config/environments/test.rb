@@ -36,7 +36,7 @@ MessiahUmc::Application.configure do
   config.active_support.deprecation = :stderr
 
   config.after_initialize do
-    t = Time.local 2012, 04, 15
+    t = Time.local 2012, 1, 1
     Timecop.travel(t)
   end
 end
