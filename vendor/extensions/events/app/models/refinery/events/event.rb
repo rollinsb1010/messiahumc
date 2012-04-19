@@ -36,7 +36,8 @@ module Refinery
           start_date = start_date.to_date
           end_date = end_date.to_date
 
-          in_range = where('date >= ? AND date <= ?', start_date, end_date)
+          in_range = where('date >= ? AND date <= ? AND repeats = ?', start_date, end_date, 'never')
+
           weekly = where('date <= ? AND repeats = ?', end_date, 'weekly')
           monthly = where('date <= ? AND repeats = ?', end_date, 'monthly')
 
@@ -55,13 +56,13 @@ module Refinery
           events
         end
 
+        private
+
         def add_event(events, event, date)
           date = date.to_date
           events[date] ||= []
           events[date] << event
         end
-
-        private
 
         def dates_for_weekday(start_date, end_date, weekday_number)
           dates = []
