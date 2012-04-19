@@ -66,7 +66,10 @@ module Refinery
           @third_event_in_range = FactoryGirl.create :event, title: 'Third range event', date: 3.days.from_now.to_date, repeats: 'never'
           @fourth_event_in_range = FactoryGirl.create :event, title: 'Fourth range event', date: 4.days.from_now.to_date, repeats: 'never'
 
-          @weekly_event_starts_in_range = FactoryGirl.create :event, title: 'Repeating event starts in range', date: 1.day.from_now.to_date, repeats: 'weekly'
+          @weekly_event_starts_in_range = FactoryGirl.create :event, title: 'Weekly event starts in range', date: 1.day.from_now.to_date, repeats: 'weekly'
+          @monthly_event_starts_in_range = FactoryGirl.create :event, title: 'Monthly event starts in range', date: 1.day.from_now.to_date, repeats: 'monthly'
+          @weekly_event_after_range = FactoryGirl.create :event, title: 'Weekly event after range', date: 2.weeks.from_now.to_date, repeats: 'weekly'
+          @monthly_event_after_range = FactoryGirl.create :event, title: 'Monthly event after range', date: 2.weeks.from_now.to_date, repeats: 'monthly'
 
           @events = Event.for_date_range(Time.now, 1.week.from_now)
         end
@@ -79,8 +82,11 @@ module Refinery
           @events.values.flatten.should_not include(@before_range_event)
         end
 
-        it 'does not include non repeating events after the end date' do
-          @events.values.flatten.should_not include(@after_range_event)
+        it 'does not include any event that starts after the end date' do
+          events = @events.values.flatten
+          events.should_not include(@after_range_event)
+          events.should_not include(@weekly_event_after_range)
+          events.should_not include(@monthly_event_after_range)
         end
 
         it 'returns the events in the in a date => events format' do
@@ -89,6 +95,10 @@ module Refinery
         end
 
         it 'includes a weekly event that starts within the range' do
+          @events.values.flatten.should include(@weekly_event_starts_in_range)
+        end
+
+        it 'includes a monthly event that starts within the range' do
           @events.values.flatten.should include(@weekly_event_starts_in_range)
         end
       end
