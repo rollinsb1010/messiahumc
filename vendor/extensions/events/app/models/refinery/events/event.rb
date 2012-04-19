@@ -30,15 +30,22 @@ module Refinery
         end
 
         def for_date_range(start_date, end_date)
+          events = {}
+          return events if start_date > end_date
+
           start_date = start_date.to_date
           end_date = end_date.to_date
 
           in_range = where('date >= ? AND date <= ?', start_date, end_date)
-          weekly = where(repeats: 'weekly')
-
-          events = {}
+          weekly = where('date <= ? AND repeats = ?', end_date, 'weekly')
 
           if (end_date - start_date) >= 7
+            day = Date.today
+            events[day] ||= []
+            weekly.each { |event| events[day] << event }
+          else
+            weekly = weekly.select { |e| (e.date.wday >= start_date.wday) or (e.date.wday <= end_date.wday) }
+
             day = Date.today
             events[day] ||= []
             weekly.each { |event| events[day] << event }

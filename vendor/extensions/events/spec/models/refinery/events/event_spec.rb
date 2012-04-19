@@ -76,6 +76,10 @@ module Refinery
           @events = Event.for_date_range(Time.now, 5.days.from_now)
         end
 
+        it 'returns an empty hash for an invalid date range' do
+          events = Event.for_date_range(Time.now, 5.days.ago).should be_empty
+        end
+
         it 'includes the non repeating events in the range' do
           @events.values.flatten.should include(@first_event_in_range)
         end
