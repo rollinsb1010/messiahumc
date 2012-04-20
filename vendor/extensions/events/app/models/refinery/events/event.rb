@@ -26,7 +26,13 @@ module Refinery
 
       class << self
         def upcoming
-          where(highlighted: true)
+          events = {}
+
+          events[Time.now] = where(highlighted: true)
+          events
+        end
+
+        def get_next_events(limit)
         end
 
         def for_date_range(start_date, end_date)

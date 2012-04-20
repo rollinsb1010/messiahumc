@@ -57,6 +57,28 @@ module Refinery
         end
       end
 
+      describe '.upcoming' do
+        before :each do
+        end
+
+        it 'returns only highlighted events' do
+          events = Event.upcoming
+          events.values.flatten.each{ |e| e.highlighted.should == true}
+        end
+      end
+
+      describe '.get_next_events' do
+        before :each do
+          @test = FactoryGirl.build :event, title: 'test event'
+#          Event.should_receive(:upcoming).with(Time.now, Time.now).and_return [@test]
+          @events = Event.for_date_range(Time.now, 5.days.from_now)
+        end
+
+        it 'returns only highlighted events' do
+#          events = Event.for_date_range(Time.now, 5.days.ago).should be_empty
+        end
+      end
+
       describe '.for_date_range' do
         before :each do
           @before_range_event = FactoryGirl.create :event, title: 'Before range event', date: 2.days.ago.to_date, repeats: 'never'
@@ -140,6 +162,15 @@ module Refinery
         it 'adds the monthly events to the correct dates' do
           @events[@monthly_event_starts_in_range.date].should include(@monthly_event_starts_in_range)
           @events[1.day.from_now.to_date].should include(@monthly_event_included_not_in_range)
+        end
+
+        it 'returns the correct events for a single day range' do
+          events = Event.for_date_range(2.days.from_now, 2.days.from_now)
+          events.size.should == 1
+          events.values.flatten.size.should == 3
+          events[2.days.from_now.to_date].should include(@first_event_in_range)
+          events[2.days.from_now.to_date].should include(@second_event_in_range)
+          events[2.days.from_now.to_date].should include(@first_event_in_range_with_time)
         end
 
         it 'does not add a monthly event if the day number is not included in one month in the range' do
