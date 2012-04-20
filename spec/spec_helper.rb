@@ -12,7 +12,7 @@ def setup_environment
   require 'prickle/capybara'
   require 'refinerycms-testing'
 
-  Rails.backtrace_cleaner.remove_silencers!
+#  Rails.backtrace_cleaner.remove_silencers!
 
   RSpec.configure do |config|
     config.mock_with :rr

@@ -1,9 +1,11 @@
 module Refinery
   module Events
     class EventsController < ::ApplicationController
-      before_filter :find_all_events, :find_page, :set_left_sidebar
+      before_filter :find_all_events, except: [:index]
+      before_filter :find_page, :set_left_sidebar
 
       def index
+        @events = Event.upcoming
         present(@page)
       end
 
