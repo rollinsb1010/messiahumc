@@ -13,7 +13,7 @@
           %tr
             %th Date:
             %td= @event.date
-            - time_info = get_time_info
+            - time_info = time_info(@event)
             - unless time_info.nil?
               %tr
                 %th Time:
@@ -24,7 +24,7 @@
           %tr
             %th Description:
             %td= @event.short_description
-            - contact_info = get_contact_info
+            - contact_info = contact_info(@event)
             - unless contact_info.nil?
               %tr
                 %th Contact:

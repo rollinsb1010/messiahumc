@@ -26,7 +26,7 @@ module Refinery
 
       class << self
         def upcoming
-          where('date >= ?', Date.today).limit(5)
+          where(highlighted: true)
         end
 
         def for_date_range(start_date, end_date)

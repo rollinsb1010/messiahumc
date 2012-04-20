@@ -55,22 +55,7 @@
       %a{href:"#"} Adult softball season
       is just around the corner!
   %div
-    %header
-      %h2 Upcoming Events
-      %h6
-        %a{href: '#', class: 'selected' } Calendar
-    %table
-      %tbody
-        %tr
-          %td April 20-21
-          %td
-            %a{href:"#"}UMW Spring Rummage Sale
-        %tr
-          %td March 18
-          %td
-            %a{href:"#"}3rd Sunday Breakfast
-            %br
-            Church for all people.
+    =render '/refinery/events/shared/upcoming'
   %span.clear
 
 = render template: 'layouts/application'
