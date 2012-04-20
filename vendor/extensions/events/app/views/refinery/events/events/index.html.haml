@@ -1,5 +1,12 @@
 - content_for :body_content_right do
   %h1 Calendar
   %ul#events
-    - @events.each do |event|
-      %li= link_to event.title, refinery.events_event_path(event)
+    - @events.each do |date, events|
+      %li
+        %h3= date.strftime('%A, %B %-d')
+        %ul
+          - events.each do |event|
+            %li
+              %h4
+                = link_to event.title, refinery.events_event_path(event)
+                %span= format_event_time event.start_time

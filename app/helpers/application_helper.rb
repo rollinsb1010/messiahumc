@@ -28,3 +28,10 @@ module ApplicationHelper
     super(html, options)
   end
 end
+
+Dir[Rails.root.join('vendor', 'extensions', '*')].each do |extension_path|
+  Dir[File.join(extension_path, 'app', 'helpers', '*')].each do |file|
+    require file
+    ApplicationHelper.send :include, Kernel.const_get(file.split('/').last.gsub(/\.rb/, '').classify)
+  end
+end

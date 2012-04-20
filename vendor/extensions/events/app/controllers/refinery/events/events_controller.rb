@@ -5,7 +5,8 @@ module Refinery
       before_filter :find_page, :set_left_sidebar
 
       def index
-        @events = Event.upcoming
+        today = Date.today
+        @events = Event.for_date_range(today, today + 6.days)
         present(@page)
       end
 
