@@ -157,7 +157,7 @@ module Refinery
 
           while current_date <= end_date
             dates << current_date if current_date.wday == weekday_number
-            current_date = next_date_for_weekday((current_date + 1.day), weekday_number)
+            current_date = next_date_for_weekday((current_date), weekday_number)
           end
 
           dates
