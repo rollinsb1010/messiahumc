@@ -54,6 +54,7 @@
 
   #calendar_events {
     .event_date {
+      margin: 0px;
     }
 
     .metadata {
@@ -63,11 +64,20 @@
 
     ul {
       li {
-        padding: 0px 20px;
+        padding: 5px 10px;
         border-top: 1px solid #9e9b88;
+        margin: 0;
 
         &.first {
           border-top: none;
+        }
+
+        &.ui-state-active {
+          background-color: #eae9e4;
+        }
+
+        &.last {
+          padding-bottom: 10px;
         }
       }
     }
@@ -86,10 +96,11 @@
 
     h3 {
       margin: 0;
-      padding: 5px 0px;
+      padding: 5px 15px;
       font-family: $general_font;
       font-size: 13px;
       height: 15px;
+      background: image-url("caret_right.png") no-repeat left 8px transparent;
 
       span {
         display: block;
@@ -98,6 +109,15 @@
         font-weight: normal;
         color: #000000;
       }
+
+      &.ui-state-active {
+        background-image: image-url("caret_down.png");
+        background-position: left 10px;
+      }
+    }
+
+    .details {
+      padding: 0 15px;
     }
   }
 }
