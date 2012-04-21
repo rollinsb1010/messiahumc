@@ -1,6 +1,7 @@
 module Refinery
   module Events
     class Event < Refinery::Core::BaseModel
+      after_initialize :set_initial_values
       self.table_name = 'refinery_events'
 
       extend FriendlyId
@@ -24,22 +25,61 @@ module Refinery
         date >= start_date and date <= end_date
       end
 
+      def set_initial_values
+        @current_date = date
+      end
+
+      def next_date
+        return nil if date.nil?
+
+        if repeats == 'weekly'
+          @current_date = @current_date + 1.week
+        elsif repeats == 'monthly'
+          @current_date = @current_date + 1.month
+        else
+          @current_date = nil
+        end
+      end
+
       class << self
         def upcoming
           upcoming_events = {}
 
-          for_range = Event.for_date(Time.now.to_date, "highlighted = 't'")
+          current = Hash.new
 
-          index = 0
-          for_range.each do |date, events|
-            events.each do |event|
-              add_event(upcoming_events, event, date)
-              index += 1
-              return upcoming_events if index >= 4
+          results = where('date >= ?', Time.now.to_date).where(highlighted: true).limit(4)
+
+          results.each { |event| current[event] = event.date}
+
+          while(upcoming_events.values.flatten.size < 4 and current.any?)
+            current = sort(current)
+            current_event = current.first[0]
+            current_date = current.first[1]
+
+            add_event(upcoming_events, current_event, current_date)
+
+            if current_event.repeats == 'never'
+              current.shift
+            else
+              current[current_event] = current_event.next_date
             end
           end
 
           upcoming_events
+        end
+
+        def sort(current)
+          sorted = current.sort_by do |event, date_instance|
+            if event.start_time.nil?
+              value = date_instance.to_datetime
+            else
+              value = date_instance.to_datetime + (event.start_time.seconds_since_midnight).seconds
+            end
+
+            value
+          end
+
+          Hash[sorted]
         end
 
         def for_date(start_date, conditions = {})

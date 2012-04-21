@@ -59,44 +59,69 @@ module Refinery
 
       describe '.upcoming' do
         before :each do
-          @event1 = FactoryGirl.create :event
-          @event2 = FactoryGirl.create :event
-          @event3 = FactoryGirl.create :event
-          @event4 = FactoryGirl.create :event
-          @event5 = FactoryGirl.create :event
         end
 
-        it 'returns an empty result if there are no events possible' do
-          for_date = {}
+        it 'returns an empty result if there are no highlighted events in the future' do
+          2.times { FactoryGirl.create :event, highlighted: false }
+          FactoryGirl.create :event, highlighted: true, date: 1.day.ago.to_date
 
-          Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
-
           events.should be_empty
         end
 
-        it 'returns the correct events in the right format if there are less than 4 possible' do
-          for_date = {}
-          for_date[Time.now.to_date] = [@event1]
+        it 'returns the correct events in the right format if the first three are non repeating' do
+          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date, highlighted: true
+          event2 = FactoryGirl.create :event, title: 'Event2', date: 1.week.from_now.to_date, highlighted: true
+          event3 = FactoryGirl.create :event, title: 'Event3', date: 2.months.from_now.to_date, highlighted: true
+          event4 = FactoryGirl.create :event, title: 'Event4', date: 3.months.from_now.to_date, highlighted: true, repeats: 'weekly'
 
-          Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
+          FactoryGirl.create :event, date: 1.day.ago, highlighted: true
+          3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
+
           events = Event.upcoming
 
-          events.values.flatten.size.should == 1
-          events[Time.now.to_date].should include(@event1)
+          events.values.flatten.size.should == 4
+          events[1.day.from_now.to_date].should include(event1)
+          events[1.week.from_now.to_date].should include(event2)
+          events[2.months.from_now.to_date].should include(event3)
+          events[3.months.from_now.to_date].should include(event4)
         end
 
-        it 'returns the correct events in the right format if there are more than 4 possible for the same day' do
-          for_date = {}
+        it 'returns the correct events in the right format for a mix of repeating and non repeating' do
+          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date, highlighted: true, repeats: 'weekly'
+          event2 = FactoryGirl.create :event, title: 'Event2', date: 2.weeks.from_now.to_date, highlighted: true, repeats: 'monthly'
+          event3 = FactoryGirl.create :event, title: 'Event3', date: 2.months.from_now.to_date, highlighted: true, repeats: 'never'
+          event4 = FactoryGirl.create :event, title: 'Event4', date: 3.months.from_now.to_date, highlighted: true, repeats: 'weekly'
 
-          for_date[Time.now.to_date] = [@event1, @event2, @event3, @event4, @event5]
+          FactoryGirl.create :event, date: 1.day.ago, highlighted: true
+          3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
 
-          Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
 
           events.values.flatten.size.should == 4
 
-          events[Time.now.to_date].should include(@event1, @event2, @event3, @event4)
+          events[1.day.from_now.to_date].should include(event1)
+          events[(1.week.from_now + 1.day).to_date].should include(event1)
+          events[2.weeks.from_now.to_date].should include(event2)
+          events[(2.weeks.from_now + 1.day).to_date].should include(event1)
+        end
+
+        it 'returns the correct events in the right format for a mix of repeating and non repeating and events on the same day' do
+          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date, highlighted: true, repeats: 'weekly'
+          event2 = FactoryGirl.create :event, title: 'Event2', date: 1.day.from_now.to_date, highlighted: true, repeats: 'monthly'
+          event3 = FactoryGirl.create :event, title: 'Event3', date: 10.days.from_now.to_date, highlighted: true, repeats: 'never', start_time: 10.hours.from_now
+          event4 = FactoryGirl.create :event, title: 'Event4', date: 10.days.from_now.to_date, highlighted: true, repeats: 'weekly', start_time: 1.hour.from_now
+
+          FactoryGirl.create :event, date: 1.day.ago, highlighted: true
+          3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
+
+          events = Event.upcoming
+
+          events.values.flatten.size.should == 4
+
+          events[1.day.from_now.to_date].should include(event1, event2)
+          events[(1.week.from_now + 1.day).to_date].should include(event1)
+          events[10.days.from_now.to_date].should include(event4)
         end
       end
 
