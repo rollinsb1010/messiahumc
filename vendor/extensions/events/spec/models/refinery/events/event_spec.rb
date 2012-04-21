@@ -64,23 +64,22 @@ module Refinery
           @event3 = FactoryGirl.create :event
           @event4 = FactoryGirl.create :event
           @event5 = FactoryGirl.create :event
-
         end
 
         it 'returns an empty result if there are no events possible' do
-          for_date_range = {}
+          for_date = {}
 
-          Event.should_receive(:for_date_range).with(Time.now.to_date, Time.now.to_date, "highlighted = 't'").and_return for_date_range
+          Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
 
           events.should be_empty
         end
 
         it 'returns the correct events in the right format if there are less than 4 possible' do
-          for_date_range = {}
-          for_date_range[2.days.from_now.to_date] = [@event1]
+          for_date = {}
+          for_date[2.days.from_now.to_date] = [@event1]
 
-          Event.should_receive(:for_date_range).with(Time.now.to_date, Time.now.to_date, "highlighted = 't'").and_return for_date_range
+          Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
 
           events.values.flatten.size.should == 1
@@ -88,14 +87,14 @@ module Refinery
         end
 
         it 'returns the correct events in the right format if there are more than 4 possible' do
-          for_date_range = {}
+          for_date = {}
 
-          for_date_range[2.days.from_now.to_date] = [@event1, @event2]
-          for_date_range[3.days.from_now.to_date] = [@event3]
-          for_date_range[4.days.from_now.to_date] = [@event4, @event5]
-          for_date_range[5.days.from_now.to_date] = [@event6]
+          for_date[2.days.from_now.to_date] = [@event1, @event2]
+          for_date[3.days.from_now.to_date] = [@event3]
+          for_date[4.days.from_now.to_date] = [@event4, @event5]
+          for_date[5.days.from_now.to_date] = [@event6]
 
-          Event.should_receive(:for_date_range).with(Time.now.to_date, Time.now.to_date, "highlighted = 't'").and_return for_date_range
+          Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
 
           events.values.flatten.size.should == 4
@@ -192,7 +191,7 @@ module Refinery
         end
 
         it 'returns the correct events for a single day range' do
-          events = Event.for_date_range(2.days.from_now, 2.days.from_now)
+          events = Event.for_date_range(2.days.from_now)
           events.size.should == 1
           events.values.flatten.size.should == 3
           events[2.days.from_now.to_date].should include(@first_event_in_range)

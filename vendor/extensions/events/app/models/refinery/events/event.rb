@@ -28,7 +28,7 @@ module Refinery
         def upcoming
           upcoming_events = {}
 
-          for_range = Event.for_date_range(Time.now.to_date, Time.now.to_date, "highlighted = 't'")
+          for_range = Event.for_date(Time.now.to_date, "highlighted = 't'")
 
           index = 0
           for_range.each do |date, events|
@@ -42,7 +42,11 @@ module Refinery
           upcoming_events
         end
 
-        def for_date_range(start_date, end_date, conditions = {})
+        def for_date(start_date, conditions = {})
+          for_date_range(start_date, start_date, conditions)
+        end
+
+        def for_date_range(start_date, end_date = start_date, conditions = {})
           events = {}
           return events if start_date > end_date
 
