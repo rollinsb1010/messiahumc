@@ -26,26 +26,33 @@ module Refinery
 
       class << self
         def upcoming
-          events = {}
+          upcoming_events = {}
 
-          events[Time.now] = where(highlighted: true)
-          events
+          for_range = Event.for_date_range(Time.now.to_date, Time.now.to_date, "highlighted = 't'")
+
+          index = 0
+          for_range.each do |date, events|
+            events.each do |event|
+              add_event(upcoming_events, event, date)
+              index += 1
+              return upcoming_events if index >= 4
+            end
+          end
+
+          upcoming_events
         end
 
-        def get_next_events(limit)
-        end
-
-        def for_date_range(start_date, end_date)
+        def for_date_range(start_date, end_date, conditions = 1)
           events = {}
           return events if start_date > end_date
 
           start_date = start_date.to_date
           end_date = end_date.to_date
 
-          in_range = where('date >= ? AND date <= ? AND repeats = ?', start_date, end_date, 'never')
+          in_range = where("date >= ? AND date <= ? AND repeats = ? AND #{conditions}", start_date, end_date, 'never')
 
-          weekly = where('date <= ? AND repeats = ?', end_date, 'weekly')
-          monthly = where('date <= ? AND repeats = ?', end_date, 'monthly')
+          weekly = where("date <= ? AND repeats = ? AND #{conditions}", end_date, 'weekly')
+          monthly = where("date <= ? AND repeats = ? AND #{conditions}", end_date, 'monthly')
 
           weekly.each do |event|
             dates = dates_for_weekday(start_date, end_date, event.date.wday)
