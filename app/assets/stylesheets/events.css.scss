@@ -42,4 +42,60 @@
       padding-left: 10px;
     }
   }
+
+  #calendar {
+    .print {
+      padding: 4px 25px;
+      color: #ffffff;
+      background: $calendar_purple_dark;
+      text-align: right;
+    }
+  }
+
+  #calendar_events {
+    .event_date {
+    }
+
+    .metadata {
+      margin-top: 0px;
+    }
+
+    ul {
+      li {
+        padding: 0px 20px;
+
+        &.first {
+          border-top: none;
+        }
+      }
+    }
+
+    h2 {
+      color: #ffffff;
+      background: $calendar_purple_light;
+      font-family: $general_font;
+      font-size: 14px;
+      height: 25px;
+      padding: 12px 4px 3px;
+      margin: 0;
+      border-top: 1px solid $calendar_purple_border;
+      border-bottom: 1px solid $calendar_purple_border;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 5px 0px;
+      font-family: $general_font;
+      font-size: 13px;
+      height: 15px;
+
+      span {
+        display: block;
+        float: right;
+        width: 120px;
+        font-weight: normal;
+        color: #000000;
+      }
+    }
+  }
 }
