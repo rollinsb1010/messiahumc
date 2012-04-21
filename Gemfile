@@ -70,6 +70,7 @@ gem 'refinerycms-i18n',   '~> 2.0.0'
 gem 'refinerycms-copywriting'
 gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: 'rails-3-1'
 gem 'refinerycms-page-images'
+gem 'squeel'
 
 gem 'refinerycms-pastors', path: 'vendor/extensions'
 gem 'refinerycms-sermons', path: 'vendor/extensions'
