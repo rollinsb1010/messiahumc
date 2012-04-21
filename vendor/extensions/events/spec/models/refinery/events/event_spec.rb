@@ -77,31 +77,26 @@ module Refinery
 
         it 'returns the correct events in the right format if there are less than 4 possible' do
           for_date = {}
-          for_date[2.days.from_now.to_date] = [@event1]
+          for_date[Time.now.to_date] = [@event1]
 
           Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
 
           events.values.flatten.size.should == 1
-          events[2.days.from_now.to_date].should include(@event1)
+          events[Time.now.to_date].should include(@event1)
         end
 
-        it 'returns the correct events in the right format if there are more than 4 possible' do
+        it 'returns the correct events in the right format if there are more than 4 possible for the same day' do
           for_date = {}
 
-          for_date[2.days.from_now.to_date] = [@event1, @event2]
-          for_date[3.days.from_now.to_date] = [@event3]
-          for_date[4.days.from_now.to_date] = [@event4, @event5]
-          for_date[5.days.from_now.to_date] = [@event6]
+          for_date[Time.now.to_date] = [@event1, @event2, @event3, @event4, @event5]
 
           Event.should_receive(:for_date).with(Time.now.to_date, "highlighted = 't'").and_return for_date
           events = Event.upcoming
 
           events.values.flatten.size.should == 4
 
-          events[2.days.from_now.to_date].should include(@event1, @event2)
-          events[3.days.from_now.to_date].should include(@event3)
-          events[4.days.from_now.to_date].should include(@event4)
+          events[Time.now.to_date].should include(@event1, @event2, @event3, @event4)
         end
       end
 
