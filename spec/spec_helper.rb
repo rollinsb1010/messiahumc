@@ -22,6 +22,8 @@ def setup_environment
     config.use_transactional_fixtures = false
     config.infer_base_class_for_anonymous_controllers = false
   end
+
+  #ActiveRecord::Base.logger = Logger.new($stdout)
 end
 
 def each_run

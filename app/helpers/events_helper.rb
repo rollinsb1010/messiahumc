@@ -1,6 +1,6 @@
 module EventsHelper
-  def get_time_info(event = nil)
-    event = (event or @event)
+
+  def time_info(event)
     format = '%I:%M%P'
 
     unless event.start_time.nil?
@@ -10,13 +10,16 @@ module EventsHelper
     end
   end
 
-  def get_contact_info(event = nil)
-    event = (event or @event)
+  def contact_info(event)
     unless event.contact_email.blank?
       link = link_to (event.contact_name or event.contact_email), "mailto: #{event.contact_email}"
     end
 
     link + ", #{event.contact_phone}" unless event.contact_phone.blank?
+  end
+
+  def date_info(event)
+    info = event.date.strftime("%b %d")
   end
 
   def format_event_time(time)
