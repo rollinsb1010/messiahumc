@@ -24,22 +24,67 @@ module Refinery
         date >= start_date and date <= end_date
       end
 
+      def next_date(context = Time.now.to_date)
+        return nil if date.nil?
+        context = date if context < date
+
+        if repeats == 'weekly'
+          return Event.next_date_for_weekday(context.to_date, date.wday)
+        elsif repeats == 'monthly'
+          return Event.next_date_for_day_number((context).to_date, date.day)
+        end
+
+        return date
+      end
+
       class << self
-        def upcoming
+        def upcoming(limit = 4, conditions = {})
           upcoming_events = {}
 
-          for_range = Event.for_date(Time.now.to_date, "highlighted = 't'")
+          current = Hash.new
 
-          index = 0
-          for_range.each do |date, events|
-            events.each do |event|
-              add_event(upcoming_events, event, date)
-              index += 1
-              return upcoming_events if index >= 4
+          results = where{(highlighted == true) & (((repeats == 'monthly') | (repeats == 'weekly')) | ((repeats == 'never') & (date >= Time.now.to_date)))}.limit(limit).where(conditions)
+
+          results.each do |event|
+            if event.date.past?
+              date = event.next_date
+            else
+              date = event.date
+            end
+
+            current[event] = date
+          end
+
+          while(upcoming_events.values.flatten.size < limit and current.any?)
+            current = sort(current)
+
+            current_event = current.first[0]
+            current_date = current.first[1]
+
+            add_event(upcoming_events, current_event, current_date)
+
+            if current_event.repeats == 'never'
+              current.shift
+            else
+              current[current_event] = current_event.next_date((current_date + 1.day).to_date)
             end
           end
 
           upcoming_events
+        end
+
+        def sort(current)
+          sorted = current.sort_by do |event, date_instance|
+            if event.start_time.nil?
+              value = date_instance.to_datetime
+            else
+              value = date_instance.to_datetime + (event.start_time.seconds_since_midnight).seconds
+            end
+
+            value
+          end
+
+          Hash[sorted]
         end
 
         def for_date(start_date, conditions = {})
@@ -73,6 +118,23 @@ module Refinery
           Hash[sorted(events)]
         end
 
+        def next_date_for_weekday(context_date, weekday_number)
+          Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: context_date).to_date
+        end
+
+        def next_date_for_day_number(initial_date, day_number)
+          next_date = nil
+          number = 0
+          number = 1 if initial_date.day > day_number
+
+          while next_date.nil? and number <= 12
+            next_date = Chronic.parse("#{Date::MONTHNAMES[(initial_date + number.months).month]} #{day_number}", now: initial_date)
+            number += 1
+          end
+
+          next_date.to_date
+        end
+
         private
 
         def sorted(events)
@@ -95,7 +157,7 @@ module Refinery
 
           while current_date <= end_date
             dates << current_date if current_date.wday == weekday_number
-            current_date = Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: current_date)
+            current_date = next_date_for_weekday((current_date), weekday_number)
           end
 
           dates
@@ -108,23 +170,12 @@ module Refinery
 
           while current_date <= end_date
             dates << current_date if current_date.day == day_number
-            current_date = next_date_for_day_number(current_date, day_number)
+            current_date = next_date_for_day_number((current_date + 1.day).to_date, day_number)
           end
 
           dates
         end
 
-        def next_date_for_day_number(initial_date, day_number)
-          next_date = nil
-          number = 1
-
-          while next_date.nil? and number <= 12
-            next_date = Chronic.parse("#{Date::MONTHNAMES[(initial_date + number.months).month]} #{day_number}")
-            number += 1
-          end
-
-          next_date.to_date
-        end
       end
     end
   end

@@ -18,8 +18,8 @@ module EventsHelper
     link + ", #{event.contact_phone}" unless event.contact_phone.blank?
   end
 
-  def date_info(event)
-    info = event.date.strftime("%b %d")
+  def date_info(date)
+    date.strftime("%b %d")
   end
 
   def format_event_time(time)

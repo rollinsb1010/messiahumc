@@ -3,7 +3,8 @@
   %h6= link_to 'Calendar', refinery.events_events_path, class: 'selected'
 %table
   %tbody
-    - @upcoming_events.each do |event|
-      %tr
-        %td= date_info(event)
-        %td=link_to event.title, refinery.events_event_path(event)
+    - @upcoming_events.each do |date, events|
+      - events.each do |event|
+        %tr
+          %td= date_info(date)
+          %td=link_to event.title, refinery.events_event_path(event)
