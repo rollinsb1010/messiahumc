@@ -58,11 +58,13 @@
 
     .metadata {
       margin-top: 0px;
+      margin-bottom: 5px;
     }
 
     ul {
       li {
         padding: 0px 20px;
+        border-top: 1px solid #9e9b88;
 
         &.first {
           border-top: none;
