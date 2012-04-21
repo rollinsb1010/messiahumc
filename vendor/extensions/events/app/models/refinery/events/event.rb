@@ -42,17 +42,17 @@ module Refinery
           upcoming_events
         end
 
-        def for_date_range(start_date, end_date, conditions = 1)
+        def for_date_range(start_date, end_date, conditions = {})
           events = {}
           return events if start_date > end_date
 
           start_date = start_date.to_date
           end_date = end_date.to_date
 
-          in_range = where("date >= ? AND date <= ? AND repeats = ? AND #{conditions}", start_date, end_date, 'never')
+          in_range = where("date >= ? AND date <= ? AND repeats = ?", start_date, end_date, 'never').where(conditions)
 
-          weekly = where("date <= ? AND repeats = ? AND #{conditions}", end_date, 'weekly')
-          monthly = where("date <= ? AND repeats = ? AND #{conditions}", end_date, 'monthly')
+          weekly = where("date <= ? AND repeats = ?", end_date, 'weekly').where(conditions)
+          monthly = where("date <= ? AND repeats = ?", end_date, 'monthly').where(conditions)
 
           weekly.each do |event|
             dates = dates_for_weekday(start_date, end_date, event.date.wday)

@@ -221,7 +221,7 @@ module Refinery
         end
 
         it 'returns the events according to the condition specified' do
-          events = Event.for_date_range(Time.now, 5.days.from_now, "highlighted = 't'")
+          events = Event.for_date_range(Time.now, 5.days.from_now, highlighted: true)
           events.values.flatten.size.should == 2
           events.values.flatten.each { |e| e.highlighted.should == true}
         end
