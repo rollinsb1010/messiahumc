@@ -1,12 +1,12 @@
 module Refinery
   module Events
     class EventsController < ::ApplicationController
-      before_filter :find_all_events, except: [:index]
+      before_filter :find_all_events, except: :index
+      before_filter :filters, only: :index
       before_filter :find_page, :set_left_sidebar
 
       def index
-        today = Date.today
-        @events = Event.for_date_range(today, today + 6.days)
+        @events = Event.for_date_range(@filters[:start_date], @filters[:end_date])
         present(@page)
       end
 
@@ -15,7 +15,17 @@ module Refinery
         present(@page)
       end
 
-      protected
+      private
+
+      def filters
+        @filters = {
+          start_date: (Chronic.parse(params[:start_date]) or Date.today),
+          end_date: (Chronic.parse(params[:end_date]) or (Date.today + 6.days)),
+          ministries: params[:ministries].present? ? ::Refinery::Ministries::Ministry.find(params[:ministries]).map(&:name) : [],
+          all_ministries: ::Refinery::Ministries::Ministry.all.map(&:name)
+        }
+      end
+
       def find_all_events
         @events = Event.all
       end

@@ -44,6 +44,8 @@
   }
 
   #calendar {
+    color: #4a4945;
+
     .print {
       padding: 4px 25px;
       color: #ffffff;
@@ -107,7 +109,7 @@
         float: right;
         width: 120px;
         font-weight: normal;
-        color: #000000;
+        color: #4a4945;
       }
 
       &.ui-state-active {
@@ -118,6 +120,42 @@
 
     .details {
       padding: 0 15px;
+    }
+  }
+
+  #filters {
+    background-color: #e5e5dd;
+    border: 1px solid #a9ab96;
+    padding: 10px 5px;
+    margin: 20px 0;
+
+    .date_filter {
+      padding: 0 15px;
+    }
+
+    .ministries_filter {
+      padding-top: 15px;
+      border-top: 1px solid #aca998;
+
+      .title, .field {
+        padding: 0 15px;
+      }
+    }
+
+    .title {
+      font-size: 14px;
+    }
+
+    .field {
+      margin: 15px 0;
+    }
+
+    input[type=checkbox] {
+      margin-left: 0;
+    }
+
+    li {
+      margin: 0px;
     }
   }
 }

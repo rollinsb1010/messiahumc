@@ -25,4 +25,12 @@ module EventsHelper
   def format_event_time(time)
     time.present? ? time.strftime('%l:%M%P').gsub(/m/, '') : ''
   end
+
+  def readable_date(date)
+    date.strftime('%b %d, %Y')
+  end
+
+  def date_for_input(date)
+    date.strftime('%m/%d/%Y')
+  end
 end
