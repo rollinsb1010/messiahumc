@@ -1,17 +1,23 @@
 - content_for :body_content_right do
   #calendar
     %h1 Calendar
-    %section#filters
+    %section#filters.include_ui_styles
       = form_tag refinery.events_events_path, method: :get do
         .date_filter
           %p.title
             Dates:
             %strong #{readable_date @filters[:start_date]} to #{readable_date @filters[:end_date]}
           %p.field
-            = label_tag :start_date, 'From:'
-            = text_field_tag :start_date, date_for_input(@filters[:start_date])
-            = label_tag :end_date, 'To:'
-            = text_field_tag :end_date, date_for_input(@filters[:end_date])
+            %span
+              = label_tag :start_date, 'From:'
+              = text_field_tag :start_date, date_for_input(@filters[:start_date])
+              = link_to '#', class: 'calendar_icon' do
+                = image_tag '/assets/calendar_icon.png', width: 15, height: 16
+            %span
+              = label_tag :end_date, 'To:'
+              = text_field_tag :end_date, date_for_input(@filters[:end_date])
+              = link_to '#', class: 'calendar_icon' do
+                = image_tag '/assets/calendar_icon.png', width: 15, height: 16
             = submit_tag 'Go'
         -#.ministries_filter
           -#%p.title

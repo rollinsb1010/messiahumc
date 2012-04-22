@@ -152,10 +152,21 @@
 
     input[type=checkbox] {
       margin-left: 0;
+      padding-right: 8px;
     }
 
     li {
       margin: 0px;
+    }
+
+    span {
+      position: relative;
+    }
+
+    .calendar_icon {
+      position: absolute;
+      right: 8px;
+      top: 0px;
     }
   }
 }
