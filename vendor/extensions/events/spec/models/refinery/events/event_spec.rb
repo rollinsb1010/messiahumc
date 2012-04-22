@@ -65,14 +65,14 @@ module Refinery
           2.times { FactoryGirl.create :event, highlighted: true}
           3.times { FactoryGirl.create :event, highlighted: false }
 
-          events = Event.upcoming
+          events = Event.upcoming highlighted: true
           events.values.flatten.count.should == 2
         end
 
         it 'returns an empty result if there are no highlighted events' do
           2.times { FactoryGirl.create :event, highlighted: false }
 
-          events = Event.upcoming
+          events = Event.upcoming highlighted: true
           events.should be_empty
         end
 
@@ -83,7 +83,7 @@ module Refinery
           event2 = FactoryGirl.create :event, highlighted: true, date: 2.weeks.from_now.to_date
           2.times { FactoryGirl.create :event, highlighted: false }
 
-          list = Event.upcoming.values.flatten
+          list = Event.upcoming(highlighted: true).values.flatten
           list.count.should == 2
           list.should include(event1)
           list.should include(event2)
@@ -98,7 +98,7 @@ module Refinery
           FactoryGirl.create :event, date: 1.day.ago, highlighted: true
           3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
 
-          events = Event.upcoming
+          events = Event.upcoming highlighted: true
 
           events.values.flatten.size.should == 4
           events[1.day.from_now.to_date].should include(event1)
@@ -116,7 +116,7 @@ module Refinery
           FactoryGirl.create :event, date: 1.day.ago, highlighted: true
           3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
 
-          events = Event.upcoming
+          events = Event.upcoming highlighted: true
 
           events.values.flatten.size.should == 4
 
@@ -135,7 +135,7 @@ module Refinery
           FactoryGirl.create :event, date: 1.day.ago, highlighted: true
           3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
 
-          events = Event.upcoming
+          events = Event.upcoming highlighted: true
 
           events.values.flatten.size.should == 4
 
@@ -153,7 +153,7 @@ module Refinery
           range.each {|x| FactoryGirl.create :event, highlighted: false, date: x.week.ago, repeats: 'never'  }
           range.each {|x| FactoryGirl.create :event, highlighted: true, date: x.week.ago, repeats: 'never' }
 
-          events = Event.upcoming
+          events = Event.upcoming highlighted: true
 
           events.values.flatten.size.should == 4
           events[2.days.from_now.to_date].should include(event2)

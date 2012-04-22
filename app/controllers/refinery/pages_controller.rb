@@ -6,7 +6,7 @@ module Refinery
     after_filter { |c| c.write_cache? }
 
     def home
-      @upcoming_events = ::Refinery::Events::Event.upcoming
+      @upcoming_events = ::Refinery::Events::Event.upcoming(highlighted: true)
 
       render_with_templates?
     end

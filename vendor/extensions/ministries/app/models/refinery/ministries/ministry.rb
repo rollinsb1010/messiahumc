@@ -19,7 +19,7 @@ module Refinery
       has_many :events, class_name: '::Refinery::Events::Event'
 
       def upcoming_events
-        ::Refinery::Events::Event.upcoming(4, ministry_id: id)
+        ::Refinery::Events::Event.upcoming ministry_id: id
       end
 
       class << self

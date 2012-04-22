@@ -38,12 +38,12 @@ module Refinery
       end
 
       class << self
-        def upcoming(limit = 4, conditions = {})
+        def upcoming(conditions = {}, limit = 4)
           upcoming_events = {}
 
           current = Hash.new
 
-          results = where{(highlighted == true) & (((repeats == 'monthly') | (repeats == 'weekly')) | ((repeats == 'never') & (date >= Time.now.to_date)))}.limit(limit).where(conditions)
+          results = where { ((repeats == 'monthly') | (repeats == 'weekly')) | ((repeats == 'never') & (date >= Time.now.to_date)) }.where(conditions).limit(limit)
 
           results.each do |event|
             if event.date.past?
