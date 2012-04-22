@@ -9,14 +9,14 @@ describe Refinery do
 
         describe "messengers list" do
           before(:each) do
-            FactoryGirl.create(:messenger, :messenger_type => "UniqueTitleOne")
-            FactoryGirl.create(:messenger, :messenger_type => "UniqueTitleTwo")
+            FactoryGirl.create(:messenger, messenger_type: 'weekly')
+            FactoryGirl.create(:messenger, messenger_type: 'monthly')
           end
 
           it "shows two items" do
             visit refinery.messengers_admin_messengers_path
-            page.should have_content("UniqueTitleOne")
-            page.should have_content("UniqueTitleTwo")
+            page.should have_content("Weekly Messenger")
+            page.should have_content("Monthly Messenger")
           end
         end
 
@@ -29,43 +29,27 @@ describe Refinery do
 
           context "valid data" do
             it "should succeed" do
-              fill_in "Messenger Type", :with => "This is a test of the first string field"
+              select 'weekly', from: "Messenger Type"
               click_button "Save"
 
-              page.should have_content("'This is a test of the first string field' was successfully added.")
+              page.should have_content("Weekly Messenger")
               Refinery::Messengers::Messenger.count.should == 1
             end
           end
 
           context "invalid data" do
             it "should fail" do
+              select 'Please select', from: 'Messenger Type'
               click_button "Save"
 
               page.should have_content("Messenger Type can't be blank")
               Refinery::Messengers::Messenger.count.should == 0
             end
           end
-
-          context "duplicate" do
-            before(:each) { FactoryGirl.create(:messenger, :messenger_type => "UniqueTitle") }
-
-            it "should fail" do
-              visit refinery.messengers_admin_messengers_path
-
-              click_link "Add New Messenger"
-
-              fill_in "Messenger Type", :with => "UniqueTitle"
-              click_button "Save"
-
-              page.should have_content("There were problems")
-              Refinery::Messengers::Messenger.count.should == 1
-            end
-          end
-
         end
 
         describe "edit" do
-          before(:each) { FactoryGirl.create(:messenger, :messenger_type => "A messenger_type") }
+          before(:each) { FactoryGirl.create(:messenger, messenger_type: "weekly") }
 
           it "should succeed" do
             visit refinery.messengers_admin_messengers_path
@@ -74,23 +58,23 @@ describe Refinery do
               click_link "Edit this messenger"
             end
 
-            fill_in "Messenger Type", :with => "A different messenger_type"
+            select 'monthly', from: "Messenger Type"
             click_button "Save"
 
-            page.should have_content("'A different messenger_type' was successfully updated.")
-            page.should have_no_content("A messenger_type")
+            page.should have_content("Monthly Messenger")
+            page.should have_no_content("Weekly Messenger")
           end
         end
 
         describe "destroy" do
-          before(:each) { FactoryGirl.create(:messenger, :messenger_type => "UniqueTitleOne") }
+          before(:each) { FactoryGirl.create(:messenger, messenger_type: 'weekly') }
 
           it "should succeed" do
             visit refinery.messengers_admin_messengers_path
 
             click_link "Remove this messenger forever"
 
-            page.should have_content("'UniqueTitleOne' was successfully removed.")
+            page.should have_content("'weekly' was successfully removed.")
             Refinery::Messengers::Messenger.count.should == 0
           end
         end

@@ -1,0 +1,53 @@
+- content_for :body_content_right do
+  #calendar
+    %h1 Calendar
+    %section#filters.include_ui_styles
+      = form_tag refinery.events_events_path, method: :get do
+        .date_filter
+          %p.title
+            Dates:
+            %strong #{readable_date @filters[:start_date]} to #{readable_date @filters[:end_date]}
+          %p.field
+            %span
+              = label_tag :start_date, 'From:'
+              = text_field_tag :start_date, date_for_input(@filters[:start_date])
+              = link_to '#', class: 'calendar_icon' do
+                = image_tag '/assets/calendar_icon.png', width: 15, height: 16
+            %span
+              = label_tag :end_date, 'To:'
+              = text_field_tag :end_date, date_for_input(@filters[:end_date])
+              = link_to '#', class: 'calendar_icon' do
+                = image_tag '/assets/calendar_icon.png', width: 15, height: 16
+            = submit_tag 'Go'
+        -#.ministries_filter
+          -#%p.title
+            -#Ministries:
+            -#%strong #{@filters[:ministries].join(', ')}
+            -#(#{link_to 'clear filters', '#', id: 'clear_filters'})
+          -#%ul.field
+            -#%li
+              -#= check_box_tag :ministries
+              -#= label_tag 'all'
+            -#- @filters[:all_ministries].each do |ministry|
+              -#%li
+                -#= check_box_tag :ministries
+                -#= label_tag ministry
+    - if @events.any?
+      %section#results
+        .print printable calendar
+        %ul#calendar_events
+          - @events.each do |date, events|
+            %li.event_date
+              %h2= date.strftime('%A, %B %-d')
+              %ul
+                - events.each_with_index do |event, index|
+                  - classes = ''
+                  - classes << (index.zero? ? ' first' : '')
+                  - classes << ((index == events.size - 1) ? ' last' : '')
+                  %li{class: classes}
+                    %h3
+                      = link_to event.title, refinery.events_event_path(event)
+                      %span= format_event_time event.start_time
+                    .details
+                      = render partial: 'event_metadata', locals: {event: event}
+                      = link_to 'click for more details', refinery.events_event_path(event)

@@ -42,4 +42,131 @@
       padding-left: 10px;
     }
   }
+
+  #calendar {
+    color: #4a4945;
+
+    .print {
+      padding: 4px 25px;
+      color: #ffffff;
+      background: $calendar_purple_dark;
+      text-align: right;
+    }
+  }
+
+  #calendar_events {
+    .event_date {
+      margin: 0px;
+    }
+
+    .metadata {
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      li {
+        padding: 5px 10px;
+        border-top: 1px solid #9e9b88;
+        margin: 0;
+
+        &.first {
+          border-top: none;
+        }
+
+        &.ui-state-active {
+          background-color: #eae9e4;
+        }
+
+        &.last {
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+    h2 {
+      color: #ffffff;
+      background: $calendar_purple_light;
+      font-family: $general_font;
+      font-size: 14px;
+      height: 25px;
+      padding: 12px 4px 3px;
+      margin: 0;
+      border-top: 1px solid $calendar_purple_border;
+      border-bottom: 1px solid $calendar_purple_border;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 5px 15px;
+      font-family: $general_font;
+      font-size: 13px;
+      height: 15px;
+      background: image-url("caret_right.png") no-repeat left 8px transparent;
+
+      span {
+        display: block;
+        float: right;
+        width: 120px;
+        font-weight: normal;
+        color: #4a4945;
+      }
+
+      &.ui-state-active {
+        background-image: image-url("caret_down.png");
+        background-position: left 10px;
+      }
+    }
+
+    .details {
+      padding: 0 15px;
+    }
+  }
+
+  #filters {
+    background-color: #e5e5dd;
+    border: 1px solid #a9ab96;
+    padding: 10px 5px;
+    margin: 20px 0;
+
+    .date_filter {
+      padding: 0 15px;
+    }
+
+    .ministries_filter {
+      padding-top: 15px;
+      border-top: 1px solid #aca998;
+
+      .title, .field {
+        padding: 0 15px;
+      }
+    }
+
+    .title {
+      font-size: 14px;
+    }
+
+    .field {
+      margin: 15px 0;
+    }
+
+    input[type=checkbox] {
+      margin-left: 0;
+      padding-right: 8px;
+    }
+
+    li {
+      margin: 0px;
+    }
+
+    span {
+      position: relative;
+    }
+
+    .calendar_icon {
+      position: absolute;
+      right: 8px;
+      top: 0px;
+    }
+  }
 }

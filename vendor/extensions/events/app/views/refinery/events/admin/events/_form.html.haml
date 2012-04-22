@@ -13,8 +13,8 @@
     = f.label :end_time
     = f.time_select :end_time, {prompt: true, ampm: true}
   .field
-    = f.label :repetition
-    = select(:event, :repetition, {'Never' => 'never', 'Weekly' => 'weekly', 'Monthly' => 'monthly'})
+    = f.label :repeats
+    = select(:event, :repeats, {'Never' => 'never', 'Weekly' => 'weekly', 'Monthly' => 'monthly'})
   .field
     = f.label :location
     = f.text_field :location, class: 'larger'

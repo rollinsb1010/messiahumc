@@ -9,8 +9,8 @@ describe Refinery do
 
         describe "staff_members list" do
           before(:each) do
-            FactoryGirl.create(:staff_member, :name => "UniqueTitleOne")
-            FactoryGirl.create(:staff_member, :name => "UniqueTitleTwo")
+            FactoryGirl.create(:staff_member, name: "UniqueTitleOne")
+            FactoryGirl.create(:staff_member, name: "UniqueTitleTwo")
           end
 
           it "shows two items" do
@@ -22,6 +22,7 @@ describe Refinery do
 
         describe "create" do
           before(:each) do
+            FactoryGirl.create(:category, name: 'The category')
             visit refinery.staff_members_admin_staff_members_path
 
             click_link "Add New Staff Member"
@@ -29,7 +30,8 @@ describe Refinery do
 
           context "valid data" do
             it "should succeed" do
-              fill_in "Name", :with => "This is a test of the first string field"
+              fill_in "Name", with: "This is a test of the first string field"
+              select 'The category', from: 'Category'
               click_button "Save"
 
               page.should have_content("'This is a test of the first string field' was successfully added.")
@@ -47,14 +49,14 @@ describe Refinery do
           end
 
           context "duplicate" do
-            before(:each) { FactoryGirl.create(:staff_member, :name => "UniqueTitle") }
+            before(:each) { FactoryGirl.create(:staff_member, name: "UniqueTitle") }
 
             it "should fail" do
               visit refinery.staff_members_admin_staff_members_path
 
               click_link "Add New Staff Member"
 
-              fill_in "Name", :with => "UniqueTitle"
+              fill_in "Name", with: "UniqueTitle"
               click_button "Save"
 
               page.should have_content("There were problems")
@@ -65,7 +67,7 @@ describe Refinery do
         end
 
         describe "edit" do
-          before(:each) { FactoryGirl.create(:staff_member, :name => "A name") }
+          before(:each) { FactoryGirl.create(:staff_member, name: "A name") }
 
           it "should succeed" do
             visit refinery.staff_members_admin_staff_members_path
@@ -74,7 +76,7 @@ describe Refinery do
               click_link "Edit this staff member"
             end
 
-            fill_in "Name", :with => "A different name"
+            fill_in "Name", with: "A different name"
             click_button "Save"
 
             page.should have_content("'A different name' was successfully updated.")
@@ -83,7 +85,7 @@ describe Refinery do
         end
 
         describe "destroy" do
-          before(:each) { FactoryGirl.create(:staff_member, :name => "UniqueTitleOne") }
+          before(:each) { FactoryGirl.create(:staff_member, name: "UniqueTitleOne") }
 
           it "should succeed" do
             visit refinery.staff_members_admin_staff_members_path

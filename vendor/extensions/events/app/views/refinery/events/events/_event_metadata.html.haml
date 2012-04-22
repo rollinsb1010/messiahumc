@@ -1,0 +1,29 @@
+%section.metadata
+  %table
+    %tbody
+      %tr
+        %th Date:
+        %td= event.date
+        - time_info = time_info(event)
+        - unless time_info.nil?
+          %tr
+            %th Time:
+            %td= time_info
+      %tr
+        %th Location:
+        %td= event.location
+      %tr
+        %th Description:
+        %td= event.short_description
+        - contact_info = contact_info(event)
+        - unless contact_info.nil?
+          %tr
+            %th Contact:
+            %td= contact_info
+      %tr
+        %th Notes:
+        %td= event.contact_name
+        - unless event.ministry.nil?
+          %tr
+            %th Ministry:
+            %td= event.ministry.name

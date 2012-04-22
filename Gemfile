@@ -22,11 +22,22 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'modernizr-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.8.1'
+  gem 'timecop'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails', '~> 1.7.0'
+  gem 'rr'
+  gem 'prickle'
+  gem 'database_cleaner'
+  gem 'refinerycms-testing', '~> 2.0.3'
+  gem 'sqlite3'
 end
 
 gem 'jquery-rails'
@@ -48,7 +59,7 @@ gem 'rambling-slider-rails'
 # gem 'ruby-debug19', require: 'ruby-debug'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.1'
+gem 'refinerycms', '~> 2.0.3'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n',   '~> 2.0.0'
@@ -56,9 +67,10 @@ gem 'refinerycms-i18n',   '~> 2.0.0'
 #  gem 'refinerycms-inquiries', '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
 #  gem 'refinerycms-page-images', '~> 2.0.0'
-gem 'refinerycms-copywriting', git: 'git://github.com/unixcharles/refinerycms-copywriting.git', branch: 'rails-3-1'
+gem 'refinerycms-copywriting'
 gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: 'rails-3-1'
-gem 'refinerycms-page-images', git: 'git://github.com/resolve/refinerycms-page-images.git', branch: 'rails-3-1'
+gem 'refinerycms-page-images'
+gem 'squeel'
 
 gem 'refinerycms-pastors', path: 'vendor/extensions'
 gem 'refinerycms-sermons', path: 'vendor/extensions'

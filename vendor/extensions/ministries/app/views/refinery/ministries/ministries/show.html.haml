@@ -14,9 +14,10 @@
           = link_to '>> view full calendar', refinery.events_events_path, class: 'calendar_link'
           %h3 Upcoming Events
           %ul
-            - @ministry.upcoming_events.each do |event|
-              %li
-                = link_to refinery.events_event_path(event) do
-                  %span.date= event.date.strftime('%m/%d')
-                  %span= event.title
-                  %span.clear
+            - @ministry.upcoming_events.each do |date, events|
+              - events.each do |event|
+                %li
+                  = link_to refinery.events_event_path(event) do
+                    %span.date= date.strftime('%m/%d')
+                    %span= event.title
+                    %span.clear

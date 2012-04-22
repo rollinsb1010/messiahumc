@@ -9,8 +9,8 @@ describe Refinery do
 
         describe "sermons list" do
           before(:each) do
-            FactoryGirl.create(:sermon, :title => "UniqueTitleOne")
-            FactoryGirl.create(:sermon, :title => "UniqueTitleTwo")
+            FactoryGirl.create(:sermon, title: "UniqueTitleOne")
+            FactoryGirl.create(:sermon, title: "UniqueTitleTwo")
           end
 
           it "shows two items" do
@@ -22,6 +22,7 @@ describe Refinery do
 
         describe "create" do
           before(:each) do
+            FactoryGirl.create :pastor, name: 'The pastor'
             visit refinery.sermons_admin_sermons_path
 
             click_link "Add New Sermon"
@@ -29,7 +30,8 @@ describe Refinery do
 
           context "valid data" do
             it "should succeed" do
-              fill_in "Title", :with => "This is a test of the first string field"
+              fill_in "Title", with: "This is a test of the first string field"
+              select 'The pastor', from: 'Pastor'
               click_button "Save"
 
               page.should have_content("'This is a test of the first string field' was successfully added.")
@@ -47,14 +49,14 @@ describe Refinery do
           end
 
           context "duplicate" do
-            before(:each) { FactoryGirl.create(:sermon, :title => "UniqueTitle") }
+            before(:each) { FactoryGirl.create(:sermon, title: "UniqueTitle") }
 
             it "should fail" do
               visit refinery.sermons_admin_sermons_path
 
               click_link "Add New Sermon"
 
-              fill_in "Title", :with => "UniqueTitle"
+              fill_in "Title", with: "UniqueTitle"
               click_button "Save"
 
               page.should have_content("There were problems")
@@ -65,7 +67,7 @@ describe Refinery do
         end
 
         describe "edit" do
-          before(:each) { FactoryGirl.create(:sermon, :title => "A title") }
+          before(:each) { FactoryGirl.create(:sermon, title: "A title") }
 
           it "should succeed" do
             visit refinery.sermons_admin_sermons_path
@@ -74,7 +76,7 @@ describe Refinery do
               click_link "Edit this sermon"
             end
 
-            fill_in "Title", :with => "A different title"
+            fill_in "Title", with: "A different title"
             click_button "Save"
 
             page.should have_content("'A different title' was successfully updated.")
@@ -83,7 +85,7 @@ describe Refinery do
         end
 
         describe "destroy" do
-          before(:each) { FactoryGirl.create(:sermon, :title => "UniqueTitleOne") }
+          before(:each) { FactoryGirl.create(:sermon, title: "UniqueTitleOne") }
 
           it "should succeed" do
             visit refinery.sermons_admin_sermons_path

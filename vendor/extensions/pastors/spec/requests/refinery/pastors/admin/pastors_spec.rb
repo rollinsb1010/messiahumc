@@ -9,8 +9,8 @@ describe Refinery do
 
         describe "pastors list" do
           before(:each) do
-            FactoryGirl.create(:pastor, :name => "UniqueTitleOne")
-            FactoryGirl.create(:pastor, :name => "UniqueTitleTwo")
+            FactoryGirl.create(:pastor, name: "UniqueTitleOne")
+            FactoryGirl.create(:pastor, name: "UniqueTitleTwo")
           end
 
           it "shows two items" do
@@ -29,7 +29,7 @@ describe Refinery do
 
           context "valid data" do
             it "should succeed" do
-              fill_in "Name", :with => "This is a test of the first string field"
+              fill_in "Name", with: "This is a test of the first string field"
               click_button "Save"
 
               page.should have_content("'This is a test of the first string field' was successfully added.")
@@ -47,14 +47,14 @@ describe Refinery do
           end
 
           context "duplicate" do
-            before(:each) { FactoryGirl.create(:pastor, :name => "UniqueTitle") }
+            before(:each) { FactoryGirl.create(:pastor, name: "UniqueTitle") }
 
             it "should fail" do
               visit refinery.pastors_admin_pastors_path
 
               click_link "Add New Pastor"
 
-              fill_in "Name", :with => "UniqueTitle"
+              fill_in "Name", with: "UniqueTitle"
               click_button "Save"
 
               page.should have_content("There were problems")
@@ -65,7 +65,7 @@ describe Refinery do
         end
 
         describe "edit" do
-          before(:each) { FactoryGirl.create(:pastor, :name => "A name") }
+          before(:each) { FactoryGirl.create(:pastor, name: "A name") }
 
           it "should succeed" do
             visit refinery.pastors_admin_pastors_path
@@ -74,7 +74,7 @@ describe Refinery do
               click_link "Edit this pastor"
             end
 
-            fill_in "Name", :with => "A different name"
+            fill_in "Name", with: "A different name"
             click_button "Save"
 
             page.should have_content("'A different name' was successfully updated.")
@@ -83,7 +83,7 @@ describe Refinery do
         end
 
         describe "destroy" do
-          before(:each) { FactoryGirl.create(:pastor, :name => "UniqueTitleOne") }
+          before(:each) { FactoryGirl.create(:pastor, name: "UniqueTitleOne") }
 
           it "should succeed" do
             visit refinery.pastors_admin_pastors_path

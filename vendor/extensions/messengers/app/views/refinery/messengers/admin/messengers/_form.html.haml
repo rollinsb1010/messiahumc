@@ -5,7 +5,7 @@
 
   .field
     = f.label :messenger_type
-    = select :messenger, :messenger_type, weekly: 'weekly', monthly: 'monthly'
+    = select :messenger, :messenger_type, {weekly: 'weekly', monthly: 'monthly'}, {prompt: true}
 
   .field
     = f.label :published_at
