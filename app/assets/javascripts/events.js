@@ -25,10 +25,4 @@ $(function() {
            dateFilters.not( this ).datepicker( "option", option, date );
         }
     });
-    //var dates = $( "#from, #to" ).datepicker({}
-        //defaultDate: "+1w",
-        //changeMonth: true,
-        //numberOfMonths: 3,
-        //}
-        //)
 });
