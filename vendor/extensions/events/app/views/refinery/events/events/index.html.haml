@@ -19,19 +19,19 @@
               = link_to '#', class: 'calendar_icon' do
                 = image_tag '/assets/calendar_icon.png', width: 15, height: 16
             = submit_tag 'Go'
-        -#.ministries_filter
-          -#%p.title
-            -#Ministries:
-            -#%strong #{@filters[:ministries].join(', ')}
-            -#(#{link_to 'clear filters', '#', id: 'clear_filters'})
-          -#%ul.field
-            -#%li
-              -#= check_box_tag :ministries
-              -#= label_tag 'all'
-            -#- @filters[:all_ministries].each do |ministry|
-              -#%li
-                -#= check_box_tag :ministries
-                -#= label_tag ministry
+        .ministries_filter
+          %p.title
+            Ministries:
+            %strong #{@filters[:ministries].join(', ')}
+            (#{link_to 'clear filters', '#', id: 'clear_filters'})
+          - all_ministries = @filters[:all_ministries]
+          - distributed_in_columns(all_ministries, 3).each do |column|
+            %ul.field
+              - column.each do |name, id|
+                %li
+                  = check_box_tag 'ministries[]', id, (params[:ministries].present? and params[:ministries].include?(id.to_s))
+                  = label_tag 'ministries[]', name
+          %span.clear
     - if @events.any?
       %section#results
         .print printable calendar

@@ -25,4 +25,9 @@ $(function() {
            dateFilters.not( this ).datepicker( "option", option, date );
         }
     });
+
+    $('#clear_filters').click(function(){
+        $('input[type=checkbox]:checked').click();
+        $(this).parents('form').submit();
+    });
 });

@@ -6,7 +6,9 @@ module Refinery
       before_filter :find_page, :set_left_sidebar
 
       def index
-        @events = Event.for_date_range(@filters[:start_date], @filters[:end_date])
+        conditions = {}
+        conditions[:ministry_id] = params[:ministries] if params[:ministries].present?
+        @events = Event.for_date_range(@filters[:start_date], @filters[:end_date], conditions)
         present(@page)
       end
 
@@ -21,8 +23,8 @@ module Refinery
         @filters = {
           start_date: (Chronic.parse(params[:start_date]) or Date.today),
           end_date: (Chronic.parse(params[:end_date]) or (Date.today + 6.days)),
-          ministries: params[:ministries].present? ? ::Refinery::Ministries::Ministry.find(params[:ministries]).map(&:name) : [],
-          all_ministries: ::Refinery::Ministries::Ministry.all.map(&:name)
+          ministries: params[:ministries].present? ? ::Refinery::Ministries::Ministry.find(params[:ministries].reject(&:empty?)).map(&:name) : [],
+          all_ministries: ::Refinery::Ministries::Ministry.all.map { |m| [m.name, m.id] }
         }
       end
 
