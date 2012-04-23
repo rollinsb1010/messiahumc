@@ -20,10 +20,6 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
-      def in_range?(start_date, end_date)
-        date >= start_date and date <= end_date
-      end
-
       def next_date(context = Time.now.to_date)
         return nil if date.nil?
         context = date if context < date
@@ -38,6 +34,10 @@ module Refinery
       end
 
       class << self
+        def highlighted
+          upcoming(highlighted: true)
+        end
+
         def upcoming(conditions = {}, limit = 4)
           upcoming_events = {}
 

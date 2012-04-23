@@ -13,47 +13,20 @@ module Refinery
         its(:title) { should == 'The event' }
       end
 
-      describe '#in_range?' do
-        context 'for non repeating event' do
-          context 'in the range' do
-            let(:event) { FactoryGirl.build :event, date: 2.days.ago.to_date }
+      describe '.highlighted' do
+        let(:highlighted_event) { FactoryGirl.build :event, highlighted: true }
+        let(:not_highlighted_event) { FactoryGirl.build :event, highlighted: false }
+        let(:events) { [highlighted_event, not_highlighted_event]}
 
-            it 'returns true' do
-              event.in_range?(3.days.ago.to_date, 1.day.ago.to_date).should be_true
-            end
-          end
+        before :each do
+          Event.stub(:upcoming).with(any_args).and_return(events)
+          Event.stub(:upcoming).with(highlighted: true).and_return([highlighted_event])
+        end
 
-          context 'before the start of the range' do
-            let(:event) { FactoryGirl.build :event, date: 4.days.ago.to_date }
-
-            it 'returns false' do
-              event.in_range?(3.days.ago.to_date, 1.day.ago.to_date).should be_false
-            end
-          end
-
-          context 'on the start of the range' do
-            let(:event) { FactoryGirl.build :event, date: 3.days.ago.to_date }
-
-            it 'returns true' do
-              event.in_range?(3.days.ago.to_date, 1.day.ago.to_date).should be_true
-            end
-          end
-
-          context 'after the end of the range' do
-            let(:event) { FactoryGirl.build :event, date: 1.day.from_now.to_date }
-
-            it 'returns false' do
-              event.in_range?(3.days.ago.to_date, 1.day.ago.to_date).should be_false
-            end
-          end
-
-          context 'on the end of the range' do
-            let(:event) { FactoryGirl.build :event, date: 1.day.ago.to_date }
-
-            it 'returns true' do
-              event.in_range?(3.days.ago.to_date, 1.day.ago.to_date).should be_true
-            end
-          end
+        it 'returns only highlighted events' do
+          events = Event.highlighted
+          events.should have(1).item
+          events.should include(highlighted_event)
         end
       end
 
