@@ -13,6 +13,46 @@ module Refinery
         its(:title) { should == 'The event' }
       end
 
+      describe '#weekly?' do
+        context 'for a weekly event' do
+          let(:event) { FactoryGirl.build :event, repeats: 'weekly' }
+
+          it 'returns true' do
+            event.should be_weekly
+          end
+        end
+
+        context 'for a non weekly event' do
+          let(:monthly_event) { FactoryGirl.build :event, repeats: 'monthly' }
+          let(:non_repeating_event) { FactoryGirl.build :event, repeats: 'never' }
+
+          it 'returns false' do
+            monthly_event.should_not be_weekly
+            non_repeating_event.should_not be_weekly
+          end
+        end
+      end
+
+      describe '#monthly?' do
+        context 'for a monthly event' do
+          let(:event) { FactoryGirl.build :event, repeats: 'monthly' }
+
+          it 'returns true' do
+            event.should be_monthly
+          end
+        end
+
+        context 'for a non monthly event' do
+          let(:weekly_event) { FactoryGirl.build :event, repeats: 'weekly' }
+          let(:non_repeating_event) { FactoryGirl.build :event, repeats: 'never' }
+
+          it 'returns false' do
+            weekly_event.should_not be_monthly
+            non_repeating_event.should_not be_monthly
+          end
+        end
+      end
+
       describe '.highlighted' do
         let(:highlighted_event) { FactoryGirl.build :event, highlighted: true }
         let(:not_highlighted_event) { FactoryGirl.build :event, highlighted: false }

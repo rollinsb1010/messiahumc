@@ -20,14 +20,22 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
+      def weekly?
+        repeats == 'weekly'
+      end
+
+      def monthly?
+        repeats == 'monthly'
+      end
+
       def next_date(context = Time.now.to_date)
         return nil if date.nil?
         context = date if context < date
 
-        if repeats == 'weekly'
+        if weekly?
           return Event.next_date_for_weekday(context.to_date, date.wday)
-        elsif repeats == 'monthly'
-          return Event.next_date_for_day_number((context).to_date, date.day)
+        elsif monthly?
+          return Event.next_date_for_day_number(context.to_date, date.day)
         end
 
         return date
