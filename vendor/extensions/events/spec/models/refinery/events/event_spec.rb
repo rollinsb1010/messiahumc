@@ -25,7 +25,7 @@ module Refinery
 
         it 'returns only highlighted events' do
           events = Event.highlighted
-          events.should have(1).item
+          events.should have(1).event
           events.should include(highlighted_event)
         end
       end
@@ -34,46 +34,36 @@ module Refinery
         before :each do
         end
 
-        it 'returns only highlighted events' do
-          2.times { FactoryGirl.create :event, highlighted: true}
-          3.times { FactoryGirl.create :event, highlighted: false }
+        it 'returns an empty result if there are no events in the future' do
+          2.times { FactoryGirl.create :event, date: 1.day.ago.to_date, repeats: 'never' }
 
-          events = Event.upcoming highlighted: true
-          events.values.flatten.count.should == 2
-        end
-
-        it 'returns an empty result if there are no highlighted events' do
-          2.times { FactoryGirl.create :event, highlighted: false }
-
-          events = Event.upcoming highlighted: true
+          events = Event.upcoming
           events.should be_empty
         end
 
         it 'only returns non repeating events when they are in the future' do
-          FactoryGirl.create :event, highlighted: true, date: 1.day.ago.to_date
-          FactoryGirl.create :event, highlighted: true, date: 1.week.ago.to_date
-          event1 = FactoryGirl.create :event, highlighted: true, date: 1.day.from_now.to_date
-          event2 = FactoryGirl.create :event, highlighted: true, date: 2.weeks.from_now.to_date
-          2.times { FactoryGirl.create :event, highlighted: false }
+          FactoryGirl.create :event, date: 1.day.ago.to_date
+          FactoryGirl.create :event, date: 1.week.ago.to_date
+          event1 = FactoryGirl.create :event, date: 1.day.from_now.to_date
+          event2 = FactoryGirl.create :event, date: 2.weeks.from_now.to_date
 
-          list = Event.upcoming(highlighted: true).values.flatten
-          list.count.should == 2
+          list = Event.upcoming.values.flatten
+          list.should have(2).events
           list.should include(event1)
           list.should include(event2)
         end
 
         it 'returns the correct events in the right format if the first three are non repeating' do
-          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date, highlighted: true
-          event2 = FactoryGirl.create :event, title: 'Event2', date: 1.week.from_now.to_date, highlighted: true
-          event3 = FactoryGirl.create :event, title: 'Event3', date: 2.months.from_now.to_date, highlighted: true
-          event4 = FactoryGirl.create :event, title: 'Event4', date: 3.months.from_now.to_date, highlighted: true, repeats: 'weekly'
+          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date
+          event2 = FactoryGirl.create :event, title: 'Event2', date: 1.week.from_now.to_date
+          event3 = FactoryGirl.create :event, title: 'Event3', date: 2.months.from_now.to_date
+          event4 = FactoryGirl.create :event, title: 'Event4', date: 3.months.from_now.to_date, repeats: 'weekly'
 
-          FactoryGirl.create :event, date: 1.day.ago, highlighted: true
-          3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
+          FactoryGirl.create :event, date: 1.day.ago
 
-          events = Event.upcoming highlighted: true
+          events = Event.upcoming
 
-          events.values.flatten.size.should == 4
+          events.values.flatten.should have(4).events
           events[1.day.from_now.to_date].should include(event1)
           events[1.week.from_now.to_date].should include(event2)
           events[2.months.from_now.to_date].should include(event3)
