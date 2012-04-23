@@ -33,4 +33,26 @@ module EventsHelper
   def date_for_input(date)
     date.strftime('%m/%d/%Y')
   end
+
+  def distributed_in_columns(array, number_of_columns)
+    column_size = (array.size / number_of_columns)
+    modulo = array.size % number_of_columns
+
+    index = current_index = 0
+    columns = []
+
+    while current_index < array.size
+      columns[index] = []
+
+      upper_limit = current_index + column_size
+      upper_limit += 1 if index < modulo
+
+      (current_index...upper_limit).each { |array_index| columns[index] << array[array_index] }
+
+      current_index = upper_limit
+      index += 1
+    end
+
+    columns.map { |c| Hash[c] }
+  end
 end
