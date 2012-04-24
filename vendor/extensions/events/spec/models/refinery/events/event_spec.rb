@@ -156,6 +156,63 @@ module Refinery
         end
       end
 
+      describe '.possible_since' do
+        context 'for non repeating events' do
+          let(:past_event) { FactoryGirl.create :event, date: 2.weeks.ago.to_date }
+          let(:future_event) { FactoryGirl.create :event, date: 2.weeks.from_now.to_date }
+
+          before :each do
+            past_event.save
+            future_event.save
+          end
+
+          it 'only includes events in the future' do
+            events = Event.possible_since(Time.now.to_date)
+
+            events.should have(1).event
+            events.should include(future_event)
+          end
+        end
+
+        context 'for repeating events' do
+          context 'in the past' do
+            let(:monthly_event) { FactoryGirl.create :monthly_event, date: 3.months.ago.to_date }
+            let(:weekly_event) { FactoryGirl.create :weekly_event, date: 3.weeks.ago.to_date }
+
+            before :each do
+              monthly_event.save
+              weekly_event.save
+            end
+
+            it 'includes all events' do
+              events = Event.possible_since(Time.now.to_date)
+
+              events.should have(2).events
+              events.should include(monthly_event)
+              events.should include(weekly_event)
+            end
+          end
+
+          context 'in the future' do
+            let(:monthly_event) { FactoryGirl.create :monthly_event, date: 3.months.from_now.to_date }
+            let(:weekly_event) { FactoryGirl.create :weekly_event, date: 3.weeks.from_now.to_date }
+
+            before :each do
+              monthly_event.save
+              weekly_event.save
+            end
+
+            it 'includes all events' do
+              events = Event.possible_since(Time.now.to_date)
+
+              events.should have(2).events
+              events.should include(monthly_event)
+              events.should include(weekly_event)
+            end
+          end
+        end
+      end
+
       describe '.upcoming' do
         before :each do
         end
