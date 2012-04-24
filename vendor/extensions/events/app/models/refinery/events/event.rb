@@ -28,6 +28,10 @@ module Refinery
         repeats == 'monthly'
       end
 
+      def repeats?
+        weekly? or monthly?
+      end
+
       def next_date(context = Time.now.to_date)
         context = date if context < date
 
@@ -58,10 +62,10 @@ module Refinery
 
             add_event(upcoming_events, current_event, current_date)
 
-            if current_event.repeats == 'never'
-              current.shift
+            if current_event.repeats?
+              current[current_event] = current_event.next_date (current_date + 1.day).to_date
             else
-              current[current_event] = current_event.next_date((current_date + 1.day).to_date)
+              current.shift
             end
           end
 
