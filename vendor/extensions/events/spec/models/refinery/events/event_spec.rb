@@ -15,7 +15,7 @@ module Refinery
 
       describe '#weekly?' do
         context 'for a weekly event' do
-          let(:event) { FactoryGirl.build :event, repeats: 'weekly' }
+          let(:event) { FactoryGirl.build :weekly_event }
 
           it 'returns true' do
             event.should be_weekly
@@ -23,8 +23,8 @@ module Refinery
         end
 
         context 'for a non weekly event' do
-          let(:monthly_event) { FactoryGirl.build :event, repeats: 'monthly' }
-          let(:non_repeating_event) { FactoryGirl.build :event, repeats: 'never' }
+          let(:monthly_event) { FactoryGirl.build :monthly_event }
+          let(:non_repeating_event) { FactoryGirl.build :event }
 
           it 'returns false' do
             monthly_event.should_not be_weekly
@@ -35,7 +35,7 @@ module Refinery
 
       describe '#monthly?' do
         context 'for a monthly event' do
-          let(:event) { FactoryGirl.build :event, repeats: 'monthly' }
+          let(:event) { FactoryGirl.build :monthly_event }
 
           it 'returns true' do
             event.should be_monthly
@@ -43,12 +43,98 @@ module Refinery
         end
 
         context 'for a non monthly event' do
-          let(:weekly_event) { FactoryGirl.build :event, repeats: 'weekly' }
-          let(:non_repeating_event) { FactoryGirl.build :event, repeats: 'never' }
+          let(:weekly_event) { FactoryGirl.build :weekly_event }
+          let(:non_repeating_event) { FactoryGirl.build :event }
 
           it 'returns false' do
             weekly_event.should_not be_monthly
             non_repeating_event.should_not be_monthly
+          end
+        end
+      end
+
+      describe '#next_date' do
+        context 'for non repeating event' do
+          let(:event) { FactoryGirl.build :event }
+
+          it 'returns the same date' do
+            event.next_date.should == event.date
+          end
+
+          context 'with a future date context' do
+            it 'returns the same date' do
+              event.next_date(1.week.from_now.to_date).should == event.date
+            end
+          end
+        end
+
+        context 'for a weekly event' do
+          context 'from the past' do
+            let(:event) { FactoryGirl.build :weekly_event, date: 4.days.ago.to_date }
+
+            it 'returns the date for this week' do
+              event.next_date.should == 3.days.from_now.to_date
+            end
+          end
+
+          context 'from the future' do
+            let(:event) { FactoryGirl.build :weekly_event, date: 10.days.from_now.to_date }
+
+            it 'returns the date for its next week' do
+              event.next_date.should == (event.date + 1.week).to_date
+            end
+          end
+
+          context 'from this week' do
+            let(:event) { FactoryGirl.build :weekly_event, date: 4.days.from_now.to_date }
+
+            it 'returns the date for the next week' do
+              event.next_date.should == (event.date + 1.week).to_date
+            end
+          end
+        end
+
+        context 'for a monthly event' do
+          context 'from the past' do
+            let(:event) { FactoryGirl.build :monthly_event, date: (2.months.ago - 2.weeks).to_date }
+
+            it 'returns the date for this month' do
+              event.next_date.should == (1.month.from_now - 2.weeks).to_date
+            end
+          end
+
+          context 'from the future' do
+            let(:event) { FactoryGirl.build :monthly_event, date: (2.months.from_now + 1.week).to_date }
+
+            it 'returns the same date' do
+              event.next_date.should == event.date
+            end
+          end
+
+          context 'from this month' do
+            context 'before today' do
+              let(:event) { FactoryGirl.build :monthly_event, date: 1.day.ago.to_date }
+
+              before :each do
+                Timecop.travel(2012, 1, 2)
+              end
+
+              it 'returns the date for the next month' do
+                event.next_date.should == (event.date + 1.month).to_date
+              end
+
+              after :each do
+                Timecop.travel(2012, 1, 1)
+              end
+            end
+
+            context 'after today' do
+              let(:event) { FactoryGirl.build :monthly_event, date: Time.now.to_date }
+
+              it 'returns the date for the next month' do
+                event.next_date.should == event.date
+              end
+            end
           end
         end
       end

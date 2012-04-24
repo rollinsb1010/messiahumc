@@ -29,16 +29,15 @@ module Refinery
       end
 
       def next_date(context = Time.now.to_date)
-        return nil if date.nil?
         context = date if context < date
 
         if weekly?
-          return Event.next_date_for_weekday(context.to_date, date.wday)
+          Event.next_date_for_weekday(context.to_date, date.wday)
         elsif monthly?
-          return Event.next_date_for_day_number(context.to_date, date.day)
+          Event.next_date_for_day_number(context.to_date, date.day)
+        else
+          date
         end
-
-        return date
       end
 
       class << self
