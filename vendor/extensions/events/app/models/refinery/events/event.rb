@@ -59,12 +59,10 @@ module Refinery
           current = Hash.new
 
           results = possible_since(Time.now.to_date, conditions).limit(limit)
-
           results.each { |event| current[event] = event.date.past? ? event.next_date : event.date }
 
           while upcoming_events.values.flatten.size < limit and current.any?
             current = sort current
-
             current_event, current_date = current.first
 
             add_event(upcoming_events, current_event, current_date)
@@ -104,9 +102,7 @@ module Refinery
         def sort(current)
           sorted = current.sort_by do |event, date_instance|
             value = date_instance.to_datetime
-            value += (event.start_time.seconds_since_midnight).seconds if event.start_time.present?
-
-            value
+            event.start_time.present? ? value + event.start_time.seconds_since_midnight.seconds : value
           end
 
           Hash[sorted]
