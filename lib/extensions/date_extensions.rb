@@ -24,5 +24,30 @@ class Date
 
       next_date.to_date
     end
+
+    def dates_for_weekday(start_date, end_date, weekday_number)
+      dates = []
+      current_date = start_date
+
+      while current_date <= end_date
+        dates << current_date if current_date.wday == weekday_number
+        current_date = current_date.next_date_for_weekday(weekday_number)
+      end
+
+      dates
+    end
+
+    def dates_for_day_number(start_date, end_date, day_number)
+      dates = []
+      current_date = Chronic.parse("#{Date::MONTHNAMES[start_date.month]} #{day_number}")
+      current_date = start_date.next_date_for_day_number(day_number) if current_date.nil? or current_date < start_date
+
+      while current_date <= end_date
+        dates << current_date if current_date.day == day_number
+        current_date = (current_date + 1.day).to_date.next_date_for_day_number(day_number)
+      end
+
+      dates
+    end
   end
 end
