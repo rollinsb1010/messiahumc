@@ -217,95 +217,105 @@ module Refinery
         before :each do
         end
 
-        it 'returns an empty result if there are no events in the future' do
-          2.times { FactoryGirl.create :event, date: 1.day.ago.to_date, repeats: 'never' }
+        it 'returns an empty result if there are no events' do
+          Event.stub(:possible_since).with(any_args).and_return Event
+          Event.stub(:limit).with(any_args).and_return []
 
           events = Event.upcoming
           events.should be_empty
         end
 
-        it 'only returns non repeating events when they are in the future' do
-          FactoryGirl.create :event, date: 1.day.ago.to_date
-          FactoryGirl.create :event, date: 1.week.ago.to_date
-          event1 = FactoryGirl.create :event, date: 1.day.from_now.to_date
-          event2 = FactoryGirl.create :event, date: 2.weeks.from_now.to_date
+        context 'for non repeating events' do
+          let(:event1) { FactoryGirl.build :event, date: 1.day.from_now.to_date }
+          let(:event2) { FactoryGirl.build :event, date: 2.weeks.from_now.to_date }
 
-          list = Event.upcoming.values.flatten
-          list.should have(2).events
-          list.should include(event1)
-          list.should include(event2)
+          it 'includes only one instance of each' do
+            Event.stub(:possible_since).with(any_args).and_return Event
+            Event.stub(:limit).with(any_args).and_return [event1, event2]
+
+            list = Event.upcoming.values.flatten
+            list.should have(2).events
+            list.should include(event1)
+            list.should include(event2)
+          end
         end
 
-        it 'returns the correct events in the right format if the first three are non repeating' do
-          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date
-          event2 = FactoryGirl.create :event, title: 'Event2', date: 1.week.from_now.to_date
-          event3 = FactoryGirl.create :event, title: 'Event3', date: 2.months.from_now.to_date
-          event4 = FactoryGirl.create :event, title: 'Event4', date: 3.months.from_now.to_date, repeats: 'weekly'
+        context 'when the first three are non repeating' do
+          let(:event1) { FactoryGirl.build :event, date: 1.day.from_now.to_date }
+          let(:event2) { FactoryGirl.build :event, date: 1.week.from_now.to_date }
+          let(:event3) { FactoryGirl.build :event, date: 2.months.from_now.to_date }
+          let(:event4) { FactoryGirl.build :weekly_event, date: 3.months.from_now.to_date }
 
-          FactoryGirl.create :event, date: 1.day.ago
+          it 'returns the correct events in the right format' do
+            Event.stub(:possible_since).with(any_args).and_return Event
+            Event.stub(:limit).with(any_args).and_return [event1, event2, event3, event4]
 
-          events = Event.upcoming
+            events = Event.upcoming
 
-          events.values.flatten.should have(4).events
-          events[1.day.from_now.to_date].should include(event1)
-          events[1.week.from_now.to_date].should include(event2)
-          events[2.months.from_now.to_date].should include(event3)
-          events[3.months.from_now.to_date].should include(event4)
+            events.values.flatten.should have(4).events
+            events[1.day.from_now.to_date].should include(event1)
+            events[1.week.from_now.to_date].should include(event2)
+            events[2.months.from_now.to_date].should include(event3)
+            events[3.months.from_now.to_date].should include(event4)
+          end
         end
 
-        it 'returns the correct events in the right format for a mix of repeating and non repeating' do
-          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date, highlighted: true, repeats: 'weekly'
-          event2 = FactoryGirl.create :event, title: 'Event2', date: 2.weeks.from_now.to_date, highlighted: true, repeats: 'monthly'
-          event3 = FactoryGirl.create :event, title: 'Event3', date: 2.months.from_now.to_date, highlighted: true, repeats: 'never'
-          event4 = FactoryGirl.create :event, title: 'Event4', date: 3.months.from_now.to_date, highlighted: true, repeats: 'weekly'
+        context 'for a mix of repeating and non repeating' do
+          let(:event1) { FactoryGirl.build :weekly_event, title: 'Event1', date: 1.day.from_now.to_date }
+          let(:event2) { FactoryGirl.build :monthly_event, title: 'Event2', date: 2.weeks.from_now.to_date }
+          let(:event3) { FactoryGirl.build :event, title: 'Event3', date: 2.months.from_now.to_date }
+          let(:event4) { FactoryGirl.build :weekly_event, title: 'Event4', date: 3.months.from_now.to_date }
 
-          FactoryGirl.create :event, date: 1.day.ago, highlighted: true
-          3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
+          it 'returns the correct events in the right format' do
+            Event.stub(:possible_since).with(any_args).and_return Event
+            Event.stub(:limit).with(any_args).and_return [event1, event2, event3, event4]
 
-          events = Event.upcoming highlighted: true
+            events = Event.upcoming
 
-          events.values.flatten.size.should == 4
+            events.values.flatten.should have(4).events
+            events[1.day.from_now.to_date].should include(event1)
+            events[(1.day.from_now + 1.week).to_date].should include(event1)
+            events[2.weeks.from_now.to_date].should include(event2)
+            events[(1.day.from_now + 2.weeks).to_date].should include(event1)
+          end
 
-          events[1.day.from_now.to_date].should include(event1)
-          events[(1.day.from_now + 1.week).to_date].should include(event1)
-          events[2.weeks.from_now.to_date].should include(event2)
-          events[(1.day.from_now + 2.weeks).to_date].should include(event1)
+          context 'and events on the same day' do
+            let(:event1) { FactoryGirl.build :weekly_event, title: 'Event1', date: 1.day.from_now.to_date }
+            let(:event2) { FactoryGirl.build :monthly_event, title: 'Event2', date: 1.day.from_now.to_date }
+            let(:event3) { FactoryGirl.build :event, title: 'Event3', date: 10.days.from_now.to_date, start_time: 10.hours.from_now }
+            let(:event4) { FactoryGirl.build :weekly_event, title: 'Event4', date: 10.days.from_now.to_date, start_time: 1.hour.from_now }
+
+            it 'returns the correct events in the right format' do
+              Event.stub(:possible_since).with(any_args).and_return Event
+              Event.stub(:limit).with(any_args).and_return [event1, event2, event3, event4]
+
+              events = Event.upcoming
+
+              events.values.flatten.should have(4).events
+              events[1.day.from_now.to_date].should include(event1, event2)
+              events[(1.week.from_now + 1.day).to_date].should include(event1)
+              events[10.days.from_now.to_date].should include(event4)
+            end
+          end
         end
 
-        it 'returns the correct events in the right format for a mix of repeating and non repeating and events on the same day' do
-          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.from_now.to_date, highlighted: true, repeats: 'weekly'
-          event2 = FactoryGirl.create :event, title: 'Event2', date: 1.day.from_now.to_date, highlighted: true, repeats: 'monthly'
-          event3 = FactoryGirl.create :event, title: 'Event3', date: 10.days.from_now.to_date, highlighted: true, repeats: 'never', start_time: 10.hours.from_now
-          event4 = FactoryGirl.create :event, title: 'Event4', date: 10.days.from_now.to_date, highlighted: true, repeats: 'weekly', start_time: 1.hour.from_now
+        context 'for repeating events that started in the past' do
+          let(:event1) { FactoryGirl.build :weekly_event, title: 'Event1', date: 1.day.ago.to_date }
+          let(:event2) { FactoryGirl.build :weekly_event, title: 'Event2', date: 2.days.from_now.to_date }
+          let(:event3) { FactoryGirl.build :monthly_event, title: 'Event3', date: (3.days.from_now.to_date - 10.months).to_date }
 
-          FactoryGirl.create :event, date: 1.day.ago, highlighted: true
-          3.times {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now }
+          it 'returns the correct events in the right format' do
+            Event.stub(:possible_since).with(any_args).and_return Event
+            Event.stub(:limit).with(any_args).and_return [event1, event2, event3]
 
-          events = Event.upcoming highlighted: true
+            events = Event.upcoming highlighted: true
 
-          events.values.flatten.size.should == 4
-
-          events[1.day.from_now.to_date].should include(event1, event2)
-          events[(1.week.from_now + 1.day).to_date].should include(event1)
-          events[10.days.from_now.to_date].should include(event4)
-        end
-
-        it 'returns the correct events in the right format when there are repeating events that started in the past' do
-          event1 = FactoryGirl.create :event, title: 'Event1', date: 1.day.ago.to_date, highlighted: true, repeats: 'weekly'
-          event2 = FactoryGirl.create :event, title: 'Event2', date: 2.days.from_now.to_date, highlighted: true, repeats: 'weekly'
-          event3 = FactoryGirl.create :event, title: 'Event3', date: (3.days.from_now.to_date - 10.months).to_date, highlighted: true, repeats: 'monthly'
-          range = (1..3)
-          range.each {|x| FactoryGirl.create :event, highlighted: false, date: x.week.from_now, repeats: 'never' }
-          range.each {|x| FactoryGirl.create :event, highlighted: false, date: x.week.ago, repeats: 'never'  }
-          range.each {|x| FactoryGirl.create :event, highlighted: true, date: x.week.ago, repeats: 'never' }
-
-          events = Event.upcoming highlighted: true
-
-          events.values.flatten.size.should == 4
-          events[2.days.from_now.to_date].should include(event2)
-          events[3.days.from_now.to_date].should include(event3)
-          events[(1.day.ago + 1.week).to_date].should include(event1)
-          events[((2.days.from_now.to_date) + 1.week).to_date].should include(event2)
+            events.values.flatten.should have(4).events
+            events[2.days.from_now.to_date].should include(event2)
+            events[3.days.from_now.to_date].should include(event3)
+            events[(1.day.ago + 1.week).to_date].should include(event1)
+            events[((2.days.from_now.to_date) + 1.week).to_date].should include(event2)
+          end
         end
       end
 
