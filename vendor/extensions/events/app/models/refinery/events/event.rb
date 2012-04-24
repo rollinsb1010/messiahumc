@@ -46,20 +46,12 @@ module Refinery
 
           current = Hash.new
 
-          results = where { ((repeats == 'monthly') | (repeats == 'weekly')) | ((repeats == 'never') & (date >= Time.now.to_date)) }.where(conditions).limit(limit)
+          results = possible_since(Time.now.to_date, conditions).limit(limit)
 
-          results.each do |event|
-            if event.date.past?
-              date = event.next_date
-            else
-              date = event.date
-            end
+          results.each { |event| current[event] = event.date.past? ? event.next_date : event.date }
 
-            current[event] = date
-          end
-
-          while(upcoming_events.values.flatten.size < limit and current.any?)
-            current = sort(current)
+          while upcoming_events.values.flatten.size < limit and current.any?
+            current = sort current
 
             current_event = current.first[0]
             current_date = current.first[1]
@@ -83,24 +75,21 @@ module Refinery
           start_date = start_date.to_date
           end_date = end_date.to_date
 
-          in_range = where("date >= ? AND date <= ? AND repeats = ?", start_date, end_date, 'never').where(conditions)
+          results = possible_since(start_date, conditions).where { date <= end_date }
 
-          weekly = where("date <= ? AND repeats = ?", end_date, 'weekly').where(conditions)
-          monthly = where("date <= ? AND repeats = ?", end_date, 'monthly').where(conditions)
+          results.each do |event|
+            dates = [event.date]
+            dates = Date.dates_for_weekday(start_date, end_date, event.date.wday) if event.weekly?
+            dates = Date.dates_for_day_number(start_date, end_date, event.date.day) if event.monthly?
 
-          weekly.each do |event|
-            dates = Date.dates_for_weekday(start_date, end_date, event.date.wday)
             dates.each { |date| add_event(events, event, date) }
           end
-
-          monthly.each do |event|
-            dates = Date.dates_for_day_number(start_date, end_date, event.date.day)
-            dates.each { |date| add_event(events, event, date) }
-          end
-
-          in_range.each { |event| add_event(events, event, event.date) }
 
           Hash[sorted(events)]
+        end
+
+        def possible_since(start_date, conditions = {})
+          where { (repeats == 'monthly') | (repeats == 'weekly') | ((repeats == 'never') & (date >= start_date)) }.where(conditions)
         end
 
         private
