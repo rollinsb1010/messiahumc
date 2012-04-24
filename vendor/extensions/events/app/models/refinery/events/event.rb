@@ -40,6 +40,14 @@ module Refinery
         date
       end
 
+      def dates_for_range(start_date, end_date)
+        dates = [date]
+        dates = Date.dates_for_weekday(start_date, end_date, date.wday) if weekly?
+        dates = Date.dates_for_day_number(start_date, end_date, date.day) if monthly?
+
+        dates
+      end
+
       class << self
         def highlighted
           upcoming highlighted: true
@@ -57,8 +65,7 @@ module Refinery
           while upcoming_events.values.flatten.size < limit and current.any?
             current = sort current
 
-            current_event = current.first[0]
-            current_date = current.first[1]
+            current_event, current_date = current.first
 
             add_event(upcoming_events, current_event, current_date)
 
@@ -82,11 +89,7 @@ module Refinery
           results = possible_since(start_date, conditions).where { date <= end_date }
 
           results.each do |event|
-            dates = [event.date]
-            dates = Date.dates_for_weekday(start_date, end_date, event.date.wday) if event.weekly?
-            dates = Date.dates_for_day_number(start_date, end_date, event.date.day) if event.monthly?
-
-            dates.each { |date| add_event(events, event, date) }
+            event.dates_for_range(start_date, end_date).each { |date| add_event(events, event, date) }
           end
 
           Hash[sorted(events)]
@@ -112,8 +115,7 @@ module Refinery
         def sorted(events)
           events.sort.map do |a|
             date, events = a
-            sorted_events = events.sort_by { |e| e.start_time or e.date.beginning_of_day }
-            [date, sorted_events]
+            [date, events.sort_by { |e| e.start_time or e.date.beginning_of_day }]
           end
         end
 
