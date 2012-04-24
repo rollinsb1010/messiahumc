@@ -31,18 +31,14 @@ module Refinery
       def next_date(context = Time.now.to_date)
         context = date if context < date
 
-        if weekly?
-          Event.next_date_for_weekday(context.to_date, date.wday)
-        elsif monthly?
-          Event.next_date_for_day_number(context.to_date, date.day)
-        else
-          date
-        end
+        return context.to_date.next_date_for_weekday(date.wday) if weekly?
+        return context.to_date.next_date_for_day_number(date.day) if monthly?
+        date
       end
 
       class << self
         def highlighted
-          upcoming(highlighted: true)
+          upcoming highlighted: true
         end
 
         def upcoming(conditions = {}, limit = 4)
@@ -80,10 +76,6 @@ module Refinery
           upcoming_events
         end
 
-        def for_date(start_date, conditions = {})
-          for_date_range(start_date, start_date, conditions)
-        end
-
         def for_date_range(start_date, end_date = start_date, conditions = {})
           events = {}
           return events if start_date > end_date
@@ -109,23 +101,6 @@ module Refinery
           in_range.each { |event| add_event(events, event, event.date) }
 
           Hash[sorted(events)]
-        end
-
-        def next_date_for_weekday(context_date, weekday_number)
-          Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: context_date).to_date
-        end
-
-        def next_date_for_day_number(initial_date, day_number)
-          next_date = nil
-          number = 0
-          number = 1 if initial_date.day > day_number
-
-          while next_date.nil? and number <= 12
-            next_date = Chronic.parse("#{Date::MONTHNAMES[(initial_date + number.months).month]} #{day_number}", now: initial_date)
-            number += 1
-          end
-
-          next_date.to_date
         end
 
         private
@@ -161,7 +136,7 @@ module Refinery
 
           while current_date <= end_date
             dates << current_date if current_date.wday == weekday_number
-            current_date = next_date_for_weekday((current_date), weekday_number)
+            current_date = current_date.next_date_for_weekday(weekday_number)
           end
 
           dates
@@ -170,16 +145,15 @@ module Refinery
         def dates_for_day_number(start_date, end_date, day_number)
           dates = []
           current_date = Chronic.parse("#{Date::MONTHNAMES[start_date.month]} #{day_number}")
-          current_date = next_date_for_day_number(start_date, day_number) if current_date.nil? or current_date < start_date
+          current_date = start_date.next_date_for_day_number(day_number) if current_date.nil? or current_date < start_date
 
           while current_date <= end_date
             dates << current_date if current_date.day == day_number
-            current_date = next_date_for_day_number((current_date + 1.day).to_date, day_number)
+            current_date = (current_date + 1.day).to_date.next_date_for_day_number(day_number)
           end
 
           dates
         end
-
       end
     end
   end
