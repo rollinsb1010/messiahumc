@@ -367,55 +367,10 @@ module Refinery
           Event.for_date_range(Time.now, 5.days.ago).should be_empty
         end
 
-        it 'includes the non repeating events in the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should include(first_event_in_range)
-        end
-
-        it 'does not include non repeating events before the start date' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should_not include(before_range_event)
-        end
-
-        it 'does not include any event that starts after the end date' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events = events.values.flatten
-          events.should_not include(after_range_event)
-          events.should_not include(weekly_event_after_range)
-          events.should_not include(monthly_event_after_range)
-        end
-
         it 'returns the events in the in a date => events format' do
           events = Event.for_date_range(Time.now, 5.days.from_now)
           events[first_event_in_range.date].should include(first_event_in_range)
           events[third_event_in_range.date].should include(third_event_in_range)
-        end
-
-        it 'includes a weekly event that starts within the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should include(weekly_event_starts_in_range)
-        end
-
-        it 'includes a weekly event for a range that spans 7 days or more' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events = Event.for_date_range(Time.now, 1.week.from_now)
-          events.values.flatten.should include(weekly_event_included_not_in_range)
-        end
-
-        it 'includes a weekly event that does not start in the range but has a day within the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should include(weekly_event_included_not_in_range)
-        end
-
-        it 'does not include a weekly event that does not start in the range and does not have a day within the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should_not include(weekly_event_not_included_not_in_range)
-        end
-
-        it 'adds the weekly events to the correct dates' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events[weekly_event_starts_in_range.date].should include(weekly_event_starts_in_range)
-          events[3.days.from_now.to_date].should include(weekly_event_included_not_in_range)
         end
 
         it 'returns correctly an old event even that repeats during the range' do
@@ -423,25 +378,115 @@ module Refinery
           events[2.days.from_now.to_date].should include(old_repeating_event)
         end
 
-        it 'includes a monthly event that starts within the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should include(monthly_event_starts_in_range)
+        context 'for non repeating events' do
+          context 'in range' do
+            it 'includes them all' do
+              events = Event.for_date_range(Time.now, 5.days.from_now)
+              events.values.flatten.should include(first_event_in_range)
+            end
+          end
+
+          context 'before the start date' do
+            it 'does not include them' do
+              events = Event.for_date_range(Time.now, 5.days.from_now)
+              events.values.flatten.should_not include(before_range_event)
+            end
+          end
+
+          context 'after the start date' do
+            it 'does not include them' do
+              events = Event.for_date_range(Time.now, 5.days.from_now)
+              events = events.values.flatten
+
+              events.should_not include(after_range_event)
+              events.should_not include(weekly_event_after_range)
+              events.should_not include(monthly_event_after_range)
+            end
+          end
         end
 
-        it 'includes a monthly event that does not start in the range but has a day within the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should include(monthly_event_included_not_in_range)
+        context 'for weekly events' do
+          context 'starting within the range' do
+            it 'includes them all' do
+              events = Event.for_date_range(Time.now, 5.days.from_now)
+              events.values.flatten.should include(weekly_event_starts_in_range)
+            end
+          end
+
+          context 'that span 7 days or more' do
+            it 'includes them all' do
+              events = Event.for_date_range(Time.now, 5.days.from_now)
+              events = Event.for_date_range(Time.now, 1.week.from_now)
+              events.values.flatten.should include(weekly_event_included_not_in_range)
+            end
+          end
+
+          context 'not in the range' do
+            context 'but with a day within the range' do
+              it 'includes them all' do
+                events = Event.for_date_range(Time.now, 5.days.from_now)
+                events.values.flatten.should include(weekly_event_included_not_in_range)
+              end
+            end
+
+            context 'without a day within the range' do
+              it 'does not include them' do
+                events = Event.for_date_range(Time.now, 5.days.from_now)
+                events.values.flatten.should_not include(weekly_event_not_included_not_in_range)
+              end
+            end
+          end
+
+          it 'adds them to the correct dates' do
+            events = Event.for_date_range(Time.now, 5.days.from_now)
+            events[weekly_event_starts_in_range.date].should include(weekly_event_starts_in_range)
+            events[3.days.from_now.to_date].should include(weekly_event_included_not_in_range)
+          end
         end
 
-        it 'does not include a monthly event that does not start in the range and does not have a day within the range' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.flatten.should_not include(monthly_event_not_included_not_in_range)
-        end
+        context 'for monthly events' do
+          context 'starting within the range' do
+            it 'includes them all' do
+              events = Event.for_date_range(Time.now, 5.days.from_now)
+              events.values.flatten.should include(monthly_event_starts_in_range)
+            end
+          end
 
-        it 'adds the monthly events to the correct dates' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events[monthly_event_starts_in_range.date].should include(monthly_event_starts_in_range)
-          events[1.day.from_now.to_date].should include(monthly_event_included_not_in_range)
+          context 'not in range' do
+            context 'but with a day within the range' do
+              it 'includes them all' do
+                events = Event.for_date_range(Time.now, 5.days.from_now)
+                events.values.flatten.should include(monthly_event_included_not_in_range)
+              end
+            end
+
+            context 'without a day within the range' do
+              it 'does not include them' do
+                events = Event.for_date_range(Time.now, 5.days.from_now)
+                events.values.flatten.should_not include(monthly_event_not_included_not_in_range)
+              end
+            end
+          end
+
+          it 'adds them to the correct dates' do
+            events = Event.for_date_range(Time.now, 5.days.from_now)
+            events[monthly_event_starts_in_range.date].should include(monthly_event_starts_in_range)
+            events[1.day.from_now.to_date].should include(monthly_event_included_not_in_range)
+          end
+
+          context 'with a day number not included in one month of the range' do
+            it 'does not add it for that month' do
+              monthly_event_on_31st = FactoryGirl.build :monthly_event, title: 'Monthly Event on 31st', date: Time.local(2011, 10, 31).to_date
+              Event.stub(:where).and_return [monthly_event_on_31st]
+
+              events = Event.for_date_range(Time.local(2012, 2, 1), Time.local(2012, 5, 31))
+              dates = events.keys
+
+              dates.should have(2).dates
+              dates.should include(Time.local(2012, 3, 31).to_date)
+              dates.should include(Time.local(2012, 5, 31).to_date)
+            end
+          end
         end
 
         it 'returns the correct events for a single day range' do
@@ -455,27 +500,17 @@ module Refinery
           events[2.days.from_now.to_date].should include(first_event_in_range_with_time)
         end
 
-        it 'does not add a monthly event if the day number is not included in one month in the range' do
-          monthly_event_on_31st = FactoryGirl.build :monthly_event, title: 'Monthly Event on 31st', date: Time.local(2011, 10, 31).to_date
-          Event.stub(:where).and_return [monthly_event_on_31st]
+        context 'sorting' do
+          it 'returns the events sorted by date' do
+            events = Event.for_date_range(Time.now, 5.days.from_now)
+            events.keys.should == events.keys.sort
+          end
 
-          events = Event.for_date_range(Time.local(2012, 2, 1), Time.local(2012, 5, 31))
-          dates = events.keys
-
-          dates.should have(2).dates
-          dates.should include(Time.local(2012, 3, 31).to_date)
-          dates.should include(Time.local(2012, 5, 31).to_date)
-        end
-
-        it 'returns the events sorted by date' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.keys.should == events.keys.sort
-        end
-
-        it 'returns the events sorted by start time' do
-          events = Event.for_date_range(Time.now, 5.days.from_now)
-          events.values.each do |events|
-            events.should == events.sort_by { |e| e.start_time or e.date.beginning_of_day }
+          it 'returns the events sorted by start time' do
+            events = Event.for_date_range(Time.now, 5.days.from_now)
+            events.values.each do |events|
+              events.should == events.sort_by { |e| e.start_time or e.date.beginning_of_day }
+            end
           end
         end
 
