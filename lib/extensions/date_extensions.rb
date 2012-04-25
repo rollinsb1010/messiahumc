@@ -39,12 +39,14 @@ module DateExtensions
 
     def dates_for_day_number(start_date, end_date, day_number)
       dates = []
+
       current_date = Chronic.parse("#{Date::MONTHNAMES[start_date.month]} #{day_number}")
       current_date = start_date.next_date_for_day_number(day_number) if current_date.nil? or current_date < start_date
+      current_date = current_date.to_date
 
       while current_date <= end_date
-        dates << current_date if current_date.day == day_number
-        current_date = (current_date + 1.day).to_date.next_date_for_day_number(day_number)
+        dates << current_date.to_date if current_date.day == day_number
+        current_date = (current_date + 1.day).next_date_for_day_number(day_number)
       end
 
       dates
