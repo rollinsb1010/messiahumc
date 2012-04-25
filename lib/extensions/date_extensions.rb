@@ -1,4 +1,4 @@
-class Date
+module DateExtensions
   def next_date_for_weekday(weekday_number)
     Date.next_date_for_weekday(self, weekday_number)
   end
@@ -7,7 +7,7 @@ class Date
     Date.next_date_for_day_number(self, day_number)
   end
 
-  class << self
+  module ClassMethods
     def next_date_for_weekday(context_date, weekday_number)
       Chronic.parse("next #{Date::DAYNAMES[weekday_number]}", now: context_date).to_date
     end
@@ -50,4 +50,9 @@ class Date
       dates
     end
   end
+end
+
+class Date
+  include DateExtensions
+  extend DateExtensions::ClassMethods
 end
