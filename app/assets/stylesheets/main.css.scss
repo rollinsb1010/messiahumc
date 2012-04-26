@@ -188,6 +188,19 @@ h1 {
     text-transform: uppercase;
     margin: 10px 0;
   }
+
+  th {
+    background-color: $calendar_purple_light;
+    color: #ffffff;
+    padding: 5px 2px;
+    text-align: left;
+    border-bottom: 1px solid $table_head_border;
+  }
+
+  td {
+    padding: 5px 2px;
+    border-bottom: 1px solid $table_row_border;
+  }
 }
 
 #body_content_title {
@@ -242,17 +255,4 @@ h1 {
   width: 0;
   height: 0;
   display: block;
-}
-
-.metadata{
-  margin: 20px 0px;
-  color: $dark_grey;
-  th{
-    text-align: left;
-    padding-top: 2px;
-  }
-
-  td{
-    padding-left: 10px;
-  }
 }
