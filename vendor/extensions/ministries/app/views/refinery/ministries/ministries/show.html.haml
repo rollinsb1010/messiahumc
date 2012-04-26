@@ -4,9 +4,6 @@
     - if @ministry.logo.present?
       %aside.ministry_right
         %p= image_fu @ministry.logo, '150x182'
-    - if @ministry.center_image.present?
-      %section.ministry_image= image_fu @ministry.center_image, '470x275#c'
-
     %section
       =raw @ministry.description
       - unless @ministry.upcoming_events.empty?
