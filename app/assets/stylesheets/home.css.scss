@@ -64,12 +64,9 @@
   }
 
   .scene {
-    .scene_image {
-      float: right;
-    }
-
     img {
       position: relative;
+      float: right;
     }
 
     p {
