@@ -18,6 +18,7 @@ module ApplicationHelper
   end
 
   def truncate_html(html, options = {})
+    html = html.gsub(/<p><img.+?><\/p>/, '')
     index = html.index '</p>'
     options[:omission] ||= '...'
     if index.present?
