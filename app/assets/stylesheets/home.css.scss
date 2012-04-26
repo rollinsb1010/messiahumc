@@ -11,6 +11,7 @@
     font-size: 31px;
     line-height: 50px;
     color: #ffffff;
+    border: none;
   }
 
   h2 {
@@ -63,12 +64,9 @@
   }
 
   .scene {
-    .scene_image {
-      float: right;
-    }
-
     img {
       position: relative;
+      float: right;
     }
 
     p {

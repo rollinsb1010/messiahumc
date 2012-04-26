@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417234242) do
+ActiveRecord::Schema.define(:version => 20120426183942) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(:version => 20120417234242) do
     t.text     "value"
     t.string   "scope"
     t.integer  "page_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "phrase_type"
+    t.date     "last_access_at"
   end
 
   add_index "refinery_copywriting_phrases", ["name", "scope"], :name => "index_copywriting_phrases_on_name_and_scope"
