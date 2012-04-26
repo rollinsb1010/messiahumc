@@ -41,11 +41,14 @@
   }
 
   .ministry_details {
-    @include index_page_aside;
+    @include index_page_aside(0);
+
+    aside {
+      margin: 0 0 10px 20px;
+    }
 
     section {
       margin-top: 25px;
-      width: 490px;
 
       p {
         margin: 15px 0;
