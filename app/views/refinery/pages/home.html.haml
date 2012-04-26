@@ -2,7 +2,7 @@
   .slider-wrapper.theme-default
     .ribbon
     #slider.ramblingSlider
-      = copywriting_options scope: 'home_page' do
+      = copywriting_options scope: 'home_page', phrase_type: 'wysiwyg' do
         .scene
           = raw copywriting('Scene 1', default: 'Scene 1')
         .scene
