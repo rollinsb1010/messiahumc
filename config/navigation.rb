@@ -11,7 +11,13 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :events, 'Events', refinery.events_events_path, highlights_on: /\/events$/
     primary.item :worship, 'Worship', Rails.application.routes.url_helpers.worship_path, highlights_on: /\/worship/
-    primary.item :ministry, 'Ministry', refinery.ministries_ministries_path, highlights_on: /\/ministries/
+
+    primary.item :ministry, 'Ministry', refinery.ministries_ministries_path, highlights_on: /\/ministries/ do |ministry|
+      ::Refinery::Ministries::MinistryCategory.all.each do |category|
+        ministry.item category.name.parameterize.underscore, category.name, refinery.by_category_ministries_ministries_path(category)
+      end
+    end
+
     primary.item :missions, 'Missions', '#'
     primary.item :youth, 'Youth', '#'
     primary.item :supporting, 'Supporting Messiah', '#'

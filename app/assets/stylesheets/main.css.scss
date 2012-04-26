@@ -65,14 +65,16 @@ h1 {
       padding-left: 10px;
 
       ul {
+        display: none;
         height: auto;
         padding-left: 0;
         position: absolute;
+        z-index: 1;
 
         a {
           font-family: $general_font;
           text-transform: none;
-          padding: 5px;
+          padding: 6px 5px;
           background-color: $dark_purple;
           font-size: 11px;
           width: 110px;
