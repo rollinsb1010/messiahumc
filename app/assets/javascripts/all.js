@@ -10,6 +10,9 @@ $(function() {
       });
     };
 
+    var navigationMenu = $('#navigation .wrapper > ul');
+    navigationMenu.superfish({autoArrows: false});
+
     var bodyContentLeft = $('#body_content_left');
     bodyContentLeft.height(bodyContentLeft.parents('.wrapper').height());
     $('#slider').ramblingSlider({effect: 'customFade', pauseTime: 5000});
