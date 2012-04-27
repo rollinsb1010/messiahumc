@@ -5,6 +5,8 @@ module Refinery
 
       default_scope order: 'published_at desc'
 
+      acts_as_indexed fields: [:messenger_type]
+
       scope :published, where('published_at < ?', Time.now)
       scope :for_last_calendar_year, published.where('published_at > ?', 1.year.ago)
 
