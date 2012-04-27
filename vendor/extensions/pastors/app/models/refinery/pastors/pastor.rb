@@ -20,6 +20,10 @@ module Refinery
       def pastor?
         true
       end
+
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.pastors_pastor_path(self)
+      end
     end
   end
 end

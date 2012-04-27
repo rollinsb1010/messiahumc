@@ -18,6 +18,10 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :mp3_file, class_name: '::Refinery::Resource'
       belongs_to :pastor, class_name: '::Refinery::Pastors::Pastor'
+
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.sermons_sermon_path(self)
+      end
     end
   end
 end

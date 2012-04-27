@@ -20,6 +20,10 @@ module Refinery
       def title
         "#{messenger_type.titleize} Messenger - #{published_at.strftime('%-m/%-d/%Y')}"
       end
+
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self)
+      end
     end
   end
 end
