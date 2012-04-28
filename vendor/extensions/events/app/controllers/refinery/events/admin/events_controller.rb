@@ -3,12 +3,17 @@ module Refinery
     module Admin
       class EventsController < ::Refinery::AdminController
         before_filter :get_ministries
-        before_filter :clean_nullable_time_fields, only: [:update, :create]
+        before_filter :parse_date, :clean_nullable_time_fields, only: [:update, :create]
+        helper :events
 
         crudify :'refinery/events/event', xhr_paging: true
 
         def get_ministries
           @ministries = ::Refinery::Ministries::Ministry.all
+        end
+
+        def parse_date
+          params[:event][:date] = Chronic.parse(params[:date])
         end
 
         def clean_nullable_time_fields
