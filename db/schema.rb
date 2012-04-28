@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426210218) do
+ActiveRecord::Schema.define(:version => 20120428224340) do
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20120426210218) do
   create_table "refinery_events", :force => true do |t|
     t.string   "title"
     t.date     "date"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.string   "start_time"
+    t.string   "end_time"
     t.string   "repeats"
     t.string   "location"
     t.string   "short_description"
