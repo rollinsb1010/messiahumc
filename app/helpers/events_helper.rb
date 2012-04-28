@@ -31,7 +31,7 @@ module EventsHelper
   end
 
   def date_for_input(date)
-    date.strftime('%m/%d/%Y')
+    (date or Date.today).strftime('%m/%d/%Y')
   end
 
   def distributed_in_columns(array, number_of_columns)
