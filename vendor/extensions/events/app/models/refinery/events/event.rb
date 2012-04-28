@@ -20,6 +20,10 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.events_event_path(self)
+      end
+
       def weekly?
         repeats == 'weekly'
       end

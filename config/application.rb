@@ -65,7 +65,14 @@ module MessiahUmc
 
     # Models that are searchable
     config.to_prepare do
-      ::Refinery.searchable_models = [::Refinery::Page, ::Refinery::Pastors::Pastor, ::Refinery::Sermons::Sermon]
+      ::Refinery.searchable_models = [
+        ::Refinery::Pastors::Pastor,
+        ::Refinery::Sermons::Sermon,
+        ::Refinery::Events::Event,
+        ::Refinery::Messengers::Messenger,
+        ::Refinery::Ministries::Ministry,
+        ::Refinery::StaffMembers::StaffMember
+      ]
     end
   end
 end

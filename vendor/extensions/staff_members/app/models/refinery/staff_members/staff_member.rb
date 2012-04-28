@@ -19,6 +19,9 @@ module Refinery
 
       belongs_to :category, class_name: '::Refinery::StaffMembers::StaffCategory'
 
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.staff_members_staff_member_path(self)
+      end
     end
   end
 end
