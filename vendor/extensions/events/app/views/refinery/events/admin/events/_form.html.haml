@@ -8,10 +8,10 @@
     = text_field_tag :date, date_for_input(@event.date), class: 'date_picker'
   .field
     = f.label :start_time
-    = f.time_select :start_time, {prompt: true, ampm: true}
+    = f.text_field :start_time
   .field
     = f.label :end_time
-    = f.time_select :end_time, {prompt: true, ampm: true}
+    = f.text_field :end_time
   .field
     = f.label :repeats
     = select(:event, :repeats, {'Never' => 'never', 'Weekly' => 'weekly', 'Monthly' => 'monthly'})

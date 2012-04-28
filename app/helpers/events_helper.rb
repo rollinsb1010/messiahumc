@@ -1,12 +1,9 @@
 module EventsHelper
 
   def time_info(event)
-    format = '%I:%M%P'
-
-    unless event.start_time.nil?
-      time = event.start_time.strftime(format)
-
-      time + '-' + event.end_time.strftime(format) unless event.end_time.nil?
+    if event.start_time.present?
+      time = "#{event.start_time}"
+      "#{time} - #{event.end_time}" if event.end_time.present?
     end
   end
 
