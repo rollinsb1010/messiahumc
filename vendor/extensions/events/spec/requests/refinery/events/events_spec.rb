@@ -11,7 +11,7 @@ describe Refinery do
       context 'without additional parameters' do
         before(:each) do
           FactoryGirl.create(:event, title: 'Future event in range', date: 2.days.from_now.to_date)
-          FactoryGirl.create(:event, title: 'Other future event in range', date: 6.days.from_now.to_date, start_time: (Date.today + 8.hours))
+          FactoryGirl.create(:event, title: 'Other future event in range', date: 6.days.from_now.to_date, start_time: '8:00a')
           FactoryGirl.create(:event, title: 'Future event not in range', date: 8.days.from_now.to_date)
           FactoryGirl.create(:event, title: 'Other future event not in range', date: 7.days.from_now.to_date)
           FactoryGirl.create(:event, title: 'Old Event', date: 2.days.ago)
