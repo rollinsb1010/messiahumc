@@ -30,9 +30,7 @@ describe Refinery do
           context 'valid data' do
             it 'should succeed' do
               fill_in 'Title', with: 'The event title'
-              select '2013', from: 'event_date_1i'
-              select 'January', from: 'event_date_2i'
-              select '1', from: 'event_date_3i'
+              fill_in 'Date', with: '2013/01/01'
               fill_in 'Short Description', with: 'A short description'
               fill_in 'event[long_description]', with: 'A long description'
               fill_in 'Contact Email', with: 'a_valid@email.com'
