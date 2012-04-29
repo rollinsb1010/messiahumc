@@ -7,6 +7,6 @@
         %span Church of the Messiah United Methodist
         %span 51 N. State St., Westerville OH 43081
     #search
-      = form_tag refinery.search_url, :id => 'search_form' do
-        = text_field_tag :query, {}, {:type => "text", :placeholder => "search our site", :value => (params[:query] if params[:query])}
+      = form_tag refinery.search_url, id: 'search_form', method: :get do
+        = text_field_tag :query, (params[:query] or ''), {type: "text", placeholder: "search our site"}
   = render(partial: "/navigation", locals: { dom_id: 'menu', css: 'menu' })

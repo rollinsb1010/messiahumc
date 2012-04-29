@@ -1,0 +1,21 @@
+- content_for :body_content_title do
+  = t('.search_results_for', what: params[:query])
+
+= render 'shared/empty_left_sidebar'
+
+- content_for :body_content_right do
+  %h1 Search Results
+  #search_results
+    %p= pluralize @results.size, 'Results'
+    %ul
+      - @results.each_with_index do |result, index|
+        %li{class: index.zero? ? 'first' : ''}
+          %h2
+            = link_to raw(result.title.gsub(/(#{Regexp.escape(params[:query])})/i, '<mark>\1</mark>')), result_url(result)
+            #{'-'}
+            %span.result_type= result.class.to_s.titleize.split('/').last
+          %p
+            = raw truncate_html(result.summary, omission: '..') { |html| html.gsub(/<h\d>.+?<\/h\d>/, '') }
+
+
+= render template: 'layouts/general'
