@@ -22,6 +22,10 @@ module Refinery
         ::Refinery::Core::Engine.routes.url_helpers.ministries_ministry_path(self)
       end
 
+      def summary
+        description
+      end
+
       def upcoming_events
         ::Refinery::Events::Event.upcoming ministry_id: id
       end

@@ -22,6 +22,10 @@ module Refinery
       def url
         ::Refinery::Core::Engine.routes.url_helpers.staff_members_staff_member_path(self)
       end
+
+      def summary
+        bio
+      end
     end
   end
 end

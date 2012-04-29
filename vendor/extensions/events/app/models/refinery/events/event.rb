@@ -24,6 +24,10 @@ module Refinery
         ::Refinery::Core::Engine.routes.url_helpers.events_event_path(self)
       end
 
+      def summary
+        long_description
+      end
+
       def weekly?
         repeats == 'weekly'
       end

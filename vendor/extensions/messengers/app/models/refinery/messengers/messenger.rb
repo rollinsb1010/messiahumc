@@ -26,6 +26,10 @@ module Refinery
       def url
         ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self)
       end
+
+      def summary
+        title
+      end
     end
   end
 end

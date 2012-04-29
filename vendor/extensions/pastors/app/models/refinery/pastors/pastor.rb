@@ -24,6 +24,10 @@ module Refinery
       def url
         ::Refinery::Core::Engine.routes.url_helpers.pastors_pastor_path(self)
       end
+
+      def summary
+        bio
+      end
     end
   end
 end
