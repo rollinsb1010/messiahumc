@@ -22,6 +22,10 @@ module Refinery
       def url
         ::Refinery::Core::Engine.routes.url_helpers.sermons_sermon_path(self)
       end
+
+      def summary
+        description
+      end
     end
   end
 end

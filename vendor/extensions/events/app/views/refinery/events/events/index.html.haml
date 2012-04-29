@@ -47,7 +47,7 @@
                   %li{class: classes}
                     %h3
                       = link_to event.title, refinery.events_event_path(event)
-                      %span= format_event_time event.start_time
+                      %span= event.start_time
                     .details
                       = render partial: 'event_metadata', locals: {event: event}
                       = link_to 'click for more details', refinery.events_event_path(event)

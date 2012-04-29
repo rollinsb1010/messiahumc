@@ -18,12 +18,15 @@ module ApplicationHelper
   end
 
   def truncate_html(html, options = {})
-    html = html.gsub(/<p><img.+?><\/p>/, '')
+    if block_given?
+      html = yield html
+    end
+
     index = html.index '</p>'
     options[:omission] ||= '...'
     if index.present?
       truncated_html = html.slice(0, index)
-      return "#{truncated_html} #{options[:omission]}</p>"
+      return "#{truncated_html}#{options[:omission]}</p>"
     end
 
     super(html, options)

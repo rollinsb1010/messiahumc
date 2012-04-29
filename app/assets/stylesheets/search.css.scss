@@ -1,0 +1,30 @@
+@import 'mixins';
+
+$border_properties: 1px solid $border_grey;
+
+#body_content_right {
+  #search_results {
+    margin-top: 25px;
+
+    p {
+      margin: 5px 0;
+    }
+
+    h2 {
+      @include default_font;
+      font-size: 14px;
+      margin: 5px 0;
+      height: 20px;
+    }
+
+    li {
+      border-bottom: $border_properties;
+      padding: 5px 0;
+      margin: 0;
+
+      &.first {
+        border-top: $border_properties;
+      }
+    }
+  }
+}

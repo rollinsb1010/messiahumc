@@ -1,12 +1,9 @@
 module EventsHelper
 
   def time_info(event)
-    format = '%I:%M%P'
-
-    unless event.start_time.nil?
-      time = event.start_time.strftime(format)
-
-      time + '-' + event.end_time.strftime(format) unless event.end_time.nil?
+    if event.start_time.present?
+      time = "#{event.start_time}"
+      "#{time} - #{event.end_time}" if event.end_time.present?
     end
   end
 
@@ -31,7 +28,7 @@ module EventsHelper
   end
 
   def date_for_input(date)
-    date.strftime('%m/%d/%Y')
+    (date or Date.today).strftime('%m/%d/%Y')
   end
 
   def distributed_in_columns(array, number_of_columns)

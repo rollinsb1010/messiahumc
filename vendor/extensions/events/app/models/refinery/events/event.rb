@@ -24,6 +24,10 @@ module Refinery
         ::Refinery::Core::Engine.routes.url_helpers.events_event_path(self)
       end
 
+      def summary
+        long_description
+      end
+
       def weekly?
         repeats == 'weekly'
       end
@@ -104,11 +108,7 @@ module Refinery
         private
 
         def sort(current)
-          sorted = current.sort_by do |event, date_instance|
-            value = date_instance.to_datetime
-            event.start_time.present? ? value + event.start_time.seconds_since_midnight.seconds : value
-          end
-
+          sorted = current.sort_by { |event, date_instance| [date_instance.to_datetime, event.start_time] }
           Hash[sorted]
         end
 
