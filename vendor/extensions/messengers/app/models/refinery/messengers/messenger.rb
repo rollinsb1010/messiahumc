@@ -24,7 +24,7 @@ module Refinery
       end
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self.slug)
+        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self.id)
       end
 
       def summary

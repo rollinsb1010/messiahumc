@@ -18,12 +18,10 @@ module Refinery
       belongs_to :ministry_category, foreign_key: 'ministry_category_id', class_name: '::Refinery::Ministries::MinistryCategory'
       has_many :events, class_name: '::Refinery::Events::Event'
 
+      alias_attribute :title, :name
+
       def url
         ::Refinery::Core::Engine.routes.url_helpers.ministries_ministry_path(self.slug)
-      end
-
-      def title
-        name
       end
 
       def summary

@@ -10,6 +10,7 @@ module Refinery
       self.table_name = 'refinery_staff_members'
 
       acts_as_indexed fields: [:name, :job_title, :bio, :email]
+      alias_attribute :title, :name
 
       validates :name, presence: true, uniqueness: true
       validates :category, presence: true
