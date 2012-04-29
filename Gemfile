@@ -27,6 +27,7 @@ end
 
 group :development do
   gem 'ffaker'
+  gem 'randumb'
 end
 
 group :test, :development do

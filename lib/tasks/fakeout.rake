@@ -1,12 +1,47 @@
 class Fakeout
 
-  MODELS = %w(::Refinery::Pastors::Pastor)
+  MODELS = %w(
+    ::Refinery::Pastors::Pastor
+    ::Refinery::Sermons::Sermon
+    ::Refinery::Events::Event
+  )
 
   def build__refinery_pastors_pastor
-    { name: Faker::Name.name,
+    {
+      name: Faker::Name.name,
       job_title: Faker::Lorem.sentence(2),
       email: Faker::Internet.email,
       bio: Faker::Lorem.paragraph(20),
+  }
+  end
+
+  def build__refinery_sermons_sermon
+    {
+      pastor: ::Refinery::Pastors::Pastor.random,
+      date: fake_time_from(1.year.ago),
+      title: Faker::Lorem.sentence(2),
+      location: %w(sanctuary celebration).sample,
+      description: Faker::Lorem.sentence(10),
+      scripture_reading: Faker::Lorem.sentence(5),
+  }
+  end
+
+  def build__refinery_events_event
+    {
+      title: Faker::Lorem.sentence(2),
+      date: fake_time_from(1.year.ago),
+      start_time: fake_time_from(([1.year.ago, 1.week.ago, 1.month.ago]).sample).to_time,
+      end_time: fake_time_from(([1.year.ago, 1.week.ago, 1.month.ago]).sample).to_time,
+      repeats: %w(never weekly monthly).sample,
+      location: Faker::Lorem.sentence(1),
+      short_description: Faker::Lorem.sentence(10),
+      long_description: Faker::Lorem.sentence(30),
+      contact_name: Faker::Name.name,
+      contact_email: Faker::Internet.email,
+      contact_phone: Faker::PhoneNumber.phone_number,
+      notes: Faker::Lorem.sentence(1),
+      ministry: ::Refinery::Ministries::Ministry.random,
+      highlighted: [true, false].sample,
   }
   end
 
@@ -30,11 +65,10 @@ class Fakeout
   end
 
   # END Customizing
-  attr_accessor :all_tags, :size
+  attr_accessor :size
 
   def initialize(size, prompt=true)
     self.size = size
-    self.all_tags = Faker::Lorem.words(send(size))
   end
 
   def builder_for(model)
@@ -81,23 +115,10 @@ class Fakeout
 
 
   private
-  # pick a random model from the db, done this way to avoid differences in mySQL rand() and postgres random()
-  def pick_random(model, optional = false)
-    return nil if optional && (rand(2) > 0)
-    ids = ActiveRecord::Base.connection.select_all("SELECT id FROM #{model.to_s.tableize}")
-    model.find(ids[rand(ids.length)]["id"].to_i) unless ids.blank?
-  end
 
   # useful for prepending to a string for getting a more unique string
   def random_letters(length = 2)
     Array.new(length) { (rand(122-97) + 97).chr }.join
-  end
-
-  # pick a random number of tags up to max_tags, from an array of words, join the result with seperator
-  def random_tag_list(tags, max_tags = 5, seperator = ',')
-    start = rand(tags.length)
-    return '' if start < 1
-    tags[start..(start+rand(max_tags))].join(seperator)
   end
 
   # fake a time from: time ago + 1-8770 (a year) hours after
