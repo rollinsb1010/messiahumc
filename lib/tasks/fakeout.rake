@@ -9,9 +9,9 @@ class Fakeout
   def build__refinery_pastors_pastor
     {
       name: Faker::Name.name,
-      job_title: Faker::Lorem.sentence(2),
+      job_title: 1.sentence,
       email: Faker::Internet.email,
-      bio: Faker::Lorem.paragraph(20),
+      bio: 3.paragraphs,
   }
   end
 
@@ -19,27 +19,27 @@ class Fakeout
     {
       pastor: ::Refinery::Pastors::Pastor.random,
       date: fake_time_from(1.year.ago),
-      title: Faker::Lorem.sentence(2),
+      title: 1.sentence,
       location: %w(sanctuary celebration).sample,
-      description: Faker::Lorem.sentence(10),
-      scripture_reading: Faker::Lorem.sentence(5),
+      description: 3.sentences,
+      scripture_reading: 1.sentence,
   }
   end
 
   def build__refinery_events_event
     {
-      title: Faker::Lorem.sentence(2),
+      title: 1.sentence,
       date: fake_time_from(1.year.ago),
       start_time: fake_time_from(([1.year.ago, 1.week.ago, 1.month.ago]).sample).to_time,
       end_time: fake_time_from(([1.year.ago, 1.week.ago, 1.month.ago]).sample).to_time,
       repeats: %w(never weekly monthly).sample,
-      location: Faker::Lorem.sentence(1),
-      short_description: Faker::Lorem.sentence(10),
-      long_description: Faker::Lorem.sentence(30),
+      location: 1.sentence,
+      short_description: 1.sentence,
+      long_description: 3.sentences,
       contact_name: Faker::Name.name,
       contact_email: Faker::Internet.email,
       contact_phone: Faker::PhoneNumber.phone_number,
-      notes: Faker::Lorem.sentence(1),
+      notes: 1.sentence,
       ministry: ::Refinery::Ministries::Ministry.random,
       highlighted: [true, false].sample,
   }

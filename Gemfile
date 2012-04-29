@@ -28,6 +28,7 @@ end
 group :development do
   gem 'ffaker'
   gem 'randumb'
+  gem 'word_salad'
 end
 
 group :test, :development do
