@@ -15,7 +15,6 @@
             #{'-'}
             %span.result_type= result.class.to_s.titleize.split('/').last
           %p
-            = raw truncate_html(result.summary, omission: '..') { |html| html.gsub(/<h\d>.+?<\/h\d>/, '') }
-
-
-= render template: 'layouts/general'
+            = raw truncate_html(result.summary, omission: '..') { |html| html.gsub(/<h\d>.+?<\/h\d>/, '').gsub(/<p><img.+?<\/p>/, '') }
+    %span.clear
+  %span.clear
