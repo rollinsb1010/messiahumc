@@ -24,7 +24,7 @@ module Refinery
       end
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self.id)
+        pdf_file.url
       end
 
       def summary
