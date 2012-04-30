@@ -14,7 +14,8 @@ $border_properties: 1px solid $border_grey;
       @include default_font;
       font-size: 15px;
       margin: 5px 0;
-      height: 20px;
+      height: auto;
+      line-height: 20px;
     }
 
     li {
