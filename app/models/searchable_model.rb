@@ -1,7 +1,7 @@
 class SearchableModel < Refinery::Core::BaseModel
   self.abstract_class = true
 
-  self.after_create :save_to_combined_search
+  self.after_save :save_to_combined_search
   self.before_destroy :destroy_from_combined_search
 
   def save_to_combined_search
