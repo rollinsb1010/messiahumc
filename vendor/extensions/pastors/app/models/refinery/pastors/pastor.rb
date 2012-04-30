@@ -1,6 +1,6 @@
 module Refinery
   module Pastors
-    class Pastor < Refinery::Core::BaseModel
+    class Pastor < ::SearchableModel
       extend FriendlyId
       include ::Person
       friendly_id :name, use: :slugged
@@ -10,6 +10,7 @@ module Refinery
       self.table_name = 'refinery_pastors'
 
       acts_as_indexed fields: [:name, :job_title, :bio, :email]
+
       alias_attribute :title, :name
 
       validates :name, presence: true, uniqueness: true
@@ -19,6 +20,14 @@ module Refinery
 
       def pastor?
         true
+      end
+
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.pastors_pastor_path(self.slug)
+      end
+
+      def summary
+        bio
       end
     end
   end

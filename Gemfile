@@ -25,6 +25,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'ffaker'
+  gem 'randumb'
+  gem 'word_salad'
+end
+
 group :test, :development do
   gem 'rspec-rails', '~> 2.8.1'
   gem 'timecop'
@@ -68,7 +74,7 @@ gem 'refinerycms-i18n',   '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
 #  gem 'refinerycms-page-images', '~> 2.0.0'
 gem 'refinerycms-copywriting'
-gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: 'rails-3-1'
+gem 'refinerycms-search', git: 'git://github.com/resolve/refinerycms-search.git', branch: '2-0-stable'
 gem 'refinerycms-page-images'
 gem 'squeel'
 

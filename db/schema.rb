@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120428224340) do
+ActiveRecord::Schema.define(:version => 20120430034043) do
+
+  create_table "combined_search_items", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
+    t.text     "index_data"
+    t.integer  "source_id"
+    t.string   "source_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"

@@ -1,6 +1,6 @@
 module Refinery
   module Ministries
-    class Ministry < Refinery::Core::BaseModel
+    class Ministry < ::SearchableModel
       extend FriendlyId
       friendly_id :name, use: :slugged
 
@@ -17,6 +17,18 @@ module Refinery
       belongs_to :center_image, class_name: '::Refinery::Image'
       belongs_to :ministry_category, foreign_key: 'ministry_category_id', class_name: '::Refinery::Ministries::MinistryCategory'
       has_many :events, class_name: '::Refinery::Events::Event'
+
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.ministries_ministry_path(self.slug)
+      end
+
+      def title
+        name
+      end
+
+      def summary
+        description
+      end
 
       def upcoming_events
         ::Refinery::Events::Event.upcoming ministry_id: id

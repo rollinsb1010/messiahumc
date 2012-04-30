@@ -1,9 +1,11 @@
 module Refinery
   module Messengers
-    class Messenger < Refinery::Core::BaseModel
+    class Messenger < ::SearchableModel
       self.table_name = 'refinery_messengers'
 
       default_scope order: 'published_at desc'
+
+      acts_as_indexed fields: [:messenger_type]
 
       scope :published, where('published_at < ?', Time.now)
       scope :for_last_calendar_year, published.where('published_at > ?', 1.year.ago)
@@ -19,6 +21,14 @@ module Refinery
 
       def title
         "#{messenger_type.titleize} Messenger - #{published_at.strftime('%-m/%-d/%Y')}"
+      end
+
+      def url
+        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self.slug)
+      end
+
+      def summary
+        title
       end
     end
   end

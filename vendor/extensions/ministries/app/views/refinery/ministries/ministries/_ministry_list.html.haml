@@ -5,5 +5,5 @@
       - unless ministry.logo.nil?
         %aside= image_fu ministry.logo, '84x96'
       .description
-        = raw truncate_html(ministry.description, omission: link_to('(more...)', refinery.ministries_ministry_path(ministry)))
+        = raw truncate_html(ministry.description, omission: link_to('(more...)', refinery.ministries_ministry_path(ministry))) { |html| html = html.gsub(/<p><img.+?><\/p>/, '') }
       %span.clear
