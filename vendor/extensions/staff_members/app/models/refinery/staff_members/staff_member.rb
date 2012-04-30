@@ -1,6 +1,6 @@
 module Refinery
   module StaffMembers
-    class StaffMember < Refinery::Core::BaseModel
+    class StaffMember < ::SearchableModel
       extend FriendlyId
       include ::Person
       friendly_id :name, use: :slugged
@@ -20,7 +20,7 @@ module Refinery
       belongs_to :category, class_name: '::Refinery::StaffMembers::StaffCategory'
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.staff_members_staff_member_path(self)
+        ::Refinery::Core::Engine.routes.url_helpers.staff_members_staff_member_path(self.slug)
       end
 
       def summary

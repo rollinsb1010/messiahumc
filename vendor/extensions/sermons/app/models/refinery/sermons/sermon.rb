@@ -1,6 +1,6 @@
 module Refinery
   module Sermons
-    class Sermon < Refinery::Core::BaseModel
+    class Sermon < ::SearchableModel
       extend FriendlyId
       friendly_id :title, use: :slugged
 
@@ -20,7 +20,7 @@ module Refinery
       belongs_to :pastor, class_name: '::Refinery::Pastors::Pastor'
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.sermons_sermon_path(self)
+        ::Refinery::Core::Engine.routes.url_helpers.sermons_sermon_path(self.slug)
       end
 
       def summary

@@ -1,6 +1,6 @@
 module Refinery
   module Ministries
-    class Ministry < Refinery::Core::BaseModel
+    class Ministry < ::SearchableModel
       extend FriendlyId
       friendly_id :name, use: :slugged
 
@@ -19,7 +19,7 @@ module Refinery
       has_many :events, class_name: '::Refinery::Events::Event'
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.ministries_ministry_path(self)
+        ::Refinery::Core::Engine.routes.url_helpers.ministries_ministry_path(self.slug)
       end
 
       def title

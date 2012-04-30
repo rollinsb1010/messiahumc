@@ -4,14 +4,15 @@ class Fakeout
     ::Refinery::Pastors::Pastor
     ::Refinery::Sermons::Sermon
     ::Refinery::Events::Event
+    ::CombinedSearchItem
   )
 
   def build__refinery_pastors_pastor
     {
-      name: Faker::Name.name,
-      job_title: 1.sentence,
-      email: Faker::Internet.email,
-      bio: 3.paragraphs,
+    name: Faker::Name.name,
+    job_title: 1.sentence,
+    email: Faker::Internet.email,
+    bio: 3.paragraphs,
   }
   end
 
@@ -23,7 +24,7 @@ class Fakeout
       location: %w(sanctuary celebration).sample,
       description: 3.sentences,
       scripture_reading: 1.sentence,
-  }
+    }
   end
 
   def build__refinery_events_event
@@ -42,7 +43,7 @@ class Fakeout
       notes: 1.sentence,
       ministry: ::Refinery::Ministries::Ministry.random,
       highlighted: [true, false].sample,
-  }
+    }
   end
 
   def post_fake
@@ -67,7 +68,7 @@ class Fakeout
   # END Customizing
   attr_accessor :size
 
-  def initialize(size, prompt=true)
+  def initialize(size)
     self.size = size
   end
 
@@ -93,14 +94,7 @@ class Fakeout
     puts "Done, I Faked it!"
   end
 
-  def self.prompt
-    puts "Really? This will clean all #{MODELS.map(&:pluralize).join(', ')} from your #{Rails.env} database y/n? "
-    STDOUT.flush
-    (STDIN.gets =~ /^y|^Y/) ? true : exit(0)
-  end
-
-  def self.clean(prompt = true)
-    self.prompt if prompt
+  def self.clean
     puts "Cleaning all ..."
     Fakeout.disable_mailers
     MODELS.each do |model|
@@ -130,33 +124,32 @@ end
 
 # the tasks, hook to class above - use like so;
 # rake fakeout:clean
-# rake fakeout:small[noprompt] - no confirm prompt asked, useful for heroku or non-interactive use
 # rake fakeout:medium RAILS_ENV=bananas
 #.. etc.
 namespace :fakeout do
 
   desc "clean away all data"
-  task :clean, [:no_prompt] => :environment do |t, args|
-    Fakeout.clean(args.no_prompt.nil?)
+  task :clean => :environment do |t, args|
+    Fakeout.clean
   end
 
   desc "fake out a tiny dataset"
-  task :tiny, [:no_prompt] => :clean do |t, args|
+  task :tiny => :clean do |t, args|
     Fakeout.new(:tiny).fakeout
   end
 
   desc "fake out a small dataset"
-  task :small, [:no_prompt] => :clean do |t, args|
+  task :small => :clean do |t, args|
     Fakeout.new(:small).fakeout
   end
 
   desc "fake out a medium dataset"
-  task :medium, [:no_prompt] => :clean do |t, args|
+  task :medium => :clean do |t, args|
     Fakeout.new(:medium).fakeout
   end
 
   desc "fake out a large dataset"
-  task :large, [:no_prompt] => :clean do |t, args|
+  task :large => :clean do |t, args|
     Fakeout.new(:large).fakeout
   end
 end
