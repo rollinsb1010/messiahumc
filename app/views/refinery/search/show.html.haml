@@ -11,10 +11,10 @@
       - @results.each_with_index do |result, index|
         %li{class: index.zero? ? 'first' : ''}
           %h2
-            = link_to raw(result.title.gsub(/(#{Regexp.escape(params[:query])})/i, '<mark>\1</mark>')), result_url(result)
+            = link_to raw(result.title.gsub(/(#{Regexp.escape(params[:query])})/i, '<mark>\1</mark>')), result.url
             #{'-'}
-            %span.result_type= result.class.to_s.titleize.split('/').last
+            %span.result_type= result.source_type.titleize.split('/').last
           %p
-            = raw truncate_html(result.summary, omission: '..') { |html| html.gsub(/<h\d>.+?<\/h\d>/, '').gsub(/<p><img.+?<\/p>/, '') }
+            = raw truncate_html(result.description, omission: '..') { |html| html.gsub(/<h\d>.+?<\/h\d>/, '').gsub(/<p><img.+?<\/p>/, '') }
     %span.clear
   %span.clear
