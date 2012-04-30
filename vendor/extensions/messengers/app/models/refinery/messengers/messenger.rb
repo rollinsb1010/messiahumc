@@ -1,6 +1,6 @@
 module Refinery
   module Messengers
-    class Messenger < Refinery::Core::BaseModel
+    class Messenger < ::SearchableModel
       self.table_name = 'refinery_messengers'
 
       default_scope order: 'published_at desc'
@@ -24,7 +24,7 @@ module Refinery
       end
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self)
+        ::Refinery::Core::Engine.routes.url_helpers.messengers_messenger_path(self.slug)
       end
 
       def summary

@@ -4,6 +4,7 @@ class Fakeout
     ::Refinery::Pastors::Pastor
     ::Refinery::Sermons::Sermon
     ::Refinery::Events::Event
+    ::CombinedSearchItem
   )
 
   def build__refinery_pastors_pastor

@@ -11,7 +11,7 @@
       - @results.each_with_index do |result, index|
         %li{class: index.zero? ? 'first' : ''}
           %h2
-            = link_to raw(result.title.gsub(/(#{Regexp.escape(params[:query])})/i, '<mark>\1</mark>')), result.url
+            = link_to result.title, result.url
             #{'-'}
             %span.result_type= result.source_type.titleize.split('/').last
           %p

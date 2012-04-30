@@ -1,6 +1,6 @@
 module Refinery
   module Events
-    class Event < Refinery::Core::BaseModel
+    class Event < ::SearchableModel
       self.table_name = 'refinery_events'
 
       extend FriendlyId
@@ -21,7 +21,7 @@ module Refinery
       belongs_to :ministry, foreign_key: 'ministry_id', class_name: '::Refinery::Ministries::Ministry'
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.events_event_path(self)
+        ::Refinery::Core::Engine.routes.url_helpers.events_event_path(self.slug)
       end
 
       def summary

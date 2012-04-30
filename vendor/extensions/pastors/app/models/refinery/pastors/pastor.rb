@@ -23,7 +23,7 @@ module Refinery
       end
 
       def url
-        ::Refinery::Core::Engine.routes.url_helpers.pastors_pastor_path(self)
+        ::Refinery::Core::Engine.routes.url_helpers.pastors_pastor_path(self.slug)
       end
 
       def summary
