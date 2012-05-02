@@ -22,7 +22,7 @@
     @include index_page_aside;
   }
 
-  .staff{
+  .staff {
     .by_category {
       li {
         border-top: 1px solid $border_grey;
@@ -42,7 +42,6 @@
     }
 
     aside {
-      margin-top: 25px;
       float: right;
 
       img {
@@ -57,6 +56,18 @@
       a {
         font-size: 10px;
       }
+    }
+  }
+
+  li.person_view {
+    padding-top: 25px;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    &.first {
+      padding-top: 0;
     }
   }
 

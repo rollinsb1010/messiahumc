@@ -9,6 +9,7 @@ body {
 
 h1 {
   @include purple_title;
+  margin-bottom: 25px;
 }
 
 .left {

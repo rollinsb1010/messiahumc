@@ -27,9 +27,7 @@
   }
 
   .ministries {
-    margin-top: 25px;
-
-    @include index_page_aside(0);
+    @include index_page_aside;
 
     .description {
       padding-top: 5px;
@@ -41,15 +39,13 @@
   }
 
   .ministry_details {
-    @include index_page_aside(0);
+    @include index_page_aside;
 
     aside {
       margin: 0 0 10px 20px;
     }
 
     section {
-      margin-top: 25px;
-
       p {
         margin: 15px 0;
       }
