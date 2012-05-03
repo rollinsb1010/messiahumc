@@ -13,3 +13,4 @@
           %p= link_to 'Read more...', refinery.sermons_sermon_path(sermon)
           - if sermon.mp3_file
             %p= link_to 'Listen to the sermon', sermon.mp3_file.url
+    = will_paginate

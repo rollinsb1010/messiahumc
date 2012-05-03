@@ -4,6 +4,7 @@ module Refinery
       before_filter :find_all_sermons, :find_speakers, :sermons_by_date, :find_page
 
       def index
+        @sermons = @sermons.paginate(params.slice(:page, :per_page))
         present(@page)
       end
 
