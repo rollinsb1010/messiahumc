@@ -22,6 +22,12 @@
       }
     }
 
+    #sermons {
+      width: 470px;
+      padding-right: 10px;
+      border-right: 1px solid $border_grey;
+    }
+
     .date {
       font-size: 14px;
       color: $light_grey;
@@ -29,6 +35,13 @@
 
     .margined {
       margin: 10px 0;
+    }
+
+    @include index_page_aside;
+
+    aside {
+      width: 150px;
+      margin-left: 20px;
     }
   }
 }
