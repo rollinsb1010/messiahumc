@@ -6,6 +6,6 @@
     %h2.purple &ldquo;#{@sermon.title}&rdquo;
     %h5.purple= @sermon.scripture_reading
     %p.margined by #{@sermon.pastor.name}
-    %p.margined= @sermon.description
+    .margined=raw @sermon.description
     - if @sermon.mp3_file
       %p= link_to 'Listen to the sermon', @sermon.mp3_file.url
