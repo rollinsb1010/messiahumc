@@ -1,5 +1,5 @@
 %aside#right_side_bar
-  %h2 Other Sermons
-  %ul.other_sermons
-    - @sermons.each do |sermon|
-      %li= link_to sermon.title, refinery.sermons_sermon_path(sermon)
+  %h4 Speakers
+  %ul.speaker
+    - @speakers.each do |pastor|
+      %li= link_to "#{pastor.name} (#{pastor.sermons.count})", refinery.pastors_pastor_path(pastor)

@@ -43,5 +43,15 @@
       width: 150px;
       margin-left: 20px;
     }
+
+    #right_side_bar {
+      h4 {
+        color: $light_grey;
+      }
+
+      li {
+        margin: 2px 0;
+      }
+    }
   }
 }

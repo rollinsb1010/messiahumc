@@ -17,6 +17,7 @@ module Refinery
         let(:sermons) { [FactoryGirl.build(:sermon), FactoryGirl.build(:sermon)] }
 
         it 'returns the ordered sermons' do
+          Sermon.should_receive(:includes).with(:pastor).and_return Sermon
           Sermon.should_receive(:order).with('date DESC').and_return sermons
           Sermon.recent.should == sermons
         end
