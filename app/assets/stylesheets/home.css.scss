@@ -139,12 +139,22 @@
   }
 
   a {
-    color: $purple;
-    text-decoration: none;
     padding-right: 2px;
   }
 
   td {
     padding: 6px 12px 6px 0;
+  }
+
+  table.upcoming_events {
+    td.date{
+      width: 43px;
+    }
+
+    td.info{
+      width: 340px;
+    }
+
+
   }
 }
