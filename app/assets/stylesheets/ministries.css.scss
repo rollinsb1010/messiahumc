@@ -1,17 +1,5 @@
 @import 'mixins';
 
-#content {
-  .wrapper {
-    #body_content_right {
-      .ministries {
-        h2 {
-          margin-top: 0px;
-        }
-      }
-    }
-  }
-}
-
 #body_content_right {
   .ministries_index {
     @include index_page_aside;
@@ -28,6 +16,10 @@
 
   .ministries {
     @include index_page_aside;
+
+    h2 {
+      margin-top: 0px;
+    }
 
     .description {
       padding-top: 5px;

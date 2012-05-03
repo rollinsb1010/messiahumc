@@ -29,4 +29,8 @@ module ApplicationHelper
 
     super(html, options)
   end
+
+  def readable_date(date)
+    date.strftime('%B %d, %Y')
+  end
 end

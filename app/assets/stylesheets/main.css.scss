@@ -201,10 +201,6 @@ h1 {
     font-size: 15px;
     margin: 25px 0px 15px;
     height: 10px;
-
-    &.purple {
-      color: $dark_purple;
-    }
   }
 
   h4 {
@@ -223,6 +219,10 @@ h1 {
   td {
     padding: 5px 2px;
     border-bottom: 1px solid $table_row_border;
+  }
+
+  .purple {
+    color: $dark_purple;
   }
 }
 

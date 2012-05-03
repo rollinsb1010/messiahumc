@@ -1,0 +1,34 @@
+@import 'mixins';
+
+#body_content_right {
+  .sermons {
+    h2 {
+      font-size: 18px;
+      margin: 0 0 0 -6px;
+      line-height: 26px;
+      height: auto;
+    }
+
+    h5 {
+      @include default_font;
+      font-style: italic;
+    }
+
+    li {
+      margin: 20px 0;
+
+      &.first {
+        margin-top: 0;
+      }
+    }
+
+    .date {
+      font-size: 14px;
+      color: $light_grey;
+    }
+
+    .margined {
+      margin: 10px 0;
+    }
+  }
+}

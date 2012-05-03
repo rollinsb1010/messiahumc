@@ -17,11 +17,11 @@ module Refinery
       protected
 
       def find_all_sermons
-        @sermons = Sermon.all
+        @sermons = Sermon.recent
       end
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/sermons").first
+        @page = ::Refinery::Page.where(link_url: '/sermons').first
       end
     end
   end

@@ -26,6 +26,12 @@ module Refinery
       def summary
         description
       end
+
+      class << self
+        def recent
+          order('date DESC')
+        end
+      end
     end
   end
 end

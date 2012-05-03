@@ -23,10 +23,6 @@ module EventsHelper
     time.present? ? time.strftime('%l:%M%P').gsub(/m/, '') : ''
   end
 
-  def readable_date(date)
-    date.strftime('%b %d, %Y')
-  end
-
   def date_for_input(date)
     (date or Date.today).strftime('%m/%d/%Y')
   end
