@@ -7,8 +7,8 @@
         = @staff_category.name
         = @staff_category.name.downcase.include?('staff') ? '' : 'Staff'
       %ul.members
-        - @staff_category.staff_members.each do |member|
-          %li.person_view
+        - @staff_category.staff_members.each_with_index do |member, index|
+          %li.person_view{class: index.zero? ? 'first' : ''}
             %aside
               %p= image_fu member.photo, '257x371#c'
               - unless member.email.empty?

@@ -4,8 +4,6 @@ module Refinery
       extend FriendlyId
       friendly_id :title, use: :slugged
 
-      default_scope order: 'position ASC'
-
       self.table_name = 'refinery_sermons'
 
       acts_as_indexed fields: [:title, :location, :description, :scripture_reading]
@@ -25,6 +23,26 @@ module Refinery
 
       def summary
         description
+      end
+
+      class << self
+        def recent
+          includes(:pastor).order('date DESC')
+        end
+
+        def by_date
+          by_date = {}
+
+          recent.each do |sermon|
+            year = sermon.date.year
+            month = Date::MONTHNAMES[sermon.date.month]
+            by_date[year] ||= {}
+            by_date[year][month] ||= []
+            by_date[year][month] << sermon
+          end
+
+          by_date
+        end
       end
     end
   end

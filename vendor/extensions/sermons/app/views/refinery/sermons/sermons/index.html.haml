@@ -1,20 +1,16 @@
-- content_for :body_content_left do
-  %table#sermons
-    %thead
-      %th Date Given
-      %th Location
-      %th Title
-      %th Pastor
-      %th Scripture Reading
-      %th
-    %tbody
-      - @sermons.each do |sermon|
-        %tr
-          %td= sermon.date.strftime('%-m/%-d/%Y')
-          %td.location= sermon.location
-          %td= sermon.title
-          %td= sermon.pastor.name
-          %td= raw sermon.scripture_reading
-          %td= link_to 'View »', refinery.sermons_sermon_path(sermon)
-
-= render '/refinery/content_page'
+- content_for :body_content_right do
+  .sermons
+    %h1 Sermons
+    = render 'right_side_bar'
+    %ul#sermons
+      - @sermons.each_with_index do |sermon, index|
+        %li{class: index.zero? ? 'first' : ''}
+          %p.date.margined= readable_date sermon.date
+          %h2.purple &ldquo;#{sermon.title}&rdquo;
+          %h5.purple= sermon.scripture_reading
+          %p.margined by #{sermon.pastor.name}
+          .margined=raw truncate_html(sermon.description)
+          %p= link_to 'Read more...', refinery.sermons_sermon_path(sermon)
+          - if sermon.mp3_file
+            %p= link_to 'Listen to the sermon', sermon.mp3_file.url
+    = will_paginate

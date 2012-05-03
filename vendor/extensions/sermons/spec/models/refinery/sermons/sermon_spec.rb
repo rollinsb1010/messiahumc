@@ -12,6 +12,16 @@ module Refinery
         its(:errors) { should be_empty }
         its(:title) { should == "Refinery CMS" }
       end
+
+      describe '.recent' do
+        let(:sermons) { [FactoryGirl.build(:sermon), FactoryGirl.build(:sermon)] }
+
+        it 'returns the ordered sermons' do
+          Sermon.should_receive(:includes).with(:pastor).and_return Sermon
+          Sermon.should_receive(:order).with('date DESC').and_return sermons
+          Sermon.recent.should == sermons
+        end
+      end
     end
   end
 end

@@ -8,9 +8,7 @@ module ApplicationHelper
   end
 
   def body_classes
-    return 'home' if request.fullpath == '//'
-    return 'staff' if request.fullpath =~ /(pastors\/)|(staff_members)/
-    return 'ministry' if request.fullpath =~ /ministries/
+    controller.class.name.to_s.split('::').last.underscore.gsub(/controller/, '')
   end
 
   def current_class(to_match)
@@ -30,5 +28,9 @@ module ApplicationHelper
     end
 
     super(html, options)
+  end
+
+  def readable_date(date)
+    date.strftime('%B %d, %Y')
   end
 end

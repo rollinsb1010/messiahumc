@@ -17,6 +17,7 @@ module Refinery
       validates :email, email: true
 
       belongs_to :photo, class_name: '::Refinery::Image'
+      has_many :sermons, class_name: '::Refinery::Sermons::Sermon'
 
       def pastor?
         true

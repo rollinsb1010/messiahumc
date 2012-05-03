@@ -1,4 +1,4 @@
-class WorshipController < ApplicationController
+class WorshipController < WorshippingController
   before_filter :find_page
 
   def index

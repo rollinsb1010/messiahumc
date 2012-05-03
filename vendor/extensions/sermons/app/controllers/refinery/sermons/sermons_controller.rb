@@ -1,34 +1,36 @@
 module Refinery
   module Sermons
-    class SermonsController < ::ApplicationController
-
-      before_filter :find_all_sermons
-      before_filter :find_page
+    class SermonsController < ::WorshippingController
+      before_filter :find_all_sermons, :find_speakers, :sermons_by_date, :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @sermon in the line below:
+        @sermons = @sermons.paginate(params.slice(:page, :per_page))
         present(@page)
       end
 
       def show
         @sermon = Sermon.find(params[:id])
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @sermon in the line below:
         present(@page)
       end
 
-    protected
+      protected
 
       def find_all_sermons
-        @sermons = Sermon.all
+        @sermons = Sermon.recent
       end
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/sermons").first
+        @page = ::Refinery::Page.where(link_url: '/sermons').first
       end
 
+      def find_speakers
+        @speakers = @sermons.map(&:pastor).uniq
+      end
+
+      def sermons_by_date
+        @by_date = Sermon.by_date
+      end
     end
   end
 end

@@ -47,11 +47,11 @@ $general_font: Verdana, Helvetica, sans-serif;
   border-bottom: 2px solid $light_green;
   color: $purple;
   letter-spacing: -1px;
+  line-height: 30px;
 }
 
-@mixin index_page_aside($margin_top: 25px) {
+@mixin index_page_aside {
   aside {
-    margin-top: $margin_top;
     float: right;
   }
 }

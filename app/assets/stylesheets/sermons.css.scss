@@ -1,0 +1,72 @@
+@import 'mixins';
+
+#body_content_right {
+  .sermons {
+    h2 {
+      font-size: 18px;
+      margin: 0 0 0 -6px;
+      line-height: 26px;
+      height: auto;
+    }
+
+    h5 {
+      @include default_font;
+      font-style: italic;
+    }
+
+    li {
+      margin: 20px 0;
+
+      &.first {
+        margin-top: 0;
+      }
+    }
+
+    #sermons {
+      width: 470px;
+      padding-right: 10px;
+      border-right: 1px solid $border_grey;
+    }
+
+    .date {
+      font-size: 14px;
+      color: $light_grey;
+    }
+
+    .margined {
+      margin: 10px 0;
+    }
+
+    @include index_page_aside;
+
+    aside {
+      width: 160px;
+      margin-left: 10px;
+    }
+
+    #right_side_bar {
+      h4 {
+        color: $light_grey;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+
+      .month, .year {
+        background: image-url("caret_right.png") no-repeat left 2px transparent;
+        padding-left: 10px;
+
+        &.selected {
+          background: image-url("caret_down.png") no-repeat left 4px transparent;
+          padding-left: 12px;
+        }
+      }
+
+      ul ul {
+        padding-left: 8px;
+        display: none;
+      }
+    }
+  }
+}
