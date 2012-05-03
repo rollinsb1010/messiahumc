@@ -15,7 +15,7 @@ $table_row_border: #e5e4dc;
 $general_font: Verdana, Helvetica, sans-serif;
 
 @mixin default_font {
-  font-family: 'Cardo', serif;
+  font-family: Cardo, "Times New Roman";
   letter-spacing: -0.2px;
   word-spacing: 2px;
 }
