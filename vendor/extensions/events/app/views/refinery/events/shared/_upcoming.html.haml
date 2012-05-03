@@ -1,10 +1,10 @@
 %header
   %h2 Upcoming Events
   %h6= link_to 'Calendar', refinery.events_events_path, class: 'selected'
-%table
+%table.upcoming_events
   %tbody
     - @upcoming_events.each do |date, events|
       - events.each do |event|
         %tr
-          %td= date_info(date)
-          %td= link_to event.title, refinery.events_event_path(event)
+          %td.date= date_info(date)
+          %td.info= link_to event.title, refinery.events_event_path(event)
