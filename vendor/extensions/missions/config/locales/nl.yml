@@ -1,0 +1,31 @@
+nl:
+  refinery:
+    plugins:
+      missions:
+        title: Missions
+    missions:
+      admin:
+        missions:
+          actions:
+            create_new: Maak een nieuwe Mission
+            reorder: Wijzig de volgorde van de Missions
+            reorder_done: Klaar met het wijzingen van de volgorde van de Missions
+          records:
+            title: Missions
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Missions. Druk op 'Maak een nieuwe Mission' om de eerste aan te maken.
+          mission:
+            view_live_html: Bekijk deze mission op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze mission
+            delete: Verwijder deze mission voor eeuwig
+      missions:
+        show:
+          other: Andere Missions
+  activerecord:
+    attributes:
+      'refinery/missions/mission':
+        name: Name
+        category_id: Category
+        description: Description
+        logo: Logo
+        highlighted: Highlighted

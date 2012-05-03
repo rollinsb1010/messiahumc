@@ -1,0 +1,32 @@
+es:
+  refinery:
+    plugins:
+      missions:
+        title: Missions
+#        article: masculino/femenino
+    missions:
+      admin:
+        missions:
+          actions:
+            create_new: Crear nuevo mission
+            reorder: Reordenar missions
+            reorder_done: Reordenación de missions completada
+          records:
+            title: Missions
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay missions todavía. Pulsa en "Crear nuevo Mission" para crear tu primer mission.
+          mission:
+            view_live_html: Ver este mission como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este mission
+            delete: Borrar este mission para siempre
+      missions:
+        show:
+          other: Otros missions
+  activerecord:
+    attributes:
+      'refinery/missions/mission':
+        name: Name
+        category_id: Category
+        description: Description
+        logo: Logo
+        highlighted: Highlighted

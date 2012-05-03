@@ -1,0 +1,51 @@
+<% content_for :body_content_title do %>
+  <%= @mission.name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @mission.name %>
+    </p>
+  </section>
+  <section>
+    <h1>Category</h1>
+    <p>
+      <%=raw @mission.category_id %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @mission.description %>
+    </p>
+  </section>
+  <section>
+    <h1>Logo</h1>
+    <p>
+      <%= image_fu @mission.logo, nil %>
+    </p>
+  </section>
+  <section>
+    <h1>Highlighted</h1>
+    <p>
+      <%=raw @mission.highlighted %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="missions">
+      <% @missions.each do |mission| %>
+        <li>
+          <%= link_to mission.name, refinery.missions_mission_path(mission) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

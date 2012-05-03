@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="missions">
+    <% @missions.each do |mission| %>
+      <li>
+        <%= link_to mission.name, refinery.missions_mission_path(mission) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>
