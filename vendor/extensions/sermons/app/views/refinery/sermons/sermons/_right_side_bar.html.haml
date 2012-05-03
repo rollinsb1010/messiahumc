@@ -1,5 +1,20 @@
 %aside#right_side_bar
-  %h4 Speakers
-  %ul.speaker
-    - @speakers.each do |pastor|
-      %li= link_to "#{pastor.name} (#{pastor.sermons.count})", refinery.pastors_pastor_path(pastor)
+  %section#archive
+    %h4 Archive
+    %ul
+      - @by_date.each do |year, by_month|
+        %li
+          = link_to "#{year} (#{by_month.size})", '#', class: 'year'
+          %ul
+            - by_month.each do |month, sermons|
+              %li
+                = link_to "#{month} (#{sermons.size})", '#', class: 'month'
+                %ul
+                  - sermons.each do |sermon|
+                    %li= link_to sermon.title, refinery.sermons_sermon_path(sermon)
+
+  %section#speakers
+    %h4 Speakers
+    %ul
+      - @speakers.each do |pastor|
+        %li= link_to "#{pastor.name} (#{pastor.sermons.count})", refinery.pastors_pastor_path(pastor)

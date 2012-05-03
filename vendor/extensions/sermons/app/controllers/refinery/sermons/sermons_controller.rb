@@ -1,7 +1,7 @@
 module Refinery
   module Sermons
     class SermonsController < ::WorshippingController
-      before_filter :find_all_sermons, :find_speakers, :find_page
+      before_filter :find_all_sermons, :find_speakers, :sermons_by_date, :find_page
 
       def index
         present(@page)
@@ -25,6 +25,10 @@ module Refinery
 
       def find_speakers
         @speakers = @sermons.map(&:pastor).uniq
+      end
+
+      def sermons_by_date
+        @by_date = Sermon.by_date
       end
     end
   end

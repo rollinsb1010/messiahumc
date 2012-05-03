@@ -40,8 +40,8 @@
     @include index_page_aside;
 
     aside {
-      width: 150px;
-      margin-left: 20px;
+      width: 160px;
+      margin-left: 10px;
     }
 
     #right_side_bar {
@@ -50,7 +50,22 @@
       }
 
       li {
-        margin: 2px 0;
+        margin: 5px 0;
+      }
+
+      .month, .year {
+        background: image-url("caret_right.png") no-repeat left 2px transparent;
+        padding-left: 10px;
+
+        &.selected {
+          background: image-url("caret_down.png") no-repeat left 4px transparent;
+          padding-left: 12px;
+        }
+      }
+
+      ul ul {
+        padding-left: 8px;
+        display: none;
       }
     }
   }

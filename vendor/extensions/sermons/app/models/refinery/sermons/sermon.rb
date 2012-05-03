@@ -29,6 +29,20 @@ module Refinery
         def recent
           includes(:pastor).order('date DESC')
         end
+
+        def by_date
+          by_date = {}
+
+          recent.each do |sermon|
+            year = sermon.date.year
+            month = Date::MONTHNAMES[sermon.date.month]
+            by_date[year] ||= {}
+            by_date[year][month] ||= []
+            by_date[year][month] << sermon
+          end
+
+          by_date
+        end
       end
     end
   end
