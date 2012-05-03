@@ -15,31 +15,12 @@
 %section#home_sidebar
   %header
     %h4 Worship Services
-  %ul
-    %li.first
-      %h5 Evening Worship
-      %p Saturday 5:30p, Sanctuary
-    %li
-      %h5 Evening Worship
-      %p Saturday 5:30p, Sanctuary
-    %li
-      %h5 Evening Worship
-      %p Saturday 5:30p, Sanctuary
-    %li
-      %h5 Evening Worship
-      %p Saturday 5:30p, Sanctuary
+  = raw copywriting('Worship Services', scope: 'Home Page')
 %section#recent
   .first
     %header
       %h2 Latest News
-      %h6
-        %a{href: refinery.messengers_messengers_path} Weekly Messenger
-        %a{href: refinery.messengers_messengers_path} Monthly Messenger
-        %a{href: refinery.sermons_sermons_path} Recent Sermons
-    %p Kroger Rewards has donated $8,113 to Messiah this year. To help us out, please <a href="#">enroll today!</a>
-    %p
-      %a{href:"#"} Adult softball season
-      is just around the corner!
+    = raw copywriting('Latest News', scope: 'Home Page')
   %div
     =render '/refinery/events/shared/upcoming'
   %span.clear
