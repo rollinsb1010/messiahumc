@@ -177,12 +177,15 @@ h1 {
       line-height: 1.3em;
     }
 
-    &.current {
+    &.current, &:hover{
       background: image-url('current_menu_item_background.png') repeat-y 0 0 transparent;
-      border: none;
+
+      a{
+      color: $grey;
+    }
     }
 
-    h4.current, a.current {
+    h4.current, a.current{
       color: $grey;
     }
   }
@@ -277,4 +280,14 @@ h1 {
   width: 0;
   height: 0;
   display: block;
+}
+
+a{
+  color: $purple;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: $light-purple2;
 }
