@@ -1,25 +1,20 @@
 module Refinery
   module Sermons
-    class SermonsController < ::ApplicationController
-
+    class SermonsController < ::WorshippingController
       before_filter :find_all_sermons
       before_filter :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @sermon in the line below:
         present(@page)
       end
 
       def show
         @sermon = Sermon.find(params[:id])
 
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @sermon in the line below:
         present(@page)
       end
 
-    protected
+      protected
 
       def find_all_sermons
         @sermons = Sermon.all
@@ -28,7 +23,6 @@ module Refinery
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/sermons").first
       end
-
     end
   end
 end
