@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504213406) do
+ActiveRecord::Schema.define(:version => 20120504221514) do
 
   create_table "combined_search_items", :force => true do |t|
     t.string   "title"
@@ -280,6 +280,15 @@ ActiveRecord::Schema.define(:version => 20120504213406) do
   add_index "refinery_roles_users", ["role_id", "user_id"], :name => "index_refinery_roles_users_on_role_id_and_user_id"
   add_index "refinery_roles_users", ["user_id", "role_id"], :name => "index_refinery_roles_users_on_user_id_and_role_id"
 
+  create_table "refinery_sermon_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "slug"
+  end
+
+  add_index "refinery_sermon_categories", ["slug"], :name => "index_refinery_sermon_categories_on_slug"
+
   create_table "refinery_sermons", :force => true do |t|
     t.integer  "pastor_id"
     t.date     "date"
@@ -296,6 +305,14 @@ ActiveRecord::Schema.define(:version => 20120504213406) do
   end
 
   add_index "refinery_sermons", ["slug"], :name => "index_refinery_sermons_on_slug"
+
+  create_table "refinery_sermons_sermon_categories", :force => true do |t|
+    t.integer "sermon_id"
+    t.integer "category_id"
+  end
+
+  add_index "refinery_sermons_sermon_categories", ["category_id"], :name => "index_refinery_sermons_sermon_categories_on_category_id"
+  add_index "refinery_sermons_sermon_categories", ["sermon_id"], :name => "index_refinery_sermons_sermon_categories_on_sermon_id"
 
   create_table "refinery_staff_categories", :force => true do |t|
     t.string   "name"
