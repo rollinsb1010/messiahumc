@@ -18,7 +18,12 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
 
-    primary.item :events, 'Missions', refinery.missions_missions_path, highlights_on: /\/missions$/
+    primary.item :events, 'Missions', refinery.missions_missions_path, highlights_on: /\/missions$/ do |missions|
+      ::Refinery::Missions::MissionCategory.all.each do |category|
+        missions.item category.name.parameterize.underscore, category.name, refinery.by_category_missions_missions_path(category)
+      end
+    end
+
     primary.item :youth, 'Youth', '#'
     primary.item :supporting, 'Supporting Messiah', '#'
   end
