@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504033952) do
+ActiveRecord::Schema.define(:version => 20120504213406) do
 
   create_table "combined_search_items", :force => true do |t|
     t.string   "title"
@@ -170,13 +170,13 @@ ActiveRecord::Schema.define(:version => 20120504033952) do
 
   create_table "refinery_missions", :force => true do |t|
     t.string   "name"
-    t.integer  "category_id"
+    t.integer  "mission_category_id"
     t.text     "description"
     t.integer  "logo_id"
     t.boolean  "highlighted"
     t.integer  "position"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "slug"
   end
 

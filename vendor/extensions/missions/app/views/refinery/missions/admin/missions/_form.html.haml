@@ -1,6 +1,6 @@
-= form_for [refinery, :ministries_admin, @ministry] do |f|
+= form_for [refinery, :missions_admin, @mission] do |f|
   = render '/refinery/admin/error_messages',
-              object: @ministry,
+              object: @mission,
               include_object_name: true
 
   .field
@@ -8,8 +8,8 @@
     = f.text_field :name, class: 'larger'
 
   .field
-    = f.label :ministry_category_id
-    = collection_select :ministry, :ministry_category_id, @ministry_categories, :id, :name, {include_blank: 'Please select'}
+    = f.label :mission_category_id
+    = collection_select :mission, :mission_category_id, @mission_categories, :id, :name, {include_blank: 'Please select'}
 
   .field
     = f.label :highlighted
@@ -20,7 +20,7 @@
       %ul#page_parts
         - [:description].each_with_index do |part, part_index|
           %li.ui-state-default{class: part_index.zero? ? ' ui-state-active' : '' }
-            = link_to t("#{part}", scope: "activerecord.attributes.refinery/ministries/ministry", default: part.to_s.titleize), "##{part}"
+            = link_to t("#{part}", scope: "activerecord.attributes.refinery/missions/mission", default: part.to_s.titleize), "##{part}"
       #page_part_editors
         - [:description].each do |part|
           .page_part{id: part}
@@ -31,16 +31,16 @@
     = render '/refinery/admin/image_picker',
                f: f,
                field: :logo_id,
-               image: @ministry.logo,
+               image: @mission.logo,
                toggle_image_display: false
 
   = render '/refinery/admin/form_actions', f: f,
              continue_editing: false,
-             delete_title: t('delete', scope: 'refinery.ministries.admin.ministries.ministry'),
-             delete_confirmation: t('message', scope: 'refinery.admin.delete', title: @ministry.name)
+             delete_title: t('delete', scope: 'refinery.missions.admin.missions.mission'),
+             delete_confirmation: t('message', scope: 'refinery.admin.delete', title: @mission.name)
 
 - content_for :javascripts do
   :javascript
     $(document).ready(function(){
       page_options.init(false, '', '');
-    });
+    }
