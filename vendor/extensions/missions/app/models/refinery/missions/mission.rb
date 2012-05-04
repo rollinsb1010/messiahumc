@@ -16,11 +16,11 @@ module Refinery
 
       class << self
         def left
-          where category_id: ::Refinery::Missions::MissionCategory.left.pluck(:id)
+          where mission_category_id: ::Refinery::Missions::MissionCategory.left.pluck(:id)
         end
 
         def right
-          where category_id: ::Refinery::Missions::MissionCategory.right.pluck(:id)
+          where mission_category_id: ::Refinery::Missions::MissionCategory.right.pluck(:id)
         end
       end
     end
