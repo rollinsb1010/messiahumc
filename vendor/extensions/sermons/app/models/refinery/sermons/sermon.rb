@@ -28,7 +28,7 @@ module Refinery
 
       class << self
         def recent
-          includes(:pastor).order('date DESC')
+          includes(:pastor).includes(:categories).order('date DESC')
         end
 
         def by_date
