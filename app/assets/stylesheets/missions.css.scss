@@ -1,0 +1,49 @@
+@import 'mixins';
+
+#body_content_right {
+  .missions_index {
+    @include index_page_aside;
+
+    .missions {
+      li {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .missions {
+    @include index_page_aside;
+
+    h2 {
+      margin-top: 0px;
+    }
+
+    .description {
+      padding-top: 5px;
+
+      h2 {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .mission_details {
+    @include index_page_aside;
+
+    aside {
+      margin: 0 0 10px 20px;
+    }
+
+    section {
+      p {
+        margin: 15px 0;
+      }
+    }
+  }
+
+  .left, .right {
+    width: 47%;
+    padding-right: 10px;
+  }
+}
+

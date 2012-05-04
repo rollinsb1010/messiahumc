@@ -1,0 +1,31 @@
+nb:
+  refinery:
+    plugins:
+      missions:
+        title: Missions
+    missions:
+      admin:
+        missions:
+          actions:
+            create_new: Lag en ny Mission
+            reorder: Endre rekkefølgen på Missions
+            reorder_done: Ferdig å endre rekkefølgen Missions
+          records:
+            title: Missions
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Missions enda. Klikk på "Lag en ny Mission" for å legge til din første mission.
+          mission:
+            view_live_html: Vis hvordan denne mission ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne mission
+            delete: Fjern denne mission permanent
+      missions:
+        show:
+          other: Andre Missions
+  activerecord:
+    attributes:
+      'refinery/missions/mission':
+        name: Name
+        category_id: Category
+        description: Description
+        logo: Logo
+        highlighted: Highlighted

@@ -1,0 +1,8 @@
+- content_for :body_content_right do
+  %h1 #{@mission.name}
+  .mission_details
+    - if @mission.logo.present?
+      %aside.mission_right
+        %p= image_fu @mission.logo, '150x182'
+    %section
+      =raw @mission.description

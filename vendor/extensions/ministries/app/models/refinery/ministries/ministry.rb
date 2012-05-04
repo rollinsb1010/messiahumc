@@ -1,6 +1,7 @@
 module Refinery
   module Ministries
     class Ministry < ::SearchableModel
+      extend Highlightable
       extend FriendlyId
       friendly_id :name, use: :slugged
 
@@ -33,16 +34,12 @@ module Refinery
       end
 
       class << self
-        def highlighted
-          where(highlighted: true)
-        end
-
         def left
-          where('ministry_category_id IN (?)', MinistryCategory.left.pluck(:id))
+          where ministry_category_id: ::Refinery::Ministries::MinistryCategory.left.pluck(:id)
         end
 
         def right
-          where('ministry_category_id IN (?)', MinistryCategory.right.pluck(:id))
+          where ministry_category_id: ::Refinery::Ministries::MinistryCategory.right.pluck(:id)
         end
       end
     end

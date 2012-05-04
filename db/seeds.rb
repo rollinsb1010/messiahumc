@@ -25,3 +25,6 @@ Refinery::Ministries::Engine.load_seed
 
 # Added by Refinery CMS Events extension
 Refinery::Events::Engine.load_seed
+
+# Added by Refinery CMS Missions extension
+Refinery::Missions::Engine.load_seed

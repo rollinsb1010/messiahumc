@@ -1,0 +1,9 @@
+- content_for :body_content_right do
+  .by_category
+    %h1 #{@category.name} Missions
+    .missions
+      .left
+        = render partial: 'mission_list', locals: {missions: @left_missions}
+      .right
+        = render partial: 'mission_list', locals: {missions: @right_missions}
+      %span.clear

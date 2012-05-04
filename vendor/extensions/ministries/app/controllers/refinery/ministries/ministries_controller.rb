@@ -36,7 +36,7 @@ module Refinery
       end
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/ministries").first
+        @page = ::Refinery::Page.where(link_url: "/ministries").first
       end
 
       def set_left_sidebar

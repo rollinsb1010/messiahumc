@@ -1,0 +1,31 @@
+fr:
+  refinery:
+    plugins:
+      missions:
+        title: Missions
+    missions:
+      admin:
+        missions:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Mission
+            reorder: Réordonner les Missions
+            reorder_done: Fin de réordonnancement des Missions
+          records:
+            title: Missions
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Mission. Cliquer sur "Créer un(e) nouve(au/l/lle) Mission" pour créer votre premi(er/ère) mission.'
+          mission:
+            view_live_html: Voir ce(t/tte) mission <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) mission
+            delete: Supprimer définitivement ce(t/tte) mission
+      missions:
+        show:
+          other: Autres Missions
+  activerecord:
+    attributes:
+      'refinery/missions/mission':
+        name: Name
+        category_id: Category
+        description: Description
+        logo: Logo
+        highlighted: Highlighted

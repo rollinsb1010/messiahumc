@@ -1,0 +1,11 @@
+%li{class: "clearfix record #{cycle('on', 'on-hover')}", id: "#{dom_id(mission_category)}"}
+  %span.title
+    = mission_category.name
+  %span.actions
+    = link_to refinery_icon_tag("application_edit.png"), refinery.edit_missions_admin_mission_category_path(mission_category),
+         title: t('.edit')
+    = link_to refinery_icon_tag("delete.png"), refinery.missions_admin_mission_category_path(mission_category),
+        class: "cancel confirm-delete",
+        title: t('.delete'),
+        onfirm: t('message', scope: 'refinery.admin.delete', title: mission_category.name),
+        method: :delete
