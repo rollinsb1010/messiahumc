@@ -1,0 +1,13 @@
+<h2>Mission Categories</h2>
+- if searching?
+  %h2=t('results_for', scope: 'refinery.admin.search', query: params[:search])
+%div{class: 'pagination_container'}
+  - if @mission_categories.any?
+    = render 'mission_categories'
+  - else
+    %p
+      - unless searching?
+        %strong
+          = t('.no_items_yet')
+      - else
+        = t('no_results', scope: 'refinery.admin.search')

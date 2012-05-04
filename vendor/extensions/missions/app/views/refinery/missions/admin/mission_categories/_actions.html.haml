@@ -1,0 +1,12 @@
+%ul
+  - if ::Refinery::Missions::Admin::MissionsController.searchable?
+    %li
+      = render '/refinery/admin/search', url: refinery.missions_admin_missions_path
+  %li
+    = link_to t('.create_new'), refinery.new_missions_admin_mission_category_path, class: "add_icon"
+  - if !searching? && ::Refinery::Missions::Admin::MissionsController.sortable? && ::Refinery::Missions::Mission.any?
+    %li
+      = link_to t('.reorder', what: "Missions"), refinery.missions_admin_missions_path, id: "reorder_action", class: "reorder_icon"
+      = link_to t('.reorder_done', what: "Missions"), refinery.missions_admin_missions_path, id: "reorder_action_done", style: "display: none;", class: "reorder_icon"
+  %li
+    = link_to t('.manage_missions', what: 'Missions'), refinery.missions_admin_missions_path, class: "edit_icon"
