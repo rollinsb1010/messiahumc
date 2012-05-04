@@ -1,0 +1,10 @@
+%ul
+  - missions.each do |mission|
+    %li
+      %h2.purple= link_to mission.name, refinery.missions_mission_path(mission)
+      - unless mission.logo.nil?
+        %aside= image_fu mission.logo, '84x96'
+      .description
+        = raw truncate_html(mission.description, omission: link_to('(more...)', refinery.missions_mission_path(mission))) { |html| html = html.gsub(/<p><img.+?><\/p>/, '') }
+      %span.clear
+

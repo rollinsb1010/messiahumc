@@ -1,0 +1,9 @@
+- content_for :body_content_right do
+  .missions_index
+    %h1 Highlighted Missions
+    .missions
+      .left
+        = render partial: 'mission_list', locals: {missions: @left_highlighted_missions}
+      .right
+        = render partial: 'mission_list', locals: {missions: @right_highlighted_missions}
+      %span.clear
