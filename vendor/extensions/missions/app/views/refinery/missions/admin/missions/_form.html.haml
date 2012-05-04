@@ -8,8 +8,8 @@
     = f.text_field :name, class: 'larger'
 
   .field
-    = f.label :mission_category_id
-    = collection_select :mission, :mission_category_id, @mission_categories, :id, :name, {include_blank: 'Please select'}
+    = f.label :category_id
+    = collection_select :mission, :category_id, @mission_categories, :id, :name, {include_blank: 'Please select'}
 
   .field
     = f.label :highlighted
