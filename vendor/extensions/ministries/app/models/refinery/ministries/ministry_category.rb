@@ -28,7 +28,6 @@ module Refinery
           where(index_placement: 'right')
         end
       end
-
     end
   end
 end
