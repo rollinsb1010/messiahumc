@@ -1,6 +1,7 @@
 module Refinery
   module Missions
     class Mission < Refinery::Core::BaseModel
+      extend Highlightable
       extend FriendlyId
       friendly_id :name, use: :slugged
 
@@ -14,16 +15,12 @@ module Refinery
       belongs_to :category, class_name: '::Refinery::Missions::MissionCategory'
 
       class << self
-        def highlighted
-          where(highlighted: true)
-        end
-
         def left
-          where('category_id IN (?)', MissionCategory.left.pluck(:id))
+          where category_id: ::Refinery::Missions::MissionCategory.left.pluck(:id)
         end
 
         def right
-          where('category_id IN (?)', MissionCategory.right.pluck(:id))
+          where category_id: ::Refinery::Missions::MissionCategory.right.pluck(:id)
         end
       end
     end
