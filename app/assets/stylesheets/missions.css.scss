@@ -1,20 +1,17 @@
 @import 'mixins';
 
 #body_content_right {
-  .ministries_index {
+  .missions_index {
     @include index_page_aside;
 
-    .ministries {
-      width: 490px;
-      border-right: 1px solid $border_grey;
-
+    .missions {
       li {
         margin-bottom: 20px;
       }
     }
   }
 
-  .ministries {
+  .missions {
     @include index_page_aside;
 
     h2 {
@@ -30,7 +27,7 @@
     }
   }
 
-  .ministry_details {
+  .mission_details {
     @include index_page_aside;
 
     aside {
@@ -49,3 +46,4 @@
     padding-right: 10px;
   }
 }
+
