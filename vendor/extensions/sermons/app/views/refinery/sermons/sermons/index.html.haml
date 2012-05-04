@@ -1,6 +1,6 @@
 - content_for :body_content_right do
   .sermons
-    %h1 Sermons
+    %h1= title
     = render 'right_side_bar'
     %ul#sermons
       - @sermons.each_with_index do |sermon, index|
