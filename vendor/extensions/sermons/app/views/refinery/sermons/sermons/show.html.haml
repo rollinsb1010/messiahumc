@@ -2,10 +2,4 @@
   %h1 Sermons
   .sermons
     = render 'right_side_bar'
-    %p.date.margined= readable_date @sermon.date
-    %h2.purple &ldquo;#{@sermon.title}&rdquo;
-    %h5.purple= @sermon.scripture_reading
-    %p.margined by #{@sermon.pastor.name}
-    .margined=raw @sermon.description
-    - if @sermon.mp3_file
-      %p= link_to 'Listen to the sermon', @sermon.mp3_file.url
+    = render partial: 'sermon', locals: {sermon: @sermon, summary: false}
