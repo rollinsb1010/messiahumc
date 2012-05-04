@@ -13,6 +13,11 @@
                   - sermons.each do |sermon|
                     %li= link_to sermon.title, refinery.sermons_sermon_path(sermon)
 
+  %section#categories
+    %h4 Categories
+    %ul
+      - @categories.each do |category|
+        %li= link_to "#{category.name} (#{category.sermons.count})", refinery.by_category_sermons_sermons_path(category)
   %section#speakers
     %h4 Speakers
     %ul

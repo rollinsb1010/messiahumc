@@ -33,6 +33,10 @@
       color: $light_grey;
     }
 
+    .categories {
+      font-size: 11px;
+    }
+
     .margined {
       margin: 10px 0;
     }
@@ -51,6 +55,10 @@
 
       li {
         margin: 5px 0;
+      }
+
+      section {
+        margin-bottom: 20px;
       }
 
       .month, .year {

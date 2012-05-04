@@ -1,16 +1,22 @@
 module Refinery
   module Sermons
     class SermonsController < ::WorshippingController
-      before_filter :find_all_sermons, :find_speakers, :sermons_by_date, :find_page
+      before_filter :find_all_sermons, :find_speakers, :sermons_by_date, :find_categories, :find_page
 
       def index
         @sermons = @sermons.paginate(params.slice(:page, :per_page))
         present(@page)
       end
 
+      def by_category
+        @sermon_category = SermonCategory.find(params[:id])
+        @sermons = @sermon_category.sermons.paginate(params.slice(:page, :per_page))
+
+        render 'index'
+      end
+
       def show
         @sermon = Sermon.find(params[:id])
-
         present(@page)
       end
 
@@ -18,6 +24,10 @@ module Refinery
 
       def find_all_sermons
         @sermons = Sermon.recent
+      end
+
+      def find_categories
+        @categories = SermonCategory.all
       end
 
       def find_page
