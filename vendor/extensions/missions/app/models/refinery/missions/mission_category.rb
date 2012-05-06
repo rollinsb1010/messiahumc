@@ -13,7 +13,7 @@ module Refinery
       validates :name, presence: true, uniqueness: true
       validates :index_placement, presence: true, inclusion: {in: %w(left right)}
 
-      has_many :missions, foreign_key: 'category_id', class_name: '::Refinery::Missions::Mission', dependent: :nullify
+      has_many :missions, class_name: '::Refinery::Missions::Mission', dependent: :nullify
 
       class << self
         def left
