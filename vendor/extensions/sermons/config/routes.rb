@@ -17,6 +17,11 @@ Refinery::Core::Engine.routes.append do
           post :update_positions
         end
       end
+      resources :sermon_categories, except: :show do
+        collection do
+          post :update_positions
+        end
+      end
     end
   end
 
