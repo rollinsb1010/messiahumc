@@ -5,11 +5,26 @@ en:
         title: Sermons
     sermons:
       admin:
+        sermon_categories:
+          actions:
+            create_new: Add New Sermon Category
+            reorder: Reorder Sermon Categories
+            reorder_done: Done Reordering Sermon Categories
+            manage_sermon_categories: Manage Sermon Categories
+            manage_sermons: Manage Sermons
+          records:
+            title: Sermon Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Sermon Categories yet. Click "Add New Sermon Category" to add your first Sermon Category.
+          sermon_category:
+            edit: Edit this Sermon Category
+            delete: Remove this Sermon Category forever
         sermons:
           actions:
             create_new: Add New Sermon
             reorder: Reorder Sermons
             reorder_done: Done Reordering Sermons
+            manage_categories: Manage Categories
           records:
             title: Sermons
             sorry_no_results: Sorry! There are no results found.

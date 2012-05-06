@@ -16,6 +16,7 @@ module Refinery
       belongs_to :image, class_name: '::Refinery::Image'
       belongs_to :mp3_file, class_name: '::Refinery::Resource'
       belongs_to :pastor, class_name: '::Refinery::Pastors::Pastor'
+      has_and_belongs_to_many :categories, class_name: '::Refinery::Sermons::SermonCategory', join_table: 'refinery_sermons_sermon_categories', foreign_key: 'sermon_id', association_foreign_key: 'category_id'
 
       def url
         ::Refinery::Core::Engine.routes.url_helpers.sermons_sermon_path(self.slug)
@@ -27,7 +28,7 @@ module Refinery
 
       class << self
         def recent
-          includes(:pastor).order('date DESC')
+          includes(:pastor).includes(:categories).order('date DESC')
         end
 
         def by_date

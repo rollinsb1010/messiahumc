@@ -16,6 +16,12 @@
     = f.label :scripture_reading
     = f.text_field :scripture_reading
   .field
+    = f.label 'Categories'
+    - @sermon_categories.each do |category|
+      = check_box_tag 'sermon[category_ids][]', category.id, @sermon.categories.include?(category)
+      = category.name
+    = hidden_field_tag 'sermon[category_ids][]', ''
+  .field
     #page-tabs{class: 'clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'}
       %ul#page_parts
         - [:description].each_with_index do |part, part_index|
