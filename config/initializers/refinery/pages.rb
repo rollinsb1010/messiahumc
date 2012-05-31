@@ -4,8 +4,11 @@ Refinery::Pages.configure do |config|
   #   home.parts = %w[intro body]
   # end
 
+  # Allow people to add/remove page parts
+  config.new_page_parts = true
+
   # Configure global page default parts
-  # config.default_parts = ["Body", "Side Body"]
+  config.default_parts = ["Body"]
 
   # Configure how many pages per page should be displayed when a dialog is presented that contains a links to pages
   # config.pages_per_dialog = 14
