@@ -141,6 +141,10 @@ h1 {
   min-height: 400px;
 }
 
+.no_body_content_left #body_content_right {
+  width: auto;
+}
+
 #body_content_left {
   width: 230px;
   padding: 0;
