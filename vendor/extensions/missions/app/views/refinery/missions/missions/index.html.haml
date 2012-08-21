@@ -1,6 +1,8 @@
 - content_for :body_content_right do
   .missions_index
-    %h1 Highlighted Missions
+    %h1 Missions and Outreach
+    %p= raw copywriting('Missions Intro', default: 'Missions Intro')
+    %br
     .missions
       .left
         = render partial: 'mission_list', locals: {missions: @left_highlighted_missions}
