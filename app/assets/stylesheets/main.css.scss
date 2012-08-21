@@ -143,6 +143,9 @@ h1 {
 
 .no_body_content_left #body_content_right {
   width: auto;
+  p {
+    margin: 20px 0;
+  }
 }
 
 #body_content_left {
