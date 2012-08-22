@@ -5,7 +5,7 @@
       %aside.event_right
         %p= image_fu @event.ministry.logo
     - if @event.image.present?
-      %section.event_image= image_fu @event.image, '470x275#c'
+      %section.event_image= image_fu @event.image
 
     = render partial: 'event_metadata', locals: {event: @event}
 
