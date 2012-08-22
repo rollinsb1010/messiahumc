@@ -49,7 +49,7 @@ class AddHomePageBoxesAndDefaultContent < ActiveRecord::Migration
       {name: 'Joining Messiah', value: joining_messiah},
     ]
 
-    defaults = {scope: 'home_page', phrase_type: 'wysiwyg'}
+    defaults = {scope: 'home_page'}
 
     data.each{|x| ::Refinery::Copywriting::Phrase.create(x.merge defaults)}
 
