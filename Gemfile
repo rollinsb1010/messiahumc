@@ -32,7 +32,7 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.8.1'
+  gem 'rspec-rails', '~> 2.11'
   gem 'timecop'
   gem 'guard'
   gem 'guard-rspec'
@@ -42,7 +42,7 @@ group :test, :development do
   gem 'rr'
   gem 'prickle'
   gem 'database_cleaner'
-  gem 'refinerycms-testing', '~> 2.0.3'
+  gem 'refinerycms-testing', '~> 2.0.8'
   gem 'sqlite3'
 end
 
@@ -65,10 +65,10 @@ gem 'rambling-slider-rails'
 # gem 'ruby-debug19', require: 'ruby-debug'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.3'
+gem 'refinerycms', '~> 2.0.8'
 
 # Specify additional Refinery CMS Extensions here (all optional):
-gem 'refinerycms-i18n',   '~> 2.0.0'
+gem 'refinerycms-i18n',   '~> 2.0.2'
 #  gem 'refinerycms-blog', '~> 2.0.0'
 #  gem 'refinerycms-inquiries', '~> 2.0.0'
 #  gem 'refinerycms-search', '~> 2.0.0'
