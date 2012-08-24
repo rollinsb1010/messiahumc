@@ -238,7 +238,12 @@ h1 {
   .inner p {
     margin: 15px 0;
   }
+
+  .inner p.job_title {
+    margin: 0;
+  }
 }
+
 
 #body_content_title {
   padding: 10px 20px;
