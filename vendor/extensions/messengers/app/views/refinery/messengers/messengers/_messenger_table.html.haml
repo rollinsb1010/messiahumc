@@ -1,12 +1,10 @@
 %table.messengers{id: name}
   %thead
     %tr
-      %th.title{colspan: '2'}= name.titleize
-    %tr
       %th.published_date Date
       %th Actions
   %tbody
     - messengers.each do |messenger|
       %tr
         %td= messenger.published_at.strftime('%-m/%-d/%Y')
-        %td= link_to "Download #{messenger.pdf_file.title}", messenger.pdf_file.url
+        %td= link_to "Download", messenger.pdf_file.url

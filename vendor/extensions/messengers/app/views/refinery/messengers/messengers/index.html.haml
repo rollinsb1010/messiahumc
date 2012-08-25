@@ -1,5 +1,8 @@
-- content_for :body_content_left do
-  = render partial: 'messenger_table', locals: {name: 'weekly', messengers: @weekly_messengers}
-  = render partial: 'messenger_table', locals: {name: 'monthly', messengers: @monthly_messengers}
-
-= render '/refinery/content_page'
+- content_for :body_content_right do
+  .messengers_index
+    .section
+      %h1 Recent Weekly Messengers
+      = render partial: 'messenger_table', locals: {name: 'weekly', messengers: @weekly_messengers.first(12)}
+    .section
+      %h1 Recent Monthly Messengers
+      = render partial: 'messenger_table', locals: {name: 'monthly', messengers: @monthly_messengers.first(3)}

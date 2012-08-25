@@ -1,0 +1,5 @@
+- content_for :body_content_right do
+  .messengers_index
+    .section
+      %h1= "#{@name.titleize} Messengers"
+      = render partial: 'messenger_table', locals: {name: @name, messengers: @messengers}

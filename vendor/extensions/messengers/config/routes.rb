@@ -2,7 +2,11 @@ Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :messengers do
-    resources :messengers, path: '', only: [:index]
+    resources :messengers, path: '' do
+      collection do
+        get ':id', to: 'messengers#by_category', as: 'by_category'
+      end
+    end
   end
 
   # Admin routes
