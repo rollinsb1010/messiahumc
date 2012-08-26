@@ -242,6 +242,22 @@ h1 {
   .inner p.job_title {
     margin: 0;
   }
+
+  .by_category ul, .missions_index ul, .ministries_index ul {
+    img {
+      position: relative;
+      top: -25px;
+      padding-left: 5px;
+    }
+
+    li {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      width: 220px;
+    }
+  }
 }
 
 
