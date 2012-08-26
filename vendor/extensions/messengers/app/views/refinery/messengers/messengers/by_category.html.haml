@@ -2,4 +2,7 @@
   .messengers_index
     .section
       %h1= "#{@name.titleize} Messengers"
+      %p
+        Recent Weekly and Monthly Messengers
+        = link_to 'available here.', refinery.messengers_messengers_path
       = render partial: 'messenger_table', locals: {name: @name, messengers: @messengers}
