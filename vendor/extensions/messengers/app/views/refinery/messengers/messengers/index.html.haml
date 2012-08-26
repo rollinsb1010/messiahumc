@@ -2,13 +2,13 @@
   .messengers_index
     .section
       %h1 Recent Weekly Messengers
-      %p
-        More Weekly Messengers
-        = link_to 'available here.', refinery.by_category_messengers_messengers_path('weekly')
+      -# %p
+      -#   More Weekly Messengers
+      -#   = link_to 'available here.', refinery.by_category_messengers_messengers_path('weekly')
       = render partial: 'messenger_table', locals: {name: 'weekly', messengers: @weekly_messengers.first(12)}
     .section
       %h1 Recent Monthly Messengers
-      %p
-        More Monthly Messengers
-        = link_to 'available here.', refinery.by_category_messengers_messengers_path('monthly')
+      -# %p
+      -#   More Monthly Messengers
+      -#   = link_to 'available here.', refinery.by_category_messengers_messengers_path('monthly')
       = render partial: 'messenger_table', locals: {name: 'monthly', messengers: @monthly_messengers.first(3)}
