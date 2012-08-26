@@ -1,6 +1,6 @@
 class YouthController < YouthfulController
   def index
-    @page = ::Refinery::Page.where(slug: 'youth').first
+    @page = ::Refinery::Page.where(slug: 'youth-page').first || ::Refinery::Page.where(slug: 'youth').first
     present(@page)
   end
 
