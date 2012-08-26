@@ -31,10 +31,10 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :worship, 'Youth', Rails.application.routes.url_helpers.youth_path, highlights_on: /\/youth/ do |youth|
-      youth.item '', 'Children', '/youth/children'
-      youth.item '', 'Middle School', '/youth/middle-school'
-      youth.item '', 'High School', '/youth/high-school/'
-      youth.item '', 'Boy Scouts', '/youth/boy-scouts'
+      youth.item '', 'Children', '/youth-page/children'
+      youth.item '', 'Middle School', '/youth-page/middle-school'
+      youth.item '', 'High School', '/youth-page/high-school/'
+      youth.item '', 'Boy Scouts', '/youth-page/boy-scouts'
     end
     primary.item :supporting, 'Supporting Messiah', '/supporting-messiah'
   end
