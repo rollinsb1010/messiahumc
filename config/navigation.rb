@@ -10,7 +10,13 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :events, 'Events', refinery.events_events_path, highlights_on: /\/events$/
-    primary.item :worship, 'Worship', Rails.application.routes.url_helpers.worship_path, highlights_on: /\/worship/
+    primary.item :worship, 'Worship', Rails.application.routes.url_helpers.worship_path, highlights_on: /\/worship|\/messenger/ do |worship|
+      worship.item '', 'Sermons', refinery.sermons_sermons_path
+      worship.item '', 'Weekly/Monthly Messenger', refinery.messengers_messengers_path
+      worship.item '', 'Worship Schedule', '/worship-page/worship-schedule'
+      worship.item '', 'Special Services', '/worship-page/special-services'
+      worship.item '', 'Sunday School', '/worship-page/sunday-school'
+    end
 
     primary.item :ministry, 'Ministry', refinery.ministries_ministries_path, highlights_on: /\/ministries/ do |ministry|
       ::Refinery::Ministries::MinistryCategory.all.each do |category|
