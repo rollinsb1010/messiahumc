@@ -39,10 +39,9 @@ module Refinery
       def set_left_sidebar
         left_sidebar = show_left_sidebar 'Events'
 
-        left_sidebar.add_item 'Upcoming Events', '#'
         calendar_item = left_sidebar.add_item 'Calendar', refinery.events_events_path
-        left_sidebar.add_item 'Weekly Messenger', '#'
-        left_sidebar.add_item 'Monthly Messenger', '#'
+        left_sidebar.add_item 'Weekly Messenger', refinery.by_category_messengers_messengers_path('weekly')
+        left_sidebar.add_item 'Monthly Messenger', refinery.by_category_messengers_messengers_path('monthly')
 
         calendar_item.add_item(@event.name, refinery.events_event_path(@event)) if @event.present?
       end
