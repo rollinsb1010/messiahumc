@@ -24,7 +24,7 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
 
-    primary.item :youth, 'Youth', '/youth_ministries'
-    primary.item :supporting, 'Supporting Messiah', '/supporting_messiah'
+    primary.item :youth, 'Youth', '/youth-ministries'
+    primary.item :supporting, 'Supporting Messiah', '/supporting-messiah'
   end
 end
