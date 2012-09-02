@@ -170,6 +170,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.5.2)
     netrc (0.7.7)
+    newrelic_rpm (3.4.1)
     nokogiri (1.5.5)
     orm_adapter (0.0.7)
     paper_trail (2.6.3)
@@ -354,6 +355,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   modernizr-rails
+  newrelic_rpm
   pg
   prickle
   rails (= 3.2.8)
