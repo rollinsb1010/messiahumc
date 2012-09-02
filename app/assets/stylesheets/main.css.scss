@@ -218,16 +218,17 @@ h1 {
     margin: 10px 0;
   }
 
-  th {
+  th, caption {
     background-color: $calendar_purple_light;
     color: #ffffff;
     padding: 5px 2px;
     text-align: left;
     border-bottom: 1px solid $table_head_border;
+    font-weight: bold;
   }
 
   td {
-    padding: 5px 2px;
+    padding: 5px 10px;
     border-bottom: 1px solid $table_row_border;
   }
 
