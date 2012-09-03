@@ -68,7 +68,7 @@
     }
   }
 
-  .scene {
+  #scene_1 {
     img {
       position: relative;
       float: right;
@@ -76,6 +76,35 @@
 
     p {
       padding: 5px 0;
+    }
+  }
+  #scene_2 {
+    position: relative;
+    height: 450px;
+
+    img {
+      position: absolute;
+      top: 10px;
+      left: 370px;
+    }
+
+    p {
+      padding: 5px 0;
+      width: 300px;
+      font-size: 18px;
+      line-height: 22px;
+      margin: 40px 0 0 20px;
+
+      a {
+        color: $lighter_purple;
+      }
+    }
+
+    p.later {
+      width: 600px;
+      margin: 0;
+      position: absolute;
+      bottom: 40px;
     }
   }
 }

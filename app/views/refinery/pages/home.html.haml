@@ -3,11 +3,11 @@
     .ribbon
     #slider.ramblingSlider
       = copywriting_options scope: 'home_page', phrase_type: 'wysiwyg' do
-        .scene
+        #scene_1.scene
           = raw copywriting('Scene 1', default: 'Scene 1')
-        .scene
+        #scene_2.scene
           = raw copywriting('Scene 2', default: 'Scene 2')
-        .scene
+        #scene_3.scene
           = raw copywriting('Scene 3', default: 'Scene 3')
     #html_caption.rambling-html-caption
       <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
