@@ -33,6 +33,11 @@
   .scene {
     padding-left: 20px;
     display: none;
+
+    p {
+      line-height: 1.2em;
+      font-size: 14px;
+    }
   }
 }
 
@@ -91,8 +96,6 @@
     p {
       padding: 5px 0;
       width: 300px;
-      font-size: 18px;
-      line-height: 22px;
       margin: 40px 0 0 20px;
 
       a {
@@ -105,6 +108,11 @@
       margin: 0;
       position: absolute;
       bottom: 40px;
+    }
+  }
+  #scene_3 {
+    .right {
+      margin: 35px 0 0 450px;
     }
   }
 }
