@@ -216,14 +216,18 @@ h1 {
   h2, h3 {
     color: $light_grey;
     @include default_font;
-    font-size: 15px;
+    font-size: 20px;
+    line-height: 22px;
     margin: 25px 0px 15px;
     height: 10px;
   }
 
   h4 {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     margin: 10px 0;
+    color: $light_grey;
+    @include default_font;
+    font-size: 14px;
   }
 
   th, caption {
@@ -253,7 +257,7 @@ h1 {
   }
 
   .by_category ul, .missions_index ul, .ministries_index ul {
-    img {
+    aside {
       position: relative;
       top: -25px;
       padding-left: 5px;
