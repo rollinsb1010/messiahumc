@@ -17,6 +17,12 @@ body {
   ol {
     margin: 30px;
   }
+
+  blockquote {
+    margin: 20px;
+    font-style: italic;
+    color: $purple;
+  }
 }
 
 h1 {

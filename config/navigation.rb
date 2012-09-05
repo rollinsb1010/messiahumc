@@ -14,7 +14,9 @@ SimpleNavigation::Configuration.run do |navigation|
       worship.item '', 'Sermons', refinery.sermons_sermons_path
       worship.item '', 'Weekly/Monthly Messenger', refinery.messengers_messengers_path
       worship.item '', 'Worship Schedule', '/worship-page/worship-schedule'
-      worship.item '', 'Special Services', '/worship-page/special-services'
+      worship.item '', 'Weddings', '/worship-page/weddings'
+      worship.item '', 'Funerals', '/worship-page/funerals'
+      worship.item '', 'Baptisms', '/worship-page/baptisms'
       worship.item '', 'Sunday School', '/worship-page/sunday-school'
     end
 
