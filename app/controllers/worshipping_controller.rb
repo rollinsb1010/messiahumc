@@ -10,7 +10,7 @@ class WorshippingController < ApplicationController
     left_sidebar.add_item 'Messengers', refinery.messengers_messengers_path
     left_sidebar.add_item 'Worship Schedule', '/worship-page/worship-schedule'
     left_sidebar.add_item 'Weddings', '/worship-page/weddings'
-    left_sidebar.add_item 'Funerals', '/worship-page/funderals'
+    left_sidebar.add_item 'Funerals', '/worship-page/funerals'
     left_sidebar.add_item 'Baptisms', '/worship-page/baptisms'
     left_sidebar.add_item 'Sunday School', '/worship-page/sunday-school'
   end
