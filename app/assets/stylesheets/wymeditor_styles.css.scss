@@ -1,0 +1,38 @@
+@import 'mixins';
+
+body {
+
+  .image-align-right {
+    float: right;
+    padding: 20px;
+  }
+
+  .image-align-left {
+    float: left;
+    padding: 20px;
+  }
+
+  .text-align-left {
+    text-align: left;
+  }
+
+  .text-align-right {
+    text-align: right;
+  }
+
+  .text-align-center {
+    text-align: center;
+  }
+
+  .text-align-justify {
+    text-align: justify;
+  }
+
+  .font-size-small {
+    font-size: 10px;
+  }
+
+  .font-size-large {
+    font-size: 16px;
+  }
+}
