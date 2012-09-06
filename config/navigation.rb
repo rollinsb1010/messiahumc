@@ -37,6 +37,7 @@ SimpleNavigation::Configuration.run do |navigation|
       youth.item '', 'Middle School', '/youth-page/middle-school'
       youth.item '', 'High School', '/youth-page/high-school/'
       youth.item '', 'Boy Scouts', '/youth-page/boy-scouts'
+      youth.item '', 'Ourday Preschool', '/youth-page/ourday'
     end
     primary.item :supporting, 'Supporting Messiah', '/supporting-messiah'
   end
