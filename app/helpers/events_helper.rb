@@ -1,5 +1,13 @@
 module EventsHelper
 
+  def repeating_description(event)
+    if event.repeats == 'never'
+      ""
+    else
+      "repeating #{event.repeats}"
+    end
+  end
+
   def time_info(event)
     if event.start_time.present?
       time = "#{event.start_time}"
