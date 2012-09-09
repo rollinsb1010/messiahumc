@@ -21,5 +21,16 @@
                  :style => "display: none;",
                  :class => "reorder_icon" %>
   </li>
+  <li>
+  <%- if @include_repeating %>
+    <%= link_to 'Hide Repeating Events',
+      refinery.events_admin_events_path(:repeating => 'no'),
+      :class => "repeating_icon" %>
+  <%- else %>
+    <%= link_to 'Show Repeating Events',
+      refinery.events_admin_events_path(:repeating => 'yes'),
+      :class => "repeating_icon" %>
+  <%- end %>
+  </li>
 <% end %>
 </ul>

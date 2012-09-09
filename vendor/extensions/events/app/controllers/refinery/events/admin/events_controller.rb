@@ -7,6 +7,11 @@ module Refinery
         helper :events
 
         crudify :'refinery/events/event', xhr_paging: true
+        
+        def include_repeating?
+          @include_repeating = params[:repeating] == 'yes'
+          @include_repeating ? { } : { repeats: 'never' }
+        end
 
         def get_ministries
           @ministries = ::Refinery::Ministries::Ministry.all
@@ -15,6 +20,11 @@ module Refinery
         def parse_date
           params[:event][:date] = Chronic.parse(params[:event][:date])
         end
+
+        def find_all_events
+          @events = Event.where(include_repeating?).order("date ASC")
+        end
+
       end
     end
   end
