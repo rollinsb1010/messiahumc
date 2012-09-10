@@ -16,11 +16,16 @@ module EventsHelper
   end
 
   def contact_info(event)
-    unless event.contact_email.blank?
+    return nil if event.contact_name.blank?
+
+    if event.contact_email.blank?
+      link = event.contact_name
+    else
       link = link_to (event.contact_name or event.contact_email), "mailto: #{event.contact_email}"
     end
 
-    link + ", #{event.contact_phone}" unless event.contact_phone.blank?
+    link += ", #{event.contact_phone}" unless event.contact_phone.blank?
+    link
   end
 
   def date_info(date)

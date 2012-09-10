@@ -20,10 +20,11 @@
           %tr
             %th Contact:
             %td= contact_info
-      %tr
-        %th Notes:
-        %td= event.contact_name
-        - unless event.ministry.nil?
-          %tr
-            %th Ministry:
-            %td= event.ministry.name
+      - unless event.notes.blank?
+        %tr
+          %th Notes:
+          %td= event.notes
+      - unless event.ministry.nil?
+        %tr
+          %th Ministry:
+          %td= event.ministry.name

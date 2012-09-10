@@ -3,7 +3,7 @@
   .event_details
     - if @event.ministry and @event.ministry.logo.present?
       %aside.event_right
-        %p= image_fu @event.ministry.logo
+        %p= image_fu @event.ministry.logo, '84x96'
     - if @event.image.present?
       %section.event_image= image_fu @event.image
 
