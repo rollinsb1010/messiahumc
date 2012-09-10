@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+require 'acts_as_indexed'
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -48,6 +49,11 @@ module MessiahUmc
 
     config.action_view.sanitized_allowed_tags = %w(table tr td tbody caption th iframe)
 
+    ::ActsAsIndexed.configure do |config|
+      config.case_sensitive = false
+    end
+
+    
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
