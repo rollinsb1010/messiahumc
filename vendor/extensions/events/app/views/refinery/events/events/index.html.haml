@@ -2,6 +2,7 @@
   #calendar
     %h1 Calendar
     %section#filters.include_ui_styles
+      =render '/refinery/events/shared/old_calendar'
       = form_tag refinery.events_events_path, method: :get do
         .date_filter
           %p.title

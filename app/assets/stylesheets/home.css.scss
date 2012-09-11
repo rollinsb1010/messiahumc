@@ -158,6 +158,13 @@
     float: left;
   }
 
+  div.old_calendar {
+    width: auto;
+    min-height: 20px;
+    border: 2px solid #542F65;
+    background: #ecdff2;
+  }
+
   h2 {
     @include purple_title;
   }
