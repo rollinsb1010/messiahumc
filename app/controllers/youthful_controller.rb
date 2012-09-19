@@ -13,6 +13,6 @@ class YouthfulController < ApplicationController
     left_sidebar.add_item 'Sunday School', '/worship-page/sunday-school'
     left_sidebar.add_item 'Safe Sanctuaries', '/youth-page/safe-sanctuaries'
     left_sidebar.add_item 'Ourday', '/youth-page/ourday'
-    left_sidebar.add_item 'Music', '/ministries/youth-music'
+    left_sidebar.add_item 'Music', '/ministries/youth-serving-in-music-ministry'
   end
 end
