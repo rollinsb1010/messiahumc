@@ -45,4 +45,5 @@ Refinery::Core.configure do |config|
 
   # Register extra stylesheet for backend (optional options)
   config.register_stylesheet "custom_admin", :media => 'screen'
+  config.content_disposition = :inline
 end
