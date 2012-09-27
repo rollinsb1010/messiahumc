@@ -22,6 +22,10 @@ Refinery::Resources.configure do |config|
   # config.dragonfly_secret = "10a141f7b55b049129cd28c10097f282e51df0e0b4bd7129"
   # config.dragonfly_url_format = "/system/resources/:job/:basename.:format"
   # config.datastore_root_path = "/home/lilibeth/work/ramblinglabs/messiah-umc/public/system/refinery/resources"
-  config.content_disposition = :inline
 
+  dragonfly_app = Dragonfly[:refinery_resources]
+  dragonfly_app.configure do |config|
+    config.content_disposition = :inline
+  end
 end
+
