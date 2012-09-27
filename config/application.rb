@@ -53,12 +53,6 @@ module MessiahUmc
       config.case_sensitive = false
     end
 
-    # Force Dragonfly to view files attached to resources inline in the browser
-    ::Dragonfly[:refinery_resources].configure do |c|
-      c.content_disposition = :inline
-    end
-
-    
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types

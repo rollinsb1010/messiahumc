@@ -72,10 +72,5 @@ MessiahUmc::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   ::Refinery::Core.config.s3_backend = true
-  # Force Dragonfly to view files attached to resources inline in the browser
-  ::Dragonfly[:refinery_resources].configure do |c|
-    c.content_disposition = :inline
-  end
-
 
 end
