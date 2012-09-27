@@ -25,7 +25,8 @@ Refinery::Resources.configure do |config|
 
 end
 
-dragonfly_app = Dragonfly[:refinery_resources]
+# Force Dragonfly to view files attached to resources inline in the browser
+dragonfly_app = ::Dragonfly[:refinery_resources]
 dragonfly_app.configure do |config|
   config.content_disposition = :inline
 end
