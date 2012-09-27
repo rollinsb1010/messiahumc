@@ -23,9 +23,9 @@ Refinery::Resources.configure do |config|
   # config.dragonfly_url_format = "/system/resources/:job/:basename.:format"
   # config.datastore_root_path = "/home/lilibeth/work/ramblinglabs/messiah-umc/public/system/refinery/resources"
 
-  dragonfly_app = Dragonfly[:refinery_resources]
-  dragonfly_app.configure do |config|
-    config.content_disposition = :inline
-  end
 end
 
+dragonfly_app = Dragonfly[:refinery_resources]
+dragonfly_app.configure do |config|
+  config.content_disposition = :inline
+end
