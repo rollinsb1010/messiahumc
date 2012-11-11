@@ -6,7 +6,7 @@ module Refinery
 
       self.table_name = 'refinery_signups'
 
-      attr_accessible :name, :description, :responsible_name, :responsible_email, :responsible_phone, :dates, :times, :position, :signup_slots_attributes
+      attr_accessible :name, :slug, :description, :responsible_name, :responsible_email, :responsible_phone, :dates, :times, :position, :signup_slots_attributes
 
       acts_as_indexed :fields => [:name, :description, :responsible_name, :responsible_email, :responsible_phone, :dates, :times]
 

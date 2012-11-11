@@ -333,6 +333,7 @@ ActiveRecord::Schema.define(:version => 20121111172515) do
 
   create_table "refinery_signups", :force => true do |t|
     t.string   "name"
+    t.string   "slug"
     t.text     "description"
     t.string   "responsible_name"
     t.string   "responsible_email"

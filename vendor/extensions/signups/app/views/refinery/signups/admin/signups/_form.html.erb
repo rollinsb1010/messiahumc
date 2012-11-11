@@ -11,6 +11,12 @@
   </div>
   
   <div class='field'>
+    <%= f.label :slug -%>
+    <%= f.text_field :slug, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
         <% [:description].each_with_index do |part, part_index| %>

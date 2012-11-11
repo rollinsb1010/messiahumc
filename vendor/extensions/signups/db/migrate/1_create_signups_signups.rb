@@ -3,6 +3,7 @@ class CreateSignupsSignups < ActiveRecord::Migration
   def up
     create_table :refinery_signups do |t|
       t.string :name
+      t.string :slug
       t.text :description
       t.string :responsible_name
       t.string :responsible_email
@@ -44,7 +45,7 @@ class CreateSignupsSignups < ActiveRecord::Migration
 
     drop_table :refinery_signups
     drop_table :refinery_signup_slots
-    drop_table :refiner_attendees
+    drop_table :refinery_attendees
 
   end
 
