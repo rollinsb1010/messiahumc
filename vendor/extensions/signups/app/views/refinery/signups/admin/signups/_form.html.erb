@@ -73,9 +73,12 @@
         <th>Number Available/Needed</th>
       </tr>
       <%= f.fields_for :signup_slots do |g| %>
-        <%= render 'slot_fields', :f => g %>
+        <%= render 'signup_slot_fields', :f => g %>
       <% end %>
     </table>
+    <p>
+      <%= link_to_add_fields "Add a Slot Type", f, :signup_slots %>
+    </p>
   </div>
   
   <%= render '/refinery/admin/form_actions', :f => f,
