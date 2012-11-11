@@ -21,6 +21,8 @@ PATH
       refinerycms-core (~> 2.0.0)
     refinerycms-sermons (1.0)
       refinerycms-core (~> 2.0.1)
+    refinerycms-signups (1.0)
+      refinerycms-core (~> 2.0.8)
     refinerycms-staff_members (1.0)
       refinerycms-core (~> 2.0.1)
 
@@ -365,6 +367,7 @@ DEPENDENCIES
   refinerycms-pastors!
   refinerycms-search!
   refinerycms-sermons!
+  refinerycms-signups!
   refinerycms-staff_members!
   refinerycms-testing (~> 2.0.8)
   rr

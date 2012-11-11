@@ -1,0 +1,63 @@
+<% content_for :body_content_title do %>
+  <%= @signup.name %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @signup.name %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @signup.description %>
+    </p>
+  </section>
+  <section>
+    <h1>Responsible Name</h1>
+    <p>
+      <%=raw @signup.responsible_name %>
+    </p>
+  </section>
+  <section>
+    <h1>Responsible Email</h1>
+    <p>
+      <%=raw @signup.responsible_email %>
+    </p>
+  </section>
+  <section>
+    <h1>Responsible Phone</h1>
+    <p>
+      <%=raw @signup.responsible_phone %>
+    </p>
+  </section>
+  <section>
+    <h1>Dates</h1>
+    <p>
+      <%=raw @signup.dates %>
+    </p>
+  </section>
+  <section>
+    <h1>Times</h1>
+    <p>
+      <%=raw @signup.times %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="signups">
+      <% @signups.each do |signup| %>
+        <li>
+          <%= link_to signup.name, refinery.signups_signup_path(signup) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

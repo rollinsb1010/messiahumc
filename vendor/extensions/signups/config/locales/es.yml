@@ -1,0 +1,34 @@
+es:
+  refinery:
+    plugins:
+      signups:
+        title: Signups
+#        article: masculino/femenino
+    signups:
+      admin:
+        signups:
+          actions:
+            create_new: Crear nuevo signup
+            reorder: Reordenar signups
+            reorder_done: Reordenación de signups completada
+          records:
+            title: Signups
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay signups todavía. Pulsa en "Crear nuevo Signup" para crear tu primer signup.
+          signup:
+            view_live_html: Ver este signup como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este signup
+            delete: Borrar este signup para siempre
+      signups:
+        show:
+          other: Otros signups
+  activerecord:
+    attributes:
+      'refinery/signups/signup':
+        name: Name
+        description: Description
+        responsible_name: Responsible Name
+        responsible_email: Responsible Email
+        responsible_phone: Responsible Phone
+        dates: Dates
+        times: Times

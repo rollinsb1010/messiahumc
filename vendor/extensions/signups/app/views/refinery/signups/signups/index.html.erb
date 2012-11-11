@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="signups">
+    <% @signups.each do |signup| %>
+      <li>
+        <%= link_to signup.name, refinery.signups_signup_path(signup) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

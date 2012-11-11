@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504221514) do
+ActiveRecord::Schema.define(:version => 20121111172515) do
 
   create_table "combined_search_items", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20120504221514) do
     t.string   "source_type"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "refinery_attendees", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "signup_slot_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
@@ -313,6 +322,27 @@ ActiveRecord::Schema.define(:version => 20120504221514) do
 
   add_index "refinery_sermons_sermon_categories", ["category_id"], :name => "index_refinery_sermons_sermon_categories_on_category_id"
   add_index "refinery_sermons_sermon_categories", ["sermon_id"], :name => "index_refinery_sermons_sermon_categories_on_sermon_id"
+
+  create_table "refinery_signup_slots", :force => true do |t|
+    t.string   "description"
+    t.integer  "available_slots"
+    t.integer  "signup_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "refinery_signups", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "responsible_name"
+    t.string   "responsible_email"
+    t.string   "responsible_phone"
+    t.string   "dates"
+    t.string   "times"
+    t.integer  "position"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "refinery_staff_categories", :force => true do |t|
     t.string   "name"

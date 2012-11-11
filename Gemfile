@@ -87,3 +87,5 @@ gem 'refinerycms-ministries', path: 'vendor/extensions'
 gem 'refinerycms-events', path: 'vendor/extensions'
 
 gem 'refinerycms-missions', :path => 'vendor/extensions'
+
+gem 'refinerycms-signups', :path => 'vendor/extensions'

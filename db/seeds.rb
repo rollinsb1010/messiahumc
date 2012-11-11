@@ -28,3 +28,6 @@ Refinery::Events::Engine.load_seed
 
 # Added by Refinery CMS Missions extension
 Refinery::Missions::Engine.load_seed
+
+# Added by Refinery CMS Signups extension
+Refinery::Signups::Engine.load_seed

@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Signups::Admin::SignupsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.signups_admin_signups_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_signups_admin_signup_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Signups::Admin::SignupsController.sortable? && ::Refinery::Signups::Signup.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Signups"),
+                 refinery.signups_admin_signups_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Signups"),
+                 refinery.signups_admin_signups_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

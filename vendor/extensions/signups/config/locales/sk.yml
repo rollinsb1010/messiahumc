@@ -1,0 +1,33 @@
+sk:
+  refinery:
+    plugins:
+      signups:
+        title: Signups
+    signups:
+      admin:
+        signups:
+          actions:
+            create_new: Pridať Signup
+            reorder: Preusporiadať Signups
+            reorder_done: Koniec radenia Signups
+          records:
+            title: Signups
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Signups. Kliknite na "Pridať Signup" pre pridanie prvého signup.
+          signup:
+            view_live_html: Zobraziť náhľad signup<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť signup
+            delete: Zmazať signup
+      signups:
+        show:
+          other: Daľšie Signups
+  activerecord:
+    attributes:
+      'refinery/signups/signup':
+        name: Name
+        description: Description
+        responsible_name: Responsible Name
+        responsible_email: Responsible Email
+        responsible_phone: Responsible Phone
+        dates: Dates
+        times: Times

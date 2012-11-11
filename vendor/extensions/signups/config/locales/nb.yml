@@ -1,0 +1,33 @@
+nb:
+  refinery:
+    plugins:
+      signups:
+        title: Signups
+    signups:
+      admin:
+        signups:
+          actions:
+            create_new: Lag en ny Signup
+            reorder: Endre rekkefølgen på Signups
+            reorder_done: Ferdig å endre rekkefølgen Signups
+          records:
+            title: Signups
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Signups enda. Klikk på "Lag en ny Signup" for å legge til din første signup.
+          signup:
+            view_live_html: Vis hvordan denne signup ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne signup
+            delete: Fjern denne signup permanent
+      signups:
+        show:
+          other: Andre Signups
+  activerecord:
+    attributes:
+      'refinery/signups/signup':
+        name: Name
+        description: Description
+        responsible_name: Responsible Name
+        responsible_email: Responsible Email
+        responsible_phone: Responsible Phone
+        dates: Dates
+        times: Times

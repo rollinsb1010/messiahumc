@@ -1,0 +1,33 @@
+fr:
+  refinery:
+    plugins:
+      signups:
+        title: Signups
+    signups:
+      admin:
+        signups:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Signup
+            reorder: Réordonner les Signups
+            reorder_done: Fin de réordonnancement des Signups
+          records:
+            title: Signups
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Signup. Cliquer sur "Créer un(e) nouve(au/l/lle) Signup" pour créer votre premi(er/ère) signup.'
+          signup:
+            view_live_html: Voir ce(t/tte) signup <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) signup
+            delete: Supprimer définitivement ce(t/tte) signup
+      signups:
+        show:
+          other: Autres Signups
+  activerecord:
+    attributes:
+      'refinery/signups/signup':
+        name: Name
+        description: Description
+        responsible_name: Responsible Name
+        responsible_email: Responsible Email
+        responsible_phone: Responsible Phone
+        dates: Dates
+        times: Times

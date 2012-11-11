@@ -1,0 +1,33 @@
+en:
+  refinery:
+    plugins:
+      signups:
+        title: Signups
+    signups:
+      admin:
+        signups:
+          actions:
+            create_new: Add New Signup
+            reorder: Reorder Signups
+            reorder_done: Done Reordering Signups
+          records:
+            title: Signups
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Signups yet. Click "Add New Signup" to add your first signup.
+          signup:
+            view_live_html: View this signup live <br/><em>(opens in a new window)</em>
+            edit: Edit this signup
+            delete: Remove this signup forever
+      signups:
+        show:
+          other: Other Signups
+  activerecord:
+    attributes:
+      'refinery/signups/signup':
+        name: Name
+        description: Description
+        responsible_name: Responsible Name
+        responsible_email: Responsible Email
+        responsible_phone: Responsible Phone
+        dates: Dates
+        times: Times

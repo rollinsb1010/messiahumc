@@ -19,7 +19,7 @@ Refinery::Page.class_eval do
   end
 
   def body
-    page_parts.first.body
+    page_parts.first.try(:body) || ''
   end
 
   def search_target_url
