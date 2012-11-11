@@ -1,0 +1,7 @@
+<tr>
+  <td><%= f.text_field :description -%></td>
+  <td><%= f.text_field :available_slots -%></td>
+  <% unless f.object.new_record? %>
+    <td><%= f.check_box :_destroy -%> Remove</td>
+  <% end %>
+</tr>

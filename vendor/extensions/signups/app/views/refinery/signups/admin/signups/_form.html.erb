@@ -59,6 +59,24 @@
     <%= f.text_field :times  -%>
 
   </div>
+
+  <div class='signup_slot_config'>
+    <h2>Signup Slots</h2>
+    <p>
+      Enter one line per type of signup needed.  For example, in planning a party, you might have
+      a slot for people to work the kitchen and another slot for people to serve food and another
+      slot for people to cleanup afterward.
+    </p>
+    <table>
+      <tr>
+        <th>Slot Description</th>
+        <th>Number Available/Needed</th>
+      </tr>
+      <%= f.fields_for :signup_slots do |g| %>
+        <%= render 'slot_fields', :f => g %>
+      <% end %>
+    </table>
+  </div>
   
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
