@@ -4,7 +4,7 @@ MessiahUmc::Application.routes.draw do
   get 'youth', to: 'youth#index'
   get 'youth/:id', to: 'youth#show'
   get 'youth-page/:id', to: 'youth#show'
-  match 'signup/:id', controller: 'Refinery::Signups::Signups', action: 'show'
+  get 'signup/:id', to: 'refinery/signups/signups#show'
 
   mount Refinery::Core::Engine, at: '/'
 end

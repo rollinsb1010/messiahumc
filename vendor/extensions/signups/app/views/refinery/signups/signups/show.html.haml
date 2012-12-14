@@ -1,0 +1,39 @@
+-content_for :body_content_right do
+  .signup_details
+    %h1 Sign Up For #{@signup.name}
+    %section.metadata
+      %table
+        %tr
+          %th Dates:
+          %td= @signup.dates
+        %tr
+          %th Times:
+          %td= @signup.times
+        %tr
+          %th Contact Person:
+          %td= "#{@signup.responsible_name}, #{@signup.responsible_email}, #{@signup.responsible_phone}"
+    .description
+      =raw @signup.description
+
+    %section.participant_form
+      %h2 Sign Up Here!
+      = form_for [refinery, :signups, @participant] do |f|
+        .field.name
+          = f.label :name
+          = f.text_field :name
+        .field.email
+          = f.label :email
+          = f.text_field :email
+        .field.phone
+          = f.label :phone
+          = f.text_field :phone
+        - if @signup.signup_slots.size > 1
+          .field.slot
+            = f.label :signup_slot_id
+            = f.collection_select :signup_slot_id, @signup.signup_slots, :id, :description
+        - else
+          = f.hidden_field :signup_slot_id, :value => @signup.signup_slots.first.id
+        .field
+          = f.submit 'Signup'
+
+

@@ -3,6 +3,7 @@ Refinery::Core::Engine.routes.append do
   # Frontend routes
   namespace :signups do
     resources :signups, :path => '', :only => [:index, :show]
+    resources :participants, :only => :create
   end
 
   # Admin routes

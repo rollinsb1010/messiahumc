@@ -25,11 +25,12 @@ class CreateSignupsSignups < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :refinery_attendees do |t|
+    create_table :refinery_participants do |t|
       t.string :name
       t.string :email
       t.string :phone
       t.integer :signup_slot_id
+      t.integer :signup_id
 
       t.timestamps
     end
@@ -47,7 +48,7 @@ class CreateSignupsSignups < ActiveRecord::Migration
 
     drop_table :refinery_signups
     drop_table :refinery_signup_slots
-    drop_table :refinery_attendees
+    drop_table :refinery_participants
 
   end
 

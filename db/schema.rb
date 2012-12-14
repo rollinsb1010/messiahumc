@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(:version => 20121111172515) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "refinery_attendees", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.integer  "signup_slot_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
   create_table "refinery_copywriting_phrase_translations", :force => true do |t|
     t.integer  "refinery_copywriting_phrase_id"
     t.string   "locale"
@@ -252,6 +243,16 @@ ActiveRecord::Schema.define(:version => 20121111172515) do
   add_index "refinery_pages", ["lft"], :name => "index_refinery_pages_on_lft"
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
+
+  create_table "refinery_participants", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "signup_slot_id"
+    t.integer  "signup_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "refinery_pastors", :force => true do |t|
     t.string   "name"
