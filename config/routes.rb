@@ -5,6 +5,8 @@ MessiahUmc::Application.routes.draw do
   get 'youth/:id', to: 'youth#show'
   get 'youth-page/:id', to: 'youth#show'
   get 'signup/:id', to: 'refinery/signups/signups#show'
+  # get 'endowment', to: 'refinery/ministries/ministries#show?endowment'
+  match '/endowment' => redirect('/ministries/endowment')
 
   mount Refinery::Core::Engine, at: '/'
 end
