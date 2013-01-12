@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
@@ -43,7 +43,7 @@ group :test, :development do
   gem 'rr'
   gem 'prickle'
   gem 'database_cleaner'
-  gem 'refinerycms-testing', '~> 2.0.8'
+  gem 'refinerycms-testing', '~> 2.0.9'
   gem 'sqlite3'
 end
 
@@ -66,7 +66,7 @@ gem 'rambling-slider-rails'
 # gem 'ruby-debug19', require: 'ruby-debug'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.8'
+gem 'refinerycms', '~> 2.0.9'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n',   '~> 2.0.2'
