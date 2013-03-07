@@ -1,6 +1,12 @@
 @import 'mixins';
 
 #body_content_right {
+  .event_image {
+    img {
+      max-width: 650px;
+    }
+  }
+
   .metadata {
     margin: 20px 0px;
     color: $dark_grey;
