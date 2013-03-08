@@ -29,4 +29,7 @@ $(function() {
 
         window.location.href = $(this).attr('href');
     });
+
+    // Unbelievable hack
+    $('.hide_my_ancestors').parents('#body_content').hide();
 });
