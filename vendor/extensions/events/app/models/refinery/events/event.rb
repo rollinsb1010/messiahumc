@@ -75,11 +75,12 @@ module Refinery
 
             add_event(upcoming_events, current_event, current_date)
 
-            if current_event.repeats?
-              current[current_event] = current_event.next_date (current_date + 1.day).to_date
-            else
+            # Don't show repeats on the home page
+            # if current_event.repeats?
+            #   current[current_event] = current_event.next_date (current_date + 1.day).to_date
+            # else
               current.shift
-            end
+            # end
           end
 
           upcoming_events

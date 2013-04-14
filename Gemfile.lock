@@ -373,6 +373,7 @@ DEPENDENCIES
   refinerycms-testing (~> 2.0.9)
   rr
   rspec-rails (~> 2.11)
+  sass
   sass-rails (~> 3.2.5)
   simple-navigation
   sqlite3
