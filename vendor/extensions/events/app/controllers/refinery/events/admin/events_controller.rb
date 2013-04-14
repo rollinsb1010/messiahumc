@@ -13,6 +13,10 @@ module Refinery
           @include_repeating ? { } : { repeats: 'never' }
         end
 
+        def include_past?
+          @include_past = params[:past] == 'yes'
+        end
+
         def get_ministries
           @ministries = ::Refinery::Ministries::Ministry.all
         end
@@ -23,6 +27,8 @@ module Refinery
 
         def find_all_events
           @events = Event.where(include_repeating?).order("date ASC")
+          @events = @events.only_current unless include_past?
+          @events
         end
 
       end

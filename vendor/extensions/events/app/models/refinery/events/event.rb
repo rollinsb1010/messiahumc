@@ -7,6 +7,7 @@ module Refinery
       friendly_id :title, use: :slugged
 
       default_scope order('date ASC')
+      scope :only_current, lambda { where("date >= (?) or repeats <> 'never'", Date.today) }
 
       acts_as_indexed fields: [:title, :repeats, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
 

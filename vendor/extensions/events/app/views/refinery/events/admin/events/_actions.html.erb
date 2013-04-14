@@ -22,6 +22,17 @@
                  :class => "reorder_icon" %>
   </li>
   <li>
+  <%- if @include_past %>
+    <%= link_to 'Hide Past Events',
+      refinery.events_admin_events_path(:past => 'no'),
+      :class => "past_icon" %>
+  <%- else %>
+    <%= link_to 'Show Past Events',
+      refinery.events_admin_events_path(:past => 'yes'),
+      :class => "past_icon" %>
+  <%- end %>
+  </li>
+  <li>
   <%- if @include_repeating %>
     <%= link_to 'Hide Repeating Events',
       refinery.events_admin_events_path(:repeating => 'no'),
