@@ -9,6 +9,10 @@ module Refinery
         def get_ministry_categories
           @ministry_categories = ::Refinery::Ministries::MinistryCategory.all
         end
+
+        def search_all_ministries(search_term = nil)
+          @ministries = Ministry.matching(params[:search])
+        end
       end
     end
   end

@@ -8,6 +8,7 @@ module Refinery
       self.table_name = 'refinery_ministries'
 
       default_scope order: 'position ASC'
+      scope :matching, lambda {|search_term| where("name ~* ? or description ~* ?", search_term, search_term)}
 
       acts_as_indexed fields: [:name, :description]
 
