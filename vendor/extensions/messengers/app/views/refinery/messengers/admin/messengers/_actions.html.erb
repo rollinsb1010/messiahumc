@@ -1,9 +1,4 @@
 <ul>
-  <% if ::Refinery::Messengers::Admin::MessengersController.searchable? %>
-    <li>
-      <%= render '/refinery/admin/search', :url => refinery.messengers_admin_messengers_path %>
-    </li>
-  <% end %>
   <li>
     <%= link_to t('.create_new'), refinery.new_messengers_admin_messenger_path,
                  :class => "add_icon" %>
