@@ -8,6 +8,7 @@ module Refinery
 
       default_scope order('date ASC')
       scope :only_current, lambda { where("date >= (?) or repeats <> 'never'", Date.today) }
+      scope :matching, lambda {|search_term| where("title ~* ? or long_description ~* ?", search_term, search_term)}
 
       acts_as_indexed fields: [:title, :repeats, :location, :short_description, :long_description, :contact_name, :contact_email, :contact_phone, :notes]
 

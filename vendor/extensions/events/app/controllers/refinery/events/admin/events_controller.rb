@@ -31,6 +31,10 @@ module Refinery
           @events
         end
 
+        def search_all_events(search_term = nil)
+          @events = Event.matching(params[:search])
+        end
+
       end
     end
   end
