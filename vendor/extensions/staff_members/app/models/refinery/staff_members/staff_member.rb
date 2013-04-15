@@ -6,6 +6,7 @@ module Refinery
       friendly_id :name, use: :slugged
 
       default_scope order: 'position ASC'
+      scope :matching, lambda {|search_term| where("name ~* ? or job_title ~* ?", search_term, search_term)}
 
       self.table_name = 'refinery_staff_members'
 

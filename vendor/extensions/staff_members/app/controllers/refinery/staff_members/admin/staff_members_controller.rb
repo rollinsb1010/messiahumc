@@ -9,6 +9,10 @@ module Refinery
         def get_staff_categories
           @staff_categories = ::Refinery::StaffMembers::StaffCategory.all
         end
+
+        def search_all_staff_members(search_term = nil)
+          @staff_members = StaffMember.matching(params[:search])
+        end
       end
     end
   end
