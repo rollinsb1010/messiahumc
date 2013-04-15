@@ -4,6 +4,7 @@ module Refinery
       extend Highlightable
       extend FriendlyId
       friendly_id :name, use: :slugged
+      scope :matching, lambda {|search_term| where("name ~* ? or description ~* ?", search_term, search_term)}
 
       self.table_name = 'refinery_missions'
 
