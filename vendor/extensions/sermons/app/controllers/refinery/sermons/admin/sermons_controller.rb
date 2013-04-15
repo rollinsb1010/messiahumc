@@ -22,6 +22,10 @@ module Refinery
         def get_sermon_categories
           @sermon_categories = ::Refinery::Sermons::SermonCategory.all
         end
+
+        def search_all_sermons(search_term = nil)
+          @sermons = Sermon.matching(params[:search])
+        end
       end
     end
   end

@@ -6,6 +6,7 @@ module Refinery
 
       self.table_name = 'refinery_sermons'
 
+      scope :matching, lambda {|search_term| where("title ~* ? or description ~* ?", search_term, search_term)}
       acts_as_indexed fields: [:title, :location, :description, :scripture_reading]
 
       validates :pastor, presence: true
