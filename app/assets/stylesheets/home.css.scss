@@ -128,20 +128,15 @@
     }
   }
   #scene_5 {
-    img {
-      position: relative;
-      top: 50px;
-      padding-right: 100px;
-      float: right;
+    .right {
+      margin: 35px 30px 0 400px;
     }
-
+    img {
+      margin-top: 40px;
+    }
     p {
-      padding: 15px 0;
+      margin: 10px 0;
       font-size: 16px;
-
-      a {
-        color: #f96da9;
-      }
     }
   }
 }
