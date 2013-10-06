@@ -83,6 +83,39 @@
       padding: 5px 0;
     }
   }
+  #scene_6 {
+    position: relative;
+    height: 450px;
+
+    img {
+      position: absolute;
+      top: 10px;
+      left: 375px;
+    }
+
+    h1 {
+      padding: 5px;
+      width: 430px;
+      line-height: 1.2em;
+    }
+
+    p {
+      padding: 5px 0;
+      width: 300px;
+      margin: 40px 0 0 20px;
+
+      a {
+        color: $lighter_purple;
+      }
+    }
+
+    p.later {
+      width: 600px;
+      margin: 0;
+      position: absolute;
+      bottom: 40px;
+    }
+  }
   #scene_2 {
     position: relative;
     height: 450px;
