@@ -63,7 +63,7 @@ module Refinery
           upcoming highlighted: true
         end
 
-        def upcoming(conditions = {}, limit = 4)
+        def upcoming(conditions = {}, limit = 6)
           upcoming_events = {}
 
           current = Hash.new
