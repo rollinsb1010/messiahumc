@@ -5,7 +5,6 @@
         Meet
         = @staff_category.name.downcase.include?('our') ? '' : 'Our'
         = @staff_category.name
-        = @staff_category.name.downcase.include?('staff') ? '' : 'Staff'
       %ul.members
         - @staff_category.staff_members.each_with_index do |member, index|
           %li.person_view{class: index.zero? ? 'first' : ''}
