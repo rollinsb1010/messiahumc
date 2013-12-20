@@ -3,6 +3,8 @@
     .ribbon
     #slider.ramblingSlider
       = copywriting_options scope: 'home_page', phrase_type: 'wysiwyg' do
+        #scene_xmas.scene
+          = raw copywriting('Christmas Eve', default: 'Christmas Eve')
         #scene_1.scene
           = raw copywriting('Scene 1', default: 'Scene 1')
         #scene_4.scene
