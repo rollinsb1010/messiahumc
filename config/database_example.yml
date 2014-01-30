@@ -1,8 +1,6 @@
 development:
   adapter: postgresql
   database: messiahumc_development
-  username: mdoel
-  password: gobucks
   host: localhost
   encoding: UTF8
 
