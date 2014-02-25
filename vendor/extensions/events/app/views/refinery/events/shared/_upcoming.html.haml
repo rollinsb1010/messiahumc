@@ -1,7 +1,6 @@
 %header
   %h2 Upcoming Events
   %h6= link_to 'Calendar', refinery.events_events_path, class: 'selected'
-=render '/refinery/events/shared/old_calendar'
 %table.upcoming_events
   %tbody
     - @upcoming_events.each do |date, events|
