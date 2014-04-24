@@ -27,7 +27,9 @@
     %header
       %h2 Latest News
     = raw copywriting('LNews Header', scope: 'Home Page', default: '<h6> <a href="/messengers">Weekly Messenger</a> <a href="/messengers">Monthly Messenger</a> <a href="/sermons">Recent Sermons</a> </h6>')
-    = raw copywriting('Latest News', scope: 'Home Page')
+    %div#latest_outer
+      %div#latest_inner
+        = raw copywriting('Latest News', scope: 'Home Page')
   %div
     =render '/refinery/events/shared/upcoming'
   %span.clear

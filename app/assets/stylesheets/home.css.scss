@@ -218,7 +218,23 @@
     padding: 0px 15px;
     width: 38%;
     float: left;
+
+    #latest_outer {
+      width: 326px;
+      border: 2px solid #542F65;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      background: #f6fac9;
+    }
+
+    #latest_inner {
+      margin: auto;
+      width: 326px;
+      padding: 20px 0px;
+    }
+    
   }
+
 
   div.old_calendar {
     width: auto;
